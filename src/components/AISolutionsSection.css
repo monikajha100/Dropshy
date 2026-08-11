@@ -1,0 +1,171 @@
+/* AISolutionsSection.css */
+
+.ai-section {
+  background: #ffffff;
+  padding: 90px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Heading */
+
+.ai-heading {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #14181f; /* dark slate instead of pure black */
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.ai-heading span {
+  color: #f4c430; /* yellow accent */
+  position: relative;
+}
+
+/* Grid */
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 768px) {
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+
+.ai-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #14181f; /* dark base card */
+  border-radius: 20px;
+  padding: 36px;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.ai-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(244, 196, 48, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.ai-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(244, 196, 48, 0.15);
+  border-color: rgba(244, 196, 48, 0.4);
+}
+
+.ai-card:hover::before {
+  opacity: 1;
+}
+
+/* Content */
+
+.ai-content {
+  flex: 1;
+  z-index: 1;
+}
+
+.ai-content h3 {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.ai-content p {
+  color: #b7bcc7;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Button */
+
+.know-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4c430;
+  color: #14181f;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, gap 0.3s ease;
+}
+
+.know-btn span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.know-btn:hover {
+  background: #ffffff;
+  gap: 14px;
+}
+
+.know-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* Image */
+
+.ai-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.ai-image img {
+  max-width: 100%;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+
+.ai-card:hover .ai-image img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* Entry animation */
+
+.ai-card {
+  animation: fadeUp 0.8s ease both;
+}
+
+.ai-grid .ai-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

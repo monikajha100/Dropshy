@@ -1,0 +1,146 @@
+/* ================================================================
+   DROPSY — DESIGN SYSTEM
+   CSS Custom Properties, Utilities & Keyframes
+   ================================================================ */
+
+:root {
+  /* ── Brand Colors ──────────────────────────── */
+  --clr-primary:       #4F46E5;
+  --clr-primary-dark:  #3730A3;
+  --clr-primary-light: #6366F1;
+  --clr-secondary:     #7C3AED;
+  --clr-accent:        #06B6D4;
+  --clr-success:       #10B981;
+  --clr-warning:       #F59E0B;
+
+  /* ── Neutral Scale ─────────────────────────── */
+  --clr-white:    #FFFFFF;
+  --clr-gray-50:  #F9FAFB;
+  --clr-gray-100: #F3F4F6;
+  --clr-gray-200: #E5E7EB;
+  --clr-gray-300: #D1D5DB;
+  --clr-gray-400: #9CA3AF;
+  --clr-gray-500: #6B7280;
+  --clr-gray-600: #4B5563;
+  --clr-gray-700: #374151;
+  --clr-gray-800: #1F2937;
+  --clr-gray-900: #111827;
+
+  /* ── Brand Tints ───────────────────────────── */
+  --clr-indigo-50:  #EEF2FF;
+  --clr-indigo-100: #E0E7FF;
+  --clr-indigo-200: #C7D2FE;
+  --clr-violet-50:  #F5F3FF;
+  --clr-violet-100: #EDE9FE;
+  --clr-violet-200: #DDD6FE;
+
+  /* ── Gradients ─────────────────────────────── */
+  --gradient-brand:      linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+  --gradient-text:       linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+  --gradient-hero-bg:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(99,102,241,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 90%, rgba(124,58,237,0.07) 0%, transparent 55%),
+    var(--clr-white);
+
+  /* ── Typography ────────────────────────────── */
+  --font-sans:       'Inter', 'Segoe UI', system-ui, sans-serif;
+  --fs-xs:    0.75rem;
+  --fs-sm:    0.875rem;
+  --fs-base:  1rem;
+  --fs-lg:    1.125rem;
+  --fs-xl:    1.25rem;
+  --fs-2xl:   1.5rem;
+  --fs-3xl:   1.875rem;
+  --fs-4xl:   2.25rem;
+  --fs-5xl:   3rem;
+  --fs-6xl:   3.75rem;
+
+  /* ── Spacing ───────────────────────────────── */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+  /* ── Border Radius ─────────────────────────── */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-xl:   20px;
+  --r-2xl:  28px;
+  --r-3xl:  40px;
+  --r-full: 9999px;
+
+  /* ── Shadows ───────────────────────────────── */
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+  --shadow-md:    0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,0.10);
+  --shadow-xl:    0 16px 56px rgba(0,0,0,0.12);
+  --shadow-brand: 0 8px 32px rgba(79,70,229,0.28);
+  --shadow-card:  0 2px 20px rgba(0,0,0,0.07);
+
+  /* ── Transitions ───────────────────────────── */
+  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0.0, 0.0, 0.2, 1);
+  --dur-fast:      150ms;
+  --dur-base:      250ms;
+  --dur-slow:      400ms;
+  --transition:    var(--dur-base) var(--ease);
+
+  /* ── Layout ────────────────────────────────── */
+  --container-max: 1200px;
+  --container-px:  24px;
+  --section-py:    96px;
+}
+
+/* ── Keyframes ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.90); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes floatBobAlt {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-7px) rotate(1deg); }
+}
+@keyframes barGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+  60%       { box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Gradient Text Utility ──────────────────────── */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Container ──────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}

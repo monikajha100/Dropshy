@@ -1,0 +1,70 @@
+/* ============================
+   Developers Section
+============================ */
+
+.group{
+    transition:.35s;
+}
+
+.group:hover{
+    transform:translateY(-10px);
+}
+
+.group button svg{
+    transition:.35s;
+}
+
+.group:hover button svg{
+    transform:translateX(8px);
+}
+
+.group .text-lime-400 svg{
+    transition:.35s;
+}
+
+.group:hover .text-lime-400 svg{
+    transform:scale(1.15);
+}
+
+.dev-heading h2{
+    line-height:1.05;
+}
+
+.dev-heading p{
+    line-height:1.8;
+}
+
+.dev-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.dev-btn:hover{
+    color:#d9ff45;
+}
+
+@media(max-width:1024px){
+
+.dev-heading h2{
+font-size:52px;
+}
+
+}
+
+@media(max-width:768px){
+
+.dev-heading h2{
+font-size:38px;
+}
+
+.dev-heading p{
+font-size:16px;
+}
+
+}
