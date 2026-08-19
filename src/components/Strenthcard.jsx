@@ -1,301 +1,1663 @@
-import React, { useEffect, useRef } from 'react';
-import './Strength.css';
+import React, { useEffect, useRef, useState } from "react";
 
-/**
- * NOTE ON FONTS:
- * The original page loaded Google Fonts via <link> tags in <head>.
- * Add these to your document's <head> (e.g. public/index.html or
- * a Next.js <Head> component) — they can't live inside this component:
- *
- * <link rel="preconnect" href="https://fonts.googleapis.com">
- * <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
- */
-
-const STATS = [
+const stats = [
   {
-    target: 190,
-    label: 'Active Sellers',
-    desc: 'Entrepreneurs building successful online businesses with Dropshy.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M4 20 v-6 a2 2 0 0 1 2 -2 h12 a2 2 0 0 1 2 2 v6 M6 12 V7 a2 2 0 0 1 2-2 h8 a2 2 0 0 1 2 2 v5" stroke="#0F6E5C" strokeWidth="1.8" strokeLinecap="round"/>
-        <circle cx="12" cy="4" r="1.6" stroke="#0F6E5C" strokeWidth="1.8"/>
-      </svg>
-    ),
+    code: "DPY-SEL-01",
+    number: 190,
+    label: "Active Sellers",
+    rotate: "-4deg",
+    delay: "0s",
   },
   {
-    target: 32,
-    label: 'Product Categories',
-    desc: 'From home décor and handicrafts to fashion and lifestyle.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="4" y="4" width="7" height="7" rx="1.4" stroke="#0F6E5C" strokeWidth="1.8"/>
-        <rect x="13" y="4" width="7" height="7" rx="1.4" stroke="#0F6E5C" strokeWidth="1.8"/>
-        <rect x="4" y="13" width="7" height="7" rx="1.4" stroke="#0F6E5C" strokeWidth="1.8"/>
-        <rect x="13" y="13" width="7" height="7" rx="1.4" stroke="#0F6E5C" strokeWidth="1.8"/>
-      </svg>
-    ),
+    code: "DPY-CAT-02",
+    number: 32,
+    label: "Product Categories",
+    rotate: "3deg",
+    delay: ".3s",
   },
   {
-    target: 5000,
-    label: 'Product SKUs',
-    desc: 'A wide range of high-quality, trending products ready to sell.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" stroke="#0F6E5C" strokeWidth="1.8" strokeLinejoin="round"/>
-        <path d="M4 7.5 L12 12 L20 7.5 M12 12 V21" stroke="#0F6E5C" strokeWidth="1.8" strokeLinejoin="round"/>
-      </svg>
-    ),
+    code: "DPY-SKU-03",
+    number: 5000,
+    label: "Product SKUs",
+    rotate: "-3deg",
+    delay: ".6s",
   },
   {
-    target: 1000,
-    label: 'Daily Orders Processed',
-    desc: 'Efficient fulfillment with fast shipping across India and worldwide.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="9" width="12" height="8" rx="1.3" stroke="#0F6E5C" strokeWidth="1.8"/>
-        <path d="M15 12 h3.5 l2.5 3 v2 h-6" stroke="#0F6E5C" strokeWidth="1.8" strokeLinejoin="round"/>
-        <circle cx="7.5" cy="19" r="1.6" stroke="#0F6E5C" strokeWidth="1.8"/>
-        <circle cx="17.5" cy="19" r="1.6" stroke="#0F6E5C" strokeWidth="1.8"/>
-      </svg>
-    ),
+    code: "DPY-ORD-04",
+    number: 1000,
+    label: "Daily Orders Processed",
+    rotate: "4deg",
+    delay: ".9s",
   },
 ];
 
-const CHECK_ITEMS = [
-  'Trusted by hundreds of entrepreneurs',
-  'Thousands of ready-to-sell products',
-  'Growing every day with new sellers',
-  'Reliable fulfillment and logistics support',
-  'Built for scalable e‑commerce growth',
+const reasons = [
+  "Trusted by hundreds of entrepreneurs",
+  "Thousands of ready-to-sell products",
+  "Growing every day with new sellers",
+  "Reliable fulfillment and logistics support",
+  "Built for scalable e-commerce growth",
 ];
 
-function StatCard({ target, label, desc, icon, index }) {
-  const cardRef = useRef(null);
-  const countRef = useRef(null);
+function CountNumber({ target, active }) {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const card = cardRef.current;
-    const countEl = countRef.current;
-    if (!card || !countEl) return;
+    if (!active) return;
 
-    const animateCount = () => {
-      const duration = 1400;
-      const start = performance.now();
-      const step = (now) => {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        const val = Math.floor(eased * target);
-        countEl.textContent = val.toLocaleString('en-IN');
-        if (p < 1) requestAnimationFrame(step);
-        else countEl.textContent = target.toLocaleString('en-IN');
-      };
-      requestAnimationFrame(step);
+    let start = null;
+    const duration = 1400;
+
+    const animate = (time) => {
+      if (!start) start = time;
+
+      const progress = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setCount(Math.floor(eased * target));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(target);
+      }
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            card.classList.add('in-view');
-            animateCount();
-            observer.unobserve(card);
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
-    observer.observe(card);
-    return () => observer.disconnect();
-  }, [target]);
+    requestAnimationFrame(animate);
+  }, [active, target]);
 
-  return (
-    <div className="stat-card" ref={cardRef} data-index={index}>
-      <span className="dot"></span>
-      <div className="stat-icon">{icon}</div>
-      <div className="stat-number">
-        <span className="count" ref={countRef}>0</span>
-        <span className="plus">+</span>
-      </div>
-      <div className="stat-label">{label}</div>
-      <div className="stat-desc">{desc}</div>
-    </div>
-  );
+  return <>{count.toLocaleString("en-IN")}</>;
 }
 
-function CheckItem({ text, index }) {
-  const itemRef = useRef(null);
+function NumberTag({ item }) {
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const el = itemRef.current;
-    if (!el) return;
-    el.style.animationDelay = `${index * 0.08}s`;
+    const element = ref.current;
+
+    if (!element) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true);
+          element.classList.add("success-in-view");
+          observer.unobserve(element);
+        }
       },
-      { threshold: 0.4 }
+      { threshold: 0.25 }
     );
-    observer.observe(el);
+
+    observer.observe(element);
+
     return () => observer.disconnect();
-  }, [index]);
+  }, []);
 
   return (
-    <div className="check-item" ref={itemRef}>
-      <span className="check-mark">✓</span>
-      <span className="check-text">{text}</span>
+    <div
+      ref={ref}
+      className="success-tag-wrap"
+      style={{
+        "--rotate": item.rotate,
+        "--delay": item.delay,
+      }}
+    >
+      <div className="success-thread" />
+
+      <div className="success-tag">
+
+        <svg
+          viewBox="0 0 200 258"
+          preserveAspectRatio="none"
+          className="success-tag-svg"
+        >
+          <path
+            d="M20,2 H180 a18,18 0 0 1 18,18 V182 L100,254 L2,182 V20 a18,18 0 0 1 18,-18 Z"
+            fill="#ffffff"
+            stroke="#dce7ee"
+            strokeWidth="2"
+          />
+
+          <circle
+            cx="100"
+            cy="28"
+            r="9"
+            fill="#ffffff"
+            stroke="#1c6fa5"
+            strokeWidth="2"
+          />
+        </svg>
+
+        <div className="success-tag-content">
+
+          <div className="success-tag-code">
+            {item.code}
+          </div>
+
+          <div className="success-number-row">
+            <span className="success-number">
+              <CountNumber
+                target={item.number}
+                active={active}
+              />
+            </span>
+
+            <span className="success-plus">+</span>
+          </div>
+
+          <div className="success-tag-label">
+            {item.label}
+          </div>
+
+          <div className="success-barcode" />
+
+        </div>
+      </div>
     </div>
   );
 }
 
-export default function Dropshy() {
+export default function SuccessNumbers() {
+  const rowsRef = useRef(null);
+  const [rowsVisible, setRowsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = rowsRef.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRowsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="dropshy-page">
-      
-<section className="hero wrap">
-      
-        <div>
-          <span className="eyebrow">Success by the numbers</span>
-          <h1 className="headline">
-            Empowering entrepreneurs. Driving <em>e‑commerce</em> success.
-          </h1>
-          <p className="sub">
-            At Dropshy, we help entrepreneurs build and grow successful online businesses across India and international markets. Our growing network of sellers, extensive product catalog, and reliable fulfillment system reflect our commitment to making e-commerce simple, scalable, and profitable.
+    <section className="success-section">
 
-          </p>
-          
-        </div>
+      {/* ================= HERO ================= */}
 
-        <div className="illustration">
-          <svg viewBox="0 0 460 420" fill="none">
-            <ellipse cx="235" cy="230" rx="190" ry="150" fill="#FFF3E9"/>
-            <ellipse cx="235" cy="230" rx="190" ry="150" fill="none" stroke="#F3D9BE" strokeWidth="1"/>
+      <div className="success-hero">
 
-            <circle className="spin-slow" cx="230" cy="230" r="150" fill="none" stroke="#E9C7A4" strokeWidth="1.4" strokeDasharray="2 10"/>
+        <div className="success-grid-bg" />
 
-            <g transform="translate(150,150)">
-              <polygon points="80,0 160,42 80,84 0,42" fill="#FFB37A"/>
-              <polygon points="0,42 80,84 80,164 0,122" fill="#E35F10"/>
-              <polygon points="160,42 80,84 80,164 160,122" fill="#FF7A29"/>
-              <line x1="80" y1="84" x2="80" y2="164" stroke="#FFD9B8" strokeWidth="3"/>
-              <line x1="0" y1="72" x2="80" y2="114" stroke="#FFD9B8" strokeWidth="2" opacity=".7"/>
-              <line x1="160" y1="72" x2="80" y2="114" stroke="#FFD9B8" strokeWidth="2" opacity=".7"/>
-              <circle cx="80" cy="60" r="13" fill="#FCFBF6"/>
-              <path d="M74 60 L78 64 L87 55" stroke="#E35F10" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </g>
+        <div className="success-floating-dot dot-one" />
+        <div className="success-floating-dot dot-two" />
 
-            <g className="float-a" transform="translate(60,90)">
-              <circle cx="24" cy="24" r="24" fill="#fff" stroke="#E9E3D4"/>
-              <path d="M14 26 L24 16 L34 26 M17 24 V33 H31 V24" stroke="#0F6E5C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-            </g>
-            <text x="20" y="150" fontFamily="Inter" fontSize="11" fontWeight="600" fill="#56626D" className="float-a">Home Décor</text>
+        <div className="success-hero-inner">
 
-            <g className="float-b" transform="translate(370,110)">
-              <circle cx="24" cy="24" r="24" fill="#fff" stroke="#E9E3D4"/>
-              <path d="M17 15 h14 l4 6 -11 5 -11 -5 z M20 21 v18 h8 v-18" stroke="#FF7A29" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-            </g>
-            <text x="368" y="176" fontFamily="Inter" fontSize="11" fontWeight="600" fill="#56626D" className="float-b">Fashion</text>
+          <div className="success-wordmark-row">
 
-            <g className="float-c" transform="translate(330,300)">
-              <circle cx="24" cy="24" r="24" fill="#fff" stroke="#E9E3D4"/>
-              <path d="M24 14 L27 21 L34 22 L29 27 L30 34 L24 30 L18 34 L19 27 L14 22 L21 21 Z" stroke="#0F6E5C" strokeWidth="1.8" strokeLinejoin="round" fill="none"/>
-            </g>
-            <text x="326" y="366" fontFamily="Inter" fontSize="11" fontWeight="600" fill="#56626D" className="float-c">Lifestyle</text>
+            <div className="success-wordmark">
+              <span className="success-box-icon" />
+              DROPSHY
+            </div>
 
-            <g className="float-b" transform="translate(50,300)">
-              <circle cx="24" cy="24" r="24" fill="#fff" stroke="#E9E3D4"/>
-              <path d="M15 30 h6 v-8 h6 v8 h6 v-14 l-9 -8 -9 8 z" stroke="#FF7A29" strokeWidth="1.8" strokeLinejoin="round" fill="none"/>
-            </g>
-            <text x="34" y="366" fontFamily="Inter" fontSize="11" fontWeight="600" fill="#56626D" className="float-b">Handicrafts</text>
+            <div className="success-route">
+              Empowering Entrepreneurs · India ✕ International
+            </div>
 
-            <path d="M150 190 Q110 150 84 114" stroke="#E9C7A4" strokeWidth="1.2" strokeDasharray="2 6" fill="none"/>
-            <path d="M310 200 Q350 160 394 134" stroke="#E9C7A4" strokeWidth="1.2" strokeDasharray="2 6" fill="none"/>
-            <path d="M300 300 Q330 320 354 324" stroke="#E9C7A4" strokeWidth="1.2" strokeDasharray="2 6" fill="none"/>
-            <path d="M160 300 Q120 320 74 324" stroke="#E9C7A4" strokeWidth="1.2" strokeDasharray="2 6" fill="none"/>
-          </svg>
-        </div>
-      </section>
+          </div>
 
-      
+          <div className="success-hero-content">
 
-      <section className="route-section wrap">
-        <div style={{ position: 'relative' }}>
-          <svg className="route-svg" viewBox="0 0 1076 190" preserveAspectRatio="none">
-            <path className="route-path" d="M 60 95 C 300 20, 420 170, 538 95 S 780 20, 1016 95" />
-            <circle className="route-marker" r="5" fill="#FF7A29">
-              <animateMotion dur="7s" repeatCount="indefinite" path="M 60 95 C 300 20, 420 170, 538 95 S 780 20, 1016 95" />
-            </circle>
-          </svg>
+            <div className="success-stamp">
+              <div className="success-stamp-text">
+                VERIFIED
+                <br />
+                RESULTS
+              </div>
+            </div>
 
-          <div className="stats-grid">
-            {STATS.map((stat, i) => (
-              <StatCard key={stat.label} index={i} {...stat} />
+            <h1>
+              OUR SUCCESS
+              <br />
+              BY THE <span>NUMBERS</span>
+            </h1>
+
+            <p>
+              Driving e-commerce success — helping entrepreneurs
+              build and grow profitable online businesses across
+              India and international markets.
+            </p>
+
+          </div>
+
+          <div className="success-scan">
+
+            <div className="success-laser" />
+
+            {Array.from({ length: 30 }).map((_, index) => (
+              <span
+                key={index}
+                className="success-scan-bar"
+              />
             ))}
+
           </div>
+
         </div>
-      </section>
+      </div>
 
-      <section className="matters">
-        <div className="wrap matters-inner">
-          <div className="matters-visual">
-            <svg viewBox="0 0 280 300" fill="none">
-              <circle cx="140" cy="150" r="130" fill="#fff" stroke="#E9E3D4"/>
-              <circle cx="140" cy="150" r="94" fill="var(--teal-soft)"/>
-              <g transform="translate(90,100)">
-                <rect x="0" y="30" width="100" height="70" rx="8" fill="#FF7A29"/>
-                <rect x="10" y="15" width="80" height="26" rx="6" fill="#E35F10"/>
-                <circle cx="24" cy="86" r="12" fill="#16232E"/>
-                <circle cx="76" cy="86" r="12" fill="#16232E"/>
-                <circle cx="24" cy="86" r="5" fill="#fff"/>
-                <circle cx="76" cy="86" r="5" fill="#fff"/>
-                <path d="M6 55 h88" stroke="#FFD9B8" strokeWidth="3"/>
-              </g>
-              <g className="float-a" transform="translate(30,40)">
-                <circle r="16" fill="#fff" stroke="#E9E3D4"/>
-                <path d="M-6 0 L-2 4 L6 -5" stroke="#0F6E5C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </g>
-              <g className="float-b" transform="translate(230,60)">
-                <circle r="14" fill="#fff" stroke="#E9E3D4"/>
-                <path d="M-5 0 L-1.5 3.5 L5 -4.5" stroke="#FF7A29" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </g>
-              <g className="float-c" transform="translate(220,240)">
-                <circle r="15" fill="#fff" stroke="#E9E3D4"/>
-                <path d="M-5.5 0 L-2 4 L5.5 -5" stroke="#0F6E5C" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </g>
-            </svg>
+      {/* ================= STATS ================= */}
+
+      <section className="success-stats-section">
+
+        <div className="success-heading">
+
+          <div className="success-eyebrow">
+            THE SHIPMENT MANIFEST
           </div>
 
-          <div>
-            <div className="matters-head">
-              <h2>Why these numbers matter</h2>
-              <p>Every stat above translates into something concrete for the sellers who build with us.</p>
-            </div>
-            <div className="check-list">
-              {CHECK_ITEMS.map((text, i) => (
-                <CheckItem key={text} text={text} index={i} />
-              ))}
-            </div>
-          </div>
+          <h2>
+            FOUR NUMBERS THAT MOVE US
+          </h2>
+
+          <p>
+            Real numbers. Real sellers. Real growth.
+          </p>
+
         </div>
+
+        <div className="success-rail" />
+
+        <div className="success-tag-grid">
+
+          {stats.map((item) => (
+            <NumberTag
+              key={item.code}
+              item={item}
+            />
+          ))}
+
+        </div>
+
       </section>
 
-      <section className="cta" id="cta">
-        <h3>Join the Dropshy community and become part of India's next generation of successful online entrepreneurs.</h3>
-        <a className="btn-primary" href="#">
-          Get Started
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </a>
+      {/* ================= WHY NUMBERS ================= */}
+
+      <section className="success-invoice-section">
+
+        <div className="success-invoice">
+
+          <div className="success-invoice-head">
+
+            <div>
+              <span className="success-small-label">
+                DROPSHY / VERIFIED
+              </span>
+
+              <h3>
+                WHY THESE NUMBERS MATTER
+              </h3>
+            </div>
+
+            <div className="success-meta">
+              FORM: DPY-WHY-01
+              <br />
+              ISSUED: BY DROPSHY
+            </div>
+
+          </div>
+
+          <div
+            ref={rowsRef}
+            className="success-invoice-rows"
+          >
+
+            {reasons.map((reason, index) => (
+
+              <div
+                key={reason}
+                className={`success-inv-row ${
+                  rowsVisible ? "success-row-visible" : ""
+                }`}
+                style={{
+                  transitionDelay: `${index * 0.1}s`,
+                }}
+              >
+
+                <span className="success-row-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className="success-check">
+                  ✓
+                </span>
+
+                <span className="success-inv-text">
+                  {reason}
+                </span>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
       </section>
 
-      <footer>© Dropshy — Built for India's next generation of online entrepreneurs.</footer>
-    </div>
+      {/* ================= CTA ================= */}
+
+      <section className="success-cta">
+
+        <div className="success-cta-glow" />
+
+        <div className="success-cta-grid" />
+
+        <div className="success-cta-inner">
+
+          <span className="success-cta-label">
+            START YOUR JOURNEY
+          </span>
+
+          <h2>
+            JOIN THE DROPSHY
+            <br />
+            COMMUNITY
+          </h2>
+
+          <p>
+            Become part of India's next generation
+            of successful online entrepreneurs.
+          </p>
+
+          <button className="success-cta-button">
+            START SELLING TODAY
+            <span>→</span>
+          </button>
+
+          <div className="success-footer-barcode" />
+
+          <div className="success-footer-note">
+            DROPSHY · MADE FOR SELLERS, BUILT FOR SCALE
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= CSS ================= */}
+
+      <style>{`
+
+        * {
+          box-sizing: border-box;
+        }
+
+        .success-section {
+          width: 100%;
+          background: #ffffff;
+          color: #16324a;
+          overflow: hidden;
+          font-family: "Inter", sans-serif;
+        }
+
+        /* ================= HERO ================= */
+
+        .success-hero {
+          position: relative;
+          background: #ffffff;
+          color: #16324a;
+          padding: 70px 24px 90px;
+          overflow: hidden;
+        }
+
+        .success-grid-bg {
+          position: absolute;
+          inset: 0;
+
+          background-image:
+            linear-gradient(
+              rgba(28,111,165,.035) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(28,111,165,.035) 1px,
+              transparent 1px
+            );
+
+          background-size: 42px 42px;
+
+          pointer-events: none;
+
+          animation:
+            successGridMove 20s linear infinite;
+        }
+
+        @keyframes successGridMove {
+          from {
+            background-position: 0 0, 0 0;
+          }
+
+          to {
+            background-position: 42px 42px, 42px 42px;
+          }
+        }
+
+        .success-floating-dot {
+          position: absolute;
+
+          width: 7px;
+          height: 7px;
+
+          border-radius: 50%;
+
+          background: #3aa6e8;
+
+          opacity: .25;
+
+          animation: successFloat 5s ease-in-out infinite;
+        }
+
+        .dot-one {
+          top: 30%;
+          left: 8%;
+        }
+
+        .dot-two {
+          right: 12%;
+          top: 58%;
+
+          width: 5px;
+          height: 5px;
+
+          animation-delay: 1.5s;
+        }
+
+        @keyframes successFloat {
+
+          0%,100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-14px);
+          }
+
+        }
+
+        .success-hero-inner {
+          position: relative;
+          max-width: 1080px;
+          margin: 0 auto;
+        }
+
+        /* WORDMARK */
+
+        .success-wordmark-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          gap: 16px;
+
+          margin-bottom: 62px;
+
+          flex-wrap: wrap;
+
+          opacity: 0;
+
+          animation:
+            successFadeDown .7s ease .1s
+            forwards;
+        }
+
+        .success-wordmark {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          font-size: 24px;
+          font-weight: 900;
+          letter-spacing: .03em;
+
+          color: #16324a;
+        }
+
+        .success-box-icon {
+          width: 23px;
+          height: 23px;
+
+          border: 2px solid #1c6fa5;
+
+          transform: rotate(45deg);
+
+          animation:
+            successIconPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes successIconPulse {
+
+          0%,100% {
+            transform: rotate(45deg) scale(1);
+          }
+
+          50% {
+            transform: rotate(45deg) scale(1.12);
+          }
+
+        }
+
+        .success-route {
+          padding: 7px 13px;
+
+          border: 1px dashed #cfdde6;
+
+          border-radius: 100px;
+
+          font-size: 10px;
+          letter-spacing: .08em;
+
+          color: #647887;
+
+          background: #ffffff;
+        }
+
+        /* HERO CONTENT */
+
+        .success-hero-content {
+          position: relative;
+
+          max-width: 900px;
+
+          margin: 0 auto;
+
+          text-align: center;
+        }
+
+        .success-hero-content h1 {
+          margin: 0 0 20px;
+
+          font-size: clamp(
+            40px,
+            7vw,
+            78px
+          );
+
+          line-height: 1;
+
+          font-weight: 900;
+
+          letter-spacing: -.035em;
+
+          color: #16324a;
+
+          opacity: 0;
+
+          animation:
+            successFadeUp .8s ease .25s
+            forwards;
+        }
+
+        .success-hero-content h1 span {
+          background:
+            linear-gradient(
+              90deg,
+              #1c6fa5,
+              #4aa9d8,
+              #1c6fa5
+            );
+
+          background-size: 200% auto;
+
+          -webkit-background-clip: text;
+          background-clip: text;
+
+          color: transparent;
+
+          animation:
+            successGradient 4s ease-in-out infinite;
+        }
+
+        @keyframes successGradient {
+
+          0% {
+            background-position: 0% center;
+          }
+
+          50% {
+            background-position: 100% center;
+          }
+
+          100% {
+            background-position: 0% center;
+          }
+
+        }
+
+        .success-hero-content p {
+          max-width: 620px;
+
+          margin: 0 auto;
+
+          font-size: 17px;
+
+          line-height: 1.65;
+
+          color: #71808d;
+
+          opacity: 0;
+
+          animation:
+            successFadeUp .8s ease .45s
+            forwards;
+        }
+
+        @keyframes successFadeDown {
+
+          from {
+            opacity: 0;
+            transform: translateY(-12px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+        }
+
+        @keyframes successFadeUp {
+
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+        }
+
+        /* STAMP */
+
+        .success-stamp {
+          position: absolute;
+
+          top: -20px;
+          right: 0;
+
+          width: 105px;
+          height: 105px;
+
+          border: 2px solid #3aa6e8;
+
+          border-radius: 50%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transform: rotate(-14deg);
+
+          opacity: .7;
+
+          animation:
+            successStampIn .8s
+            cubic-bezier(.2,1.4,.4,1)
+            .5s both,
+            successStampFloat 5s ease-in-out
+            infinite 1.4s;
+        }
+
+        .success-stamp::before {
+          content: "";
+
+          position: absolute;
+
+          inset: 8px;
+
+          border: 1px dashed #9fd4ed;
+
+          border-radius: 50%;
+        }
+
+        .success-stamp-text {
+          position: relative;
+
+          font-size: 9px;
+
+          font-weight: 800;
+
+          line-height: 1.5;
+
+          letter-spacing: .12em;
+
+          color: #1c6fa5;
+
+          text-align: center;
+        }
+
+        @keyframes successStampIn {
+
+          from {
+            opacity: 0;
+            transform:
+              rotate(25deg)
+              scale(.5);
+          }
+
+          to {
+            opacity: .7;
+            transform:
+              rotate(-14deg)
+              scale(1);
+          }
+
+        }
+
+        @keyframes successStampFloat {
+
+          0%,100% {
+            transform:
+              rotate(-14deg)
+              translateY(0);
+          }
+
+          50% {
+            transform:
+              rotate(-11deg)
+              translateY(-6px);
+          }
+
+        }
+
+        /* SCAN */
+
+        .success-scan {
+          position: relative;
+
+          height: 30px;
+
+          max-width: 620px;
+
+          margin: 46px auto 0;
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          gap: 2px;
+
+          overflow: hidden;
+        }
+
+        .success-scan-bar {
+          width: 2px;
+
+          border-radius: 2px;
+
+          background: #cbdce6;
+        }
+
+        .success-scan-bar:nth-child(3n) {
+          height: 28px;
+        }
+
+        .success-scan-bar:nth-child(3n + 1) {
+          height: 17px;
+        }
+
+        .success-scan-bar:nth-child(3n + 2) {
+          height: 23px;
+        }
+
+        .success-laser {
+          position: absolute;
+
+          top: 0;
+          bottom: 0;
+
+          left: -15%;
+
+          width: 18%;
+
+          background:
+            linear-gradient(
+              90deg,
+              transparent,
+              rgba(58,166,232,.35),
+              transparent
+            );
+
+          animation:
+            successScan 3.5s ease-in-out
+            infinite;
+        }
+
+        @keyframes successScan {
+
+          0% {
+            left: -18%;
+          }
+
+          50% {
+            left: 100%;
+          }
+
+          100% {
+            left: -18%;
+          }
+
+        }
+
+        /* ================= STATS ================= */
+
+        .success-stats-section {
+          position: relative;
+
+          max-width: 1100px;
+
+          margin: 0 auto;
+
+          padding: 95px 24px 70px;
+
+          background: #ffffff;
+        }
+
+        .success-heading {
+          text-align: center;
+
+          margin-bottom: 68px;
+        }
+
+        .success-eyebrow {
+          font-size: 11px;
+
+          font-weight: 800;
+
+          letter-spacing: .18em;
+
+          text-transform: uppercase;
+
+          color: #1c6fa5;
+        }
+
+        .success-heading h2 {
+          margin: 10px 0 8px;
+
+          font-size: clamp(
+            27px,
+            4vw,
+            40px
+          );
+
+          line-height: 1.1;
+
+          font-weight: 900;
+
+          color: #16324a;
+        }
+
+        .success-heading p {
+          margin: 0;
+
+          color: #84929d;
+
+          font-size: 14px;
+        }
+
+        .success-rail {
+          position: absolute;
+
+          top: 192px;
+
+          left: 8%;
+          right: 8%;
+
+          height: 1px;
+
+          background:
+            repeating-linear-gradient(
+              90deg,
+              #bdd6e4 0 9px,
+              transparent 9px 17px
+            );
+
+          z-index: 0;
+        }
+
+        .success-tag-grid {
+          position: relative;
+
+          z-index: 1;
+
+          display: grid;
+
+          grid-template-columns:
+            repeat(4, 1fr);
+
+          gap: 28px;
+        }
+
+        .success-tag-wrap {
+          display: flex;
+
+          flex-direction: column;
+
+          align-items: center;
+
+          opacity: 0;
+
+          transform:
+            translateY(28px)
+            scale(.97);
+
+          transition:
+            opacity .7s ease,
+            transform .7s
+            cubic-bezier(.2,.8,.2,1);
+        }
+
+        .success-tag-wrap.success-in-view {
+          opacity: 1;
+
+          transform:
+            translateY(0)
+            scale(1);
+        }
+
+        .success-thread {
+          width: 1px;
+
+          height: 32px;
+
+          background:
+            repeating-linear-gradient(
+              180deg,
+              #9fc9dc 0 4px,
+              transparent 4px 8px
+            );
+        }
+
+        .success-tag {
+          width: 100%;
+
+          max-width: 220px;
+
+          aspect-ratio: 200 / 258;
+
+          position: relative;
+
+          transform:
+            rotate(var(--rotate));
+
+          transition:
+            transform .4s ease,
+            filter .4s ease;
+
+          animation:
+            successSwing
+            6s ease-in-out infinite;
+
+          animation-delay: var(--delay);
+
+          filter:
+            drop-shadow(
+              0 12px 18px
+              rgba(19,34,66,.09)
+            );
+        }
+
+        .success-tag:hover {
+          transform:
+            rotate(0deg)
+            translateY(-8px)
+            scale(1.035);
+
+          filter:
+            drop-shadow(
+              0 20px 28px
+              rgba(19,34,66,.14)
+            );
+
+          animation-play-state: paused;
+        }
+
+        @keyframes successSwing {
+
+          0%,100% {
+            transform:
+              rotate(var(--rotate))
+              translateY(0);
+          }
+
+          50% {
+            transform:
+              rotate(calc(var(--rotate) * -1))
+              translateY(-5px);
+          }
+
+        }
+
+        .success-tag-svg {
+          position: absolute;
+
+          inset: 0;
+
+          width: 100%;
+          height: 100%;
+        }
+
+        .success-tag-content {
+          position: absolute;
+
+          inset: 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          align-items: center;
+
+          padding: 38px 16px 0;
+
+          text-align: center;
+        }
+
+        .success-tag-code {
+          font-size: 9px;
+
+          letter-spacing: .1em;
+
+          color: #7b8e9b;
+
+          margin-bottom: 14px;
+        }
+
+        .success-number-row {
+          display: flex;
+
+          align-items: baseline;
+
+          gap: 2px;
+
+          color: #16324a;
+        }
+
+        .success-number {
+          font-size: 40px;
+
+          line-height: 1;
+
+          font-weight: 900;
+        }
+
+        .success-plus {
+          font-size: 22px;
+
+          color: #1c6fa5;
+        }
+
+        .success-tag-label {
+          margin-top: 9px;
+
+          padding: 0 8px;
+
+          font-size: 14px;
+
+          font-weight: 700;
+
+          color: #526674;
+
+          line-height: 1.25;
+        }
+
+        .success-barcode {
+          margin-top: auto;
+
+          margin-bottom: 17px;
+
+          width: 70%;
+
+          height: 12px;
+
+          background:
+            repeating-linear-gradient(
+              90deg,
+              #1c6fa5 0 2px,
+              transparent 2px 4px,
+              #1c6fa5 4px 5px,
+              transparent 5px 8px
+            );
+
+          opacity: .18;
+        }
+
+        /* ================= INVOICE ================= */
+
+        .success-invoice-section {
+          max-width: 900px;
+
+          margin: 0 auto;
+
+          padding: 35px 24px 100px;
+        }
+
+        .success-invoice {
+          background: #ffffff;
+
+          border: 1px solid #e5edf2;
+
+          border-radius: 16px;
+
+          box-shadow:
+            0 18px 50px
+            rgba(19,34,66,.07);
+
+          overflow: hidden;
+
+          transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+        }
+
+        .success-invoice:hover {
+          transform: translateY(-3px);
+
+          box-shadow:
+            0 22px 55px
+            rgba(19,34,66,.10);
+        }
+
+        .success-invoice-head {
+          display: flex;
+
+          justify-content: space-between;
+
+          align-items: center;
+
+          gap: 20px;
+
+          padding: 26px 30px;
+
+          border-bottom: 1px solid #e7eef3;
+        }
+
+        .success-small-label {
+          display: block;
+
+          margin-bottom: 5px;
+
+          font-size: 9px;
+
+          font-weight: 800;
+
+          letter-spacing: .13em;
+
+          color: #1c6fa5;
+        }
+
+        .success-invoice-head h3 {
+          margin: 0;
+
+          font-size: 22px;
+
+          font-weight: 900;
+
+          color: #16324a;
+        }
+
+        .success-meta {
+          font-size: 10px;
+
+          line-height: 1.7;
+
+          color: #81919c;
+
+          text-align: right;
+        }
+
+        .success-invoice-rows {
+          padding: 6px 30px 26px;
+        }
+
+        .success-inv-row {
+          display: flex;
+
+          align-items: center;
+
+          gap: 16px;
+
+          padding: 16px 0;
+
+          border-bottom: 1px dashed #e2eaf0;
+
+          opacity: 0;
+
+          transform: translateX(-15px);
+
+          transition:
+            opacity .5s ease,
+            transform .5s ease;
+        }
+
+        .success-inv-row.success-row-visible {
+          opacity: 1;
+
+          transform: translateX(0);
+        }
+
+        .success-inv-row:last-child {
+          border-bottom: none;
+        }
+
+        .success-row-index {
+          width: 22px;
+
+          flex: 0 0 auto;
+
+          font-size: 10px;
+
+          color: #9aa8b2;
+        }
+
+        .success-check {
+          width: 28px;
+          height: 28px;
+
+          flex: 0 0 auto;
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          border-radius: 50%;
+
+          background: #eef7fc;
+
+          color: #1c6fa5;
+
+          border: 1px solid #d6eaf4;
+
+          font-size: 13px;
+
+          font-weight: 800;
+
+          transition:
+            transform .25s ease,
+            background .25s ease;
+        }
+
+        .success-inv-row:hover .success-check {
+          transform: scale(1.12);
+
+          background: #e3f2fa;
+        }
+
+        .success-inv-text {
+          font-size: 16px;
+
+          font-weight: 600;
+
+          color: #526674;
+        }
+
+        /* ================= CTA ================= */
+
+        .success-cta {
+          position: relative;
+
+          padding: 85px 24px 55px;
+
+          background: #ffffff;
+
+          color: #16324a;
+
+          text-align: center;
+
+          overflow: hidden;
+
+          border-top: 1px solid #edf1f4;
+        }
+
+        .success-cta-grid {
+          position: absolute;
+
+          inset: 0;
+
+          background-image:
+            linear-gradient(
+              rgba(28,111,165,.025) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(28,111,165,.025) 1px,
+              transparent 1px
+            );
+
+          background-size: 40px 40px;
+
+          animation:
+            successGridMove 20s linear infinite;
+        }
+
+        .success-cta-glow {
+          position: absolute;
+
+          width: 280px;
+          height: 280px;
+
+          left: 50%;
+          top: -170px;
+
+          transform: translateX(-50%);
+
+          border-radius: 50%;
+
+          background:
+            rgba(58,166,232,.07);
+
+          filter: blur(55px);
+
+          animation:
+            successGlow 5s ease-in-out
+            infinite;
+        }
+
+        @keyframes successGlow {
+
+          0%,100% {
+            transform:
+              translateX(-50%)
+              scale(.9);
+
+            opacity: .5;
+          }
+
+          50% {
+            transform:
+              translateX(-50%)
+              scale(1.15);
+
+            opacity: 1;
+          }
+
+        }
+
+        .success-cta-inner {
+          position: relative;
+
+          max-width: 700px;
+
+          margin: 0 auto;
+        }
+
+        .success-cta-label {
+          display: inline-block;
+
+          margin-bottom: 13px;
+
+          padding: 6px 12px;
+
+          border-radius: 100px;
+
+          background: #f2f8fb;
+
+          border: 1px solid #dcebf2;
+
+          color: #1c6fa5;
+
+          font-size: 10px;
+
+          font-weight: 800;
+
+          letter-spacing: .13em;
+        }
+
+        .success-cta h2 {
+          margin: 0 auto 15px;
+
+          font-size: clamp(
+            30px,
+            4.5vw,
+            46px
+          );
+
+          line-height: 1.05;
+
+          font-weight: 900;
+
+          color: #16324a;
+        }
+
+        .success-cta p {
+          max-width: 480px;
+
+          margin: 0 auto 32px;
+
+          font-size: 16px;
+
+          line-height: 1.6;
+
+          color: #7a8994;
+        }
+
+        .success-cta-button {
+          display: inline-flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          gap: 12px;
+
+          padding: 15px 25px;
+
+          border: none;
+
+          border-radius: 100px;
+
+          cursor: pointer;
+
+          font-size: 12px;
+
+          font-weight: 800;
+
+          letter-spacing: .08em;
+
+          text-transform: uppercase;
+
+          background: #1c6fa5;
+
+          color: #ffffff;
+
+          box-shadow:
+            0 10px 24px
+            rgba(28,111,165,.18);
+
+          transition:
+            transform .3s ease,
+            box-shadow .3s ease,
+            background .3s ease;
+        }
+
+        .success-cta-button span {
+          font-size: 17px;
+
+          transition:
+            transform .3s ease;
+        }
+
+        .success-cta-button:hover {
+          transform: translateY(-4px);
+
+          background: #155d8b;
+
+          box-shadow:
+            0 16px 30px
+            rgba(28,111,165,.24);
+        }
+
+        .success-cta-button:hover span {
+          transform: translateX(4px);
+        }
+
+        .success-footer-barcode {
+          width: min(360px, 80%);
+
+          height: 20px;
+
+          margin: 46px auto 0;
+
+          background:
+            repeating-linear-gradient(
+              90deg,
+              #1c6fa5 0 2px,
+              transparent 2px 5px,
+              #1c6fa5 5px 6px,
+              transparent 6px 10px
+            );
+
+          opacity: .12;
+        }
+
+        .success-footer-note {
+          margin-top: 13px;
+
+          font-size: 9px;
+
+          letter-spacing: .13em;
+
+          color: #a1adb5;
+
+          text-transform: uppercase;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 820px) {
+
+          .success-rail {
+            display: none;
+          }
+
+          .success-tag-grid {
+            grid-template-columns:
+              repeat(2, 1fr);
+
+            row-gap: 55px;
+          }
+
+        }
+
+        @media (max-width: 600px) {
+
+          .success-hero {
+            padding:
+              48px 18px 70px;
+          }
+
+          .success-wordmark-row {
+            justify-content: center;
+
+            margin-bottom: 45px;
+          }
+
+          .success-route {
+            width: 100%;
+
+            text-align: center;
+          }
+
+          .success-stamp {
+            position: relative;
+
+            top: auto;
+            right: auto;
+
+            margin: 0 auto 25px;
+
+            width: 88px;
+            height: 88px;
+          }
+
+          .success-hero-content h1 {
+            font-size: 42px;
+          }
+
+          .success-tag-grid {
+            grid-template-columns: 1fr;
+
+            max-width: 260px;
+
+            margin: 0 auto;
+          }
+
+          .success-invoice-head {
+            flex-direction: column;
+
+            align-items: flex-start;
+          }
+
+          .success-meta {
+            text-align: left;
+          }
+
+          .success-invoice-rows {
+            padding-left: 18px;
+            padding-right: 18px;
+          }
+
+          .success-inv-row {
+            gap: 10px;
+          }
+
+          .success-inv-text {
+            font-size: 15px;
+          }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .success-tag,
+          .success-stamp,
+          .success-laser,
+          .success-grid-bg,
+          .success-cta-grid,
+          .success-cta-glow,
+          .success-box-icon {
+            animation: none;
+          }
+
+          .success-tag-wrap,
+          .success-inv-row,
+          .success-wordmark-row,
+          .success-hero-content h1,
+          .success-hero-content p {
+            opacity: 1;
+
+            transform: none;
+
+            transition: none;
+          }
+
+        }
+
+      `}</style>
+
+    </section>
   );
 }

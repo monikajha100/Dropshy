@@ -39,10 +39,10 @@ const Home = () => {
       <main>
         <Hero />
         <Sponser />
-        {/* <TrustBar /> */}
+        <TrustBar /> 
         <Whydropshyslider />
         <Dropsyoperation/>
-        <AISolutionsSection/>
+        {/* <AISolutionsSection/> */}
         <LiveDemo/>
         
        
@@ -60,14 +60,14 @@ const Home = () => {
         <CTABanner /> */}
       
         {/* //<DevelopersSection/> */}
-         <Sponser2/>
+         {/* <Sponser2/> */}
         <Strenthcard/>
         
-        <Offline/>
-         <Sponser2/>
+        {/* <Offline/> */}
+         {/* <Sponser2/> */}
         <Sellorstory/>
         <Services/>
-      <Shiprocket/>
+      {/* <Shiprocket/> */}
          <Blog /> 
       </main>
       <Footer />

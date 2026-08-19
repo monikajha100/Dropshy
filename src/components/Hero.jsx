@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from "react";
 import "./Hero.css";
 
-//import banner1 from "../assets/images/banner-1.webp";
+import banner1 from "../assets/images/banner-5.webp";
 import banner2 from "../assets/images/banner-2.webp";
 import banner3 from "../assets/images/banner-3.webp";
 
@@ -12,15 +11,13 @@ const SLIDES = [
     title: "Launch Your Online Business\nwith Zero Investment",
     subtitle:
       "Partner with Dropshy. We handle products, inventory, packing and shipping while you focus on selling and earning profits.",
-    highlights: ["Zero Investment", "Zero Inventory", "Sell Worldwide"],
-    // image: banner1,
+    image: banner1,
   },
   {
     eyebrow: "AWB-001-IN-DOMESTIC",
     title: "Sell on India's\nTop Marketplaces",
     subtitle:
       "Start selling on Amazon.in, Flipkart, Meesho and Myntra. We manage inventory, packing and Pan-India shipping for you.",
-    highlights: ["Amazon.in", "Flipkart", "Meesho"],
     image: banner2,
   },
   {
@@ -28,9 +25,20 @@ const SLIDES = [
     title: "Sell Across\n135+ Countries",
     subtitle:
       "Expand globally with Etsy, eBay, Amazon.com, Walmart, Alibaba and Amazon UAE. Earn in Dollars with Zero Investment.",
-    highlights: ["135+ Countries", "Earn in Dollars", "Global Shipping"],
     image: banner3,
   },
+];
+
+const MARQUEE_ITEMS = [
+  "Amazon.in",
+  "Flipkart",
+  "Meesho",
+  "Myntra",
+  "Etsy",
+  "eBay",
+  "Walmart",
+  "Alibaba",
+  "Amazon UAE",
 ];
 
 const Hero = () => {
@@ -51,48 +59,62 @@ const Hero = () => {
   };
 
   const prevSlide = () => {
-    setActiveSlide(
-      (prev) => (prev - 1 + SLIDES.length) % SLIDES.length
-    );
+    setActiveSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   };
 
   return (
     <section className="hero" id="hero">
-      <div className="hero__inner container">
-
-        {/* LEFT CONTENT */}
-        <div
-          className="hero__left hero__slide"
-          key={`left-${activeSlide}`}
+      {/* AMBIENT BACKGROUND */}
+      <div className="hero__bg" aria-hidden="true">
+        <span className="hero__blob hero__blob--sky" />
+        <span className="hero__blob hero__blob--yellow" />
+        <svg
+          className="hero__route"
+          viewBox="0 0 1400 700"
+          fill="none"
+          preserveAspectRatio="none"
         >
+          <path
+            className="hero__route-path"
+            d="M-50,560 C 250,460 380,620 620,520 S 980,300 1120,360 S 1350,180 1480,120"
+          />
+        </svg>
+        <span className="hero__route-dot">📦</span>
+      </div>
+
+      <div className="hero__inner container">
+        {/* LEFT CONTENT */}
+        <div className="hero__left hero__slide" key={`left-${activeSlide}`}>
           <p className="hero__eyebrow">
+            <span className="hero__eyebrow-dot" />
             {currentSlide.eyebrow}
           </p>
 
           <h1 className="hero__headline">
-            {currentSlide.title.split("\n").map((line, index) => (
-              <span key={index} className="hero__headline-line">
-                {line}
-              </span>
-            ))}
-          </h1>
-
-          <p className="hero__sub">
-            {currentSlide.subtitle.split("\n").map((line, index) => (
-              <span key={index} className="hero__sub-line">
-                {line}
-              </span>
-            ))}
-          </p>
+  {currentSlide.title.split("\n").map((line, index) => (
+    <span
+      key={index}
+      className="hero__headline-line"
+    >
+      {line}
+    </span>
+  ))}
+</h1>
+<p className="hero__sub">
+  {currentSlide.subtitle.split("\n").map((line, index) => (
+    <span
+      key={index}
+      className="hero__sub-line"
+    >
+      {line}
+    </span>
+  ))}
+</p>
 
           {/* BUTTONS */}
           <div className="hero__ctas">
-            <a
-              href="/get-started"
-              className="hero__cta-primary"
-            >
+            <a href="/get-started" className="hero__cta-primary">
               Sign up for Free
-
               <svg
                 width="16"
                 height="16"
@@ -110,29 +132,13 @@ const Hero = () => {
               </svg>
             </a>
 
-            <a
-              href="/solutions"
-              className="hero__cta-secondary"
-            >
+            <a href="/solutions" className="hero__cta-secondary">
               Our Services
             </a>
           </div>
 
-          {/* HIGHLIGHTS */}
-          <div className="hero__meta">
-            {currentSlide.highlights.map((item) => (
-              <span
-                key={item}
-                className="hero__meta-pill"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
           {/* SLIDER CONTROLS */}
           <div className="hero__controls">
-
             <button
               className="hero__control"
               type="button"
@@ -147,10 +153,9 @@ const Hero = () => {
                 <button
                   key={slide.eyebrow}
                   type="button"
-                  className={`hero__indicator ${index === activeSlide
-                      ? "hero__indicator--active"
-                      : ""
-                    }`}
+                  className={`hero__indicator ${
+                    index === activeSlide ? "hero__indicator--active" : ""
+                  }`}
                   onClick={() => setActiveSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -165,26 +170,33 @@ const Hero = () => {
             >
               →
             </button>
-
           </div>
         </div>
 
-        {/* RIGHT SIDE — ONLY IMAGE */}
-        {/* <div
-          className="hero__right hero__slide--right"
-          key={`right-${activeSlide}`}
-        >
-          <img
-            src={currentSlide.image}
-            alt="Dropshy"
-            className="hero__photo"
-          />
-        </div> */}
+        {/* RIGHT SIDE — IMAGE */}
+        <div className="hero__right hero__slide--right" key={`right-${activeSlide}`}>
+          <div className="hero__photo-frame">
+            <span className="hero__photo-ring" />
+            <img
+              src={currentSlide.image}
+              alt="Dropshy sellers shipping worldwide"
+              className="hero__photo"
+            />
 
+            <span className="hero__badge hero__badge--top">
+              <strong>0₹</strong> Investment
+            </span>
+            <span className="hero__badge hero__badge--bottom">
+              🌍 135+ Countries
+            </span>
+          </div>
+        </div>
       </div>
+
+      {/* MARQUEE OF MARKETPLACES */}
+      
     </section>
   );
 };
 
 export default Hero;
-
