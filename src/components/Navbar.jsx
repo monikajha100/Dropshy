@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import logo from "../assets/images/Dropsy.jpeg";
+
 
 const NAV_LINKS = [
   {
     label: "Home",
+    href: "/",
   },
   {
     label: "About Us",
+    href: "/about",
   },
   {
     label: "Our Services",
@@ -35,11 +39,14 @@ const NAV_LINKS = [
   },
   {
     label: "Review",
+    href: "/review",
   },
   {
     label: "Contact Us",
+    href: "/contact-us",
   },
 ];
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
@@ -58,13 +65,15 @@ function Navbar() {
   }, []);
 
   const toggleMenu = (label) => {
-    setOpenMenu((prev) =>
-      prev === label ? null : label
-    );
+    setOpenMenu((prev) => (prev === label ? null : label));
   };
 
   return (
     <>
+      {/* =========================================================
+          NAVBAR
+      ========================================================= */}
+
       <header
         className={`dropsy-navbar ${
           scrolled ? "dropsy-navbar-scrolled" : ""
@@ -72,47 +81,22 @@ function Navbar() {
       >
         <div className="dropsy-navbar-inner">
 
-          {/* LOGO */}
+          {/* =====================================================
+              LOGO
+          ===================================================== */}
+
           <a href="/" className="dropsy-logo">
-            <div className="dropsy-logo-icon">
-              <svg
-                width="27"
-                height="27"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M16 3C16 3 5 12.5 5 19C5 24.8 10 29.5 16 29.5C22 29.5 27 24.8 27 19C27 12.5 16 3 16 3Z"
-                  fill="url(#dropsyGradient)"
-                />
-
-                <defs>
-                  <linearGradient
-                    id="dropsyGradient"
-                    x1="5"
-                    y1="3"
-                    x2="27"
-                    y2="29.5"
-                  >
-                    <stop
-                      offset="0"
-                      stopColor="#4F46E5"
-                    />
-                    <stop
-                      offset="1"
-                      stopColor="#7C3AED"
-                    />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-
-            <span className="dropsy-logo-text">
-  Dropshy
-</span>
+            <img
+              src={logo}
+              alt="Dropsy"
+              className="dropsy-logo-image"
+            />
           </a>
 
-          {/* DESKTOP NAVIGATION */}
+          {/* =====================================================
+              DESKTOP NAVIGATION
+          ===================================================== */}
+
           <nav className="dropsy-nav-links">
             {NAV_LINKS.map((link) => (
               <div
@@ -129,15 +113,20 @@ function Navbar() {
                   }
                 }}
               >
+                {/* NAV LINK ROW */}
+
                 <div className="dropsy-nav-link-row">
-                  <a
-                    href={`/${link.label
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                    className="dropsy-nav-link"
-                  >
-                    {link.label}
-                  </a>
+
+                 <a
+  href={link.href || `/${link.label
+    .toLowerCase()
+    .replace(/\s+/g, "-")}`}
+  className="dropsy-nav-link"
+>
+  {link.label}
+</a>
+
+                  {/* DROPDOWN ARROW */}
 
                   {link.items && (
                     <button
@@ -147,9 +136,7 @@ function Navbar() {
                           ? "dropsy-arrow-open"
                           : ""
                       }`}
-                      onClick={() =>
-                        toggleMenu(link.label)
-                      }
+                      onClick={() => toggleMenu(link.label)}
                       aria-label={`Toggle ${link.label} menu`}
                     >
                       <svg
@@ -168,47 +155,55 @@ function Navbar() {
                       </svg>
                     </button>
                   )}
+
                 </div>
 
-                {/* DROPDOWN */}
-                {link.items &&
-                  openMenu === link.label && (
-                    <div className="dropsy-dropdown">
-                      {link.items.map((item) => (
-                        <a
-                          href="#"
-                          key={item}
-                          className="dropsy-dropdown-item"
-                          onClick={() =>
-                            setOpenMenu(null)
-                          }
-                        >
-                          <span>{item}</span>
+                {/* =================================================
+                    DROPDOWN
+                ================================================= */}
 
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                          >
-                            <path
-                              d="M3 9L9 3M4 3H9V8"
-                              stroke="currentColor"
-                              strokeWidth="1.3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                {link.items && openMenu === link.label && (
+                  <div className="dropsy-dropdown">
+
+                    {link.items.map((item) => (
+                      <a
+                        href="#"
+                        key={item}
+                        className="dropsy-dropdown-item"
+                        onClick={() => setOpenMenu(null)}
+                      >
+                        <span>{item}</span>
+
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                        >
+                          <path
+                            d="M3 9L9 3M4 3H9V8"
+                            stroke="currentColor"
+                            strokeWidth="1.3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    ))}
+
+                  </div>
+                )}
+
               </div>
             ))}
           </nav>
 
-          {/* RIGHT SIDE */}
+          {/* =====================================================
+              RIGHT SIDE
+          ===================================================== */}
+
           <div className="dropsy-actions">
+
             <a
               href="/login"
               className="dropsy-login"
@@ -222,9 +217,13 @@ function Navbar() {
             >
               Get Started
             </a>
+
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* =====================================================
+              MOBILE MENU BUTTON
+          ===================================================== */}
+
           <button
             type="button"
             className={`dropsy-menu-button ${
@@ -242,9 +241,13 @@ function Navbar() {
             <span />
             <span />
           </button>
+
         </div>
 
-        {/* MOBILE MENU */}
+        {/* =========================================================
+            MOBILE MENU
+        ========================================================= */}
+
         <div
           className={`dropsy-mobile-menu ${
             mobileOpen
@@ -252,21 +255,27 @@ function Navbar() {
               : ""
           }`}
         >
+
           {NAV_LINKS.map((link) => (
+
             <div
               key={link.label}
               className="dropsy-mobile-item"
             >
+
               <button
                 type="button"
                 onClick={() => {
+
                   if (link.items) {
                     toggleMenu(link.label);
                   } else {
                     setMobileOpen(false);
                   }
+
                 }}
               >
+
                 <span>{link.label}</span>
 
                 {link.items && (
@@ -285,12 +294,18 @@ function Navbar() {
                     />
                   </svg>
                 )}
+
               </button>
+
+              {/* MOBILE SUBMENU */}
 
               {link.items &&
                 openMenu === link.label && (
+
                   <div className="dropsy-mobile-submenu">
+
                     {link.items.map((item) => (
+
                       <a
                         href="#"
                         key={item}
@@ -300,16 +315,23 @@ function Navbar() {
                       >
                         {item}
                       </a>
+
                     ))}
+
                   </div>
+
                 )}
+
             </div>
+
           ))}
 
+          {/* MOBILE ACTIONS */}
+
           <div className="dropsy-mobile-actions">
+
             <a href="/login">
               Log In
-
             </a>
 
             <a
@@ -318,21 +340,32 @@ function Navbar() {
             >
               Get Started
             </a>
+
           </div>
+
         </div>
+
       </header>
+
+
+      {/* =========================================================
+          NAVBAR CSS
+      ========================================================= */}
 
       <style>{`
 
-        /* =====================================
-           NAVBAR - DEFAULT / TOP
-        ===================================== */
+        /* ========================================================
+           NAVBAR DEFAULT
+        ======================================================== */
 
         .dropsy-navbar {
+
           position: fixed;
 
           top: 0;
+
           left: 0;
+
           right: 0;
 
           width: 100%;
@@ -346,6 +379,7 @@ function Navbar() {
           box-shadow: none;
 
           backdrop-filter: none;
+
           -webkit-backdrop-filter: none;
 
           transition:
@@ -362,138 +396,175 @@ function Navbar() {
         }
 
 
-        /* =====================================
-           NAVBAR - AFTER SCROLL
-        ===================================== */
+        /* ========================================================
+           NAVBAR AFTER SCROLL
+        ======================================================== */
 
-        .dropsy-navbar-scrolled {
-          top: 10px;
+    .dropsy-navbar-scrolled {
 
-          left: 15%;
-          right: 15%;
+  top: 10px;
 
-          width: 70%;
+  left: 8%;
 
-          border-radius: 30px;
+  right: 8%;
 
-          background: rgba(255, 255, 255, 0.96);
+  width: 84%;
 
-          box-shadow:
-            0 8px 30px
-            rgba(15, 23, 42, 0.10);
+  border-radius: 24px;
 
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
+  background:
+    rgba(224, 242, 254, 0.96);
 
-          overflow: hidden;
-        }
+  box-shadow:
+    0 8px 30px
+    rgba(15, 23, 42, 0.10);
 
+  backdrop-filter:
+    blur(14px);
 
-        /* =====================================
-           INNER
-        ===================================== */
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  overflow: hidden;
+}
+        /* ========================================================
+           INNER NAVBAR
+        ======================================================== */
 
         .dropsy-navbar-inner {
+
+          position: relative;
+
           width: 100%;
+
           max-width: 1440px;
 
-          height: 68px;
+          height: 76px;
 
           margin: 0 auto;
 
           padding: 0 30px;
 
           display: flex;
+
           align-items: center;
 
-          gap: 25px;
+          justify-content: space-between;
 
           box-sizing: border-box;
         }
 
 
-        /* =====================================
+        /* ========================================================
            LOGO
-        ===================================== */
+           ONLY LOGO SIZE INCREASED
+        ======================================================== */
 
         .dropsy-logo {
+
           display: flex;
+
           align-items: center;
 
-          gap: 10px;
+          justify-content: flex-start;
+
+          flex: 0 0 auto;
+
+          width: 175px;
+
+          height: 70px;
 
           text-decoration: none;
+
+          position: relative;
+
+          z-index: 2;
+        }
+
+
+        .dropsy-logo-image {
+
+          width: 375px;
+
+          height: 108px;
+
+        object-fit: contain;
+  object-position: right center;
+
+           display: block;
+
+  transform: translateX(45px);
+        }
+
+
+        .dropsy-logo:hover
+        .dropsy-logo-image {
+
+          transform: scale(1.03);
+        }
+
+
+        /* ========================================================
+           CENTER NAVIGATION
+           SAME AS BEFORE
+        ======================================================== */
+
+        .dropsy-nav-links {
+
+          position: absolute;
+
+          left: 50%;
+
+          top: 50%;
+
+          transform:
+            translate(-50%, -50%);
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          gap: 4px;
+
+          white-space: nowrap;
+
+          z-index: 3;
+        }
+
+
+        .dropsy-nav-item {
+
+          position: relative;
 
           flex-shrink: 0;
         }
 
-        .dropsy-logo-icon {
-          width: 38px;
-          height: 38px;
-
-          border-radius: 11px;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          background:
-            linear-gradient(
-              135deg,
-              #4F46E5,
-              #7C3AED
-            );
-
-          box-shadow:
-            0 6px 18px
-            rgba(79, 70, 229, 0.22);
-        }
-
-        .dropsy-logo-text {
-          font-size: 21px;
-
-          font-weight: 800;
-
-          letter-spacing: -0.6px;
-
-          color: #111827;
-        }
-
-
-        /* =====================================
-           NAV LINKS
-        ===================================== */
-
-        .dropsy-nav-links {
-          flex: 1;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          gap: 5px;
-        }
-
-        .dropsy-nav-item {
-          position: relative;
-        }
 
         .dropsy-nav-link-row {
+
           display: flex;
+
           align-items: center;
 
-          border-radius: 8px;
+          border-radius: 10px;
         }
 
+
         .dropsy-nav-link {
+
           display: flex;
+
           align-items: center;
 
-          padding: 10px 8px;
+          padding: 10px 10px;
 
           color: #374151;
 
-          font-size: 14px;
+          font-size: 15px;
+
+          line-height: 1.2;
 
           font-weight: 600;
 
@@ -506,16 +577,24 @@ function Navbar() {
             background 0.2s ease;
         }
 
+
         .dropsy-nav-link:hover {
+
           color: #4F46E5;
+
+          background:
+            rgba(79, 70, 229, 0.06);
+
+          border-radius: 8px;
         }
 
 
-        /* =====================================
-           ARROW
-        ===================================== */
+        /* ========================================================
+           DROPDOWN ARROW
+        ======================================================== */
 
         .dropsy-arrow {
+
           border: 0;
 
           background: transparent;
@@ -525,7 +604,10 @@ function Navbar() {
           padding: 5px 4px;
 
           display: flex;
+
           align-items: center;
+
+          justify-content: center;
 
           cursor: pointer;
 
@@ -534,27 +616,36 @@ function Navbar() {
             color 0.25s ease;
         }
 
+
         .dropsy-arrow-open {
-          transform: rotate(180deg);
+
+          transform:
+            rotate(180deg);
 
           color: #4F46E5;
         }
 
 
-        /* =====================================
+        /* ========================================================
            DROPDOWN
-        ===================================== */
+        ======================================================== */
 
         .dropsy-dropdown {
+
           position: absolute;
 
           top: calc(100% + 8px);
 
           left: 50%;
 
-          transform: translateX(-50%);
+          transform:
+            translateX(-50%);
 
-          width: 240px;
+          width: 250px;
+
+          max-height: 500px;
+
+          overflow-y: auto;
 
           padding: 10px;
 
@@ -564,11 +655,11 @@ function Navbar() {
             1px solid
             rgba(15, 23, 42, 0.08);
 
-          border-radius: 14px;
+          border-radius: 16px;
 
           box-shadow:
-            0 18px 45px
-            rgba(15, 23, 42, 0.12);
+            0 20px 50px
+            rgba(15, 23, 42, 0.13);
 
           animation:
             dropsyDrop 0.18s ease;
@@ -576,16 +667,20 @@ function Navbar() {
           z-index: 10000;
         }
 
+
         @keyframes dropsyDrop {
+
           from {
+
             opacity: 0;
 
             transform:
               translateX(-50%)
-              translateY(-5px);
+              translateY(-6px);
           }
 
           to {
+
             opacity: 1;
 
             transform:
@@ -594,11 +689,20 @@ function Navbar() {
           }
         }
 
+
+        /* ========================================================
+           DROPDOWN ITEM
+        ======================================================== */
+
         .dropsy-dropdown-item {
+
           display: flex;
 
           align-items: center;
+
           justify-content: space-between;
+
+          gap: 10px;
 
           padding: 11px 12px;
 
@@ -617,7 +721,9 @@ function Navbar() {
             color 0.2s ease;
         }
 
+
         .dropsy-dropdown-item:hover {
+
           background:
             rgba(79, 70, 229, 0.07);
 
@@ -625,23 +731,31 @@ function Navbar() {
         }
 
 
-        /* =====================================
+        /* ========================================================
            RIGHT ACTIONS
-        ===================================== */
+        ======================================================== */
 
         .dropsy-actions {
+
           display: flex;
+
           align-items: center;
 
-          gap: 16px;
+          gap: 14px;
 
           flex-shrink: 0;
+
+          position: relative;
+
+          z-index: 2;
         }
 
+
         .dropsy-login {
+
           color: #374151;
 
-          font-size: 14px;
+          font-size: 15px;
 
           font-weight: 600;
 
@@ -649,24 +763,36 @@ function Navbar() {
 
           padding: 10px 4px;
 
-          transition: color 0.2s ease;
+          white-space: nowrap;
+
+          transition:
+            color 0.2s ease;
         }
 
+
         .dropsy-login:hover {
+
           color: #4F46E5;
         }
 
+
+        /* ========================================================
+           GET STARTED
+        ======================================================== */
+
         .dropsy-cta {
+
           display: inline-flex;
 
           align-items: center;
+
           justify-content: center;
 
           min-height: 42px;
 
           padding: 0 20px;
 
-          border-radius: 8px;
+          border-radius: 10px;
 
           background:
             linear-gradient(
@@ -683,6 +809,8 @@ function Navbar() {
 
           text-decoration: none;
 
+          white-space: nowrap;
+
           box-shadow:
             0 7px 18px
             rgba(79, 70, 229, 0.20);
@@ -692,8 +820,11 @@ function Navbar() {
             box-shadow 0.2s ease;
         }
 
+
         .dropsy-cta:hover {
-          transform: translateY(-1px);
+
+          transform:
+            translateY(-1px);
 
           box-shadow:
             0 10px 24px
@@ -701,17 +832,19 @@ function Navbar() {
         }
 
 
-        /* =====================================
+        /* ========================================================
            MOBILE BUTTON
-        ===================================== */
+        ======================================================== */
 
         .dropsy-menu-button {
+
           display: none;
 
           margin-left: auto;
 
-          width: 42px;
-          height: 42px;
+          width: 44px;
+
+          height: 44px;
 
           border: 0;
 
@@ -722,13 +855,17 @@ function Navbar() {
           flex-direction: column;
 
           align-items: center;
+
           justify-content: center;
 
           gap: 5px;
         }
 
+
         .dropsy-menu-button span {
-          width: 22px;
+
+          width: 23px;
+
           height: 2px;
 
           border-radius: 5px;
@@ -740,60 +877,118 @@ function Navbar() {
             opacity 0.25s ease;
         }
 
-        .dropsy-menu-open span:nth-child(1) {
+
+        .dropsy-menu-open
+        span:nth-child(1) {
+
           transform:
             translateY(7px)
             rotate(45deg);
         }
 
-        .dropsy-menu-open span:nth-child(2) {
+
+        .dropsy-menu-open
+        span:nth-child(2) {
+
           opacity: 0;
         }
 
-        .dropsy-menu-open span:nth-child(3) {
+
+        .dropsy-menu-open
+        span:nth-child(3) {
+
           transform:
             translateY(-7px)
             rotate(-45deg);
         }
 
 
-        /* =====================================
+        /* ========================================================
            MOBILE MENU
-        ===================================== */
+        ======================================================== */
 
         .dropsy-mobile-menu {
+
           display: none;
         }
 
 
-        /* =====================================
-           RESPONSIVE
-        ===================================== */
+        /* ========================================================
+           TABLET
+        ======================================================== */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1150px) {
 
           .dropsy-navbar-inner {
-            padding: 0 25px;
+
+            padding: 0 20px;
           }
 
-          .dropsy-nav-link {
-            font-size: 13px;
 
-            padding-left: 6px;
-            padding-right: 6px;
+          .dropsy-logo {
+
+            width: 150px;
+
+            height: 64px;
           }
+
+
+          .dropsy-logo-image {
+
+            width: 150px;
+
+            height: 60px;
+          }
+
 
           .dropsy-nav-links {
-            gap: 2px;
+
+            gap: 0;
+          }
+
+
+          .dropsy-nav-link {
+
+            font-size: 14px;
+
+            padding:
+              9px 6px;
+          }
+
+
+          .dropsy-actions {
+
+            gap: 9px;
+          }
+
+
+          .dropsy-login {
+
+            font-size: 14px;
+          }
+
+
+          .dropsy-cta {
+
+            padding:
+              0 15px;
+
+            font-size: 13px;
           }
         }
 
+
+        /* ========================================================
+           MOBILE / TABLET
+        ======================================================== */
 
         @media (max-width: 900px) {
 
           .dropsy-navbar,
           .dropsy-navbar-scrolled {
+
             left: 12px;
+
             right: 12px;
 
             width: auto;
@@ -803,36 +998,77 @@ function Navbar() {
             border-radius: 22px;
           }
 
+
           .dropsy-navbar {
+
             background: transparent;
 
             box-shadow: none;
 
             backdrop-filter: none;
+
             -webkit-backdrop-filter: none;
           }
 
+
           .dropsy-navbar-scrolled {
-            background: rgba(255, 255, 255, 0.97);
+
+            background:
+              rgba(255, 255, 255, 0.97);
 
             box-shadow:
               0 8px 25px
               rgba(15, 23, 42, 0.10);
 
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter:
+              blur(14px);
+
+            -webkit-backdrop-filter:
+              blur(14px);
           }
+
+
+          .dropsy-navbar-inner {
+
+            height: 70px;
+
+            padding: 0 20px;
+          }
+
 
           .dropsy-nav-links,
           .dropsy-actions {
+
             display: none;
           }
 
+
+          .dropsy-logo {
+
+            width: 145px;
+
+            height: 60px;
+          }
+
+
+          .dropsy-logo-image {
+
+            width: 145px;
+
+            height: 56px;
+          }
+
+
           .dropsy-menu-button {
+
             display: flex;
           }
 
+
+          /* MOBILE MENU */
+
           .dropsy-mobile-menu {
+
             display: block;
 
             max-height: 0;
@@ -853,22 +1089,29 @@ function Navbar() {
               opacity 0.25s ease;
           }
 
+
           .dropsy-mobile-menu-open {
-            max-height: 700px;
+
+            max-height: 750px;
 
             opacity: 1;
           }
 
+
           .dropsy-mobile-item {
+
             border-bottom:
               1px solid
               rgba(15, 23, 42, 0.06);
           }
 
+
           .dropsy-mobile-item > button {
+
             width: 100%;
 
-            padding: 17px 25px;
+            padding:
+              16px 22px;
 
             border: 0;
 
@@ -877,6 +1120,7 @@ function Navbar() {
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             color: #374151;
@@ -888,12 +1132,16 @@ function Navbar() {
             cursor: pointer;
           }
 
+
           .dropsy-mobile-submenu {
+
             padding:
-              0 25px 12px;
+              0 22px 12px;
           }
 
+
           .dropsy-mobile-submenu a {
+
             display: block;
 
             padding: 10px;
@@ -905,17 +1153,22 @@ function Navbar() {
             text-decoration: none;
           }
 
+
           .dropsy-mobile-actions {
+
             display: flex;
 
             flex-direction: column;
 
             gap: 12px;
 
-            padding: 20px 25px 25px;
+            padding:
+              20px 22px 25px;
           }
 
+
           .dropsy-mobile-actions > a:first-child {
+
             color: #374151;
 
             text-decoration: none;
@@ -924,34 +1177,98 @@ function Navbar() {
 
             padding: 10px 0;
           }
+
+
+          .dropsy-mobile-actions .dropsy-cta {
+
+            width: 100%;
+          }
         }
 
+
+        /* ========================================================
+           MOBILE
+        ======================================================== */
 
         @media (max-width: 600px) {
 
           .dropsy-navbar,
-          .dropsy-navbar-scrolled {
-            left: 10px;
-            right: 10px;
+        .dropsy-navbar-scrolled {
 
-            width: auto;
+  background: rgba(224, 242, 254, 0.78);
 
-            border-radius: 20px;
-          }
+  box-shadow:
+    0 8px 25px rgba(56, 189, 248, 0.14);
+
+  backdrop-filter: blur(18px) saturate(140%);
+
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.55);
+}
+
 
           .dropsy-navbar-inner {
+
             height: 64px;
 
-            padding: 0 18px;
+            padding:
+              0 16px;
           }
 
-          .dropsy-logo-icon {
-            width: 35px;
-            height: 35px;
+
+          .dropsy-logo {
+
+            width: 125px;
+
+            height: 52px;
           }
 
-          .dropsy-logo-text {
-            font-size: 19px;
+
+          .dropsy-logo-image {
+
+            width: 125px;
+
+            height: 48px;
+          }
+
+
+          .dropsy-menu-button {
+
+            width: 40px;
+
+            height: 40px;
+          }
+        }
+
+
+        /* ========================================================
+           VERY SMALL MOBILE
+        ======================================================== */
+
+        @media (max-width: 400px) {
+
+          .dropsy-navbar-inner {
+
+            padding:
+              0 13px;
+          }
+
+
+          .dropsy-logo {
+
+            width: 115px;
+
+            height: 48px;
+          }
+
+
+          .dropsy-logo-image {
+
+            width: 115px;
+
+            height: 44px;
           }
         }
 

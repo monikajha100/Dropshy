@@ -1,0 +1,513 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap");
+
+/* =========================================================
+   TOKENS
+   ========================================================= */
+.procedure-section {
+  --ink: #12161f;
+  --ink-soft: #4b5563;
+  --paper: #f7f6f1;
+  --paper-raised: #ffffff;
+  --line: #e2ded2;
+  --route-amber: #ff7a29;
+  --route-amber-soft: #ffe4cf;
+  --signal-green: #17a34a;
+  --shadow-lg: 0 24px 60px -24px rgba(18, 22, 31, 0.25);
+  --shadow-sm: 0 8px 24px -12px rgba(18, 22, 31, 0.18);
+
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 120px 24px 100px;
+  overflow: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* =========================================================
+   AMBIENT BACKGROUND
+   ========================================================= */
+.procedure-bg {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.procedure-bg-one {
+  width: 480px;
+  height: 480px;
+  top: -140px;
+  right: -120px;
+  background: radial-gradient(circle, var(--route-amber-soft) 0%, transparent 70%);
+  animation: driftOne 18s ease-in-out infinite;
+}
+.procedure-bg-two {
+  width: 420px;
+  height: 420px;
+  bottom: -100px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(23, 163, 74, 0.14) 0%, transparent 70%);
+  animation: driftTwo 22s ease-in-out infinite;
+}
+@keyframes driftOne {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 40px) scale(1.08); }
+}
+@keyframes driftTwo {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.06); }
+}
+
+.procedure-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+}
+
+.procedure-container {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   REVEAL-ON-SCROLL (base for every .procedure-reveal)
+   ========================================================= */
+.procedure-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.procedure-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+.procedure-heading {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 56px;
+}
+.procedure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--route-amber);
+  box-shadow: 0 0 0 0 rgba(255, 122, 41, 0.5);
+  animation: badgePulse 2.2s ease-out infinite;
+}
+@keyframes badgePulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 122, 41, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 122, 41, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 122, 41, 0); }
+}
+
+.procedure-heading h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 18px 0 14px;
+}
+.procedure-heading h2 span {
+  color: var(--route-amber);
+}
+.procedure-heading p {
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FLOATING IMAGE
+   ========================================================= */
+.procedure-floating-image {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 64px;
+  animation: floatY 5s ease-in-out infinite;
+}
+.procedure-floating-image img {
+  max-width: 220px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.floating-sparkle {
+  position: absolute;
+  color: var(--route-amber);
+  animation: sparklePulse 2.4s ease-in-out infinite;
+}
+.sparkle-one { top: -10px; right: -12px; animation-delay: 0.2s; }
+.sparkle-two { bottom: 6px; left: -14px; animation-delay: 1s; color: var(--signal-green); }
+@keyframes sparklePulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.85) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(12deg); }
+}
+
+/* =========================================================
+   ROUTE / TIMELINE
+   ========================================================= */
+.procedure-timeline {
+  position: relative;
+  padding: 20px 0 10px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--line) 0,
+    var(--line) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  border-radius: 3px;
+  z-index: 0;
+}
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, var(--route-amber), var(--signal-green));
+  border-radius: 3px;
+  transition: height 0.15s linear;
+}
+
+.route-marker {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper-raised);
+  color: var(--route-amber);
+  border: 2px solid var(--route-amber);
+  box-shadow: var(--shadow-sm);
+  transition: top 0.15s linear;
+}
+.route-marker-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--route-amber);
+  opacity: 0.5;
+  animation: markerRing 1.8s ease-out infinite;
+}
+@keyframes markerRing {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.procedure-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  min-height: 200px;
+  margin-bottom: 12px;
+}
+.row-left .procedure-card-wrapper { grid-column: 1; justify-self: end; }
+.row-right .procedure-card-wrapper { grid-column: 3; justify-self: start; }
+.timeline-number { grid-column: 2; }
+
+.timeline-number {
+  position: relative;
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  box-shadow: var(--shadow-sm);
+}
+.timeline-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--line);
+}
+
+.procedure-card-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.procedure-card {
+  position: relative;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+.procedure-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--route-amber);
+}
+.procedure-card:hover .procedure-icon {
+  background: var(--route-amber);
+  color: #fff;
+  transform: rotate(-8deg) scale(1.05);
+}
+.procedure-card:hover .step-label svg {
+  transform: translateX(4px);
+}
+.procedure-card:hover .card-shine {
+  transform: translateX(120%);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.procedure-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--route-amber);
+  border: 1px solid var(--line);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, color 0.4s ease;
+}
+.big-number {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--line);
+}
+
+.waypoint-code {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--signal-green);
+  background: rgba(23, 163, 74, 0.1);
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.procedure-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.procedure-card h4 {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--route-amber);
+  margin-bottom: 10px;
+}
+.procedure-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+
+.step-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.step-label svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+.procedure-cta {
+  position: relative;
+  margin-top: 80px;
+  padding: 56px 40px;
+  border-radius: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  overflow: hidden;
+}
+.cta-decoration {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 122, 41, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(23, 163, 74, 0.22), transparent 55%);
+  animation: ctaGlow 8s ease-in-out infinite;
+}
+@keyframes ctaGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.procedure-cta h3 {
+  position: relative;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.procedure-cta h3 span {
+  color: var(--route-amber);
+}
+.procedure-cta p {
+  position: relative;
+  color: rgba(247, 246, 241, 0.72);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.procedure-cta button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--route-amber);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  box-shadow: 0 12px 30px -10px rgba(255, 122, 41, 0.55);
+}
+.procedure-cta button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 18px 40px -10px rgba(255, 122, 41, 0.7);
+}
+.procedure-cta button svg {
+  transition: transform 0.3s ease;
+}
+.procedure-cta button:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 860px) {
+  .procedure-row {
+    grid-template-columns: 44px 1fr;
+    min-height: unset;
+    margin-bottom: 28px;
+  }
+  .timeline-line,
+  .route-marker { left: 22px; }
+  .timeline-number { grid-column: 1; width: 44px; height: 44px; font-size: 13px; }
+  .row-left .procedure-card-wrapper,
+  .row-right .procedure-card-wrapper {
+    grid-column: 2;
+    justify-self: stretch;
+    max-width: 100%;
+  }
+  .procedure-cta { padding: 40px 24px; }
+}
+
+/* =========================================================
+   ACCESSIBILITY: reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .procedure-bg-one,
+  .procedure-bg-two,
+  .badge-dot,
+  .procedure-floating-image,
+  .floating-sparkle,
+  .route-marker-pulse,
+  .cta-decoration {
+    animation: none !important;
+  }
+  .procedure-reveal {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .procedure-card,
+  .procedure-icon,
+  .procedure-cta button {
+    transition: none !important;
+  }
+}
