@@ -1,0 +1,111 @@
+/* Shares design tokens with DropshyLanding.css — import both in the page. */
+
+.dropshy .info-section{padding:88px 0;}
+.dropshy .info-section + .info-section{border-top:1px solid var(--line);}
+
+/* ---------- BENEFITS ---------- */
+.dropshy .benefit-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.dropshy .benefit-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:26px 24px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.dropshy .benefit-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 44px -28px rgba(15,51,87,0.35);
+  border-color:rgba(47,155,224,0.3);
+}
+.dropshy .benefit-icon{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:#fff;
+}
+.dropshy .benefit-card p{margin:0;font-size:14.5px;color:var(--muted);font-weight:500;line-height:1.5;color:var(--navy);}
+@media (max-width:900px){.dropshy .benefit-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.dropshy .benefit-grid{grid-template-columns:1fr;}}
+
+/* ---------- FAQ ---------- */
+.dropshy .faq-list{display:flex;flex-direction:column;gap:12px;max-width:760px;}
+.dropshy .faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  transition:border-color .25s ease;
+}
+.dropshy .faq-item.open{border-color:rgba(47,155,224,0.4);}
+.dropshy .faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:20px 24px;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:'Inter',sans-serif;font-size:15.5px;font-weight:600;color:var(--navy);
+}
+.dropshy .faq-q .faq-num{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sky-deep);
+  margin-right:12px;
+}
+.dropshy .faq-chevron{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--sky-pale);color:var(--sky-deep);transition:transform .3s ease, background .3s ease, color .3s ease;
+  font-size:14px;
+}
+.dropshy .faq-item.open .faq-chevron{transform:rotate(180deg);background:var(--sky-deep);color:#fff;}
+.dropshy .faq-a-wrap{
+  display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;
+}
+.dropshy .faq-item.open .faq-a-wrap{grid-template-rows:1fr;}
+.dropshy .faq-a-inner{overflow:hidden;}
+.dropshy .faq-a{margin:0;padding:0 24px 22px 62px;font-size:14.5px;color:var(--muted);max-width:600px;}
+
+/* ---------- STEPS ---------- */
+.dropshy .steps-tagline{font-size:16px;color:var(--muted);margin:8px 0 40px;max-width:560px;}
+.dropshy .steps-row{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;
+}
+.dropshy .steps-row::before{
+  content:'';position:absolute;top:23px;left:8%;right:8%;height:2px;
+  background:linear-gradient(90deg,var(--sky),var(--violet),var(--coral),var(--gold));
+  z-index:0;
+}
+.dropshy .step-item{
+  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:0 8px;
+}
+.dropshy .step-circle{
+  width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;
+  font-weight:600;font-size:15px;color:var(--navy);margin-bottom:14px;
+  transition:transform .3s ease, border-color .3s ease, background .3s ease, color .3s ease;
+}
+.dropshy .step-item:hover .step-circle{
+  transform:translateY(-4px) scale(1.06);
+  background:linear-gradient(135deg,var(--sky),var(--violet));border-color:transparent;color:#fff;
+}
+.dropshy .step-item:last-child .step-circle{background:linear-gradient(135deg,var(--gold),var(--coral));border-color:transparent;color:#241000;}
+.dropshy .step-label{font-size:13.5px;font-weight:600;color:var(--navy);}
+@media (max-width:900px){
+  .dropshy .steps-row{grid-template-columns:repeat(3,1fr);row-gap:32px;}
+  .dropshy .steps-row::before{display:none;}
+}
+@media (max-width:520px){
+  .dropshy .steps-row{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---------- FINAL CTA / CALL BAR ---------- */
+.dropshy .call-section{
+  position:relative;overflow:hidden;padding:64px 0;
+  background:linear-gradient(120deg,var(--navy-deep) 0%,var(--sky-deep) 55%,var(--violet) 130%);
+}
+.dropshy .call-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,0.14) 1.4px, transparent 1.4px);
+  background-size:18px 18px;opacity:.5;
+}
+.dropshy .call-inner{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.dropshy .call-inner h2{color:#fff;font-size:clamp(24px,3.6vw,36px);max-width:640px;}
+.dropshy .call-inner p{color:rgba(255,255,255,0.78);font-size:15.5px;max-width:520px;margin:0;}
+.dropshy .call-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;color:var(--navy);font-family:'Sora',sans-serif;font-weight:700;
+  font-size:19px;padding:16px 30px;border-radius:14px;text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.dropshy .call-btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.4);}
+.dropshy .call-btn i{font-size:20px;color:var(--coral);}

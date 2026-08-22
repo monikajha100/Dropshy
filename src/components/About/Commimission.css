@@ -1,45 +1,97 @@
+
 /* =========================================================
    COMMITMENT / MISSION / VISION
+   HERO STYLE FONT + COLOR THEME
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+
+/* =========================================================
+   SECTION
 ========================================================= */
 
 .cmv-section {
+  --sky: #0ea5e9;
+  --sky-dark: #0284c7;
+  --sky-light: #7dd3fc;
+  --sky-pale: #e0f2fe;
+
+  --navy: #0c3b5e;
+
+  --yellow: #facc15;
+  --yellow-dark: #eab308;
+  --yellow-soft: #fef9c3;
+
+  --white: #ffffff;
+  --ink: #103450;
+
+  --font-display: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
   width: 100%;
   position: relative;
+
   padding: 110px 0 120px;
-  background: #ffffff;
+
+  background: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    var(--sky-pale) 100%
+  );
+
   overflow: hidden;
-  color: #111111;
+
+  color: var(--ink);
+
+  font-family: var(--font-body);
 }
 
-/* Soft background glow */
+
+/* =========================================================
+   SOFT BACKGROUND GLOW
+========================================================= */
 
 .cmv-section::before {
   content: "";
+
   position: absolute;
+
   width: 500px;
   height: 500px;
+
   top: -250px;
   left: -180px;
+
   background: radial-gradient(
-    circle,
-    rgba(72, 139, 255, 0.09),
+    circle at 30% 30%,
+    rgba(125, 211, 252, 0.35),
+    rgba(14, 165, 233, 0.08),
     transparent 70%
   );
+
   pointer-events: none;
 }
 
+
 .cmv-section::after {
   content: "";
+
   position: absolute;
+
   width: 450px;
   height: 450px;
+
   bottom: -220px;
   right: -180px;
+
   background: radial-gradient(
-    circle,
-    rgba(72, 139, 255, 0.07),
+    circle at 40% 40%,
+    rgba(254, 249, 195, 0.55),
+    rgba(250, 204, 21, 0.10),
     transparent 70%
   );
+
   pointer-events: none;
 }
 
@@ -51,9 +103,12 @@
 .cmv-container {
   width: 100%;
   max-width: 1320px;
+
   margin: 0 auto;
   padding: 0 30px;
+
   box-sizing: border-box;
+
   position: relative;
   z-index: 2;
 }
@@ -65,61 +120,115 @@
 
 .cmv-heading {
   max-width: 820px;
+
   margin: 0 auto 70px;
+
   text-align: center;
 
   opacity: 0;
+
   transform: translateY(45px);
+
   transition:
     opacity 0.9s ease,
     transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 
 .cmv-visible .cmv-heading {
   opacity: 1;
   transform: translateY(0);
 }
 
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
 .cmv-eyebrow {
   display: inline-flex;
   align-items: center;
+
   gap: 10px;
 
+  font-family: var(--font-body);
+
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2.5px;
-  color: #3478f6;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: var(--sky-dark);
+
   margin-bottom: 18px;
 }
+
 
 .cmv-eyebrow::before,
 .cmv-eyebrow::after {
   content: "";
+
   width: 24px;
   height: 1px;
-  background: #3478f6;
+
+  background: var(--sky);
 }
+
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
 
 .cmv-heading h2 {
   margin: 0;
+
+  font-family: var(--font-display);
+
   font-size: clamp(38px, 5vw, 68px);
+
   line-height: 1.05;
-  letter-spacing: -2.8px;
+
+  letter-spacing: -0.025em;
+
   font-weight: 800;
-  color: #111111;
+
+  color: var(--navy);
 }
 
+
 .cmv-heading h2 span {
-  color: #3478f6;
+  background: linear-gradient(
+    90deg,
+    var(--sky-dark),
+    var(--sky) 55%,
+    var(--yellow-dark)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
+
+
+/* =========================================================
+   HEADING DESCRIPTION
+========================================================= */
 
 .cmv-heading p {
   max-width: 690px;
+
   margin: 24px auto 0;
 
+  font-family: var(--font-body);
+
   font-size: 17px;
+
   line-height: 1.8;
-  color: #707070;
+
+  color: #3c5a72;
 }
 
 
@@ -129,8 +238,11 @@
 
 .cmv-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 24px;
+
   align-items: stretch;
 }
 
@@ -141,18 +253,19 @@
 
 .cmv-card {
   min-height: 520px;
+
   position: relative;
 
   padding: 34px 32px 28px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 1),
-      rgba(249, 251, 255, 1)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(224, 242, 254, 0.45)
+  );
 
-  border: 1px solid #e8ecf3;
+  border: 1px solid rgba(125, 211, 252, 0.35);
+
   border-radius: 26px;
 
   overflow: hidden;
@@ -161,9 +274,10 @@
   flex-direction: column;
 
   box-shadow:
-    0 10px 35px rgba(15, 30, 55, 0.05);
+    0 10px 35px rgba(12, 59, 94, 0.07);
 
   opacity: 0;
+
   transform: translateY(80px);
 
   transition:
@@ -174,7 +288,9 @@
 }
 
 
-/* Stagger */
+/* =========================================================
+   STAGGER
+========================================================= */
 
 .cmv-card-1 {
   transition-delay: 0.15s;
@@ -188,8 +304,10 @@
   transition-delay: 0.45s;
 }
 
+
 .cmv-visible .cmv-card {
   opacity: 1;
+
   transform: translateY(0);
 }
 
@@ -201,10 +319,10 @@
 .cmv-card:hover {
   transform: translateY(-12px) !important;
 
-  border-color: rgba(52, 120, 246, 0.35);
+  border-color: rgba(14, 165, 233, 0.45);
 
   box-shadow:
-    0 25px 60px rgba(24, 54, 100, 0.12);
+    0 25px 60px rgba(12, 59, 94, 0.14);
 }
 
 
@@ -214,9 +332,13 @@
 
 .cmv-card-top {
   display: flex;
+
   align-items: center;
+
   gap: 14px;
+
   position: relative;
+
   z-index: 2;
 }
 
@@ -230,30 +352,38 @@
   height: 54px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 16px;
 
-  background: #edf4ff;
-  color: #3478f6;
+  background: var(--sky-pale);
+
+  color: var(--sky-dark);
+
+  font-family: var(--font-display);
 
   font-size: 25px;
+
   font-weight: 700;
 
   box-shadow:
-    inset 0 0 0 1px rgba(52, 120, 246, 0.08);
+    inset 0 0 0 1px rgba(14, 165, 233, 0.12);
 
   animation: cmvFloat 3s ease-in-out infinite;
 }
+
 
 .cmv-card-2 .cmv-icon {
   animation-delay: 0.7s;
 }
 
+
 .cmv-card-3 .cmv-icon {
   animation-delay: 1.3s;
 }
+
 
 @keyframes cmvFloat {
   0%,
@@ -272,10 +402,17 @@
 ========================================================= */
 
 .cmv-label {
+  font-family: var(--font-body);
+
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #777777;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: var(--sky-dark);
 }
 
 
@@ -285,17 +422,22 @@
 
 .cmv-number {
   position: absolute;
+
   top: -22px;
   right: -8px;
 
+  font-family: var(--font-display);
+
   font-size: 150px;
+
   line-height: 1;
 
-  font-weight: 900;
+  font-weight: 800;
 
-  color: rgba(52, 120, 246, 0.035);
+  color: rgba(14, 165, 233, 0.055);
 
   pointer-events: none;
+
   user-select: none;
 
   transition:
@@ -303,9 +445,11 @@
     color 0.5s ease;
 }
 
+
 .cmv-card:hover .cmv-number {
   transform: translate(-10px, 8px);
-  color: rgba(52, 120, 246, 0.065);
+
+  color: rgba(14, 165, 233, 0.09);
 }
 
 
@@ -315,40 +459,57 @@
 
 .cmv-content {
   position: relative;
+
   z-index: 2;
 
   margin-top: 55px;
+
   flex: 1;
 }
+
 
 .cmv-content h3 {
   margin: 0 0 18px;
 
   max-width: 330px;
 
-  font-size: 28px;
-  line-height: 1.2;
-  letter-spacing: -0.8px;
+  font-family: var(--font-display);
 
-  color: #151515;
+  font-size: 28px;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.015em;
+
+  font-weight: 700;
+
+  color: var(--navy);
 }
+
 
 .cmv-main-text {
   margin: 0;
 
+  font-family: var(--font-body);
+
   font-size: 15px;
+
   line-height: 1.75;
 
-  color: #555555;
+  color: #3c5a72;
 }
+
 
 .cmv-bottom-text {
   margin: 20px 0 0;
 
+  font-family: var(--font-body);
+
   font-size: 14px;
+
   line-height: 1.7;
 
-  color: #7b7b7b;
+  color: #648097;
 }
 
 
@@ -358,38 +519,60 @@
 
 .cmv-card-footer {
   position: relative;
+
   z-index: 2;
 
   display: flex;
+
   align-items: center;
+
   gap: 12px;
 
   margin-top: 30px;
 
+  font-family: var(--font-body);
+
   font-size: 10px;
-  font-weight: 800;
-  color: #999999;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  color: #6f8aa0;
 }
+
 
 .cmv-line {
   height: 1px;
+
   flex: 1;
-  background: #e3e7ed;
+
+  background: var(--sky-pale);
+
   position: relative;
+
   overflow: hidden;
 }
 
+
 .cmv-line span {
   position: absolute;
+
   inset: 0;
 
   width: 35%;
 
-  background: #3478f6;
+  background: linear-gradient(
+    90deg,
+    var(--sky),
+    var(--yellow)
+  );
 
   transform: translateX(-100%);
+
   transition: transform 0.5s ease;
 }
+
 
 .cmv-card:hover .cmv-line span {
   transform: translateX(0);
@@ -404,23 +587,31 @@
   position: absolute;
 
   right: 27px;
+
   bottom: 24px;
 
   width: 40px;
+
   height: 40px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
 
-  background: #111111;
-  color: #ffffff;
+  background: var(--navy);
+
+  color: var(--white);
+
+  font-family: var(--font-display);
 
   font-size: 18px;
 
   opacity: 0;
+
   transform: translate(-8px, 8px);
 
   transition:
@@ -429,13 +620,16 @@
     background 0.35s ease;
 }
 
+
 .cmv-card:hover .cmv-arrow {
   opacity: 1;
+
   transform: translate(0, 0);
 }
 
+
 .cmv-arrow:hover {
-  background: #3478f6;
+  background: var(--sky-dark);
 }
 
 
@@ -452,15 +646,23 @@
   left: 0;
 
   width: 100%;
+
   height: 3px;
 
-  background: #3478f6;
+  background: linear-gradient(
+    90deg,
+    var(--sky-dark),
+    var(--sky),
+    var(--yellow)
+  );
 
   transform: scaleX(0);
+
   transform-origin: left;
 
   transition: transform 0.5s ease;
 }
+
 
 .cmv-card:hover::before {
   transform: scaleX(1);
@@ -479,7 +681,9 @@
 
   .cmv-grid {
     grid-template-columns: 1fr;
+
     max-width: 700px;
+
     margin: 0 auto;
   }
 
@@ -514,16 +718,19 @@
 
   .cmv-eyebrow {
     font-size: 10px;
-    letter-spacing: 1.8px;
+
+    letter-spacing: 0.12em;
   }
 
   .cmv-heading h2 {
     font-size: 39px;
-    letter-spacing: -1.8px;
+
+    letter-spacing: -0.02em;
   }
 
   .cmv-heading p {
     font-size: 15px;
+
     line-height: 1.7;
   }
 
@@ -533,20 +740,25 @@
 
   .cmv-card {
     min-height: 460px;
+
     padding: 27px 24px 25px;
+
     border-radius: 22px;
   }
 
   .cmv-icon {
     width: 48px;
     height: 48px;
+
     border-radius: 14px;
+
     font-size: 21px;
   }
 
   .cmv-label {
     font-size: 9px;
-    letter-spacing: 1.5px;
+
+    letter-spacing: 0.11em;
   }
 
   .cmv-number {
@@ -563,6 +775,7 @@
 
   .cmv-main-text {
     font-size: 14px;
+
     line-height: 1.7;
   }
 
@@ -572,10 +785,15 @@
 
   .cmv-arrow {
     opacity: 1;
+
     transform: none;
+
     width: 36px;
     height: 36px;
+
     right: 22px;
     bottom: 20px;
   }
+
 }
+

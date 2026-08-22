@@ -5,6 +5,8 @@ import Commitmission from "../components/About/Commitmission";
 import Product from "../components/About/Product";
 import FAQ from "../components/About/Faq";
 import National from "../components/About/National";
+import Footer from "../components/About/Footer";
+import DropshyInfo from "../components/About/Dropshyinfo";
 
 const About = () => {
   return (
@@ -15,6 +17,8 @@ const About = () => {
       <Product />
       <FAQ />
       <National />
+      {/* <DropshyInfo /> */}
+      <Footer />
     </>
   );
 };
