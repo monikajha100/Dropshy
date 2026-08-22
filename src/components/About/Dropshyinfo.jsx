@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./DropshyLanding.css";
-import "./DropshyInfo.css";
+import "./Dropshylanding.css";
+import "./Dropshyinfo.css";
 
 const benefits = [
   { icon: "ti-building-warehouse", glow: "#2F9BE0", text: "No need to maintain a large warehouse" },
