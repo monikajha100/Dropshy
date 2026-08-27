@@ -8,35 +8,74 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Dropsyservice from "./pages/Dropsyservice";
 
-// National E-Commerce Page
+// E-Commerce Pages
 import Nationalecommerce from "./components/dropsyservice/Nationalecommerce";
 import Internationalecommerce from "./components/dropsyservice/Internationalecommerce";
+
+// Contact Us
+import Contactus from "./components/Contactus/Contactus";
 
 function App() {
   const path = window.location.pathname;
 
   let Page;
 
+  // =========================
+  // HOME
+  // =========================
   if (path === "/") {
     Page = Home;
   }
 
+  // =========================
+  // ABOUT
+  // =========================
   else if (path === "/about") {
     Page = About;
   }
 
-  else if (path === "/service" || path === "/services") {
+  // =========================
+  // SERVICES
+  // =========================
+  else if (
+    path === "/service" ||
+    path === "/services"
+  ) {
     Page = Dropsyservice;
   }
 
-  // National E-Commerce
-  else if (path === "/services/national-ecommerce") {
+  // =========================
+  // NATIONAL E-COMMERCE
+  // =========================
+  else if (
+    path === "/services/national-ecommerce"
+  ) {
     Page = Nationalecommerce;
   }
-  else if (path === "/services/international-ecommerce") {
+
+  // =========================
+  // INTERNATIONAL E-COMMERCE
+  // =========================
+  else if (
+    path === "/services/international-ecommerce"
+  ) {
     Page = Internationalecommerce;
   }
 
+  // =========================
+  // CONTACT US
+  // =========================
+  else if (
+    path === "/contactus" ||
+    path === "/contact" ||
+    path === "/contact-us"
+  ) {
+    Page = Contactus;
+  }
+
+  // =========================
+  // DEFAULT
+  // =========================
   else {
     Page = Home;
   }

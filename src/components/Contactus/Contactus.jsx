@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import "./ContactUs.css";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+  Send,
+  Clock,
+  MessageCircle,
+  CheckCircle2,
+} from "lucide-react";
+import "./Contactus.css";
 
-const ContactUs = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    mobile: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -13,774 +23,312 @@ const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setSubmitted(true);
-
-    setFormData({
-      name: "",
-      mobile: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
 
     setTimeout(() => {
       setSubmitted(false);
-    }, 5000);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    }, 3000);
   };
 
   return (
     <main className="contact-page">
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
+      {/* Background Elements */}
+      <div className="contact-glow contact-glow-one"></div>
+      <div className="contact-glow contact-glow-two"></div>
 
+      {/* HERO */}
       <section className="contact-hero">
-
-        <div className="contact-hero-glow glow-one"></div>
-        <div className="contact-hero-glow glow-two"></div>
-
         <div className="contact-hero-inner">
 
-          <div className="contact-hero-content">
-
-            <span className="contact-eyebrow">
-              CONTACT DROPSHY
-            </span>
-
-            <h1>
-              Let's Build Your
-              <span> E-Commerce Journey </span>
-              Together
-            </h1>
-
-            <p>
-              Have a question, need seller support, or want to know how
-              DROPSHY can help you start your online business?
-              Our team is here to help you take the next step.
-            </p>
-
-            <div className="contact-hero-points">
-
-              <div>
-                <span className="point-icon">✓</span>
-                <span>Seller Support</span>
-              </div>
-
-              <div>
-                <span className="point-icon">✓</span>
-                <span>E-Commerce Guidance</span>
-              </div>
-
-              <div>
-                <span className="point-icon">✓</span>
-                <span>Business Assistance</span>
-              </div>
-
-            </div>
-
+          <div className="contact-badge">
+            <span className="badge-dot"></span>
+            WE'D LOVE TO HEAR FROM YOU
           </div>
 
-          <div className="contact-hero-card">
+          <h1>
+            Let's Build Something
+            <span> Great Together.</span>
+          </h1>
 
-            <div className="hero-card-top">
-
-              <div className="hero-card-icon">
-                💬
-              </div>
-
-              <div>
-                <span>Need Assistance?</span>
-                <strong>We're Here For You</strong>
-              </div>
-
-            </div>
-
-            <div className="hero-card-line"></div>
-
-            <p>
-              Connect with the DROPSHY team and get the guidance
-              you need to start, manage and grow your online business.
-            </p>
-
-            <a href="#contact-form" className="hero-card-button">
-              Talk to Our Team
-              <span>→</span>
-            </a>
-
-          </div>
+          <p>
+            Have a question, need help with your store, or want to explore
+            Dropsy services? Our team is here to help you move forward.
+          </p>
 
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          CONTACT INFO
-      ===================================================== */}
-
-      <section className="contact-info-section">
-
+      {/* MAIN CONTACT */}
+      <section className="contact-main">
         <div className="contact-container">
 
-          <div className="section-heading center-heading">
+          {/* LEFT */}
+          <div className="contact-left">
 
-            <span className="small-label">
+            <div className="section-label">
+              <span></span>
               GET IN TOUCH
-            </span>
+            </div>
 
             <h2>
-              We're Just a Message Away
+              We're here to
+              <br />
+              <span>help you grow.</span>
             </h2>
 
-            <p>
-              Whether you're starting your first online business or
-              looking to scale your existing store, our team is ready
-              to assist you.
+            <p className="contact-description">
+              Whether you're starting your first online store or scaling an
+              existing e-commerce business, reach out to our team and we'll
+              help you find the right solution.
             </p>
 
-          </div>
+            {/* CONTACT CARDS */}
+            <div className="contact-info-list">
 
+              <a
+                href="mailto:hello@dropsy.com"
+                className="contact-info-card"
+              >
+                <div className="contact-icon">
+                  <Mail size={22} />
+                </div>
 
-          <div className="contact-info-grid">
+                <div>
+                  <small>Email us</small>
+                  <strong>hello@dropsy.com</strong>
+                </div>
 
-            {/* PHONE */}
+                <ArrowUpRight className="info-arrow" size={20} />
+              </a>
 
-            <div className="contact-info-card">
+              <a
+                href="tel:+919876543210"
+                className="contact-info-card"
+              >
+                <div className="contact-icon">
+                  <Phone size={22} />
+                </div>
 
-              <div className="info-icon">
-                📞
-              </div>
+                <div>
+                  <small>Call us</small>
+                  <strong>+91 98765 43210</strong>
+                </div>
 
-              <div>
-                <span>Call Us</span>
+                <ArrowUpRight className="info-arrow" size={20} />
+              </a>
 
-                <h3>
-                  +91 XXXXX XXXXX
-                </h3>
+              <div className="contact-info-card">
+                <div className="contact-icon">
+                  <MapPin size={22} />
+                </div>
 
-                <p>
-                  Speak with our support team
-                </p>
-              </div>
-
-              <div className="info-arrow">
-                →
-              </div>
-
-            </div>
-
-
-            {/* EMAIL */}
-
-            <div className="contact-info-card">
-
-              <div className="info-icon">
-                ✉️
-              </div>
-
-              <div>
-                <span>Email Us</span>
-
-                <h3>
-                  support@dropshy.com
-                </h3>
-
-                <p>
-                  Send us your query anytime
-                </p>
-              </div>
-
-              <div className="info-arrow">
-                →
+                <div>
+                  <small>Our office</small>
+                  <strong>New Delhi, India</strong>
+                </div>
               </div>
 
             </div>
 
-
-            {/* WHATSAPP */}
-
-            <div className="contact-info-card">
-
-              <div className="info-icon">
-                💬
+            {/* AVAILABILITY */}
+            <div className="availability-card">
+              <div className="availability-icon">
+                <Clock size={20} />
               </div>
 
               <div>
-                <span>WhatsApp</span>
-
-                <h3>
-                  Chat With Us
-                </h3>
-
-                <p>
-                  Quick assistance from our team
-                </p>
+                <strong>We're available</strong>
+                <p>Monday – Saturday · 10:00 AM – 7:00 PM</p>
               </div>
 
-              <div className="info-arrow">
-                →
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          MAIN CONTACT AREA
-      ===================================================== */}
-
-      <section
-        className="contact-main-section"
-        id="contact-form"
-      >
-
-        <div className="contact-container">
-
-          <div className="contact-main-grid">
-
-
-            {/* LEFT CONTENT */}
-
-            <div className="contact-left">
-
-              <span className="small-label">
-                HAVE A QUESTION?
+              <span className="online-status">
+                <i></i>
+                Online
               </span>
-
-              <h2>
-                Tell Us How
-                <span> We Can Help</span>
-              </h2>
-
-              <p>
-                Fill out the form and our team will get back to you
-                with the right information and guidance.
-              </p>
-
-
-              <div className="contact-benefits">
-
-                <div className="benefit-item">
-
-                  <div className="benefit-number">
-                    01
-                  </div>
-
-                  <div>
-                    <h4>
-                      Share Your Requirement
-                    </h4>
-
-                    <p>
-                      Tell us what you need help with.
-                    </p>
-                  </div>
-
-                </div>
-
-
-                <div className="benefit-item">
-
-                  <div className="benefit-number">
-                    02
-                  </div>
-
-                  <div>
-                    <h4>
-                      Our Team Connects
-                    </h4>
-
-                    <p>
-                      A DROPSHY representative will review your query.
-                    </p>
-                  </div>
-
-                </div>
-
-
-                <div className="benefit-item">
-
-                  <div className="benefit-number">
-                    03
-                  </div>
-
-                  <div>
-                    <h4>
-                      Get the Right Guidance
-                    </h4>
-
-                    <p>
-                      We'll help you understand the next steps.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
             </div>
 
+          </div>
 
-            {/* FORM */}
+          {/* RIGHT FORM */}
+          <div className="contact-form-wrapper">
 
-            <div className="contact-form-card">
+            <div className="form-top">
+              <div>
+                <span>CONTACT FORM</span>
+                <h3>Tell us about your project.</h3>
+              </div>
 
-              <div className="form-header">
+              <MessageCircle size={30} />
+            </div>
 
-                <span>
-                  CONTACT FORM
-                </span>
+            {submitted ? (
+              <div className="success-message">
 
-                <h3>
-                  Send Us a Message
-                </h3>
+                <div className="success-icon">
+                  <CheckCircle2 size={48} />
+                </div>
+
+                <h3>Message Sent!</h3>
 
                 <p>
-                  We'll get back to you as soon as possible.
+                  Thanks for reaching out. Our team will get back to you
+                  shortly.
                 </p>
 
               </div>
-
-
-              {submitted && (
-                <div className="success-message">
-                  <span>✓</span>
-
-                  <div>
-                    <strong>
-                      Message Sent Successfully!
-                    </strong>
-
-                    <p>
-                      Thank you for contacting DROPSHY.
-                      Our team will get in touch with you.
-                    </p>
-                  </div>
-                </div>
-              )}
-
-
+            ) : (
               <form onSubmit={handleSubmit}>
 
                 <div className="form-row">
 
-                  <div className="form-group">
-
-                    <label>
-                      Full Name
-                    </label>
-
+                  <div className="input-group">
+                    <label>Your Name</label>
                     <input
                       type="text"
                       name="name"
+                      placeholder="John Doe"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Enter your name"
                       required
                     />
-
                   </div>
 
+                  <div className="input-group">
+                    <label>Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
 
-                  <div className="form-group">
+                </div>
 
-                    <label>
-                      Mobile Number
-                    </label>
+                <div className="form-row">
 
+                  <div className="input-group">
+                    <label>Phone Number</label>
                     <input
                       type="tel"
-                      name="mobile"
-                      value={formData.mobile}
+                      name="phone"
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Enter mobile number"
-                      required
                     />
+                  </div>
 
+                  <div className="input-group">
+                    <label>Subject</label>
+
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Select a subject</option>
+                      <option value="dropshipping">
+                        Dropshipping
+                      </option>
+                      <option value="ecommerce">
+                        E-Commerce Services
+                      </option>
+                      <option value="seller">
+                        Seller Registration
+                      </option>
+                      <option value="partnership">
+                        Partnership
+                      </option>
+                      <option value="support">
+                        General Support
+                      </option>
+                    </select>
                   </div>
 
                 </div>
 
-
-                <div className="form-group">
-
-                  <label>
-                    Email Address
-                  </label>
-
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Enter your email"
-                    required
-                  />
-
-                </div>
-
-
-                <div className="form-group">
-
-                  <label>
-                    How Can We Help?
-                  </label>
-
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                  >
-
-                    <option value="">
-                      Select a subject
-                    </option>
-
-                    <option value="national">
-                      National E-Commerce
-                    </option>
-
-                    <option value="international">
-                      International E-Commerce
-                    </option>
-
-                    <option value="website">
-                      Website E-Commerce
-                    </option>
-
-                    <option value="products">
-                      Products & Catalog
-                    </option>
-
-                    <option value="seller">
-                      Seller Support
-                    </option>
-
-                    <option value="other">
-                      Other Query
-                    </option>
-
-                  </select>
-
-                </div>
-
-
-                <div className="form-group">
-
-                  <label>
-                    Message
-                  </label>
+                <div className="input-group">
+                  <label>Your Message</label>
 
                   <textarea
                     name="message"
+                    rows="6"
+                    placeholder="Tell us how we can help..."
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your requirement..."
-                    rows="5"
                     required
                   ></textarea>
-
                 </div>
 
-
-                <button
-                  type="submit"
-                  className="contact-submit"
-                >
-
-                  Send Message
-
-                  <span>
-                    →
-                  </span>
-
+                <button type="submit" className="submit-btn">
+                  <span>Send Message</span>
+                  <Send size={19} />
                 </button>
 
                 <p className="form-note">
-                  🔒 Your information is safe with us.
+                  By submitting this form, you agree to our terms and privacy
+                  policy.
                 </p>
 
               </form>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          WHY CONTACT DROPSHY
-      ===================================================== */}
-
-      <section className="contact-why-section">
-
-        <div className="contact-container">
-
-          <div className="section-heading">
-
-            <span className="small-label">
-              WHY DROPSHY
-            </span>
-
-            <h2>
-              More Than Just
-              <span> Customer Support</span>
-            </h2>
-
-            <p>
-              We believe entrepreneurs need more than technology.
-              They need guidance, support and a reliable partner
-              throughout their e-commerce journey.
-            </p>
-
-          </div>
-
-
-          <div className="why-grid">
-
-            <div className="why-card">
-
-              <div className="why-number">
-                01
-              </div>
-
-              <div className="why-icon">
-                🚀
-              </div>
-
-              <h3>
-                Start Your Business
-              </h3>
-
-              <p>
-                Get guidance on starting your e-commerce journey
-                with the right products and selling channels.
-              </p>
-
-            </div>
-
-
-            <div className="why-card">
-
-              <div className="why-number">
-                02
-              </div>
-
-              <div className="why-icon">
-                🌐
-              </div>
-
-              <h3>
-                Expand Online
-              </h3>
-
-              <p>
-                Explore national and international e-commerce
-                opportunities for your business.
-              </p>
-
-            </div>
-
-
-            <div className="why-card">
-
-              <div className="why-number">
-                03
-              </div>
-
-              <div className="why-icon">
-                📈
-              </div>
-
-              <h3>
-                Grow With Confidence
-              </h3>
-
-              <p>
-                Get continuous support while you build and grow
-                your online business.
-              </p>
-
-            </div>
-
-
-            <div className="why-card">
-
-              <div className="why-number">
-                04
-              </div>
-
-              <div className="why-icon">
-                🤝
-              </div>
-
-              <h3>
-                Dedicated Support
-              </h3>
-
-              <p>
-                Our team is here to help you understand the process
-                and move forward with confidence.
-              </p>
-
-            </div>
+            )}
 
           </div>
 
         </div>
-
       </section>
 
+      {/* BOTTOM CTA */}
+      <section className="contact-cta">
 
-      {/* =====================================================
-          FAQ
-      ===================================================== */}
+        <div className="cta-content">
 
-      <section className="contact-faq-section">
-
-        <div className="contact-container">
-
-          <div className="section-heading center-heading">
-
-            <span className="small-label">
-              QUICK ANSWERS
-            </span>
-
-            <h2>
-              Frequently Asked Questions
-            </h2>
-
-            <p>
-              Have a quick question? Here are some common things
-              sellers want to know.
-            </p>
-
+          <div className="cta-small">
+            <span></span>
+            READY TO GET STARTED?
           </div>
 
+          <h2>
+            Your next big idea
+            <br />
+            <span>starts here.</span>
+          </h2>
 
-          <div className="faq-list">
+          <p>
+            Join thousands of sellers building and growing their online
+            businesses with Dropsy.
+          </p>
 
-            <details>
-              <summary>
-                How can I start my e-commerce business with DROPSHY?
-                <span>+</span>
-              </summary>
-
-              <p>
-                You can connect with our team through the contact
-                form and share your requirements. Our team can guide
-                you through the available e-commerce solutions.
-              </p>
-
-            </details>
-
-
-            <details>
-              <summary>
-                Does DROPSHY provide national e-commerce solutions?
-                <span>+</span>
-              </summary>
-
-              <p>
-                Yes. DROPSHY provides solutions designed to help
-                sellers explore national e-commerce marketplaces
-                and grow their online business.
-              </p>
-
-            </details>
-
-
-            <details>
-              <summary>
-                Can I sell internationally?
-                <span>+</span>
-              </summary>
-
-              <p>
-                DROPSHY also supports international e-commerce
-                opportunities for sellers who want to explore
-                global marketplaces.
-              </p>
-
-            </details>
-
-
-            <details>
-              <summary>
-                How can I contact the DROPSHY support team?
-                <span>+</span>
-              </summary>
-
-              <p>
-                You can use the contact form on this page or
-                reach out through the contact details provided above.
-              </p>
-
-            </details>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          FINAL CTA
-      ===================================================== */}
-
-      <section className="contact-final-cta">
-
-        <div className="contact-final-glow"></div>
-
-        <div className="contact-container">
-
-          <div className="final-cta-content">
-
-            <span className="small-label">
-              YOUR E-COMMERCE JOURNEY STARTS HERE
-            </span>
-
-            <h2>
-              Ready to Take Your
-              <span> First Step?</span>
-            </h2>
-
-            <p>
-              Talk to DROPSHY today and discover how you can
-              build and grow your online business.
-            </p>
-
-            <a
-              href="#contact-form"
-              className="final-cta-button"
-            >
-              Get in Touch
-              <span>→</span>
-            </a>
-
-          </div>
+          <button
+            className="cta-button"
+            onClick={() =>
+              document
+                .querySelector(".contact-form-wrapper")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Talk to our team
+            <ArrowUpRight size={20} />
+          </button>
 
         </div>
 
@@ -790,4 +338,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;
