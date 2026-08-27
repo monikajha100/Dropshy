@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <>
       {/* //<TopBar /> */}
-      <Navbar />
+    
       <main>
         <Hero />
         <Sponser />
@@ -70,7 +70,7 @@ const Home = () => {
       {/* <Shiprocket/> */}
          <Blog /> 
       </main>
-      <Footer />
+    
     </>
   );
 };

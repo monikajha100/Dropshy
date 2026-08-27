@@ -11,14 +11,14 @@ import DropshyInfo from "../components/About/Dropshyinfo";
 const About = () => {
   return (
     <>
-      <Navbar />
+     
       <Hero />
       <Commitmission />
       <Product />
       <FAQ />
-      <National />
+     {/* // <National /> */}
       {/* <DropshyInfo /> */}
-      <Footer />
+      
     </>
   );
 };

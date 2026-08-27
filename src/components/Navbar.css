@@ -1,182 +1,125 @@
 /* ================================================================
-   NAVBAR & PROMO STRIP — DROPSY
+   DROPSHY NAVBAR
+   CLEAN DROPDOWN DESIGN
    ================================================================ */
-
-
-/* ================================================================
-   PROMO STRIP
-   ================================================================ */
-
-.promo-strip {
-  background: linear-gradient(
-    90deg,
-    rgba(237, 233, 254, 0.85),
-    rgba(255, 244, 249, 0.85)
-  );
-
-  border-bottom: 1px solid rgba(79, 70, 229, 0.14);
-
-  padding: 10px 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 1002;
-}
-
-.promo-strip__inner {
-  width: 100%;
-  max-width: var(--container-max);
-
-  margin: 0 auto;
-
-  padding: 0 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 16px;
-}
-
-.promo-strip__content {
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-}
-
-.promo-strip__icon {
-  font-size: 1rem;
-}
-
-.promo-strip__text {
-  font-size: 0.95rem;
-
-  font-weight: 500;
-
-  color: var(--clr-gray-700);
-
-  line-height: 1.5;
-
-  margin: 0;
-}
-
-.promo-strip__button {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 18px;
-
-  color: var(--clr-primary);
-
-  text-decoration: none;
-
-  border: 1px solid rgba(79, 70, 229, 0.22);
-
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.9);
-
-  font-weight: 700;
-
-  transition:
-    background var(--transition),
-    border-color var(--transition),
-    transform var(--transition);
-
-  white-space: nowrap;
-}
-
-.promo-strip__button:hover {
-  background: rgba(255, 255, 255, 1);
-
-  border-color: rgba(79, 70, 229, 0.34);
-
-  transform: translateY(-1px);
-}
-
 
 /* ================================================================
    NAVBAR
    ================================================================ */
 
-.nav {
+.dropsy-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   width: 100%;
+
+  z-index: 9999;
 
   background: transparent;
 
-  position: relative;
+  border: none;
+  border-radius: 0;
 
-  z-index: 1000;
-}
+  box-shadow: none;
 
-.nav--scrolled {
-  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  box-shadow:
-    0 8px 30px rgba(15, 23, 42, 0.08);
+  transition:
+    top 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
 
 /* ================================================================
-   NAVBAR INNER
+   NAVBAR AFTER SCROLL
    ================================================================ */
 
-.nav__inner {
+.dropsy-navbar-scrolled {
+  top: 10px;
+
+  left: 6%;
+  right: 6%;
+
+  width: 88%;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.10);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: visible;
+}
+
+
+/* ================================================================
+   INNER NAVBAR
+   ================================================================ */
+
+.dropsy-navbar-inner {
+  position: relative;
+
   width: 100%;
 
-  max-width: var(--container-max);
+  max-width: 1440px;
+
+  height: 76px;
 
   margin: 0 auto;
 
-  padding: 0 32px;
-
-  min-height: 82px;
+  padding: 0 28px;
 
   display: flex;
 
   align-items: center;
 
-  justify-content: flex-start;
+  justify-content: space-between;
 
-  gap: 28px;
+  box-sizing: border-box;
 }
 
 
 /* ================================================================
-   BRAND / LOGO
+   LOGO
    ================================================================ */
 
-.nav__brand {
+.dropsy-logo {
   display: flex;
 
   align-items: center;
+  justify-content: flex-start;
 
-  flex-shrink: 0;
+  flex: 0 0 auto;
+
+  width: 180px;
+  height: 70px;
 
   text-decoration: none;
 
-  margin-right: 4px;
+  position: relative;
+
+  z-index: 20;
 }
 
 
-/* Actual Dropsy logo image */
-
-.nav__brand img {
+.dropsy-logo-image {
   width: 250px;
-
-  height: 84px;
+  height: 82px;
 
   object-fit: contain;
 
@@ -184,99 +127,97 @@
 
   display: block;
 
+  transform: translateX(0);
+
   transition:
     transform 0.25s ease;
 }
 
-.nav__brand:hover img {
+
+.dropsy-logo:hover .dropsy-logo-image {
   transform: scale(1.03);
 }
 
 
 /* ================================================================
-   OLD LOGO MARK — HIDDEN
+   CENTER NAVIGATION
    ================================================================ */
 
-.nav__logo-mark {
-  display: none;
-}
+.dropsy-nav-links {
+  position: absolute;
 
-.nav__brand-name {
-  display: none;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  white-space: nowrap;
+
+  z-index: 30;
 }
 
 
 /* ================================================================
-   NAVIGATION WRAPPER
+   NAV ITEM
    ================================================================ */
 
-.nav__links-wrap {
-  flex: 1;
-
-  display: flex;
-
-  justify-content: flex-start;
-
-  align-items: center;
-
-  min-width: 0;
-}
-
-
-/* ================================================================
-   NAVIGATION LINKS
-   ================================================================ */
-
-.nav__links {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-start;
-
-  gap: 8px;
-
-  list-style: none;
-
-  margin: 0;
-
-  padding: 0;
-}
-
-.nav__link-item {
+.dropsy-nav-item {
   position: relative;
+
+  flex-shrink: 0;
 }
 
 
 /* ================================================================
-   LINK + DROPDOWN ARROW
+   NAV LINK ROW
+
+   IMPORTANT:
+   Service ke link aur arrow ko ek hi row mein rakha hai.
+   Isse Service ka extra box nahi banega.
    ================================================================ */
 
-.nav__link-row {
-  display: inline-flex;
+.dropsy-nav-link-row {
+  display: flex;
 
   align-items: center;
 
-  gap: 3px;
+  justify-content: center;
+
+  gap: 0;
+
+  border-radius: 10px;
+
+  background: transparent;
 }
 
 
 /* ================================================================
-   NAV LINK
+   NORMAL NAV LINK
    ================================================================ */
 
-.nav__link {
+.dropsy-nav-link {
   display: inline-flex;
 
   align-items: center;
 
-  padding: 11px 12px;
+  justify-content: center;
 
-  border-radius: 999px;
+  padding: 10px 11px;
 
-  color: var(--clr-gray-700);
+  border: none;
 
-  font-size: 1.05rem;
+  background: transparent;
+
+  color: #374151;
+
+  font-size: 15px;
 
   line-height: 1.2;
 
@@ -286,147 +227,291 @@
 
   white-space: nowrap;
 
+  cursor: pointer;
+
   transition:
-    color var(--transition),
-    background var(--transition);
-}
-
-.nav__link:hover,
-.nav__link:focus-visible {
-  color: var(--clr-primary);
-
-  background: rgba(79, 70, 229, 0.08);
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 
 /* ================================================================
-   DROPDOWN TOGGLE
+   SERVICE / PRODUCTS BUTTON
    ================================================================ */
 
-.nav__dropdown-toggle {
+.dropsy-nav-link-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+/* ================================================================
+   NAV LINK HOVER
+   ================================================================ */
+
+.dropsy-nav-link:hover,
+.dropsy-nav-link:focus-visible {
+  color: #4f46e5;
+
+  background: rgba(79, 70, 229, 0.06);
+
+  border-radius: 8px;
+
+  outline: none;
+}
+
+
+/* ================================================================
+   DROPDOWN ARROW
+
+   IMPORTANT:
+   Arrow ka apna visible box nahi hoga.
+   ================================================================ */
+
+.dropsy-arrow {
+  width: 24px;
+  height: 32px;
+
+  padding: 0;
+
+  margin: 0;
+
   border: none;
+
+  outline: none;
 
   background: transparent;
 
-  color: var(--clr-gray-500);
+  color: #6b7280;
 
   display: inline-flex;
 
   align-items: center;
-  justify-content: center;
 
-  padding: 6px;
+  justify-content: center;
 
   cursor: pointer;
 
+  border-radius: 7px;
+
   transition:
-    transform var(--transition),
-    color var(--transition);
+    transform 0.25s ease,
+    color 0.25s ease,
+    background 0.2s ease;
 }
 
-.nav__dropdown-toggle--open {
+
+.dropsy-arrow:hover {
+  color: #4f46e5;
+
+  background: rgba(79, 70, 229, 0.06);
+}
+
+
+.dropsy-arrow-open {
   transform: rotate(180deg);
 
-  color: var(--clr-primary);
+  color: #4f46e5;
 }
 
 
 /* ================================================================
    DROPDOWN
+
+   CLEAN SINGLE BOX
    ================================================================ */
 
-.nav__dropdown {
+.dropsy-dropdown {
   position: absolute;
 
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
 
-  left: 0;
+  left: 50%;
 
-  min-width: 250px;
+  transform: translateX(-50%);
 
-  max-height: 520px;
+  width: 270px;
+
+  max-height: 480px;
 
   overflow-y: auto;
 
-  padding: 12px;
-
-  border-radius: 20px;
+  padding: 8px;
 
   background: #ffffff;
 
   border: 1px solid rgba(15, 23, 42, 0.08);
 
+  border-radius: 16px;
+
   box-shadow:
-    0 24px 50px rgba(15, 23, 42, 0.12);
+    0 20px 50px rgba(15, 23, 42, 0.14);
 
-  display: grid;
+  display: flex;
 
-  gap: 5px;
+  flex-direction: column;
 
-  z-index: 1000;
+  gap: 2px;
 
-  animation: dropdownShow 0.2s ease;
+  z-index: 10000;
+
+  animation: dropsyDropdownShow 0.18s ease;
 }
 
-@keyframes dropdownShow {
+
+/* ================================================================
+   DROPDOWN SCROLLBAR
+   ================================================================ */
+
+.dropsy-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.dropsy-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.dropsy-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.22);
+
+  border-radius: 20px;
+}
+
+
+/* ================================================================
+   DROPDOWN ANIMATION
+   ================================================================ */
+
+@keyframes dropsyDropdownShow {
+
   from {
     opacity: 0;
 
-    transform: translateY(-5px);
+    transform:
+      translateX(-50%)
+      translateY(-7px);
+
   }
 
   to {
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+      translateX(-50%)
+      translateY(0);
+
   }
+
 }
 
 
 /* ================================================================
    DROPDOWN ITEM
+
+   No individual outer box.
+   Sirf hover background.
    ================================================================ */
 
-.nav__dropdown-item {
-  display: block;
+.dropsy-dropdown-item {
+  width: 100%;
 
-  padding: 12px 14px;
+  min-height: 42px;
 
-  border-radius: 13px;
+  box-sizing: border-box;
 
-  color: var(--clr-gray-700);
+  display: flex;
 
-  font-size: 0.95rem;
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #374151;
+
+  font-size: 13.5px;
+
+  line-height: 1.35;
 
   font-weight: 600;
 
   text-decoration: none;
 
   transition:
-    background var(--transition),
-    color var(--transition);
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.nav__dropdown-item:hover,
-.nav__dropdown-item:focus-visible {
-  background: rgba(79, 70, 229, 0.08);
 
-  color: var(--clr-primary);
+.dropsy-dropdown-item span {
+  flex: 1;
+
+  text-align: left;
+}
+
+
+.dropsy-dropdown-item svg {
+  flex-shrink: 0;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 
 /* ================================================================
-   RIGHT SIDE ACTIONS
+   DROPDOWN ITEM HOVER
    ================================================================ */
 
-.nav__actions {
+.dropsy-dropdown-item:hover,
+.dropsy-dropdown-item:focus-visible {
+  background: rgba(79, 70, 229, 0.07);
+
+  color: #4f46e5;
+
+  outline: none;
+
+  transform: translateX(2px);
+}
+
+
+.dropsy-dropdown-item:hover svg,
+.dropsy-dropdown-item:focus-visible svg {
+  opacity: 1;
+
+  transform: translate(2px, -2px);
+}
+
+
+/* ================================================================
+   RIGHT ACTIONS
+   ================================================================ */
+
+.dropsy-actions {
   display: flex;
 
   align-items: center;
 
-  gap: 12px;
+  gap: 14px;
 
   flex-shrink: 0;
+
+  position: relative;
+
+  z-index: 20;
 }
 
 
@@ -434,159 +519,150 @@
    LOGIN
    ================================================================ */
 
-.nav__login {
-  font-size: 1rem;
+.dropsy-login {
+  color: #374151;
+
+  font-size: 15px;
 
   font-weight: 600;
 
-  color: var(--clr-gray-700);
-
   text-decoration: none;
 
-  padding: 11px 18px;
+  padding: 10px 6px;
 
-  border: 1px solid rgba(79, 70, 229, 0.18);
-
-  border-radius: 999px;
+  white-space: nowrap;
 
   transition:
-    background var(--transition),
-    color var(--transition),
-    border-color var(--transition);
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
-.nav__login:hover,
-.nav__login:focus-visible {
-  background: rgba(79, 70, 229, 0.08);
 
-  color: var(--clr-primary);
-
-  border-color: rgba(79, 70, 229, 0.26);
+.dropsy-login:hover {
+  color: #4f46e5;
 }
 
 
 /* ================================================================
-   GET STARTED BUTTON
+   GET STARTED
    ================================================================ */
 
-.nav__cta-btn {
+.dropsy-cta {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 8px;
+  min-height: 42px;
 
-  padding: 13px 23px;
+  padding: 0 20px;
 
-  min-height: 44px;
-
-  border-radius: 999px;
+  border-radius: 10px;
 
   background:
     linear-gradient(
       135deg,
-      #5b4dff 0%,
-      #7c3aed 100%
+      #4f46e5,
+      #7c3aed
     );
 
   color: #ffffff;
 
-  font-size: 1rem;
+  font-size: 14px;
 
   font-weight: 700;
 
   text-decoration: none;
 
+  white-space: nowrap;
+
   box-shadow:
-    0 16px 36px rgba(79, 70, 229, 0.22);
+    0 8px 20px rgba(79, 70, 229, 0.20);
 
   transition:
-    transform var(--transition),
-    box-shadow var(--transition),
-    opacity var(--transition);
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.nav__cta-btn:hover,
-.nav__cta-btn:focus-visible {
+
+.dropsy-cta:hover {
   transform: translateY(-1px);
 
   box-shadow:
-    0 20px 42px rgba(79, 70, 229, 0.28);
-
-  opacity: 0.96;
+    0 12px 26px rgba(79, 70, 229, 0.28);
 }
 
 
 /* ================================================================
-   MOBILE BURGER
+   MOBILE BUTTON
    ================================================================ */
 
-.nav__burger {
+.dropsy-menu-button {
   display: none;
 
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 5px;
+  margin-left: auto;
 
   width: 44px;
   height: 44px;
 
   border: none;
 
+  outline: none;
+
   background: transparent;
 
   cursor: pointer;
 
-  border-radius: 999px;
+  flex-direction: column;
 
-  padding: 6px;
+  align-items: center;
 
-  transition:
-    background var(--transition);
+  justify-content: center;
 
-  flex-shrink: 0;
+  gap: 5px;
+
+  border-radius: 10px;
 }
 
-.nav__burger:hover {
-  background: rgba(79, 70, 229, 0.08);
+
+.dropsy-menu-button:hover {
+  background: rgba(79, 70, 229, 0.06);
 }
 
-.nav__burger span {
-  display: block;
 
-  width: 24px;
+.dropsy-menu-button span {
+  width: 23px;
 
   height: 2px;
 
-  background: var(--clr-gray-700);
+  border-radius: 5px;
 
-  border-radius: 999px;
+  background: #374151;
 
   transition:
-    transform 0.32s var(--ease),
-    opacity 0.2s,
-    width 0.2s;
-
-  transform-origin: center;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
-.nav__burger--open span:nth-child(1) {
+
+/* ================================================================
+   MOBILE OPEN ICON
+   ================================================================ */
+
+.dropsy-menu-open span:nth-child(1) {
   transform:
     translateY(7px)
     rotate(45deg);
 }
 
-.nav__burger--open span:nth-child(2) {
-  opacity: 0;
 
-  width: 0;
+.dropsy-menu-open span:nth-child(2) {
+  opacity: 0;
 }
 
-.nav__burger--open span:nth-child(3) {
+
+.dropsy-menu-open span:nth-child(3) {
   transform:
     translateY(-7px)
     rotate(-45deg);
@@ -597,12 +673,13 @@
    MOBILE MENU
    ================================================================ */
 
-.nav__mobile {
-  background:
-    rgba(255, 255, 255, 0.98);
+.dropsy-mobile-menu {
+  display: none;
+
+  background: rgba(255, 255, 255, 0.98);
 
   border-top:
-    1px solid rgba(15, 23, 42, 0.08);
+    1px solid rgba(15, 23, 42, 0.07);
 
   max-height: 0;
 
@@ -612,76 +689,137 @@
 
   transition:
     max-height 0.35s ease,
-    opacity 0.35s ease;
+    opacity 0.25s ease;
 }
 
-.nav__mobile--open {
-  max-height: 820px;
+
+.dropsy-mobile-menu-open {
+  max-height: 850px;
 
   opacity: 1;
+
+  overflow-y: auto;
 }
 
 
 /* ================================================================
-   MOBILE LIST
+   MOBILE ITEM
    ================================================================ */
 
-.nav__mobile-list {
-  list-style: none;
-
-  margin: 0;
-
-  padding: 18px 32px 0;
+.dropsy-mobile-item {
+  border-bottom:
+    1px solid rgba(15, 23, 42, 0.06);
 }
 
-.nav__mobile-link {
+
+.dropsy-mobile-item > button {
+  width: 100%;
+
+  min-height: 54px;
+
+  padding: 14px 20px;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #374151;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.dropsy-mobile-item > button:hover {
+  color: #4f46e5;
+
+  background: rgba(79, 70, 229, 0.04);
+}
+
+
+/* ================================================================
+   MOBILE SUBMENU
+   ================================================================ */
+
+.dropsy-mobile-submenu {
+  padding:
+    0 20px 12px 32px;
+
+  background:
+    rgba(79, 70, 229, 0.025);
+}
+
+
+.dropsy-mobile-submenu a {
   display: block;
 
-  padding: 14px 0;
+  padding: 10px 0;
 
-  color: var(--clr-gray-700);
+  color: #6b7280;
+
+  font-size: 14px;
+
+  font-weight: 500;
 
   text-decoration: none;
 
-  font-size: 1rem;
-
-  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
 }
 
-.nav__mobile-link:hover,
-.nav__mobile-link:focus-visible {
-  color: var(--clr-primary);
+
+.dropsy-mobile-submenu a:hover {
+  color: #4f46e5;
+
+  padding-left: 4px;
 }
 
 
 /* ================================================================
-   MOBILE FOOTER
+   MOBILE ACTIONS
    ================================================================ */
 
-.nav__mobile-footer {
+.dropsy-mobile-actions {
   display: flex;
 
   flex-direction: column;
 
   gap: 12px;
 
-  padding: 20px 32px 28px;
+  padding:
+    20px 20px 25px;
 }
 
-.nav__mobile-login {
-  color: var(--clr-gray-700);
+
+.dropsy-mobile-actions > a:first-child {
+  color: #374151;
 
   text-decoration: none;
 
-  font-size: 1rem;
+  font-size: 15px;
 
-  font-weight: 700;
+  font-weight: 600;
+
+  padding: 10px 0;
 }
 
-.nav__cta-btn--full {
+
+.dropsy-mobile-actions .dropsy-cta {
   width: 100%;
 
-  justify-content: center;
+  box-sizing: border-box;
 }
 
 
@@ -689,43 +827,60 @@
    TABLET
    ================================================================ */
 
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
 
-  .nav__inner {
-    padding: 0 24px;
-
-    gap: 20px;
+  .dropsy-navbar-inner {
+    padding: 0 20px;
   }
 
-  .nav__brand img {
-    width: 135px;
 
-    height: 50px;
+  .dropsy-logo {
+    width: 155px;
   }
 
-  .nav__links {
-    gap: 3px;
+
+  .dropsy-logo-image {
+    width: 190px;
+
+    height: 70px;
   }
 
-  .nav__link {
-    font-size: 0.98rem;
 
-    padding: 10px 8px;
+  .dropsy-nav-links {
+    gap: 0;
   }
 
-  .nav__actions {
-    gap: 8px;
+
+  .dropsy-nav-link {
+    font-size: 14px;
+
+    padding:
+      9px 8px;
   }
 
-  .nav__login {
-    padding: 10px 13px;
+
+  .dropsy-arrow {
+    width: 20px;
   }
 
-  .nav__cta-btn {
-    padding: 12px 17px;
 
-    font-size: 0.95rem;
+  .dropsy-actions {
+    gap: 9px;
   }
+
+
+  .dropsy-login {
+    font-size: 14px;
+  }
+
+
+  .dropsy-cta {
+    padding:
+      0 15px;
+
+    font-size: 13px;
+  }
+
 }
 
 
@@ -735,38 +890,103 @@
 
 @media (max-width: 960px) {
 
-  .nav__links-wrap,
-  .nav__actions {
-    display: none;
+  .dropsy-navbar,
+  .dropsy-navbar-scrolled {
+
+    left: 12px;
+
+    right: 12px;
+
+    width: auto;
+
+    top: 10px;
+
+    border-radius: 20px;
+
   }
 
-  .nav__burger {
+
+  .dropsy-navbar {
+
+    background:
+      rgba(255, 255, 255, 0.72);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.55);
+
+    backdrop-filter:
+      blur(16px);
+
+    -webkit-backdrop-filter:
+      blur(16px);
+
+  }
+
+
+  .dropsy-navbar-scrolled {
+
+    background:
+      rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+      0 10px 30px rgba(15, 23, 42, 0.10);
+
+  }
+
+
+  .dropsy-navbar-inner {
+
+    height: 70px;
+
+    padding:
+      0 18px;
+
+  }
+
+
+  .dropsy-nav-links,
+  .dropsy-actions {
+
+    display: none;
+
+  }
+
+
+  .dropsy-logo {
+
+    width: 145px;
+
+    height: 60px;
+
+  }
+
+
+  .dropsy-logo-image {
+
+    width: 155px;
+
+    height: 58px;
+
+  }
+
+
+  .dropsy-menu-button {
+
     display: flex;
 
-    margin-left: auto;
   }
 
-  .nav__inner {
-    min-height: 76px;
 
-    padding: 0 22px;
+  /* ============================================================
+     MOBILE MENU
+     ============================================================ */
+
+  .dropsy-mobile-menu {
+
+    display: block;
+
   }
 
-  .nav__brand img {
-    width: 140px;
-
-    height: 50px;
-  }
-
-  .promo-strip__inner {
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
-    gap: 12px;
-  }
 }
 
 
@@ -774,35 +994,65 @@
    MOBILE
    ================================================================ */
 
-@media (max-width: 760px) {
+@media (max-width: 600px) {
 
-  .nav__inner {
-    padding: 0 20px;
+  .dropsy-navbar,
+  .dropsy-navbar-scrolled {
 
-    min-height: 72px;
+    left: 10px;
+
+    right: 10px;
+
+    top: 8px;
+
+    border-radius: 18px;
+
   }
 
-  .nav__brand img {
+
+  .dropsy-navbar-inner {
+
+    height: 64px;
+
+    padding:
+      0 14px;
+
+  }
+
+
+  .dropsy-logo {
+
     width: 125px;
 
-    height: 46px;
+    height: 52px;
+
   }
 
-  .promo-strip {
-    padding: 10px 0;
+
+  .dropsy-logo-image {
+
+    width: 135px;
+
+    height: 50px;
+
   }
 
-  .promo-strip__inner {
-    padding: 0 16px;
+
+  .dropsy-menu-button {
+
+    width: 40px;
+
+    height: 40px;
+
   }
 
-  .nav__mobile-list {
-    padding: 18px 20px 0;
+
+  .dropsy-mobile-submenu {
+
+    padding-left: 28px;
+
   }
 
-  .nav__mobile-footer {
-    padding: 20px 20px 28px;
-  }
 }
 
 
@@ -810,27 +1060,64 @@
    SMALL MOBILE
    ================================================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
 
-  .nav__inner {
-    padding: 0 16px;
+  .dropsy-navbar-inner {
 
-    min-height: 68px;
+    padding:
+      0 12px;
+
   }
 
-  .nav__brand img {
+
+  .dropsy-logo {
+
     width: 115px;
 
-    height: 42px;
+    height: 48px;
+
   }
 
-  .nav__burger {
-    width: 40px;
 
-    height: 40px;
+  .dropsy-logo-image {
+
+    width: 120px;
+
+    height: 46px;
+
   }
 
-  .nav__mobile-link {
-    font-size: 0.98rem;
+
+  .dropsy-mobile-item > button {
+
+    padding:
+      13px 16px;
+
+    font-size: 14px;
+
   }
+
+
+  .dropsy-mobile-submenu {
+
+    padding-left: 24px;
+
+  }
+
+}
+
+
+/* ================================================================
+   ACCESSIBILITY
+   ================================================================ */
+
+.dropsy-nav-link:focus-visible,
+.dropsy-arrow:focus-visible,
+.dropsy-dropdown-item:focus-visible,
+.dropsy-menu-button:focus-visible,
+.dropsy-mobile-item > button:focus-visible {
+  outline:
+    2px solid rgba(79, 70, 229, 0.45);
+
+  outline-offset: 2px;
 }
