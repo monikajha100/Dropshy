@@ -1,32 +1,107 @@
+import React from "react";
+
+import amazonLogo from "../assets/images/amazon.webp";
+import flipkartLogo from "../assets/images/flipcarts.jpg";
+import meeshoLogo from "../assets/images/meesho.jpg";
+import shopifyLogo from "../assets/images/shopify.svg";
+
+import etsyLogo from "../assets/images/etsy.png";
+import ebayLogo from "../assets/images/ebay.jpg";
+import walmartLogo from "../assets/images/walmart.png";
+import alibabaLogo from "../assets/images/alibaba.jpg";
+
+
+/* =========================================================
+   INDIA MARKETPLACES
+========================================================= */
+
 const indiaMarkets = [
-  { name: "Amazon India", tint: "#FF9900" },
-  { name: "Flipkart", tint: "#2874F0" },
-  { name: "Meesho", tint: "#9F2089" },
-  { name: "Myntra", tint: "#FF3F6C" },
-  { name: "Amazon Business", tint: "#146EB4" },
+  {
+    name: "Amazon",
+    logo: amazonLogo,
+  },
+  {
+    name: "Flipkart",
+    logo: flipkartLogo,
+  },
+  {
+    name: "Meesho",
+    logo: meeshoLogo,
+  },
+  {
+    name: "Shopify",
+    logo: shopifyLogo,
+  },
+  {
+    name: "Amazon",
+    logo: amazonLogo,
+  },
+  {
+    name: "Flipkart",
+    logo: flipkartLogo,
+  },
+  {
+    name: "Meesho",
+    logo: meeshoLogo,
+  },
 ];
+
+
+/* =========================================================
+   GLOBAL MARKETPLACES
+========================================================= */
 
 const globalMarkets = [
-  { name: "Etsy", tint: "#F1641E" },
-  { name: "eBay", tint: "#E53238" },
-  { name: "Amazon USA", tint: "#FF9900" },
-  { name: "Walmart", tint: "#0071CE" },
-  { name: "Alibaba", tint: "#FF6A00" },
-  { name: "Amazon UAE", tint: "#232F3E" },
+  {
+    name: "Etsy",
+    logo: etsyLogo,
+  },
+  {
+    name: "eBay",
+    logo: ebayLogo,
+  },
+  {
+    name: "Amazon USA",
+    logo: amazonLogo,
+  },
+  {
+    name: "Walmart",
+    logo: walmartLogo,
+  },
+  {
+    name: "Alibaba",
+    logo: alibabaLogo,
+  },
+  {
+    name: "Amazon UAE",
+    logo: amazonLogo,
+  },
 ];
 
 
+/* =========================================================
+   MARKETPLACE LANE
+========================================================= */
+
 function Lane({ label, items, direction }) {
+
   const loop = [...items, ...items];
 
   return (
     <div className="lane">
 
+      {/* LANE LABEL */}
+
       <span className="lane-tag">
         {label}
       </span>
 
+
+      {/* MASK */}
+
       <div className="lane-mask">
+
+        {/* MOVING TRACK */}
 
         <div
           className={`lane-track ${
@@ -36,37 +111,47 @@ function Lane({ label, items, direction }) {
           }`}
         >
 
-          {loop.map((logo, i) => (
+          {loop.map((market, i) => (
+
             <div
               className="market-card"
-              key={`${logo.name}-${i}`}
+              key={`${market.name}-${i}`}
             >
-              <span
-                className="dot"
-                style={{
-                  background: logo.tint,
-                }}
+
+              {/* ONLY LOGO */}
+
+              <img
+                src={market.logo}
+                alt={`${market.name} logo`}
+                className="market-logo"
               />
 
-              <span className="market-name">
-                {logo.name}
-              </span>
             </div>
+
           ))}
 
         </div>
 
       </div>
+
     </div>
   );
 }
 
 
+/* =========================================================
+   SPONSER COMPONENT
+========================================================= */
+
 function Sponser() {
+
   return (
     <section className="route-section">
 
-      {/* ================= HEADER ================= */}
+
+      {/* =====================================================
+         HEADER
+      ===================================================== */}
 
       <div className="route-container">
 
@@ -74,30 +159,47 @@ function Sponser() {
           India → World
         </p>
 
+
         <h2 className="route-heading">
+
           Sell across India's and the world's{" "}
-          <strong>top marketplaces</strong>
+
+          <strong>
+            top marketplaces
+          </strong>
+
         </h2>
 
+
         <p className="route-subtitle">
+
           Start selling on India's leading marketplaces
           and expand globally with Dropshy. We manage
           products, inventory, fulfillment and shipping
           while you focus on growing your business.
+
         </p>
 
       </div>
 
 
-      {/* ================= MARKETPLACE LANES ================= */}
+      {/* =====================================================
+         MARKETPLACE LANES
+      ===================================================== */}
 
       <div className="route-lanes">
+
+
+        {/* INDIA */}
 
         <Lane
           label="India Marketplaces"
           items={indiaMarkets}
           direction="left"
         />
+
+
+        {/* DIVIDER */}
 
         <div className="route-divider">
 
@@ -106,6 +208,9 @@ function Sponser() {
           <span className="divider-dot" />
 
         </div>
+
+
+        {/* GLOBAL */}
 
         <Lane
           label="Global Marketplaces"
@@ -116,33 +221,40 @@ function Sponser() {
       </div>
 
 
-      {/* ================= CSS ================= */}
+      {/* =====================================================
+         CSS
+      ===================================================== */}
 
       <style>{`
 
-        /* =========================================
+        /* =====================================================
            MAIN SECTION
-        ========================================= */
+        ===================================================== */
 
         .route-section {
+
           --sky: #38b6ff;
           --sky-deep: #0b76c4;
           --sun: #ffc72c;
 
           width: 100%;
+
           position: relative;
 
           background:
+
             radial-gradient(
               900px 420px at 12% -10%,
               rgba(56, 182, 255, 0.22),
               transparent 65%
             ),
+
             radial-gradient(
               760px 380px at 92% 8%,
               rgba(255, 199, 44, 0.20),
               transparent 62%
             ),
+
             #ffffff;
 
           padding: 72px 0 66px;
@@ -152,17 +264,21 @@ function Sponser() {
           color: #0f2233;
 
           font-family:
-            'Inter',
+            "Inter",
             system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
             sans-serif;
         }
 
 
-        /* =========================================
+        /* =====================================================
            HEADER CONTAINER
-        ========================================= */
+        ===================================================== */
 
         .route-container {
+
           width: 100%;
 
           max-width: 760px;
@@ -177,11 +293,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            EYEBROW
-        ========================================= */
+        ===================================================== */
 
         .route-eyebrow {
+
           display: inline-block;
 
           margin: 0 0 16px;
@@ -209,11 +326,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            HEADING
-        ========================================= */
+        ===================================================== */
 
         .route-heading {
+
           margin: 0 0 16px;
 
           font-size: 34px;
@@ -227,12 +345,13 @@ function Sponser() {
           color: #5b6b7a;
         }
 
+
         .route-heading strong {
+
           font-weight: 800;
 
-          color: #0f2233;
-
           background:
+
             linear-gradient(
               100deg,
               var(--sky-deep),
@@ -248,11 +367,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            SUBTITLE
-        ========================================= */
+        ===================================================== */
 
         .route-subtitle {
+
           margin: 0 auto;
 
           max-width: 570px;
@@ -265,11 +385,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            LANES
-        ========================================= */
+        ===================================================== */
 
         .route-lanes {
+
           width: 100%;
 
           display: flex;
@@ -281,17 +402,19 @@ function Sponser() {
 
 
         .lane {
+
           width: 100%;
 
           position: relative;
         }
 
 
-        /* =========================================
+        /* =====================================================
            LANE LABEL
-        ========================================= */
+        ===================================================== */
 
         .lane-tag {
+
           display: block;
 
           max-width: 1310px;
@@ -315,11 +438,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            MASK
-        ========================================= */
+        ===================================================== */
 
         .lane-mask {
+
           width: 100%;
 
           overflow: hidden;
@@ -327,6 +451,7 @@ function Sponser() {
           position: relative;
 
           -webkit-mask-image:
+
             linear-gradient(
               to right,
               transparent,
@@ -336,6 +461,7 @@ function Sponser() {
             );
 
           mask-image:
+
             linear-gradient(
               to right,
               transparent,
@@ -346,11 +472,12 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            TRACK
-        ========================================= */
+        ===================================================== */
 
         .lane-track {
+
           display: flex;
 
           align-items: center;
@@ -363,7 +490,12 @@ function Sponser() {
         }
 
 
+        /* =====================================================
+           LEFT ANIMATION
+        ===================================================== */
+
         .dir-left {
+
           animation:
             slide-left
             34s
@@ -372,7 +504,12 @@ function Sponser() {
         }
 
 
+        /* =====================================================
+           RIGHT ANIMATION
+        ===================================================== */
+
         .dir-right {
+
           animation:
             slide-right
             34s
@@ -381,14 +518,19 @@ function Sponser() {
         }
 
 
+        /* =====================================================
+           PAUSE ON HOVER
+        ===================================================== */
+
         .lane:hover .lane-track {
+
           animation-play-state: paused;
         }
 
 
-        /* =========================================
-           SLIDE ANIMATIONS
-        ========================================= */
+        /* =====================================================
+           SLIDE LEFT
+        ===================================================== */
 
         @keyframes slide-left {
 
@@ -403,6 +545,10 @@ function Sponser() {
         }
 
 
+        /* =====================================================
+           SLIDE RIGHT
+        ===================================================== */
+
         @keyframes slide-right {
 
           from {
@@ -416,28 +562,19 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            MARKET CARD
-        ========================================= */
+           ONLY LOGO
+        ===================================================== */
 
         .market-card {
-          width: 200px;
 
-          height: 68px;
+          width: 150px;
+
+          height: 72px;
 
           flex:
-            0 0 200px;
-
-          border:
-            1px solid
-            rgba(56, 182, 255, 0.22);
-
-          border-radius: 14px;
-
-          background:
-            rgba(255, 255, 255, 0.92);
-
-          backdrop-filter: blur(6px);
+            0 0 150px;
 
           display: flex;
 
@@ -445,14 +582,23 @@ function Sponser() {
 
           justify-content: center;
 
-          gap: 10px;
+          padding: 10px;
 
           box-sizing: border-box;
 
           overflow: hidden;
 
+          background:
+            rgba(255, 255, 255, 0.96);
+
+          border:
+            1px solid
+            rgba(56, 182, 255, 0.18);
+
+          border-radius: 14px;
+
           box-shadow:
-            0 2px 10px
+            0 3px 14px
             rgba(11, 118, 196, 0.07);
 
           transition:
@@ -462,63 +608,58 @@ function Sponser() {
         }
 
 
+        /* =====================================================
+           CARD HOVER
+        ===================================================== */
+
         .market-card:hover {
 
-          border-color: var(--sun);
+          border-color:
+            rgba(255, 199, 44, 0.75);
 
           box-shadow:
-            0 10px 24px
-            rgba(255, 199, 44, 0.28);
+            0 10px 26px
+            rgba(255, 199, 44, 0.18);
 
           transform:
-            translateY(-3px);
+            translateY(-4px);
         }
 
 
-        /* =========================================
-           DOT
-        ========================================= */
+        /* =====================================================
+           LOGO
+        ===================================================== */
 
-        .dot {
-          width: 9px;
+        .market-logo {
 
-          height: 9px;
+          width: 90px;
 
-          border-radius: 50%;
+          height: 45px;
 
-          flex:
-            0 0 9px;
+          object-fit: contain;
 
-          opacity: 0.8;
+          display: block;
+
+          transition:
+            transform 0.25s ease,
+            filter 0.25s ease;
         }
 
 
-        .market-card:hover .dot {
-          opacity: 1;
+        /* =====================================================
+           LOGO HOVER
+        ===================================================== */
+
+        .market-card:hover .market-logo {
+
+          transform:
+            scale(1.08);
         }
 
 
-        /* =========================================
-           MARKET NAME
-        ========================================= */
-
-        .market-name {
-
-          font-size: 15.5px;
-
-          font-weight: 700;
-
-          letter-spacing: -0.2px;
-
-          white-space: nowrap;
-
-          color: #14324a;
-        }
-
-
-        /* =========================================
+        /* =====================================================
            DIVIDER
-        ========================================= */
+        ===================================================== */
 
         .route-divider {
 
@@ -548,6 +689,7 @@ function Sponser() {
           height: 2px;
 
           background:
+
             repeating-linear-gradient(
               to right,
               rgba(56, 182, 255, 0.45) 0,
@@ -557,6 +699,10 @@ function Sponser() {
             );
         }
 
+
+        /* =====================================================
+           DIVIDER DOT
+        ===================================================== */
 
         .divider-dot {
 
@@ -586,36 +732,42 @@ function Sponser() {
         }
 
 
-        /* =========================================
+        /* =====================================================
            DIVIDER ANIMATION
-        ========================================= */
+        ===================================================== */
 
         @keyframes travel {
 
           0% {
+
             left: 0%;
+
             opacity: 0;
           }
 
           10% {
+
             opacity: 1;
           }
 
           90% {
+
             opacity: 1;
           }
 
           100% {
+
             left: 100%;
+
             opacity: 0;
           }
 
         }
 
 
-        /* =========================================
+        /* =====================================================
            REDUCED MOTION
-        ========================================= */
+        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -629,9 +781,9 @@ function Sponser() {
         }
 
 
-        /* =========================================
-           TABLET / MOBILE
-        ========================================= */
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
         @media (max-width: 768px) {
 
@@ -639,6 +791,12 @@ function Sponser() {
 
             padding:
               48px 0 44px;
+          }
+
+
+          .route-container {
+
+            margin-bottom: 38px;
           }
 
 
@@ -654,25 +812,34 @@ function Sponser() {
           }
 
 
+          /* MOBILE CARD */
+
           .market-card {
 
-            width: 162px;
+            width: 130px;
 
-            height: 58px;
+            height: 62px;
 
-            flex-basis: 162px;
+            flex-basis: 130px;
+
+            padding: 9px;
+
+            border-radius: 12px;
           }
 
 
-          .market-name {
+          .market-logo {
 
-            font-size: 14px;
+            width: 78px;
+
+            height: 40px;
           }
 
 
           .lane-mask {
 
             -webkit-mask-image:
+
               linear-gradient(
                 to right,
                 transparent,
@@ -682,6 +849,7 @@ function Sponser() {
               );
 
             mask-image:
+
               linear-gradient(
                 to right,
                 transparent,
@@ -695,6 +863,68 @@ function Sponser() {
           .route-divider {
 
             display: none;
+          }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+          .route-container {
+
+            padding: 0 18px;
+          }
+
+
+          .route-heading {
+
+            font-size: 22px;
+
+            line-height: 1.3;
+          }
+
+
+          .route-subtitle {
+
+            font-size: 13.5px;
+
+            line-height: 1.65;
+          }
+
+
+          .lane-tag {
+
+            padding-left: 18px;
+
+            font-size: 10px;
+          }
+
+
+          /* SMALL MOBILE CARD */
+
+          .market-card {
+
+            width: 115px;
+
+            height: 56px;
+
+            flex-basis: 115px;
+
+            padding: 8px;
+
+            border-radius: 11px;
+          }
+
+
+          .market-logo {
+
+            width: 68px;
+
+            height: 36px;
           }
 
         }

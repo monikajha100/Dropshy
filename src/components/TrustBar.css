@@ -1,6 +1,5 @@
 /* =========================================================
    DROPSHY TRUST BAR
-   MATCHING SPONSER COLOR SYSTEM
    ========================================================= */
 
 .dropshy-section {
@@ -260,7 +259,9 @@
 }
 
 
-/* PRIMARY */
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
 
 .dropshy-btn-primary {
   background: var(--sky-deep);
@@ -293,7 +294,9 @@
 }
 
 
-/* SECONDARY */
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
 
 .dropshy-btn-secondary {
   background: #ffffff;
@@ -462,7 +465,9 @@
 }
 
 
-/* ORDER */
+/* =========================================================
+   ORDER CARD
+   ========================================================= */
 
 .order-card {
   left: -38px;
@@ -471,7 +476,9 @@
 }
 
 
-/* GROWTH */
+/* =========================================================
+   GROWTH CARD
+   ========================================================= */
 
 .growth-card {
   right: -35px;
@@ -507,17 +514,11 @@
   font-weight: 900;
 }
 
-
-/* BLUE */
-
 .floating-icon {
   background: rgba(56, 182, 255, 0.10);
 
   color: var(--sky-deep);
 }
-
-
-/* YELLOW */
 
 .growth-icon {
   background: rgba(255, 199, 44, 0.13);
@@ -526,8 +527,11 @@
 }
 
 
-@keyframes dropshyFloat {
+/* =========================================================
+   FLOAT ANIMATION
+   ========================================================= */
 
+@keyframes dropshyFloat {
   0%,
   100% {
     transform: translateY(0);
@@ -558,7 +562,9 @@
 }
 
 
-/* NUMBER */
+/* =========================================================
+   INTRO NUMBER
+   ========================================================= */
 
 .intro-number {
   width: 58px;
@@ -588,7 +594,9 @@
 }
 
 
-/* HEADING */
+/* =========================================================
+   INTRO HEADING
+   ========================================================= */
 
 .dropshy-intro h2 {
   margin: 0;
@@ -607,7 +615,9 @@
 }
 
 
-/* TEXT */
+/* =========================================================
+   INTRO TEXT
+   ========================================================= */
 
 .dropshy-intro p {
   max-width: 850px;
@@ -643,7 +653,9 @@
 }
 
 
-/* CARDS */
+/* =========================================================
+   COMPARISON CARDS
+   ========================================================= */
 
 .comparison-card {
   padding: 31px;
@@ -666,9 +678,6 @@
     0 18px 38px rgba(11, 118, 196, 0.08);
 }
 
-
-/* TRADITIONAL */
-
 .comparison-card.traditional {
   background:
     linear-gradient(
@@ -678,9 +687,6 @@
     );
 }
 
-
-/* DROPSHY */
-
 .comparison-card.dropshy-way {
   border-color: rgba(56, 182, 255, 0.25);
 
@@ -689,7 +695,9 @@
 }
 
 
-/* HEADING */
+/* =========================================================
+   COMPARISON HEADING
+   ========================================================= */
 
 .comparison-heading {
   display: flex;
@@ -719,26 +727,17 @@
   font-weight: 900;
 }
 
-
-/* TRADITIONAL ICON */
-
 .traditional .comparison-heading > span {
   background: #f1f1f1;
 
   color: #8d8d8d;
 }
 
-
-/* DROPSHY ICON */
-
 .dropshy-way .comparison-heading > span {
   background: rgba(56, 182, 255, 0.10);
 
   color: var(--sky-deep);
 }
-
-
-/* SMALL */
 
 .comparison-heading small {
   display: block;
@@ -760,9 +759,6 @@
   color: var(--sky-deep);
 }
 
-
-/* TITLE */
-
 .comparison-heading h3 {
   margin: 0;
 
@@ -774,7 +770,9 @@
 }
 
 
-/* LIST */
+/* =========================================================
+   COMPARISON LIST
+   ========================================================= */
 
 .comparison-card ul {
   list-style: none;
@@ -812,9 +810,6 @@
   font-size: 17px;
 }
 
-
-/* DROPSHY CHECK */
-
 .dropshy-way li::before {
   content: "✓";
 
@@ -827,19 +822,21 @@
 
 
 /* =========================================================
-   BENEFITS
+   WHY DROPSHY SECTION
    ========================================================= */
 
-.benefits-section {
+.why-dropshy-section {
   width: min(1320px, calc(100% - 60px));
 
   margin: 125px auto 0;
 }
 
 
-/* HEADING */
+/* =========================================================
+   WHY DROPSHY HEADING
+   ========================================================= */
 
-.benefits-heading {
+.why-dropshy-heading {
   max-width: 850px;
 
   margin: 0 auto 52px;
@@ -847,7 +844,7 @@
   text-align: center;
 }
 
-.benefits-heading > span {
+.why-dropshy-heading > span {
   display: inline-block;
 
   margin-bottom: 14px;
@@ -861,7 +858,7 @@
   letter-spacing: 2px;
 }
 
-.benefits-heading h2 {
+.why-dropshy-heading h2 {
   margin: 0;
 
   color: #0f2233;
@@ -873,7 +870,7 @@
   letter-spacing: -2px;
 }
 
-.benefits-heading h2 strong {
+.why-dropshy-heading h2 strong {
   background:
     linear-gradient(
       100deg,
@@ -889,43 +886,40 @@
   color: transparent;
 }
 
-.benefits-heading p {
-  margin: 18px 0 0;
+.why-dropshy-heading p {
+  max-width: 700px;
+
+  margin: 18px auto 0;
 
   color: #728496;
 
   font-size: 16px;
+
+  line-height: 1.7;
 }
 
 
 /* =========================================================
-   BENEFIT GRID
+   WHY DROPSHY GRID
    ========================================================= */
 
-.benefits-grid {
+.why-dropshy-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 17px;
 }
 
 
-/* CARD */
+/* =========================================================
+   WHY DROPSHY CARD
+   ========================================================= */
 
-.benefit-card {
+.why-dropshy-card {
   position: relative;
 
-  min-height: 420px;
-
-  padding: 24px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
 
   border: 1px solid #e3ebf0;
 
@@ -933,81 +927,77 @@
 
   overflow: hidden;
 
+  box-shadow:
+    0 5px 18px rgba(11, 118, 196, 0.035);
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
 
-
-/* TOP ACCENT */
-
-.benefit-card::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-
-  left: 0;
-
-  width: 100%;
-
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--sky-deep),
-      var(--sky),
-      var(--sun)
-    );
-
-  transform: scaleX(0);
-
-  transform-origin: left;
-
-  transition: transform 0.3s ease;
-}
-
-.benefit-card:hover::before {
-  transform: scaleX(1);
-}
-
-
-/* HOVER */
-
-.benefit-card:hover {
+.why-dropshy-card:hover {
   transform: translateY(-7px);
 
   border-color: rgba(56, 182, 255, 0.25);
 
   box-shadow:
-    0 18px 40px rgba(11, 118, 196, 0.08);
+    0 18px 40px rgba(11, 118, 196, 0.09);
 }
 
 
 /* =========================================================
-   BENEFIT TOP
+   IMAGE
    ========================================================= */
 
-.benefit-top {
-  display: flex;
+.why-dropshy-image-wrap {
+  position: relative;
 
-  align-items: center;
+  width: 100%;
 
-  justify-content: space-between;
+  height: 225px;
 
-  margin-bottom: 26px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(56, 182, 255, 0.08),
+      rgba(255, 199, 44, 0.07)
+    );
+}
+
+.why-dropshy-image {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.why-dropshy-card:hover .why-dropshy-image {
+  transform: scale(1.05);
 }
 
 
-/* ICON */
+/* =========================================================
+   CROSS ICON
+   ========================================================= */
 
-.benefit-icon {
-  width: 50px;
+.why-dropshy-cross {
+  position: absolute;
 
-  height: 50px;
+  top: 14px;
+
+  right: 14px;
+
+  width: 38px;
+
+  height: 38px;
 
   display: flex;
 
@@ -1015,111 +1005,79 @@
 
   justify-content: center;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(56, 182, 255, 0.08),
-      rgba(255, 199, 44, 0.08)
-    );
+  border-radius: 50%;
 
-  border: 1px solid #e6edf2;
+  background: #ffffff;
 
-  border-radius: 12px;
+  color: #e53935;
 
-  font-size: 23px;
+  border: 1px solid rgba(229, 57, 53, 0.15);
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.12);
+
+  z-index: 2;
 }
 
 
-/* NUMBER */
+/* =========================================================
+   WHY DROPSHY CONTENT
+   ========================================================= */
 
-.benefit-number {
+.why-dropshy-content {
+  min-height: 230px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+.why-dropshy-card-top {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-bottom: 12px;
+}
+
+.why-dropshy-card-top span {
   color: #c3d0d9;
 
-  font-size: 12px;
+  font-size: 11px;
 
   font-weight: 900;
 
   letter-spacing: 1px;
 }
 
-
-/* TITLE */
-
-.benefit-card h3 {
+.why-dropshy-content h3 {
   margin: 0;
 
   color: #0f2233;
 
   font-size: 21px;
 
-  line-height: 1.2;
+  line-height: 1.25;
+
+  font-weight: 800;
 }
 
-
-/* TAGLINE */
-
-.benefit-tagline {
-  min-height: 43px;
-
-  margin: 9px 0 17px;
+.why-dropshy-content p {
+  margin: 11px 0 0;
 
   color: #728496;
 
   font-size: 13px;
 
-  line-height: 1.5;
-}
-
-
-/* LINE */
-
-.benefit-line {
-  width: 100%;
-
-  height: 1px;
-
-  margin-bottom: 17px;
-
-  background: #e9eef2;
-}
-
-
-/* =========================================================
-   BENEFIT LIST
-   ========================================================= */
-
-.benefit-card ul {
-  list-style: none;
-
-  padding: 0;
-
-  margin: 0;
-}
-
-.benefit-card li {
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 8px;
-
-  margin-bottom: 10px;
-
-  color: #64788a;
-
-  font-size: 12.5px;
-
-  line-height: 1.45;
-}
-
-.benefit-card li span {
-  flex-shrink: 0;
-
-  color: var(--sky-deep);
-
-  font-size: 11px;
-
-  font-weight: 900;
+  line-height: 1.65;
 }
 
 
@@ -1127,7 +1085,7 @@
    CARD ARROW
    ========================================================= */
 
-.card-arrow {
+.why-dropshy-arrow {
   margin-top: auto;
 
   padding-top: 18px;
@@ -1141,7 +1099,7 @@
   transition: 0.25s ease;
 }
 
-.benefit-card:hover .card-arrow {
+.why-dropshy-card:hover .why-dropshy-arrow {
   color: var(--sun);
 
   transform: translateX(6px);
@@ -1392,7 +1350,7 @@
 
 
 /* =========================================================
-   TABLET
+   TABLET — 1100px
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1405,12 +1363,12 @@
     font-size: 58px;
   }
 
-  .benefits-grid {
+  .why-dropshy-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .benefit-card {
-    min-height: 390px;
+  .why-dropshy-image-wrap {
+    height: 240px;
   }
 
   .order-card {
@@ -1424,7 +1382,7 @@
 
 
 /* =========================================================
-   TABLET
+   TABLET — 850px
    ========================================================= */
 
 @media (max-width: 850px) {
@@ -1447,11 +1405,13 @@
 
   .dropshy-badge {
     margin-left: auto;
+
     margin-right: auto;
   }
 
   .dropshy-subtitle {
     margin-left: auto;
+
     margin-right: auto;
   }
 
@@ -1475,7 +1435,7 @@
     width: min(700px, calc(100% - 40px));
   }
 
-  .benefits-section {
+  .why-dropshy-section {
     width: min(700px, calc(100% - 40px));
   }
 
@@ -1486,7 +1446,7 @@
 
 
 /* =========================================================
-   MOBILE
+   MOBILE — 600px
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -1666,42 +1626,46 @@
   }
 
 
-  /* BENEFITS */
+  /* WHY DROPSHY */
 
-  .benefits-section {
+  .why-dropshy-section {
     width: calc(100% - 30px);
 
     margin-top: 90px;
   }
 
-  .benefits-heading {
+  .why-dropshy-heading {
     margin-bottom: 35px;
   }
 
-  .benefits-heading h2 {
+  .why-dropshy-heading h2 {
     font-size: 36px;
 
     letter-spacing: -1.5px;
   }
 
-  .benefits-heading p {
+  .why-dropshy-heading p {
     font-size: 15px;
   }
 
-  .benefits-grid {
+  .why-dropshy-grid {
     grid-template-columns: 1fr;
 
     gap: 14px;
   }
 
-  .benefit-card {
+  .why-dropshy-image-wrap {
+    height: 220px;
+  }
+
+  .why-dropshy-content {
     min-height: auto;
 
     padding: 23px;
   }
 
-  .benefit-tagline {
-    min-height: auto;
+  .why-dropshy-content h3 {
+    font-size: 20px;
   }
 
 
@@ -1736,7 +1700,7 @@
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   VERY SMALL MOBILE — 380px
    ========================================================= */
 
 @media (max-width: 380px) {
@@ -1746,7 +1710,7 @@
   }
 
   .dropshy-intro h2,
-  .benefits-heading h2 {
+  .why-dropshy-heading h2 {
     font-size: 32px;
   }
 

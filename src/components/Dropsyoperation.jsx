@@ -5,30 +5,37 @@ const operations = [
   {
     number: "01",
     title: "Product Manufacturing",
+    icon: "🏭",
   },
   {
     number: "02",
     title: "Inventory Management",
+    icon: "📦",
   },
   {
     number: "03",
     title: "Professional Packaging",
+    icon: "📋",
   },
   {
     number: "04",
     title: "Shipping & Logistics",
+    icon: "🚚",
   },
   {
     number: "05",
     title: "Order Fulfillment",
+    icon: "✓",
   },
   {
     number: "06",
     title: "Shipment Tracking",
+    icon: "📍",
   },
   {
     number: "07",
     title: "Dispatch Support",
+    icon: "⚡",
   },
 ];
 
@@ -48,7 +55,7 @@ export default function OperationsSection() {
           items.forEach((item, index) => {
             setTimeout(() => {
               item.classList.add("ops-item-show");
-            }, index * 100);
+            }, index * 80);
           });
 
           observer.disconnect();
@@ -69,27 +76,23 @@ export default function OperationsSection() {
       className="operations-section"
       ref={sectionRef}
     >
-
+      {/* BACKGROUND CIRCLES */}
       <div className="ops-bg-circle ops-circle-one" />
       <div className="ops-bg-circle ops-circle-two" />
 
       <div className="operations-container">
 
         {/* ================= HEADER ================= */}
-
         <div className="operations-heading">
 
           <div className="operations-heading-left">
 
             <div className="operations-title-row">
-
               <span className="operations-label">
                 DROPSHY OPERATIONS
               </span>
 
-              {/* SMALL ICON */}
               <div className="operations-mini-icon">
-
                 <svg
                   viewBox="0 0 64 64"
                   fill="none"
@@ -134,11 +137,8 @@ export default function OperationsSection() {
                 </svg>
 
                 <span className="icon-pulse" />
-
               </div>
-
             </div>
-
 
             <h2>
               We Handle the Operations.
@@ -148,57 +148,54 @@ export default function OperationsSection() {
 
           </div>
 
-
           <div className="operations-heading-right">
-
             <div className="heading-line" />
 
             <p>
               Dropshy manages every operational
               aspect of your business, including:
             </p>
-
           </div>
 
         </div>
 
 
-        {/* ================= OPERATIONS ================= */}
-
+        {/* ================= OPERATIONS GRID ================= */}
         <div className="ops-list">
 
           {operations.map((operation) => (
-
             <div
               className="ops-item"
-              key={operation.number}
+             
             >
 
-              <div className="ops-item-number">
-                {operation.number}
-              </div>
+              <div className="ops-item-top">
+                <span className="ops-item-number">
+                  {operation.number}
+                </span>
 
-              <div className="ops-item-check">
-                ✓
+                <span className="ops-item-icon">
+                  {operation.icon}
+                </span>
               </div>
 
               <div className="ops-item-title">
                 {operation.title}
               </div>
 
-              <div className="ops-item-arrow">
-                →
+              <div className="ops-item-bottom">
+               
+
+                
               </div>
 
             </div>
-
           ))}
 
         </div>
 
 
         {/* ================= FOOTER ================= */}
-
         <div className="operations-footer">
 
           <div className="footer-line" />
@@ -223,7 +220,6 @@ export default function OperationsSection() {
         </div>
 
       </div>
-
     </section>
   );
 }
