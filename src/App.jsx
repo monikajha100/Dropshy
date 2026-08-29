@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./App.css";
 
@@ -7,6 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Dropsyservice from "./pages/Dropsyservice";
+import Blogpage from "./pages/Blogpage";
 
 // E-Commerce Pages
 import Nationalecommerce from "./components/dropsyservice/Nationalecommerce";
@@ -60,6 +62,16 @@ function App() {
     path === "/services/international-ecommerce"
   ) {
     Page = Internationalecommerce;
+  }
+
+  // =========================
+  // BLOG
+  // =========================
+  else if (
+    path === "/blog" ||
+    path === "/blogs"
+  ) {
+    Page = Blogpage;
   }
 
   // =========================

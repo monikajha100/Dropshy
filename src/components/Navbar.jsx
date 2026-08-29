@@ -97,6 +97,10 @@ const NAV_LINKS = [
     label: "Contact Us",
     href: "/contactus",
   },
+   {
+    label: "Blog",
+    href: "/blogs",
+  },
 ];
 
 function Navbar() {
