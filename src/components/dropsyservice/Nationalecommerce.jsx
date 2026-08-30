@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Nationalecommerce.css";
+import amazonLogo from "../../assets/images/amazon.webp";
+import flipkartLogo from "../../assets/images/flipcarts.jpg";
+import meeshoLogo from "../../assets/images/meesho.jpg";
+import myntraLogo from "../../assets/images/ebay.jpg";
 
 const cities = [
   "Delhi",
@@ -16,23 +20,27 @@ const cities = [
 
 const marketplaces = [
   {
-    code: "AMZ · IN",
+    code: "01 · IN",
     title: "Amazon.in",
+    logo: amazonLogo,
     text: "Reach customers across India through one of the country's largest online marketplaces.",
   },
   {
-    code: "FKT · IN",
+    code: "02 · IN",
     title: "Flipkart",
+    logo: flipkartLogo,
     text: "List products and target buyers across India's extensive e-commerce market.",
   },
   {
-    code: "MSH · IN",
+    code: "03 · IN",
     title: "Meesho",
+    logo: meeshoLogo,
     text: "Sell to value-conscious shoppers and resellers across the country.",
   },
   {
-    code: "MYN · IN",
+    code: "04 · IN",
     title: "Myntra",
+    logo: myntraLogo,
     text: "Suited to fashion and lifestyle sellers, subject to Myntra's seller requirements.",
   },
 ];
@@ -313,69 +321,32 @@ const NationalEcommerce = () => {
                   DROPSHY
                 </text>
 
-                <circle
-                  className="national-leaf-node"
-                  cx="60"
-                  cy="30"
-                  r="6"
-                />
-
                 <text
                   className="national-node-label"
-                  x="60"
-                  y="18"
+                  x="200"
+                  y="128"
                   textAnchor="middle"
                 >
-                  AMAZON
+                  MARKETPLACES
                 </text>
 
-                <circle
+<circle
                   className="national-leaf-node"
                   cx="340"
                   cy="30"
                   r="6"
                 />
 
-                <text
-                  className="national-node-label"
-                  x="340"
-                  y="18"
-                  textAnchor="middle"
-                >
-                  FLIPKART
-                </text>
 
-                <circle
-                  className="national-leaf-node"
-                  cx="60"
-                  cy="120"
-                  r="6"
-                />
 
-                <text
-                  className="national-node-label"
-                  x="60"
-                  y="140"
-                  textAnchor="middle"
-                >
-                  MEESHO
-                </text>
-
-                <circle
+<circle
                   className="national-leaf-node"
                   cx="340"
                   cy="120"
                   r="6"
                 />
 
-                <text
-                  className="national-node-label"
-                  x="340"
-                  y="140"
-                  textAnchor="middle"
-                >
-                  MYNTRA
-                </text>
+
               </svg>
             </div>
           </div>
@@ -424,6 +395,14 @@ const NationalEcommerce = () => {
                 key={marketplace.code}
               >
                 <div className="national-card-corner"></div>
+
+                <div className="national-mp-logo-wrap">
+                  <img
+                    className="national-mp-logo"
+                    src={marketplace.logo}
+                    alt={`${marketplace.title} logo`}
+                  />
+                </div>
 
                 <span className="national-mp-code">
                   {marketplace.code}

@@ -333,35 +333,7 @@ export default function TrustBar() {
           FINAL CTA
       ===================================================== */}
 
-      <div className="dropshy-final">
-
-        <div className="final-glow"></div>
-
-        <span className="final-badge">
-          🚀 READY TO START?
-        </span>
-
-        <h2>
-          Your Business.
-          <br />
-          <span>Our Operations.</span>
-        </h2>
-
-        <p>
-          Sell across India and worldwide. We manage products,
-          packing and shipping while you focus on sales and profits.
-        </p>
-
-        <button type="button">
-          Start Selling Today
-          <span>→</span>
-        </button>
-
-        <small>
-          No inventory • No warehouse • No staff
-        </small>
-
-      </div>
+      
 
     </section>
   );

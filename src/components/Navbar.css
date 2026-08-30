@@ -1,7 +1,9 @@
+
 /* ================================================================
    DROPSHY NAVBAR
    CLEAN DROPDOWN DESIGN
    ================================================================ */
+
 
 /* ================================================================
    NAVBAR
@@ -156,7 +158,7 @@
   align-items: center;
   justify-content: center;
 
-  gap: 2px;
+  gap: 4px;
 
   white-space: nowrap;
 
@@ -177,10 +179,6 @@
 
 /* ================================================================
    NAV LINK ROW
-
-   IMPORTANT:
-   Service ke link aur arrow ko ek hi row mein rakha hai.
-   Isse Service ka extra box nahi banega.
    ================================================================ */
 
 .dropsy-nav-link-row {
@@ -209,7 +207,7 @@
 
   justify-content: center;
 
-  padding: 10px 11px;
+  padding: 11px 13px;
 
   border: none;
 
@@ -217,11 +215,12 @@
 
   color: #374151;
 
-  font-size: 15px;
+  /* BIGGER FONT */
+  font-size: 25px;
 
   line-height: 1.2;
 
-  font-weight: 600;
+  font-weight: 700;
 
   text-decoration: none;
 
@@ -263,14 +262,11 @@
 
 /* ================================================================
    DROPDOWN ARROW
-
-   IMPORTANT:
-   Arrow ka apna visible box nahi hoga.
    ================================================================ */
 
 .dropsy-arrow {
-  width: 24px;
-  height: 32px;
+  width: 26px;
+  height: 34px;
 
   padding: 0;
 
@@ -317,8 +313,6 @@
 
 /* ================================================================
    DROPDOWN
-
-   CLEAN SINGLE BOX
    ================================================================ */
 
 .dropsy-dropdown {
@@ -330,13 +324,13 @@
 
   transform: translateX(-50%);
 
-  width: 270px;
+  width: 290px;
 
   max-height: 480px;
 
   overflow-y: auto;
 
-  padding: 8px;
+  padding: 9px;
 
   background: #ffffff;
 
@@ -392,7 +386,6 @@
     transform:
       translateX(-50%)
       translateY(-7px);
-
   }
 
   to {
@@ -401,7 +394,6 @@
     transform:
       translateX(-50%)
       translateY(0);
-
   }
 
 }
@@ -409,15 +401,12 @@
 
 /* ================================================================
    DROPDOWN ITEM
-
-   No individual outer box.
-   Sirf hover background.
    ================================================================ */
 
 .dropsy-dropdown-item {
   width: 100%;
 
-  min-height: 42px;
+  min-height: 46px;
 
   box-sizing: border-box;
 
@@ -429,7 +418,7 @@
 
   gap: 12px;
 
-  padding: 10px 12px;
+  padding: 11px 14px;
 
   border: none;
 
@@ -439,7 +428,8 @@
 
   color: #374151;
 
-  font-size: 13.5px;
+  /* BIGGER DROPDOWN FONT */
+  font-size: 17px;
 
   line-height: 1.35;
 
@@ -505,7 +495,7 @@
 
   align-items: center;
 
-  gap: 14px;
+  gap: 16px;
 
   flex-shrink: 0;
 
@@ -522,13 +512,14 @@
 .dropsy-login {
   color: #374151;
 
-  font-size: 15px;
+  /* BIGGER LOGIN */
+  font-size: 19px;
 
   font-weight: 600;
 
   text-decoration: none;
 
-  padding: 10px 6px;
+  padding: 10px 7px;
 
   white-space: nowrap;
 
@@ -554,9 +545,9 @@
 
   justify-content: center;
 
-  min-height: 42px;
+  min-height: 46px;
 
-  padding: 0 20px;
+  padding: 0 22px;
 
   border-radius: 10px;
 
@@ -569,7 +560,8 @@
 
   color: #ffffff;
 
-  font-size: 14px;
+  /* BIGGER CTA */
+  font-size: 18px;
 
   font-weight: 700;
 
@@ -715,9 +707,9 @@
 .dropsy-mobile-item > button {
   width: 100%;
 
-  min-height: 54px;
+  min-height: 58px;
 
-  padding: 14px 20px;
+  padding: 15px 20px;
 
   border: none;
 
@@ -731,7 +723,8 @@
 
   color: #374151;
 
-  font-size: 15px;
+  /* BIGGER MOBILE FONT */
+  font-size: 17px;
 
   font-weight: 600;
 
@@ -764,11 +757,12 @@
 .dropsy-mobile-submenu a {
   display: block;
 
-  padding: 10px 0;
+  padding: 11px 0;
 
   color: #6b7280;
 
-  font-size: 14px;
+  /* BIGGER MOBILE SUBMENU */
+  font-size: 16px;
 
   font-weight: 500;
 
@@ -808,7 +802,8 @@
 
   text-decoration: none;
 
-  font-size: 15px;
+  /* BIGGER MOBILE LOGIN */
+  font-size: 17px;
 
   font-weight: 600;
 
@@ -852,33 +847,39 @@
 
 
   .dropsy-nav-link {
-    font-size: 14px;
+    /* BIG TABLET FONT */
+    font-size: 18px;
 
     padding:
-      9px 8px;
+      10px 9px;
   }
 
 
   .dropsy-arrow {
-    width: 20px;
+    width: 22px;
   }
 
 
   .dropsy-actions {
-    gap: 9px;
+    gap: 10px;
   }
 
 
   .dropsy-login {
-    font-size: 14px;
+    font-size: 18px;
   }
 
 
   .dropsy-cta {
     padding:
-      0 15px;
+      0 17px;
 
-    font-size: 13px;
+    font-size: 17px;
+  }
+
+
+  .dropsy-dropdown-item {
+    font-size: 16px;
   }
 
 }
@@ -977,9 +978,7 @@
   }
 
 
-  /* ============================================================
-     MOBILE MENU
-     ============================================================ */
+  /* MOBILE MENU */
 
   .dropsy-mobile-menu {
 
@@ -1053,6 +1052,16 @@
 
   }
 
+
+  .dropsy-mobile-item > button {
+    font-size: 17px;
+  }
+
+
+  .dropsy-mobile-submenu a {
+    font-size: 16px;
+  }
+
 }
 
 
@@ -1093,7 +1102,7 @@
     padding:
       13px 16px;
 
-    font-size: 14px;
+    font-size: 16px;
 
   }
 
@@ -1102,6 +1111,11 @@
 
     padding-left: 24px;
 
+  }
+
+
+  .dropsy-mobile-submenu a {
+    font-size: 15px;
   }
 
 }
@@ -1116,8 +1130,10 @@
 .dropsy-dropdown-item:focus-visible,
 .dropsy-menu-button:focus-visible,
 .dropsy-mobile-item > button:focus-visible {
+
   outline:
     2px solid rgba(79, 70, 229, 0.45);
 
   outline-offset: 2px;
 }
+

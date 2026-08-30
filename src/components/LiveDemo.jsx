@@ -11,6 +11,8 @@ export default function LiveDemo() {
       desc:
         "Start your online business on leading marketplaces like Amazon.in, Flipkart, Meesho and Myntra. We manage products, inventory, packing and Pan-India shipping — you focus on growing sales.",
       btn: "Start Selling in India",
+      image:
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
       icon: (
         <svg viewBox="0 0 64 64" fill="none">
           <path
@@ -38,6 +40,8 @@ export default function LiveDemo() {
       desc:
         "Sell across 135+ countries on Etsy, eBay, Amazon.com, Walmart, Alibaba, Amazon UAE and Amazon Business (B2B). Dropshy handles inventory, international shipping and fulfillment — grow worldwide, zero investment.",
       btn: "Go Global",
+      image:
+        "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80",
       icon: (
         <svg viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="19" stroke="currentColor" strokeWidth="3" />
@@ -57,6 +61,8 @@ export default function LiveDemo() {
       desc:
         "Launch your own branded online store — just like Flipkart or Amazon. Dropshy provides a professional website, product integration, secure payments and complete order management under your name.",
       btn: "Build My Store",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       icon: (
         <svg viewBox="0 0 64 64" fill="none">
           <rect
@@ -119,7 +125,15 @@ export default function LiveDemo() {
           >
             <span className="cardTag">{service.tag}</span>
 
-            <div className="demoIcon">{service.icon}</div>
+            <div className="demoImageWrap">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="demoImage"
+                loading="lazy"
+              />
+              <div className="demoIcon">{service.icon}</div>
+            </div>
 
             <div className="demoContent">
               <h3>{service.title}</h3>
