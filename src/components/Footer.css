@@ -1,242 +1,295 @@
-/* ===========================
-   FOOTER
-=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap');
 
-.footer{
-  background:#0f0f0f;
-  color:#fff;
-  padding:50px 0 0;
+* {
+  box-sizing: border-box;
 }
 
-.footerContainer{
-  max-width:1400px;
-  margin:auto;
-  padding:0 35px;
-
-  display:grid;
-  grid-template-columns:340px repeat(5,1fr);
-
-  gap:22px;
+.footer {
+  position: relative;
+  background: #121A2B;
+  color: #C6CCDA;
+  font-family: 'Inter', sans-serif;
+  padding-top: 26px;
+  overflow: hidden;
 }
 
-/* ===========================
-   LEFT
-=========================== */
-
-.footerLeft{
-  display:flex;
-  flex-direction:column;
+/* PERFORATED TEAR-OFF EDGE */
+.footerPerforation {
+  height: 18px;
+  width: 100%;
+  background-image: radial-gradient(circle, #0B1220 3.5px, transparent 3.6px);
+  background-size: 26px 18px;
+  background-position: 13px center;
+  background-repeat: repeat-x;
+  border-top: 2px dashed rgba(255, 255, 255, 0.12);
 }
 
-.footerLogo{
-  width:155px;
-  margin-bottom:22px;
+.footerContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 48px 32px 0;
+  display: grid;
+  grid-template-columns: 1.7fr repeat(5, 1fr);
+  gap: 20px;
 }
 
-.socialIcons{
-  display:flex;
-  gap:10px;
-  margin-bottom:22px;
+/* BRAND BLOCK */
+
+.footerEyebrow {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #3FD9C7;
+  margin-bottom: 14px;
 }
 
-.socialIcons a{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#1d1d1d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-decoration:none;
-  transition:.3s;
+.footerBrandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.socialIcons a:hover{
-  background:#6c4df6;
+.footerLogo {
+  height: 30px;
+  object-fit: contain;
 }
 
-.footerLeft h3{
-  font-size:18px;
-  margin-bottom:12px;
-  font-weight:600;
+.footerBrandText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #F4F6FB;
 }
 
-.footerInfo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#cfcfcf;
-  font-size:14px;
-  margin-bottom:8px;
+.footerTagline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: #7D8AA3;
+  margin-top: 6px;
+  letter-spacing: 0.3px;
 }
 
-.footerAddress{
-  display:flex;
-  gap:10px;
-  color:#cfcfcf;
-  margin-top:12px;
-  line-height:1.5;
-  font-size:14px;
+.socialIcons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 4px;
 }
 
-.footerAddress svg{
-  font-size:20px;
-  margin-top:2px;
+.socialIcons a {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  color: #8D97AC;
+  border: 1.5px solid #2C3652;
+  transition: all 0.2s ease;
+  font-size: 13px;
 }
 
-.downloadSection{
-  margin-top:22px;
+.socialIcons a:hover {
+  background: #FFB020;
+  color: #121A2B;
+  border-color: #FFB020;
+  transform: rotate(-6deg);
 }
 
-.storeButtons{
-  display:flex;
-  gap:10px;
-  margin-top:12px;
+.footerDivider {
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #2C3652 0px,
+    #2C3652 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  margin: 22px 0 18px;
 }
 
-.storeButtons img{
-  width:130px;
-  cursor:pointer;
+.footerManifestLabel {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  color: #5C6784;
+  margin-bottom: 10px;
 }
 
-/* ===========================
-   RIGHT COLUMNS
-=========================== */
-
-.footer-column{
-  display:flex;
-  flex-direction:column;
+.footerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #C6CCDA;
+  margin: 4px 0;
 }
 
-.footer-column h3{
-  color:#fff;
-  font-size:18px;
-  font-weight:600;
-  margin-bottom:15px;
+.footerInfo svg {
+  color: #FFB020;
+  flex-shrink: 0;
+  font-size: 14px;
 }
 
-.footer-column a{
-  color:#bdbdbd;
-  text-decoration:none;
-  font-size:14px;
-  margin-bottom:9px;
-  transition:.3s;
+.footerAddress {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  color: #8D97AC;
+  margin-top: 14px;
+  line-height: 1.6;
 }
 
-.footer-column a:hover{
-  color:#fff;
-  padding-left:5px;
+.footerAddress strong {
+  color: #C6CCDA;
+  font-weight: 500;
 }
 
-/* ===========================
-   BOTTOM
-=========================== */
-
-.footer-bottom{
-  margin-top:40px;
-
-  border-top:1px solid rgba(255,255,255,.08);
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:20px 35px;
-
-  max-width:1400px;
-  margin-left:auto;
-  margin-right:auto;
+.footerAddress svg {
+  color: #FFB020;
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 14px;
 }
 
-.footer-bottom p{
-  color:#9b9b9b;
-  font-size:13px;
+.downloadSection {
+  margin-top: 22px;
 }
 
-.footer-links{
-  display:flex;
-  gap:20px;
+.storeButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
 }
 
-.footer-links a{
-  color:#9b9b9b;
-  text-decoration:none;
-  font-size:13px;
-  transition:.3s;
+.storeButtons img {
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #2C3652;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
 }
 
-.footer-links a:hover{
-  color:#fff;
+.storeButtons img:hover {
+  transform: translateY(-3px);
+  border-color: #3FD9C7;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* LINK COLUMNS AS MANIFEST SECTIONS */
 
-@media(max-width:1200px){
-
-.footerContainer{
-grid-template-columns:repeat(2,1fr);
-gap:30px;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
 }
 
+.footer-column-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: #FFB020;
+  margin-bottom: 8px;
 }
 
-@media(max-width:768px){
-
-.footer{
-padding:40px 0 0;
+.footer-column h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #F4F6FB;
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 0 0 16px;
 }
 
-.footerContainer{
-grid-template-columns:1fr;
-padding:0 20px;
-gap:28px;
+.footer-column a {
+  color: #8D97AC;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 11px;
+  width: fit-content;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  border-left: 2px solid transparent;
+  padding-left: 0;
 }
 
-.footerLogo{
-width:145px;
+.footer-column a:hover {
+  color: #3FD9C7;
+  padding-left: 8px;
+  border-left: 2px solid #3FD9C7;
 }
 
-.socialIcons{
-gap:8px;
+/* BOTTOM LABEL STRIP */
+
+.footer-bottom {
+  margin-top: 50px;
+  border-top: 1px solid #232D45;
+  background: #0E1526;
 }
 
-.socialIcons a{
-width:38px;
-height:38px;
+.footer-bottom-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.footer-column h3{
-font-size:17px;
-margin-bottom:12px;
+.footer-bottom-inner p {
+  font-size: 12px;
+  color: #5C6784;
+  letter-spacing: 0.2px;
+  font-family: 'Inter', sans-serif;
 }
 
-.footer-column a{
-font-size:14px;
-margin-bottom:8px;
+.footer-tracking-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #3FD9C7;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
-.footer-bottom{
-flex-direction:column;
-gap:15px;
-text-align:center;
-padding:20px;
+.footerBarcode {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 22px;
 }
 
-.footer-links{
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
+.footerBarcode span {
+  display: block;
+  height: 100%;
+  background: #5C6784;
 }
 
-.storeButtons{
-flex-wrap:wrap;
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .footerContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footerLeft {
+    grid-column: 1 / -1;
+  }
 }
 
-.storeButtons img{
-width:120px;
-}
+@media (max-width: 640px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 0;
+  }
 
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
