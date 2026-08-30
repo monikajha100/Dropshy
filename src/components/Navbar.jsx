@@ -24,69 +24,69 @@ const NAV_LINKS = [
         href: "/services/international-ecommerce",
       },
       {
-        label: "Website E-Commerce",
-        href: "/services/website-ecommerce",
-      },
+  label: "Website E-Commerce",
+  href: "/services/nationaleweb",
+}
     ],
   },
 
-  // {
-  //   label: "Products",
-  //   items: [
-  //     {
-  //       label: "Home Decor & Handicrafts",
-  //       href: "/products/home-decor",
-  //     },
-  //     {
-  //       label: "Fashion & Clothing",
-  //       href: "/products/fashion-clothing",
-  //     },
-  //     {
-  //       label: "Bags & Luggage",
-  //       href: "/products/bags-luggage",
-  //     },
-  //     {
-  //       label: "Footwear",
-  //       href: "/products/footwear",
-  //     },
-  //     {
-  //       label: "Jewellery & Accessories",
-  //       href: "/products/jewellery-accessories",
-  //     },
-  //     {
-  //       label: "Beauty & Personal Care",
-  //       href: "/products/beauty-personal-care",
-  //     },
-  //     {
-  //       label: "Kitchen & Dining",
-  //       href: "/products/kitchen-dining",
-  //     },
-  //     {
-  //       label: "Furniture",
-  //       href: "/products/furniture",
-  //     },
-  //     {
-  //       label: "Electronics Accessories",
-  //       href: "/products/electronics-accessories",
-  //     },
-  //     {
-  //       label: "Toys & Baby Products",
-  //       href: "/products/toys-baby",
-  //     },
-  //     {
-  //       label: "Pet Supplies",
-  //       href: "/products/pet-supplies",
-  //     },
-  //     {
-  //       label: "Gardening Products",
-  //       href: "/products/gardening",
-  //     },
-  //     {
-  //       label: "Stationery & More",
-  //       href: "/products/stationery",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Products",
+    items: [
+      {
+        label: "Home Decor & Handicrafts",
+        href: "/products/home-decor",
+      },
+      // {
+      //   label: "Fashion & Clothing",
+      //   href: "/products/fashion-clothing",
+      // },
+      // {
+      //   label: "Bags & Luggage",
+      //   href: "/products/bags-luggage",
+      // },
+      // {
+      //   label: "Footwear",
+      //   href: "/products/footwear",
+      // },
+      // {
+      //   label: "Jewellery & Accessories",
+      //   href: "/products/jewellery-accessories",
+      // },
+      // {
+      //   label: "Beauty & Personal Care",
+      //   href: "/products/beauty-personal-care",
+      // },
+      // {
+      //   label: "Kitchen & Dining",
+      //   href: "/products/kitchen-dining",
+      // },
+      // {
+      //   label: "Furniture",
+      //   href: "/products/furniture",
+      // },
+      // {
+      //   label: "Electronics Accessories",
+      //   href: "/products/electronics-accessories",
+      // },
+      // {
+      //   label: "Toys & Baby Products",
+      //   href: "/products/toys-baby",
+      // },
+      // {
+      //   label: "Pet Supplies",
+      //   href: "/products/pet-supplies",
+      // },
+      // {
+      //   label: "Gardening Products",
+      //   href: "/products/gardening",
+      // },
+      // {
+      //   label: "Stationery & More",
+      //   href: "/products/stationery",
+      // },
+    ],
+  },
 
   {
     label: "Review",

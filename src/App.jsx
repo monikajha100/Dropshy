@@ -10,6 +10,9 @@ import About from "./pages/About";
 import Dropsyservice from "./pages/Dropsyservice";
 import Blogpage from "./pages/Blogpage";
 
+// Website E-Commerce
+import Nationaleweb from "./components/dropsyservice/Nationaleweb";
+
 // E-Commerce Pages
 import Nationalecommerce from "./components/dropsyservice/Nationalecommerce";
 import Internationalecommerce from "./components/dropsyservice/Internationalecommerce";
@@ -18,7 +21,12 @@ import Internationalecommerce from "./components/dropsyservice/Internationalecom
 import Contactus from "./components/Contactus/Contactus";
 
 function App() {
-  const path = window.location.pathname;
+  // Remove trailing slash so both
+  // /services/website-ecommerce
+  // and /services/website-ecommerce/
+  // work correctly.
+  const path =
+    window.location.pathname.replace(/\/+$/, "") || "/";
 
   let Page;
 
@@ -65,6 +73,17 @@ function App() {
   }
 
   // =========================
+  // WEBSITE E-COMMERCE
+  // =========================
+  else if (
+    path === "/services/website-ecommerce" ||
+    path === "/services/Nationaleweb" ||
+    path === "/services/nationaleweb"
+  ) {
+    Page = Nationaleweb;
+  }
+
+  // =========================
   // BLOG
   // =========================
   else if (
@@ -106,3 +125,4 @@ function App() {
 }
 
 export default App;
+

@@ -65,8 +65,7 @@ const Home = () => {
         
         {/* <Offline/> */}
          {/* <Sponser2/> */}
-        <Sellorstory/>
-        <Services/>
+       
       {/* <Shiprocket/> */}
          <Blog /> 
       </main>

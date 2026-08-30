@@ -9,7 +9,7 @@ import myntraLogo from "../../assets/images/ebay.jpg";
 // Seller registration image
 import registrationImage from "../../assets/images/seller-registration.png";
 
-
+import Nationalp from "./Nationalp";
 
 import {
   FaCheckCircle,
@@ -699,7 +699,7 @@ const NationalEcommerce = () => {
         </div>
 
       </section>
-
+<Nationalp />
 
       {/* ===================================================
           SELLER REGISTRATION PROCESS
@@ -914,216 +914,7 @@ const NationalEcommerce = () => {
           PRICING PACKAGES
       =================================================== */}
 
-      <section
-        className="national-section-pad national-pricing-section"
-        id="pricing"
-      >
-
-        <div className="national-wrap">
-
-
-          {/* HEADING */}
-
-          <div className="pricing-heading national-reveal">
-
-            <span className="pricing-eyebrow">
-              Choose your plan
-            </span>
-
-            <h2>
-              Packages built for every stage of growth
-            </h2>
-
-            <p>
-              Choose the plan that matches your selling
-              goals and start building your online business
-              across India's leading marketplaces.
-            </p>
-
-          </div>
-
-
-          {/* PLAN CARDS */}
-
-          <div className="pricing-grid">
-
-            {plans.map((plan) => (
-
-              <div
-                className={`pricing-card pricing-${plan.tier} ${
-                  plan.featured
-                    ? "pricing-featured"
-                    : ""
-                } national-reveal`}
-                key={plan.tier}
-              >
-
-                {plan.featured && (
-
-                  <span className="pricing-featured-tag">
-                    Most Popular
-                  </span>
-
-                )}
-
-
-                <div className="pricing-badge">
-                  {plan.icon}
-                </div>
-
-                <h3 className="pricing-name">
-                  {plan.name}
-                </h3>
-
-                <p className="pricing-subtitle">
-                  {plan.subtitle}
-                </p>
-
-
-                <div className="pricing-price">
-
-                  <span>
-                    {plan.priceLines[0]}
-                  </span>
-
-                  <strong>
-                    {plan.priceLines[1]}
-                  </strong>
-
-                </div>
-
-
-                <ul className="pricing-features">
-
-                  {plan.features.map((feature) => (
-
-                    <li key={feature}>
-
-                      <FaCheckCircle
-                        className="pricing-check"
-                      />
-
-                      <span>
-                        {feature}
-                      </span>
-
-                    </li>
-
-                  ))}
-
-                </ul>
-
-
-                <div className="pricing-note">
-                  {plan.note}
-                </div>
-
-
-                <a
-                  href="#register"
-                  className="pricing-card-btn"
-                >
-                  Choose {plan.name} →
-                </a>
-
-              </div>
-
-            ))}
-
-          </div>
-
-
-          {/* GROWTH / EARNING PANEL */}
-
-          <div className="pricing-growth-panel national-reveal">
-
-            {growthStats.map((stat, index) => (
-
-              <React.Fragment key={stat.tier}>
-
-                <div
-                  className={`pricing-growth-card growth-${stat.tier.toLowerCase()}`}
-                >
-
-                  <div className="growth-card-head">
-
-                    <span>
-                      {stat.tier} :-
-                    </span>
-
-                    <strong>
-                      ( {stat.total} )
-                    </strong>
-
-                  </div>
-
-
-                  <ul className="growth-card-lines">
-
-                    {stat.lines.map((line, i) => (
-
-                      <li key={i}>
-
-                        <span className="growth-arrow">
-                          ›
-                        </span>
-
-                        {line}
-
-                      </li>
-
-                    ))}
-
-                  </ul>
-
-
-                  <div className="growth-earning">
-
-                    <FaMoneyBillWave />
-
-                    <span>
-                      Earning up to{" "}
-                      <strong>
-                        {stat.earning}
-                      </strong>
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                {index === 0 && (
-
-                  <div className="pricing-growth-center">
-
-                    <div className="growth-center-badge">
-
-                      <MdTrendingUp />
-
-                      <span>
-                        Grow Your Business
-                      </span>
-
-                      <small>
-                        Earn More
-                      </small>
-
-                    </div>
-
-                  </div>
-
-                )}
-
-              </React.Fragment>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
+      
 
 
       {/* ===================================================
