@@ -2734,3 +2734,22 @@
     animation: none !important;
   }
 }
+.international-mp-image {
+  width: 100%;
+  height: 100px;
+  margin: 16px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.international-mp-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 12px;
+}

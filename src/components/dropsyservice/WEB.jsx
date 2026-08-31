@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Web.css";
+import "./Global.css";
 import {
   Globe,
   ShoppingCart,
   TrendingUp,
   CheckCircle2,
   Rocket,
-  Gem,
   Crown,
   Shield,
   Award,
@@ -31,83 +30,48 @@ const platforms = [
 
 const plans = [
   {
-    tier: "basic",
-    name: "BASIC",
+    tier: "starter",
+    name: "Starter",
     subtitle: "Launch your first global storefront",
-    price: "₹5,900",
-    priceNote: "₹5,000 + 18% GST = ₹5,900/-",
+    priceLines: ["Starting at", "₹14,999"],
     features: [
-      "Domain & Hosting/Server – 1 Year",
-      "Professional E-commerce Website",
-      "Website Design & Development",
-      "Responsive Mobile-Friendly Design",
-      "Up to 200 Product Listings",
-      "Up to 200 Product Photography / Mood Shoot",
-      "Product Titles, Keywords & Tags",
-      "Product Description / Content",
-      "3 Website Banners",
-      "Product Categories Setup",
-      "Contact Us / About Us / FAQ Pages",
-      "WhatsApp Integration",
-      "Payment Gateway Integration",
-      "Admin or Order Panel Training",
+      "Store setup on 2 platforms",
+      "Product listing & SEO basics",
+      "Payment gateway integration",
+      "Email support",
     ],
-    note: "Perfect for New Entrepreneurs",
+    note: "Best for new sellers",
     icon: <Rocket size={22} />,
     featured: false,
   },
   {
-    tier: "advance",
-    name: "ADVANCE",
+    tier: "growth",
+    name: "Growth",
     subtitle: "Scale across multiple marketplaces",
-    price: "₹11,800",
-    priceNote: "₹10,000 + 18% GST = ₹11,800/-",
+    priceLines: ["Starting at", "₹34,999"],
     features: [
-      "Domain & Hosting/Server – 1 Year",
-      "Professional E-commerce Website",
-      "Responsive Mobile-Friendly Design",
-      "Up to 500 Product Listings",
-      "Up to 500 Product Photography / Model Shoot",
-      "Product Titles, Keywords & Tags",
-      "SEO-Friendly Product Content",
-      "6 Premium Banners",
-      "Professional Logo Design",
-      "WhatsApp Integration",
-      "Payment Gateway Integration",
-      "Social Media Integration",
-      "Social Media Management – 2 Months",
-      "Admin, Order or Shipping Panel Training",
+      "Store setup on 5+ platforms",
+      "Ad campaigns & catalog optimisation",
+      "Inventory & order sync",
+      "Dedicated account manager",
+      "Priority support",
     ],
-    note: "Ideal for Growing Businesses",
-    icon: <Gem size={22} />,
+    note: "Most sellers choose this",
+    icon: <TrendingUp size={22} />,
     featured: true,
   },
   {
-    tier: "royal",
-    name: "ROYAL",
+    tier: "pro",
+    name: "Enterprise",
     subtitle: "Full-service global expansion",
-    price: "₹23,600",
-    priceNote: "₹20,000 + 18% GST = ₹23,600/-",
+    priceLines: ["Starting at", "₹79,999"],
     features: [
-      "Domain & Hosting/Server – 1 Year",
-      "Professional E-commerce Website",
-      "Premium E-commerce Website",
-      "Custom UI/UX Design & Development",
-      "Responsive Mobile-Friendly Design",
-      "Up to 1000 Product Listings",
-      "Up to 1000 Product Photography / Model Shoot",
-      "Product Titles, Tags, Keywords & Content",
-      "10 Premium Banners",
-      "Professional Logo & Brand Identity",
-      "WhatsApp Integration",
-      "Payment Gateway Integration – National + International",
-      "SEO-Friendly Website Structure",
-      "Social Media Integration",
-      "Social Media Management – 6 Months",
-      "All Admin Panel Training",
-      "Order Management Training",
+      "Unlimited platform onboarding",
+      "Custom logistics & warehousing",
+      "Brand protection & compliance",
+      "24/7 dedicated support pod",
     ],
-    note: "Best for Scaling Your Business",
+    note: "For established brands",
     icon: <Crown size={22} />,
     featured: false,
   },
@@ -245,45 +209,9 @@ export default function GlobalEcommerce() {
       </svg>
 
       {/* ---------------- HERO ---------------- */}
-      <div className="gec-hero">
-        <svg className="gec-routes" viewBox="0 0 900 260" preserveAspectRatio="none">
-          <path className="gec-route-line" d="M60,210 Q280,40 450,110 T820,60" />
-          <path className="gec-route-line gold" d="M40,90 Q260,220 470,150 T860,190" />
-          <circle className="gec-node" cx="60" cy="210" r="5" />
-          <circle className="gec-node-pulse" cx="60" cy="210" r="5" />
-          <circle className="gec-node" cx="450" cy="110" r="5" />
-          <circle className="gec-node-pulse" cx="450" cy="110" r="5" />
-          <circle className="gec-node" cx="820" cy="60" r="5" />
-          <circle className="gec-node-pulse" cx="820" cy="60" r="5" />
-        </svg>
-
-        <div className="gec-hero-inner">
-          <div className="gec-hero-icons">
-            <Globe size={28} />
-            <ShoppingCart size={26} />
-          </div>
-
-          <span className="gec-hero-eyebrow">Global</span>
-          <h1 className="gec-hero-title">E-commerce Business</h1>
-          <span className="gec-hero-eyebrow">Sell worldwide, grow big</span>
-
-          <p className="gec-hero-sub">
-            List, sell, and ship across the world's biggest marketplaces —
-            we handle setup, ads, and logistics so you focus on your brand
-            and generating sales instead of managing inventory.
-          </p>
-
-          <div className="gec-platform-strip">
-            <div className="gec-platform-track">
-              {[...platforms, ...platforms].map((p, i) => (
-                <span className="gec-platform-chip" key={p + i}>
-                  {p}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      
+       
+     
 
       {/* ---------------- PLAN CARDS ---------------- */}
       <div ref={gridRef} className={`gec-grid ${gridVisible ? "gec-visible" : ""}`}>
@@ -303,11 +231,8 @@ export default function GlobalEcommerce() {
             <p className="gec-subtitle">{plan.subtitle}</p>
 
             <div className="gec-price">
-              <div className="gec-price-row">
-                <span>Starting at</span>
-                <strong>{plan.price}</strong>
-              </div>
-              <div className="gec-price-note">{plan.priceNote}</div>
+              <span>{plan.priceLines[0]}</span>
+              <strong>{plan.priceLines[1]}</strong>
             </div>
 
             <ul className="gec-features">

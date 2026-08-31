@@ -10,259 +10,579 @@ import {
   BookOpen,
   Headphones,
   ArrowRight,
-  CheckCircle2,
+  Package,
+  ShoppingCart,
+  Truck,
+  IndianRupee,
+  Megaphone,
+  Laptop,
 } from "lucide-react";
 
 /* ============================================================
-   SEO
+   BANNER IMAGES
 ============================================================ */
 
-const SEO = {
-  metaTitle: "International Seller Account Setup with Dropshy",
-
-  h1: "International Seller Account Setup — Etsy, eBay, Amazon.com & Walmart – Dropshy",
-
-  metaDescription:
-    "Start your global e-commerce business with Dropshy. Get international seller account setup support for Etsy, eBay, Amazon.com, Alibaba, Walmart, Amazon UAE & Amazon Dubai.",
-};
+import banner1 from "../../assets/images/BANNER 1 BLOGS.png";
+import banner2 from "../../assets/images/banner 2 blogs.png";
+import banner3 from "../../assets/images/BANNER 3 BLOGS.png";
 
 /* ============================================================
-   DATA
+   ALL CONTENT
 ============================================================ */
 
-const MARKETPLACES = [
-  "Etsy",
-  "eBay",
-  "Amazon.com",
-  "Alibaba",
-  "Walmart",
-  "Amazon UAE",
-  "Amazon Dubai",
-];
+const CONTENTS = [
+  /* ==========================================================
+     BANNER 1
+     INTERNATIONAL SELLER ACCOUNT SETUP
+  ========================================================== */
 
-const SERVICES = [
   {
-    icon: <UserPlus size={22} />,
-    title: "Account Creation",
-    desc: "Assistance with creating your international seller account according to marketplace requirements.",
-  },
-  {
-    icon: <ClipboardCheck size={22} />,
-    title: "Seller Registration",
-    desc: "Support with entering business, seller and marketplace registration details correctly.",
-  },
-  {
-    icon: <FileCheck2 size={22} />,
-    title: "Document & Verification Support",
-    desc: "Guidance for preparing and submitting the required business and identity documents.",
-  },
-  {
-    icon: <Store size={22} />,
-    title: "Store Setup",
-    desc: "Assistance with basic seller/store configuration and marketplace profile setup.",
-  },
-  {
-    icon: <Globe2 size={22} />,
-    title: "Marketplace Onboarding",
-    desc: "Get guided onboarding support for different international marketplaces.",
-  },
-  {
-    icon: <BookOpen size={22} />,
-    title: "Selling Guidance",
-    desc: "Understand the basic process of listing products, managing orders and starting international sales.",
-  },
-  {
-    icon: <Headphones size={22} />,
-    title: "Expert Support",
-    desc: "Get professional assistance throughout the seller account setup process.",
-  },
-];
+    id: 1,
 
-const FAQS = [
-  {
-    q: "What is an International Seller Account?",
-    a: "An international seller account allows a business or seller to sell products through e-commerce marketplaces serving customers in other countries and regions.",
+    image: banner1,
+
+    selectorTitle: "International Seller Account Setup",
+
+    selectorDesc:
+      "Etsy, eBay, Amazon.com, Alibaba, Walmart & more",
+
+    metaTitle:
+      "International Seller Account Setup with Dropshy",
+
+    metaDescription:
+      "Start your global e-commerce business with Dropshy. Get international seller account setup support for Etsy, eBay, Amazon.com, Alibaba, Walmart, Amazon UAE & Amazon Dubai.",
+
+    h1:
+      "International Seller Account Setup Etsy, eBay, Amazon.com & Walmart – Dropshy",
+
+    introTitle: "Sell Globally with Dropshy",
+
+    intro: [
+      "Dropshy helps entrepreneurs and businesses start selling internationally through leading global e-commerce marketplaces. Our International Seller Account Setup Service provides end-to-end assistance for account creation, registration, verification, documentation, store setup and marketplace onboarding.",
+
+      "Whether you are a beginner, small business owner, manufacturer, retailer or aspiring online seller, Dropshy helps you take your business from local to global with professional e-commerce support.",
+    ],
+
+    marketplaceTitle: "Sell Globally with Dropshy",
+
+    marketplaces: [
+      "Etsy",
+      "eBay",
+      "Amazon.com",
+      "Alibaba",
+      "Walmart",
+      "Amazon UAE",
+      "Amazon Dubai",
+    ],
+
+    overviewTitle: "🌍 Expand Your Business Worldwide",
+
+    overview: [
+      "Selling on international marketplaces can open your business to customers across different countries and markets. However, seller registration, verification, documentation and marketplace requirements can be complicated.",
+
+      "Dropshy simplifies the process.",
+
+      "Our team helps you with the complete seller account setup journey, from initial registration to getting your marketplace account ready for selling.",
+    ],
+
+    servicesTitle:
+      "Our International Seller Account Setup Services",
+
+    services: [
+      {
+        icon: <UserPlus size={21} />,
+        title: "Account Creation",
+        desc:
+          "Assistance with creating your international seller account according to marketplace requirements.",
+      },
+
+      {
+        icon: <ClipboardCheck size={21} />,
+        title: "Seller Registration",
+        desc:
+          "Support with entering business, seller and marketplace registration details correctly.",
+      },
+
+      {
+        icon: <FileCheck2 size={21} />,
+        title: "Document & Verification Support",
+        desc:
+          "Guidance for preparing and submitting the required business and identity documents.",
+      },
+
+      {
+        icon: <Store size={21} />,
+        title: "Store Setup",
+        desc:
+          "Assistance with basic seller/store configuration and marketplace profile setup.",
+      },
+
+      {
+        icon: <Globe2 size={21} />,
+        title: "Marketplace Onboarding",
+        desc:
+          "Get guided onboarding support for different international marketplaces.",
+      },
+
+      {
+        icon: <BookOpen size={21} />,
+        title: "Selling Guidance",
+        desc:
+          "Understand the basic process of listing products, managing orders and starting international sales.",
+      },
+
+      {
+        icon: <Headphones size={21} />,
+        title: "Expert Support",
+        desc:
+          "Get professional assistance throughout the seller account setup process.",
+      },
+    ],
+
+    faqs: [
+      {
+        q: "What is an International Seller Account?",
+        a:
+          "An international seller account allows a business or seller to sell products through e-commerce marketplaces serving customers in other countries and regions.",
+      },
+
+      {
+        q: "Does Dropshy provide international seller account setup?",
+        a:
+          "Yes. Dropshy provides assistance with international seller account creation, registration, verification, documentation and basic marketplace setup.",
+      },
+
+      {
+        q: "Which international marketplaces does Dropshy support?",
+        a:
+          "Dropshy provides seller account setup support for Etsy, eBay, Amazon.com, Alibaba, Walmart, Amazon UAE and Amazon Dubai.",
+      },
+
+      {
+        q: "Can beginners start international selling with Dropshy?",
+        a:
+          "Yes. Dropshy provides beginner-friendly guidance to help new sellers understand the international e-commerce account setup and selling process.",
+      },
+
+      {
+        q: "What documents are required for an international seller account?",
+        a:
+          "Requirements vary by marketplace and seller type. Generally, marketplaces may request identity, business, address, tax, banking or other verification documents.",
+      },
+
+      {
+        q: "Can I sell products from India to international customers?",
+        a:
+          "Yes, eligible Indian businesses can explore international selling through supported marketplaces, subject to the marketplace's rules, product requirements and applicable laws.",
+      },
+
+      {
+        q: "How long does international seller account setup take?",
+        a:
+          "The timeline depends on the marketplace, verification process and accuracy of submitted information. Some accounts may be approved quickly, while others can require additional verification.",
+      },
+
+      {
+        q: "Can Dropshy help with multiple international marketplaces?",
+        a:
+          "Yes. Dropshy can provide setup assistance across multiple supported platforms, including Etsy, eBay, Amazon.com, Alibaba, Walmart and Amazon UAE.",
+      },
+
+      {
+        q: "Does Dropshy guarantee seller account approval?",
+        a:
+          "No service provider can guarantee approval because final account approval and verification are controlled by the respective marketplace. Dropshy provides setup and guidance to help ensure information is submitted correctly.",
+      },
+
+      {
+        q: "Why should I choose Dropshy for international seller account setup?",
+        a:
+          "Dropshy combines seller account setup assistance, documentation guidance, marketplace onboarding and e-commerce business support to make the process easier for entrepreneurs who want to expand globally.",
+      },
+    ],
+
+    ctaTitle: "Ready to Take Your Business Global?",
+
+    ctaText:
+      "Get professional international seller account setup support and start exploring global e-commerce marketplaces with Dropshy.",
   },
+
+  /* ==========================================================
+     BANNER 2
+     WEBSITE DROPSHIPPING
+  ========================================================== */
+
   {
-    q: "Does Dropshy provide international seller account setup?",
-    a: "Yes. Dropshy provides assistance with international seller account creation, registration, verification, documentation and basic marketplace setup.",
+    id: 2,
+
+    image: banner2,
+
+    selectorTitle: "Website Dropshipping",
+
+    selectorDesc:
+      "Build your own online store and grow your brand",
+
+    metaTitle:
+      "Start Your own Online Store Website Dropshipping with Dropshy",
+
+    metaDescription:
+      "Start your own website dropshipping business with Dropshy. Launch an online store, sell products without maintaining inventory and get product, listing and fulfillment support.",
+
+    h1:
+      "Start Your Website Dropshipping Business with Dropshy",
+
+    introTitle:
+      "Start Your Own Website Dropshipping Business with Dropshy",
+
+    intro: [
+      "Dropshy Website Dropshipping helps aspiring entrepreneurs launch their own professional e-commerce website and start selling products online without the traditional requirement of maintaining large inventories or warehouse space.",
+
+      "With Dropshy, you can build your own online store and brand, select products from available categories, add products to your website and promote your store through digital marketing channels such as Instagram, Facebook, Google and WhatsApp.",
+
+      "Our website dropshipping model is designed to simplify the operational side of e-commerce. Product sourcing, product information, photography assets and fulfillment support can be provided through the Dropshy ecosystem, allowing you to focus more on marketing, customer acquisition, sales and brand building.",
+    ],
+
+    marketplaceTitle:
+      "Build Your Online Store. Sell Products. Grow Your Brand.",
+
+    marketplaces: [
+      "Own Online Store",
+      "Product Selection",
+      "Product Listings",
+      "Digital Marketing",
+      "Order Processing",
+      "Fulfillment Support",
+    ],
+
+    overviewTitle: "What is Website Dropshipping?",
+
+    overview: [
+      "Website dropshipping is an e-commerce business model where you sell products through your own online store without needing to maintain large quantities of inventory yourself.",
+
+      "Instead of purchasing and storing products in advance, products can be processed when customers place orders, subject to the applicable supplier and fulfillment terms.",
+
+      "With Dropshy, you can create a professional e-commerce website, select products, add product listings and promote your store online.",
+    ],
+
+    servicesTitle:
+      "How Website Dropshipping with Dropshy Works",
+
+    services: [
+      {
+        icon: <Package size={21} />,
+        title: "Choose Products",
+        desc:
+          "Select products from available categories and product SKUs.",
+      },
+
+      {
+        icon: <Laptop size={21} />,
+        title: "Add Products to Your Website",
+        desc:
+          "Products are added to your online store with images, descriptions, pricing, keywords and other relevant information.",
+      },
+
+      {
+        icon: <Megaphone size={21} />,
+        title: "Promote Your Online Store",
+        desc:
+          "Use Instagram, Facebook, Google, WhatsApp and other marketing channels to attract potential customers.",
+      },
+
+      {
+        icon: <ShoppingCart size={21} />,
+        title: "Customer Places an Order",
+        desc:
+          "When a customer purchases a product from your website, the order is received through your online store.",
+      },
+
+      {
+        icon: <ClipboardCheck size={21} />,
+        title: "Dropshy Processes the Order",
+        desc:
+          "The order is processed through the applicable Dropshy supply and fulfillment system.",
+      },
+
+      {
+        icon: <Truck size={21} />,
+        title: "Product is Packed & Dispatched",
+        desc:
+          "Product handling, packaging, labeling and dispatch support are managed through the applicable fulfillment process.",
+      },
+
+      {
+        icon: <IndianRupee size={21} />,
+        title: "You Earn Your Margin",
+        desc:
+          "Your potential profit is based on your selling price minus applicable product/fulfillment costs, payment gateway charges, marketing expenses, taxes and other business expenses.",
+      },
+    ],
+
+    faqs: [
+      {
+        q: "What is website dropshipping?",
+        a:
+          "Website dropshipping is an e-commerce model where you sell products through your own online store without maintaining large quantities of inventory yourself. Products are generally processed after an order is received, subject to the applicable fulfillment arrangement.",
+      },
+
+      {
+        q:
+          "How can I start a website dropshipping business with Dropshy?",
+        a:
+          "You can start by selecting a suitable Dropshy website dropshipping package, setting up your online store, adding products and promoting your website through digital marketing channels. Dropshy provides website, product listing and fulfillment-related support according to the selected package and applicable terms.",
+      },
+
+      {
+        q:
+          "Do I need to keep inventory for website dropshipping?",
+        a:
+          "Generally, you do not need to purchase and store large quantities of inventory in advance. Products can be processed after receiving customer orders, depending on product availability and the applicable fulfillment arrangement.",
+      },
+
+      {
+        q:
+          "Can I create my own brand with Dropshy?",
+        a:
+          "Yes. Dropshy website dropshipping allows you to build your own online store and establish your own business or brand identity.",
+      },
+
+      {
+        q:
+          "How many products can I add to my Dropshy website?",
+        a:
+          "The number of products depends on your selected package. Dropshy packages can include product listings along with product images, titles, descriptions, keywords, tags and other product information.",
+      },
+
+      {
+        q:
+          "Who handles packaging and product dispatch?",
+        a:
+          "Packaging, labeling and dispatch support can be managed through the applicable Dropshy supply and fulfillment system. The exact process depends on the product, service package and fulfillment terms.",
+      },
+
+      {
+        q:
+          "Do I need a warehouse to start dropshipping?",
+        a:
+          "You generally do not need your own warehouse for products handled through the Dropshy fulfillment system. This can help reduce the operational requirements associated with storing and managing inventory.",
+      },
+
+      {
+        q:
+          "How do I make money from website dropshipping?",
+        a:
+          "You earn a margin when you sell a product at a price higher than the applicable product and fulfillment costs. Your actual profit also depends on payment gateway charges, advertising costs, taxes, returns, shipping and other business expenses.",
+      },
+
+      {
+        q:
+          "Can I promote my dropshipping website on Google and social media?",
+        a:
+          "Yes. You can promote your website through Google, Instagram, Facebook, WhatsApp, YouTube and other digital marketing channels. SEO, content marketing and paid advertising can be used to attract potential customers.",
+      },
+
+      {
+        q:
+          "Is website dropshipping suitable for beginners?",
+        a:
+          "Website dropshipping can be suitable for beginners because it can reduce the need for upfront inventory, warehouse management and some fulfillment operations. However, success depends on product selection, pricing, marketing, customer service and overall business execution.",
+      },
+    ],
+
+    ctaTitle:
+      "Ready to Build Your Own Online Store?",
+
+    ctaText:
+      "Launch your website dropshipping business with Dropshy and focus on growing your store, marketing and brand.",
   },
+
+  /* ==========================================================
+     BANNER 3
+     DROPSHIPPING BUSINESS IN INDIA
+  ========================================================== */
+
   {
-    q: "Which international marketplaces does Dropshy support?",
-    a: "Dropshy provides seller account setup support for Etsy, eBay, Amazon.com, Alibaba, Walmart, Amazon UAE and Amazon Dubai.",
-  },
-  {
-    q: "Can beginners start international selling with Dropshy?",
-    a: "Yes. Dropshy provides beginner-friendly guidance to help new sellers understand the international e-commerce account setup and selling process.",
-  },
-  {
-    q: "What documents are required for an international seller account?",
-    a: "Requirements vary by marketplace and seller type. Generally, marketplaces may request identity, business, address, tax, banking or other verification documents.",
-  },
-  {
-    q: "Can I sell products from India to international customers?",
-    a: "Yes, eligible Indian businesses can explore international selling through supported marketplaces, subject to the marketplace's rules, product requirements and applicable laws.",
-  },
-  {
-    q: "How long does international seller account setup take?",
-    a: "The timeline depends on the marketplace, verification process and accuracy of submitted information. Some accounts may be approved quickly, while others can require additional verification.",
-  },
-  {
-    q: "Can Dropshy help with multiple international marketplaces?",
-    a: "Yes. Dropshy can provide setup assistance across multiple supported platforms, including Etsy, eBay, Amazon.com, Alibaba, Walmart and Amazon UAE.",
-  },
-  {
-    q: "Does Dropshy guarantee seller account approval?",
-    a: "No service provider can guarantee approval because final account approval and verification are controlled by the respective marketplace. Dropshy provides setup and guidance to help ensure information is submitted correctly.",
-  },
-  {
-    q: "Why should I choose Dropshy for international seller account setup?",
-    a: "Dropshy combines seller account setup assistance, documentation guidance, marketplace onboarding and e-commerce business support to make the process easier for entrepreneurs who want to expand globally.",
+    id: 3,
+
+    image: banner3,
+
+    selectorTitle:
+      "Start Dropshipping Business in India",
+
+    selectorDesc:
+      "Start selling online with zero inventory",
+
+    metaTitle:
+      "Start Your Dropshipping Business in India",
+
+    metaDescription:
+      "Start your dropshipping business with Dropshy. Sell trending products online without inventory or warehouse. Get product, shipping and seller support for India and global markets.",
+
+    h1:
+      "Start Your Dropshipping Business in India with Zero Inventory with Dropshy",
+
+    introTitle:
+      "Start Your Dropshipping Business with Dropshy",
+
+    intro: [
+      "Dropshy is an e-commerce and dropshipping platform designed to help aspiring entrepreneurs start and grow an online business without maintaining their own inventory.",
+
+      "With Dropshy, sellers can access products, create their online selling business and focus on marketing, customer acquisition and sales, while product handling and shipping support are managed through the Dropshy ecosystem.",
+
+      "Dropshy offers National Dropshipping, International Dropshipping and Website Dropshipping solutions for entrepreneurs who want to sell products in India as well as international markets.",
+    ],
+
+    marketplaceTitle:
+      "Start Your E-commerce Business Without the Traditional Burden",
+
+    marketplaces: [
+      "National Dropshipping",
+      "International Dropshipping",
+      "Website Dropshipping",
+      "Product Access",
+      "Shipping Support",
+      "Fulfillment Support",
+    ],
+
+    overviewTitle:
+      "Dropshy – Your E-commerce Business Partner",
+
+    overview: [
+      "Starting a traditional e-commerce business can require inventory investment, warehouse space, packaging, staff and logistics management.",
+
+      "Dropshy follows a different approach.",
+
+      "The goal is simple: “Start your e-commerce business without the traditional burden of inventory, warehouse and logistics management.”",
+    ],
+
+    servicesTitle:
+      "How the Dropshy Business Model Works",
+
+    services: [
+      {
+        icon: <Package size={21} />,
+        title: "Choose Products",
+        desc:
+          "Select products from available categories and product SKUs.",
+      },
+
+      {
+        icon: <ShoppingCart size={21} />,
+        title: "List & Promote Products",
+        desc:
+          "Add products to your selling channel and promote them through digital marketing, social media or other channels.",
+      },
+
+      {
+        icon: <ShoppingCart size={21} />,
+        title: "Customer Places an Order",
+        desc:
+          "When a customer purchases your product, you receive the order.",
+      },
+
+      {
+        icon: <ClipboardCheck size={21} />,
+        title: "Order Processing",
+        desc:
+          "The product is processed through the Dropshy supply and fulfillment system.",
+      },
+
+      {
+        icon: <Truck size={21} />,
+        title: "Product Dispatch",
+        desc:
+          "Products are packed and dispatched to the customer.",
+      },
+
+      {
+        icon: <IndianRupee size={21} />,
+        title: "Earn Your Margin",
+        desc:
+          "Your selling price minus your product/fulfillment cost and applicable expenses determines your profit.",
+      },
+    ],
+
+    faqs: [
+      {
+        q: "What is Dropshy?",
+        a:
+          "Dropshy is an e-commerce and dropshipping platform that helps entrepreneurs start and grow an online business without maintaining their own product inventory.",
+      },
+
+      {
+        q:
+          "Can I start a dropshipping business without inventory?",
+        a:
+          "Yes. Dropshy's dropshipping model allows sellers to select products and sell them through their chosen selling channels without maintaining their own inventory.",
+      },
+
+      {
+        q:
+          "How does the Dropshy dropshipping business model work?",
+        a:
+          "You select products, list and promote them, receive customer orders, and the order is processed through the Dropshy supply and fulfillment system. The product is then packed and dispatched to the customer.",
+      },
+
+      {
+        q:
+          "Do I need a warehouse to start dropshipping with Dropshy?",
+        a:
+          "No. The dropshipping model is designed to reduce the need for sellers to maintain their own inventory or warehouse for the products they sell.",
+      },
+
+      {
+        q:
+          "What products can I sell through Dropshy?",
+        a:
+          "You can choose from the available product categories and SKUs provided through the Dropshy ecosystem, subject to product availability and applicable marketplace requirements.",
+      },
+
+      {
+        q:
+          "Can I sell Dropshy products online in India?",
+        a:
+          "Yes. Dropshy provides National Dropshipping solutions for entrepreneurs who want to sell products through online channels in the Indian market.",
+      },
+
+      {
+        q:
+          "Can I sell products internationally with Dropshy?",
+        a:
+          "Yes. Dropshy also offers International Dropshipping solutions for entrepreneurs who want to explore selling products in international markets, subject to marketplace and country requirements.",
+      },
+
+      {
+        q:
+          "How do I make a profit in dropshipping?",
+        a:
+          "Your profit generally depends on the difference between your selling price and your product/fulfillment cost, after applicable marketplace, payment, marketing and other business expenses.",
+      },
+
+      {
+        q:
+          "Who can start a dropshipping business with Dropshy?",
+        a:
+          "Aspiring entrepreneurs, students, working professionals, small business owners and others interested in starting an online e-commerce business can explore the Dropshy model, subject to applicable requirements.",
+      },
+
+      {
+        q:
+          "Does Dropshy provide shipping and fulfillment support?",
+        a:
+          "Dropshy provides product handling and shipping support through its ecosystem, helping sellers focus more on marketing, customer acquisition and sales while orders move through the supply and fulfillment process.",
+      },
+    ],
+
+    ctaTitle:
+      "Ready to Start Your Dropshipping Business?",
+
+    ctaText:
+      "Start selling online with Dropshy and explore National, International and Website Dropshipping solutions.",
   },
 ];
 
 /* ============================================================
-   PLAYLIST DATA
-   Each item now carries: a thumbnail (left list), a full image
-   (right panel), a publish date, and a multi-paragraph description.
-============================================================ */
-
-const PLAYLIST_ITEMS = [
-  {
-    title: "Getting Started",
-    shortDesc: "A quick intro to our platform",
-    date: "Aug 12, 2026",
-    image: "https://picsum.photos/seed/getting-started/900/500",
-    paras: [
-      "Starting your international selling journey can feel overwhelming, especially if you have never dealt with marketplace registration, verification or store setup before. This guide is designed to walk you through the very first steps in plain language, without assuming you already know how any of it works.",
-      "The first thing we help you do is choose the right marketplace for your product category. Etsy suits handmade and craft goods, eBay works well for both new and used items, while Amazon and Walmart are better suited to branded retail at scale. Picking the wrong platform early on often means redoing your listings later, so we spend real time on this decision with you.",
-      "Once a marketplace is chosen, account creation is next. This involves entering your business details, contact information and basic seller preferences. We flag the fields that commonly cause rejections so you do not have to find out the hard way.",
-      "After your account exists, the dashboard becomes your daily workspace — this is where you will manage listings, track orders, and monitor account health. We give you a full walkthrough of every section so nothing feels unfamiliar on day one.",
-      "By the time you finish this guide, you should have an active seller profile, a clear understanding of your dashboard, and enough confidence to publish your very first listing without hesitation.",
-    ],
-  },
-  {
-    title: "Best Practices",
-    shortDesc: "Tips from our top users",
-    date: "Aug 05, 2026",
-    image: "https://picsum.photos/seed/best-practices/900/500",
-    paras: [
-      "Every marketplace rewards sellers who consistently follow a handful of core habits, and this guide collects the ones we see repeated across our highest performing accounts.",
-      "Product photography is the first thing customers judge before reading a single word of your description. Sellers who invest in clean, well-lit, multi-angle images consistently see higher click-through rates than those relying on a single low-resolution photo.",
-      "Pricing discipline matters just as much as presentation. Rather than competing purely on the lowest price, top sellers price to reflect quality and shipping speed, then let reviews and repeat customers do the rest of the work.",
-      "Response time to buyer questions is another quiet differentiator. Marketplaces track how quickly you reply to messages, and slow response times can quietly hurt your visibility in search results even if your product itself is strong.",
-      "Finally, treat your first thirty days on any new marketplace as a data-gathering phase. Track which listings get views but no sales, adjust titles and images accordingly, and resist the urge to list everything at once before you understand what is actually working.",
-    ],
-  },
-  {
-    title: "Advanced Features",
-    shortDesc: "Unlock the full toolkit",
-    date: "Jul 28, 2026",
-    image: "https://picsum.photos/seed/advanced-features/900/500",
-    paras: [
-      "Once your first store is running smoothly, a second layer of tools becomes available to sellers who want to operate at a larger scale, and this guide covers the most useful ones.",
-      "Bulk listing management lets you upload, edit and update hundreds of products in a single spreadsheet-style action instead of editing each listing individually. This alone can save established sellers several hours a week.",
-      "Automated inventory sync keeps your stock counts accurate across every marketplace you sell on simultaneously, so you never oversell a product that has already run out on another platform.",
-      "Multi-store analytics brings all your marketplace performance data into a single view, letting you compare conversion rates, average order value and return rates side by side rather than logging into four different seller dashboards every morning.",
-      "These tools are not necessary on day one, but sellers who adopt them as soon as order volume increases tend to avoid the operational headaches that come with manual, spreadsheet-free scaling.",
-    ],
-  },
-  {
-    title: "Case Studies",
-    shortDesc: "Success stories from clients",
-    date: "Jul 15, 2026",
-    image: "https://picsum.photos/seed/case-studies/900/500",
-    paras: [
-      "Nothing explains what is possible better than real examples, so this guide profiles a handful of sellers who started exactly where you are now.",
-      "One home-goods seller from Jaipur began with a single Etsy listing for hand-block-printed textiles. Within eight months, consistent photography and honest customer communication took them from occasional sales to a steady stream of repeat international buyers.",
-      "A small electronics accessories brand expanded from a single domestic marketplace to Amazon.com and Amazon UAE within the same quarter, using shared product data to avoid duplicating listing work across regions.",
-      "A family-run spice business faced early rejection during document verification, resolved it by resubmitting clearer business registration paperwork, and went on to become one of the more established sellers in their category within a year.",
-      "What unites all of these stories is not luck — it is patience with the setup process, attention to documentation, and a willingness to adjust based on what each marketplace's data was telling them.",
-    ],
-  },
-  {
-    title: "Document Checklist",
-    shortDesc: "What you need before you apply",
-    date: "Jul 08, 2026",
-    image: "https://picsum.photos/seed/document-checklist/900/500",
-    paras: [
-      "Verification delays are one of the most common reasons seller account setup takes longer than expected, and in almost every case the cause is incomplete or mismatched documentation.",
-      "Most marketplaces will ask for proof of identity, such as a government-issued ID, along with proof of business registration if you are applying as a company rather than an individual seller.",
-      "Address verification is also standard, usually satisfied with a recent utility bill or bank statement showing your registered business address clearly and matching the details entered during signup.",
-      "Banking details are required so the marketplace can pay out your earnings, and these typically need to match the legal name on your business registration exactly — a common and easily avoidable rejection reason.",
-      "We recommend gathering every document listed here before you start the application, scanning them clearly in good lighting, and double-checking that names and addresses match across every document before you submit.",
-    ],
-  },
-  {
-    title: "Choosing a Marketplace",
-    shortDesc: "Etsy vs eBay vs Amazon vs Walmart",
-    date: "Jun 30, 2026",
-    image: "https://picsum.photos/seed/choosing-marketplace/900/500",
-    paras: [
-      "Choosing where to sell first shapes almost every decision that follows, from your pricing strategy to the kind of photography your listings need, so it deserves real thought before you commit.",
-      "Etsy is built around handmade, vintage and craft goods, and its audience actively searches for unique, story-driven products rather than the lowest price available.",
-      "eBay works well for both new and used inventory, and rewards sellers who are comfortable with auction-style listings as well as fixed-price sales, making it flexible for clearing stock or selling collectible items.",
-      "Amazon.com and Walmart are better suited to branded, retail-ready products sold at volume, with stricter listing standards but access to a much larger built-in customer base.",
-      "Amazon UAE and Amazon Dubai open the door to Middle Eastern customers specifically, which can be a strong option for sellers whose products already do well with a similar demographic elsewhere.",
-      "Most sellers eventually operate on more than one marketplace, but starting with the platform that best matches your product type gives you a much stronger foundation to expand from later.",
-    ],
-  },
-  {
-    title: "Pricing & Fees Explained",
-    shortDesc: "Understand what you actually pay",
-    date: "Jun 22, 2026",
-    image: "https://picsum.photos/seed/pricing-fees/900/500",
-    paras: [
-      "It is easy to underestimate how much of your revenue goes to fees until you have actually shipped a few orders, so this guide breaks down where your money goes on each marketplace.",
-      "Referral fees are the marketplace's cut of each sale, typically calculated as a percentage of the item price, and they vary by product category rather than being a single flat rate.",
-      "Payment processing fees are charged separately on top of referral fees in most cases, and they can be easy to miss if you are only looking at the headline commission rate advertised by the platform.",
-      "Shipping costs are often the least predictable line item, especially for international orders where customs handling and last-mile delivery in the destination country can add unexpected surcharges.",
-      "We encourage every new seller to build a simple spreadsheet estimating all of these costs against a realistic sale price before listing a product, rather than discovering the true margin after the first few orders have already shipped.",
-    ],
-  },
-  {
-    title: "Shipping Internationally",
-    shortDesc: "Getting orders to customers abroad",
-    date: "Jun 14, 2026",
-    image: "https://picsum.photos/seed/shipping-international/900/500",
-    paras: [
-      "International shipping introduces a layer of complexity that domestic sellers rarely have to think about, from customs declarations to delivery timelines that can stretch to several weeks.",
-      "Every international shipment needs accurate customs paperwork, including a clear description of the item's contents and declared value, since mistakes here are one of the most common reasons packages get held at the border.",
-      "Carrier choice matters more than most new sellers expect. Some carriers are faster but significantly more expensive, while others are affordable but come with longer, less predictable delivery windows.",
-      "Setting honest delivery time expectations with your customers upfront avoids the majority of shipping-related complaints, even when the actual delivery takes longer than a domestic order would.",
-      "We recommend starting with a small, trusted set of destination countries rather than offering worldwide shipping from day one, so you can learn the customs process for a few markets before expanding further.",
-    ],
-  },
-  {
-    title: "Handling Returns & Disputes",
-    shortDesc: "Keep your seller rating healthy",
-    date: "Jun 02, 2026",
-    image: "https://picsum.photos/seed/returns-disputes/900/500",
-    paras: [
-      "Returns and disputes are a normal part of selling on any marketplace, and how quickly and fairly you handle them affects your account health far more than the fact that they happened at all.",
-      "Each marketplace enforces its own return window, ranging from a few days to a full month depending on the platform and product category, and missing these deadlines in your responses can automatically count against you.",
-      "Clear, calm communication resolves the majority of disputes before they escalate. Buyers who feel heard early in the process are far less likely to leave a negative review or open a formal marketplace case.",
-      "Your seller rating is a cumulative score built from response time, dispute resolution and order accuracy, and a small number of poorly handled returns can outweigh dozens of smooth, successful orders.",
-      "We recommend setting aside time each day specifically for messages and returns, rather than letting them pile up alongside new orders, since resolution speed is one of the most heavily weighted factors in most marketplace algorithms.",
-    ],
-  },
-  {
-    title: "Scaling to Multiple Stores",
-    shortDesc: "Growing beyond your first marketplace",
-    date: "May 20, 2026",
-    image: "https://picsum.photos/seed/scaling-stores/900/500",
-    paras: [
-      "Once your first store is stable and generating consistent orders, the natural next step for most sellers is expanding onto a second or third marketplace, but this brings operational challenges that are easy to underestimate.",
-      "Inventory synchronization becomes critical the moment you sell the same product in more than one place. Without a shared system, it becomes very easy to oversell a product that has already run out on another platform.",
-      "Order management also grows more complex, since each marketplace has its own dashboard, notification system and fulfilment deadlines, and juggling all of them manually quickly becomes unsustainable as order volume grows.",
-      "Established multi-store sellers typically centralize their operations around a single inventory and order management tool, checking in on individual marketplace dashboards only when something specifically needs attention.",
-      "The sellers who scale successfully are rarely the ones who expand the fastest — they are the ones who put basic systems in place before adding a new marketplace, rather than after problems have already started piling up.",
-    ],
-  },
-];
-
-/* ============================================================
-   REVEAL ON SCROLL
+   REVEAL HOOK
 ============================================================ */
 
 function useReveal() {
@@ -272,19 +592,21 @@ function useReveal() {
   useEffect(() => {
     if (!ref) return;
 
-    const obs = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          obs.disconnect();
+          observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.1,
+      }
     );
 
-    obs.observe(ref);
+    observer.observe(ref);
 
-    return () => obs.disconnect();
+    return () => observer.disconnect();
   }, [ref]);
 
   return [setRef, visible];
@@ -297,12 +619,14 @@ function useReveal() {
 function FaqItem({ item, isOpen, onToggle }) {
   return (
     <div className="dss-faq-item">
+
       <button
         type="button"
         className="dss-faq-summary"
         onClick={onToggle}
         aria-expanded={isOpen}
       >
+
         <span>{item.q}</span>
 
         <span
@@ -312,6 +636,7 @@ function FaqItem({ item, isOpen, onToggle }) {
         >
           +
         </span>
+
       </button>
 
       {isOpen && (
@@ -319,372 +644,298 @@ function FaqItem({ item, isOpen, onToggle }) {
           {item.a}
         </p>
       )}
+
     </div>
   );
 }
 
 /* ============================================================
-   PAGE
+   MAIN COMPONENT
 ============================================================ */
 
 export default function DropshySellerSetup() {
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const [openFaq, setOpenFaq] = useState(0);
 
-  const [servicesRef, servicesVisible] = useReveal();
+  const [contentRef, contentVisible] = useReveal();
+
   const [faqRef, faqVisible] = useReveal();
 
-  /* Playlist state */
-  const [activePlaylist, setActivePlaylist] = useState(0);
+  const activeContent = CONTENTS[activeIndex];
 
-  /* ============================================================
-     SEO
-  ============================================================ */
+  /* ==========================================================
+     UPDATE SEO
+  ========================================================== */
 
   useEffect(() => {
-    document.title = SEO.metaTitle;
 
-    let metaDesc = document.querySelector(
+    document.title = activeContent.metaTitle;
+
+    let metaDescription = document.querySelector(
       'meta[name="description"]'
     );
 
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
+    if (!metaDescription) {
 
-      metaDesc.name = "description";
+      metaDescription = document.createElement("meta");
 
-      document.head.appendChild(metaDesc);
+      metaDescription.name = "description";
+
+      document.head.appendChild(metaDescription);
     }
 
-    metaDesc.setAttribute(
+    metaDescription.setAttribute(
       "content",
-      SEO.metaDescription
+      activeContent.metaDescription
     );
-  }, []);
 
-  const activeItem = PLAYLIST_ITEMS[activePlaylist];
+    setOpenFaq(0);
+
+  }, [activeContent]);
+
+  /* ==========================================================
+     SELECT ARTICLE
+  ========================================================== */
+
+  const handleSelect = (index) => {
+
+    setActiveIndex(index);
+
+    setOpenFaq(0);
+
+    window.scrollTo({
+      top:
+        document.querySelector(".dss-article-section")
+          ?.offsetTop - 30 || 0,
+
+      behavior: "smooth",
+    });
+
+  };
 
   return (
+
     <div className="dss-page">
 
-      {/* ========================================================
-          HERO
-      ======================================================== */}
+      {/* =====================================================
+          ARTICLE SECTION
+      ===================================================== */}
 
-      <section className="dss-hero">
-        <div
-          className="dss-hero-glow"
-          aria-hidden="true"
-        />
+      <section className="dss-article-section">
 
-        <div className="dss-wrap">
+        <div className="dss-wrap dss-article-layout">
 
-          <span className="dss-eyebrow">
-            <span className="dss-eyebrow-dot" />
-            Global Marketplace Setup
-          </span>
+          {/* =================================================
+              MAIN ARTICLE
+          ================================================= */}
 
-          <h1 className="dss-h1">
-            {SEO.h1}
-          </h1>
+          <main className="dss-main-article">
 
-          <p className="dss-lead">
-            {SEO.metaDescription}
-          </p>
+            {/* BIG BANNER */}
 
-          <div className="dss-hero-ctas">
-
-            <a
-              href="#contact"
-              className="dss-btn-primary"
-            >
-              Get Started
-              <ArrowRight size={17} />
-            </a>
-
-            <a
-              href="#services"
-              className="dss-btn-secondary"
-            >
-              View Services
-            </a>
-
-          </div>
-
-          <div className="dss-marketplace-strip">
-            {[...MARKETPLACES, ...MARKETPLACES].map(
-              (marketplace, index) => (
-                <span
-                  className="dss-marketplace-chip"
-                  key={`${marketplace}-${index}`}
-                >
-                  {marketplace}
-                </span>
-              )
-            )}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================
-          BUSINESS INTRODUCTION
-      ======================================================== */}
-
-      <section className="dss-intro">
-
-        <div className="dss-wrap dss-intro-wrap">
-
-          <div>
-
-            <span className="dss-eyebrow">
-              <span className="dss-eyebrow-dot" />
-              Business Introduction
-            </span>
-
-            <h2 className="dss-h2">
-              Sell Globally with Dropshy
-            </h2>
-
-            <p className="dss-p">
-              Dropshy helps entrepreneurs and businesses start
-              selling internationally through leading global
-              e-commerce marketplaces. Our International Seller
-              Account Setup Service provides end-to-end assistance
-              for account creation, registration, verification,
-              documentation, store setup and marketplace onboarding.
-            </p>
-
-            <p className="dss-p">
-              Whether you are a beginner, small business owner,
-              manufacturer, retailer or aspiring online seller,
-              Dropshy helps you take your business from local to
-              global with professional e-commerce support.
-            </p>
-
-            <ul className="dss-marketplace-list">
-
-              {MARKETPLACES.map((marketplace) => (
-                <li key={marketplace}>
-
-                  <CheckCircle2
-                    size={16}
-                    className="dss-check"
-                  />
-
-                  {marketplace}
-
-                </li>
-              ))}
-
-            </ul>
-
-          </div>
-
-          <div className="dss-intro-visual">
-
-            <Globe2
-              size={140}
-              strokeWidth={1}
-            />
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ========================================================
-          BUSINESS OVERVIEW / SERVICES
-      ======================================================== */}
-
-      <section
-        className="dss-overview"
-        id="services"
-      >
-
-        <div className="dss-wrap">
-
-          <div className="dss-overview-heading">
-
-            <span className="dss-eyebrow">
-              <span className="dss-eyebrow-dot" />
-              Business Overview
-            </span>
-
-            <h2 className="dss-h2">
-              🌍 Expand Your Business Worldwide
-            </h2>
-
-            <p className="dss-p dss-overview-p">
-              Selling on international marketplaces can open your
-              business to customers across different countries and
-              markets. However, seller registration, verification,
-              documentation and marketplace requirements can be
-              complicated. Dropshy simplifies the process — our team
-              helps you with the complete seller account setup journey,
-              from initial registration to getting your marketplace
-              account ready for selling.
-            </p>
-
-          </div>
-
-          <div
-            ref={servicesRef}
-            className={`dss-service-grid ${
-              servicesVisible ? "dss-visible" : ""
-            }`}
-          >
-
-            {SERVICES.map((service, index) => (
-
-              <div
-                className="dss-service-card"
-                key={service.title}
-                style={{
-                  "--i": index,
-                }}
-              >
-
-                <div className="dss-service-icon">
-                  {service.icon}
-                </div>
-
-                <h3 className="dss-service-title">
-                  {service.title}
-                </h3>
-
-                <p className="dss-service-desc">
-                  {service.desc}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ========================================================
-          PLAYLIST / INSIGHTS
-          Left: scrollable list with thumbnail + title (YouTube style)
-          Right: selected item's full image, date and full description
-      ======================================================== */}
-
-      <section className="dss-playlist">
-
-        <div className="dss-wrap">
-
-          <div className="dss-playlist-heading">
-
-            <span className="dss-eyebrow">
-              <span className="dss-eyebrow-dot" />
-              Explore
-            </span>
-
-            <h2 className="dss-h2">
-              Browse Our Insights
-            </h2>
-
-          </div>
-
-          <div className="dss-playlist-wrap">
-
-            {/* LEFT LIST */}
-
-            <div className="dss-playlist-list">
-
-              {PLAYLIST_ITEMS.map((item, index) => (
-
-                <button
-                  type="button"
-                  key={item.title}
-                  className={`dss-playlist-item ${
-                    activePlaylist === index
-                      ? "dss-playlist-item--active"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    setActivePlaylist(index)
-                  }
-                >
-
-                  <img
-                    className="dss-playlist-thumb"
-                    src={item.image}
-                    alt=""
-                  />
-
-                  <span className="dss-playlist-item-text">
-
-                    <span className="dss-playlist-item-title">
-                      {item.title}
-                    </span>
-
-                    <span className="dss-playlist-item-desc">
-                      {item.shortDesc}
-                    </span>
-
-                  </span>
-
-                </button>
-
-              ))}
-
-            </div>
-
-            {/* RIGHT CONTENT */}
-
-            <div className="dss-playlist-content">
+            <div className="dss-main-banner">
 
               <img
-                className="dss-playlist-image"
-                src={activeItem.image}
-                alt={activeItem.title}
+                src={activeContent.image}
+                alt={activeContent.h1}
               />
 
-              <div className="dss-playlist-body">
+            </div>
 
-                <div className="dss-playlist-meta">
 
-                  <span className="dss-playlist-number">
-                    0{activePlaylist + 1}
-                  </span>
+            {/* ARTICLE HEADER */}
 
-                  <span className="dss-playlist-date">
-                    {activeItem.date}
-                  </span>
+            <div className="dss-article-header">
 
-                </div>
+              <span className="dss-article-category">
+                {activeContent.selectorTitle}
+              </span>
 
-                <h3 className="dss-playlist-content-title">
-                  {activeItem.title}
-                </h3>
+              <h1 className="dss-article-title">
+                {activeContent.h1}
+              </h1>
 
-                {activeItem.paras.map((para, i) => (
-                  <p
-                    className="dss-playlist-content-body"
-                    key={i}
-                  >
+              <p className="dss-article-subtitle">
+                {activeContent.selectorDesc}
+              </p>
+
+            </div>
+
+
+            {/* ARTICLE CONTENT */}
+
+            <div
+              ref={contentRef}
+              className={`dss-article-content ${
+                contentVisible ? "dss-visible" : ""
+              }`}
+            >
+
+              {/* INTRO */}
+
+              <h2>
+                {activeContent.introTitle}
+              </h2>
+
+              {activeContent.intro.map(
+                (para, index) => (
+                  <p key={index}>
                     {para}
                   </p>
-                ))}
+                )
+              )}
+
+
+              {/* MARKETPLACE / BUSINESS POINTS */}
+
+              <h2>
+                {activeContent.marketplaceTitle}
+              </h2>
+
+              <ul className="dss-marketplace-list">
+
+                {activeContent.marketplaces.map(
+                  (item, index) => (
+                    <li key={index}>
+                      {item}
+                    </li>
+                  )
+                )}
+
+              </ul>
+
+
+              {/* OVERVIEW */}
+
+              <h2>
+                {activeContent.overviewTitle}
+              </h2>
+
+              {activeContent.overview.map(
+                (para, index) => (
+                  <p key={index}>
+                    {para}
+                  </p>
+                )
+              )}
+
+
+              {/* SERVICES */}
+
+              <h2>
+                {activeContent.servicesTitle}
+              </h2>
+
+              <div className="dss-service-list">
+
+                {activeContent.services.map(
+                  (service, index) => (
+
+                    <div
+                      className="dss-service-item"
+                      key={index}
+                    >
+
+                      <div className="dss-service-icon">
+                        {service.icon}
+                      </div>
+
+                      <div>
+
+                        <strong>
+                          {index + 1}. {service.title}
+                        </strong>
+
+                        <p>
+                          {service.desc}
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  )
+                )}
 
               </div>
 
             </div>
 
-          </div>
+          </main>
+
+
+          {/* =================================================
+              RIGHT SIDEBAR
+          ================================================= */}
+
+          <aside className="dss-sidebar">
+
+            <div className="dss-sidebar-header">
+
+              <span className="dss-sidebar-line"></span>
+
+              <h2>
+                LATEST ARTICLES
+              </h2>
+
+            </div>
+
+
+            <div className="dss-sidebar-list">
+
+              {CONTENTS.map(
+                (item, index) => (
+
+                  <button
+                    type="button"
+                    key={item.id}
+                    className={`dss-sidebar-item ${
+                      activeIndex === index
+                        ? "dss-sidebar-item--active"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSelect(index)
+                    }
+                  >
+
+                    <img
+                      src={item.image}
+                      alt={item.h1}
+                      className="dss-sidebar-thumb"
+                    />
+
+                    <span className="dss-sidebar-text">
+
+                      <span className="dss-sidebar-title">
+                        {item.selectorTitle}
+                      </span>
+
+                      <span className="dss-sidebar-desc">
+                        {item.selectorDesc}
+                      </span>
+
+                    </span>
+
+                  </button>
+
+                )
+              )}
+
+            </div>
+
+          </aside>
 
         </div>
 
       </section>
 
-      {/* ========================================================
-          FAQ
-      ======================================================== */}
+
+      {/* =====================================================
+          FAQ SECTION
+      ===================================================== */}
 
       <section
         className="dss-faq"
@@ -696,20 +947,31 @@ export default function DropshySellerSetup() {
           <div className="dss-faq-heading">
 
             <span className="dss-eyebrow">
+
               <span className="dss-eyebrow-dot" />
+
               FAQs
+
             </span>
+
 
             <h2 className="dss-h2">
               Your questions, answered.
             </h2>
 
+
             <p className="dss-p">
-              Common questions about international seller account
-              setup with Dropshy.
+
+              Common questions about{" "}
+
+              {activeContent.selectorTitle.toLowerCase()}
+
+              {" "}with Dropshy.
+
             </p>
 
           </div>
+
 
           <div
             ref={faqRef}
@@ -718,22 +980,26 @@ export default function DropshySellerSetup() {
             }`}
           >
 
-            {FAQS.map((item, index) => (
+            {activeContent.faqs.map(
+              (item, index) => (
 
-              <FaqItem
-                key={item.q}
-                item={item}
-                isOpen={openFaq === index}
-                onToggle={() =>
-                  setOpenFaq(
+                <FaqItem
+                  key={item.q}
+                  item={item}
+                  isOpen={
                     openFaq === index
-                      ? -1
-                      : index
-                  )
-                }
-              />
+                  }
+                  onToggle={() =>
+                    setOpenFaq(
+                      openFaq === index
+                        ? -1
+                        : index
+                    )
+                  }
+                />
 
-            ))}
+              )
+            )}
 
           </div>
 
@@ -741,9 +1007,10 @@ export default function DropshySellerSetup() {
 
       </section>
 
-      {/* ========================================================
+
+      {/* =====================================================
           CTA
-      ======================================================== */}
+      ===================================================== */}
 
       <section
         className="dss-cta"
@@ -755,36 +1022,47 @@ export default function DropshySellerSetup() {
           aria-hidden="true"
         />
 
+
         <div className="dss-wrap">
 
           <h2 className="dss-h2 dss-h2--white">
-            Ready to take your business global?
+
+            {activeContent.ctaTitle}
+
           </h2>
 
+
           <p className="dss-cta-sub">
-            Talk to our team and get your international seller
-            account set up on Etsy, eBay, Amazon.com, Alibaba,
-            Walmart, Amazon UAE and Amazon Dubai.
+
+            {activeContent.ctaText}
+
           </p>
 
+
           <a
-            href="#"
+            href="#contact"
             className="dss-btn-primary"
           >
+
             Contact Dropshy
+
             <ArrowRight size={17} />
+
           </a>
 
         </div>
 
       </section>
 
-      {/* ========================================================
+
+      {/* =====================================================
           FOOTER
-      ======================================================== */}
+      ===================================================== */}
 
       <footer className="dss-footer">
+
         © 2026 Dropshy. All rights reserved.
+
       </footer>
 
     </div>

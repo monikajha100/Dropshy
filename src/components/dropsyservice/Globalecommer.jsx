@@ -209,44 +209,9 @@ export default function GlobalEcommerce() {
       </svg>
 
       {/* ---------------- HERO ---------------- */}
-      <div className="gec-hero">
-        <svg className="gec-routes" viewBox="0 0 900 260" preserveAspectRatio="none">
-          <path className="gec-route-line" d="M60,210 Q280,40 450,110 T820,60" />
-          <path className="gec-route-line gold" d="M40,90 Q260,220 470,150 T860,190" />
-          <circle className="gec-node" cx="60" cy="210" r="5" />
-          <circle className="gec-node-pulse" cx="60" cy="210" r="5" />
-          <circle className="gec-node" cx="450" cy="110" r="5" />
-          <circle className="gec-node-pulse" cx="450" cy="110" r="5" />
-          <circle className="gec-node" cx="820" cy="60" r="5" />
-          <circle className="gec-node-pulse" cx="820" cy="60" r="5" />
-        </svg>
-
-        <div className="gec-hero-inner">
-          <div className="gec-hero-icons">
-            <Globe size={28} />
-            <ShoppingCart size={26} />
-          </div>
-
-          <span className="gec-hero-eyebrow">Global</span>
-          <h1 className="gec-hero-title">E-commerce Business</h1>
-          <span className="gec-hero-eyebrow">Sell worldwide, grow big</span>
-
-          <p className="gec-hero-sub">
-            List, sell, and ship across the world's biggest marketplaces —
-            we handle setup, ads, and logistics so you focus on growth.
-          </p>
-
-          <div className="gec-platform-strip">
-            <div className="gec-platform-track">
-              {[...platforms, ...platforms].map((p, i) => (
-                <span className="gec-platform-chip" key={p + i}>
-                  {p}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      
+       
+     
 
       {/* ---------------- PLAN CARDS ---------------- */}
       <div ref={gridRef} className={`gec-grid ${gridVisible ? "gec-visible" : ""}`}>

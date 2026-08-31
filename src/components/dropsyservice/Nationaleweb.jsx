@@ -20,6 +20,13 @@ import {
   FaBoxes,
 } from "react-icons/fa";
 import WEB from "./WEB";
+import meesho from "../../assets/images/meesho.jpg";
+import shopify from "../../assets/images/shopify.jpg";
+import amazon from "../../assets/images/amzon.jpg";
+import etsys from "../../assets/images/etsys.jpg";
+import flipcard from "../../assets/images/flipcard.jpg";
+import ebays from "../../assets/images/ebays.jpg";
+import ali from "../../assets/images/ali.jpg";
 /* =========================================================
    MARKETING CHANNELS (ticker)
 ========================================================= */
@@ -39,41 +46,49 @@ const channels = [
    HOW WEBSITE DROPSHIPPING WORKS — 7 STEPS
 ========================================================= */
 
-const processSteps = [
+
+ const processSteps = [
   {
     code: "STEP · 01",
     title: "Choose Products",
-    text: "Select products from available product categories and SKUs to sell on your store.",
+    image: meesho,
+    text: "Choose products from the Dropshy product catalog and select the products you want to sell through your online store.",
   },
   {
     code: "STEP · 02",
     title: "Add to Your Website",
-    text: "Products are listed on your e-commerce website with product details, images and pricing.",
+    image: shopify,
+    text: "Add selected products to your branded e-commerce website with product images, pricing and descriptions.",
   },
   {
     code: "STEP · 03",
     title: "Promote Your Store",
-    text: "Promote your website through Instagram, Facebook, Google, WhatsApp and other marketing channels.",
+    image: amazon,
+    text: "Promote your online store through Instagram, Facebook, Google, WhatsApp and other marketing channels.",
   },
   {
     code: "STEP · 04",
     title: "Customer Places an Order",
-    text: "When a customer purchases a product from your website, you receive the order.",
+    image: ali,
+    text: "Customers visit your website, select products and place their orders through your online store.",
   },
   {
     code: "STEP · 05",
     title: "Dropshy Processes the Order",
-    text: "The order is processed through the Dropshy supply and fulfillment system.",
+    image: etsys,
+    text: "Once an order is received, Dropshy supports the product processing and fulfillment workflow.",
   },
   {
     code: "STEP · 06",
     title: "Packed & Dispatched",
-    text: "Product handling, labeling, packaging and dispatching are supported through the Dropshy ecosystem.",
+    image: flipcard,
+    text: "The product is prepared, packed and dispatched through the fulfillment process.",
   },
   {
     code: "STEP · 07",
     title: "You Earn Your Margin",
-    text: "Your profit depends on your selling price minus product/fulfillment cost and applicable business expenses.",
+    image: ebays,
+    text: "You earn your margin from the difference between your selling price and applicable product and fulfillment costs.",
   },
 ];
 
@@ -419,17 +434,33 @@ const NationalEcommerceweb = () => {
             </p>
           </div>
 
-          <div className="international-mp-grid">
-            {processSteps.map((step) => (
-              <div className="international-mp-card international-reveal" key={step.code}>
-                <div className="international-card-corner"></div>
-                <span className="international-mp-code">{step.code}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-                <span className="international-card-arrow">→</span>
-              </div>
-            ))}
-          </div>
+         <div className="international-mp-grid">
+  {processSteps.map((step) => (
+    <div
+      className="international-mp-card international-reveal"
+      key={step.code}
+    >
+      <div className="international-card-corner"></div>
+
+      <span className="international-mp-code">
+        {step.code}
+      </span>
+
+      <div className="international-mp-image">
+        <img
+          src={step.image}
+          alt={step.title}
+        />
+      </div>
+
+      <h3>{step.title}</h3>
+
+      <p>{step.text}</p>
+
+      <span className="international-card-arrow">→</span>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 <WEB />

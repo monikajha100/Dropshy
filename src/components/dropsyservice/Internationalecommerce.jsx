@@ -1,23 +1,28 @@
+
 import React, { useEffect, useState } from "react";
 import "./Internationalecommerce.css";
+
 import sellerRegistration from "../../assets/images/seller-registration.png";
 
 import {
   FaShieldAlt,
   FaCrown,
-  FaCheckCircle,
-  FaGlobeAmericas,
-  FaShoppingCart,
   FaChartLine,
   FaUserTie,
   FaLock,
   FaHandshake,
   FaHeadset,
-  FaMoneyBillWave,
 } from "react-icons/fa";
 
-import { MdTrendingUp } from "react-icons/md";
 import GlobalEcommerce from "./Globalecommer";
+
+import walmart from "../../assets/images/walmart.png";
+import shopify from "../../assets/images/shopify.jpg";
+import amazon from "../../assets/images/amzon.jpg";
+import etsys from "../../assets/images/etsys.jpg";
+import flipcard from "../../assets/images/flipcard.jpg";
+import ebays from "../../assets/images/ebays.jpg";
+import ali from "../../assets/images/ali.jpg";
 
 /* =========================================================
    COUNTRIES
@@ -44,36 +49,43 @@ const marketplaces = [
   {
     code: "ETSY · GL",
     title: "Etsy",
+    image: etsys,
     text: "Sell unique, creative, handmade and trending products to customers across international markets.",
   },
   {
     code: "EBAY · GL",
     title: "eBay",
+    image: ebays,
     text: "Reach customers across multiple global markets with a wide range of products and categories.",
   },
   {
     code: "AMZ · COM",
     title: "Amazon.com",
+    image: amazon,
     text: "Explore the large US e-commerce market and expand your product sales internationally.",
   },
   {
     code: "ALI · GL",
     title: "Alibaba",
+    image: ali,
     text: "Explore global sourcing, wholesale and B2B opportunities for your online business.",
   },
   {
     code: "WMT · GL",
     title: "Walmart",
+    image: walmart,
     text: "Reach customers through one of the world's leading retail marketplaces.",
   },
   {
     code: "AMZ · UAE",
     title: "Amazon UAE",
+    image: shopify,
     text: "Target customers in the UAE and explore opportunities across the Middle East.",
   },
   {
     code: "AMZ · B2B",
     title: "Amazon B2B",
+    image: flipcard,
     text: "Explore business-to-business selling opportunities and connect with professional buyers worldwide.",
   },
 ];
@@ -111,18 +123,6 @@ const timeline = [
 ];
 
 /* =========================================================
-   GLOBAL E-COMMERCE PLATFORMS
-========================================================= */
-
-const platforms = [
-  "Etsy",
-  "Ebay",
-  "Amazon.com",
-  "Walmart",
-  "Alibaba",
-];
-
-/* =========================================================
    GLOBAL E-COMMERCE PLANS
 ========================================================= */
 
@@ -131,8 +131,7 @@ const plans = [
     tier: "basic",
     name: "BASIC",
     icon: <FaShieldAlt />,
-    subtitle:
-      "Etsy, Ebay, Amazon.com, Walmart and Alibaba",
+    subtitle: "Etsy, Ebay, Amazon.com, Walmart and Alibaba",
     priceLines: [
       "₹7,999 +18% GST",
       "= ₹9,438 / per year",
@@ -149,13 +148,11 @@ const plans = [
     ],
     note: "Note - Top 10 Member",
   },
-
   {
     tier: "advance",
     name: "ADVANCE",
     icon: <FaShieldAlt />,
-    subtitle:
-      "Etsy, Ebay, Amazon.com, Walmart and Alibaba",
+    subtitle: "Etsy, Ebay, Amazon.com, Walmart and Alibaba",
     priceLines: [
       "₹9,438 x 5 platform",
       "= ₹47,160 /-",
@@ -173,7 +170,6 @@ const plans = [
     note: "Note - Top 5 Member",
     featured: true,
   },
-
   {
     tier: "royal",
     name: "ROYAL",
@@ -195,34 +191,6 @@ const plans = [
       "Legality Services Agreement",
     ],
     note: "Note - Top 1 Member",
-  },
-];
-
-/* =========================================================
-   GROWTH / EARNING
-========================================================= */
-
-const growthStats = [
-  {
-    tier: "ADVANCE",
-    total: "₹47,160",
-    lines: [
-      "Etsy, Ebay, Amazon.com, Walmart, Alibaba",
-      "10 order Months - 10 x ₹3,000 = ₹30,000/-",
-      "₹30,000 x 12 Months = ₹3,60,000 / year",
-    ],
-    earning: "3 - 4 Lakh / year",
-  },
-
-  {
-    tier: "ROYAL",
-    total: "₹97,190",
-    lines: [
-      "Etsy, Ebay, Amazon.com, Walmart and Alibaba, amazon.dubai",
-      "15 order Months - 15 x ₹3,000 = ₹45,000/-",
-      "₹45,000 x 12 Months = ₹5,40,000 / year",
-    ],
-    earning: "5 - 6 Lakh / year",
   },
 ];
 
@@ -262,47 +230,38 @@ const faqs = [
     "What is Dropshy?",
     "Dropshy is a dropshipping platform designed to help sellers manage and grow their online business across major marketplaces in national and international markets.",
   ],
-
   [
     "What is international dropshipping?",
     "International dropshipping is an e-commerce model where sellers market products to customers in 135+ countries while the Dropshy fulfillment partner handles product fulfillment and shipping.",
   ],
-
   [
     "Which marketplaces can I sell on with Dropshy?",
     "Dropshy focuses on international marketplace opportunities including Etsy, eBay, Amazon.com, Alibaba, Walmart, Amazon UAE and Amazon B2B.",
   ],
-
   [
     "Can I start international dropshipping from India?",
     "Yes. Sellers in India can explore international dropshipping by targeting suitable overseas marketplaces and customers, subject to each marketplace's seller requirements, payment rules and shipping policies.",
   ],
-
   [
     "Can beginners use Dropshy for dropshipping?",
     "Yes. Dropshy can be suitable for beginners who want to explore marketplace-based dropshipping and learn how international e-commerce operations work.",
   ],
-
   [
     "What products can I sell through international dropshipping?",
     "The products you can sell depend on marketplace requirements, supplier availability, product category, destination-country regulations and marketplace policies. Sellers should verify product restrictions before listing.",
   ],
-
   [
     "Can I sell products on Amazon USA from India?",
     "Indian sellers may be able to sell on Amazon.com if they meet Amazon's seller eligibility, account, product, tax, payment and fulfillment requirements.",
   ],
-
   [
     "Can I sell on Amazon UAE through Dropshy?",
     "Dropshy can help sellers explore Amazon UAE as an international marketplace opportunity. Sellers must meet Amazon UAE's applicable seller and product requirements.",
   ],
-
   [
     "Do I need to maintain inventory for dropshipping?",
     "No. One of the main advantages of the dropshipping model is that sellers generally do not need to hold traditional inventory themselves. Products are fulfilled through Dropshy or the applicable fulfillment partner according to the business arrangement.",
   ],
-
   [
     "Why should I choose Dropshy for international dropshipping?",
     "Dropshy helps simplify international marketplace selling by bringing dropshipping operations and multiple marketplace opportunities into a more organized workflow, allowing sellers to focus on finding products, managing their business and growing their international customer base.",
@@ -487,13 +446,11 @@ const InternationalEcommerce = () => {
             <div className="international-globe">
 
               <div className="international-globe-ring ring-one"></div>
-
               <div className="international-globe-ring ring-two"></div>
 
               <div className="international-globe-center">
 
                 <span>DS</span>
-
                 <small>DROPSHY</small>
 
               </div>
@@ -598,6 +555,8 @@ const InternationalEcommerce = () => {
 
           </div>
 
+          {/* MARKETPLACE GRID */}
+
           <div className="international-mp-grid">
 
             {marketplaces.map((marketplace) => (
@@ -609,13 +568,29 @@ const InternationalEcommerce = () => {
 
                 <div className="international-card-corner"></div>
 
+                {/* MARKETPLACE IMAGE */}
+
+                <div className="international-mp-logo-wrap">
+
+                  <img
+                    src={marketplace.image}
+                    alt={`${marketplace.title} logo`}
+                    className="international-mp-logo"
+                  />
+
+                </div>
+
                 <span className="international-mp-code">
                   {marketplace.code}
                 </span>
 
-                <h3>{marketplace.title}</h3>
+                <h3>
+                  {marketplace.title}
+                </h3>
 
-                <p>{marketplace.text}</p>
+                <p>
+                  {marketplace.text}
+                </p>
 
                 <span className="international-card-arrow">
                   →
@@ -632,9 +607,15 @@ const InternationalEcommerce = () => {
       </section>
 
       {/* ===================================================
+          GLOBAL ECOMMERCE
+      =================================================== */}
+
+      <GlobalEcommerce />
+
+      {/* ===================================================
           REGISTRATION
       =================================================== */}
-<GlobalEcommerce />
+
       <section
         className="international-section-pad international-register-section"
         id="register"
@@ -708,9 +689,13 @@ const InternationalEcommerce = () => {
                         {item.tag}
                       </span>
 
-                      <h3>{item.title}</h3>
+                      <h3>
+                        {item.title}
+                      </h3>
 
-                      <p>{item.text}</p>
+                      <p>
+                        {item.text}
+                      </p>
 
                       {item.preview && (
 
@@ -745,7 +730,6 @@ const InternationalEcommerce = () => {
             <div className="international-registration-visual international-reveal">
 
               <div className="international-image-orbit orbit-a"></div>
-
               <div className="international-image-orbit orbit-b"></div>
 
               <div className="registration-image-glow"></div>
@@ -844,7 +828,6 @@ const InternationalEcommerce = () => {
 
       </section>
 
-     
       {/* ===================================================
           SIMPLIFY
       =================================================== */}
@@ -891,6 +874,7 @@ const InternationalEcommerce = () => {
                 href="#register"
                 className="international-simplify-btn"
               >
+
                 Start Selling Globally
 
                 <span>
@@ -1051,6 +1035,7 @@ const InternationalEcommerce = () => {
                             : index
                         )
                       }
+                      type="button"
                     >
 
                       <span>
