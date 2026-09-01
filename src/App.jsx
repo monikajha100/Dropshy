@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./App.css";
 
@@ -9,6 +8,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Dropsyservice from "./pages/Dropsyservice";
 import Blogpage from "./pages/Blogpage";
+
+// Blog Detail Page
+import Blogdetails from "./components/Blog/Blogdetails";
 
 // Website E-Commerce
 import Nationaleweb from "./components/dropsyservice/Nationaleweb";
@@ -21,10 +23,10 @@ import Internationalecommerce from "./components/dropsyservice/Internationalecom
 import Contactus from "./components/Contactus/Contactus";
 
 function App() {
-  // Remove trailing slash so both
-  // /services/website-ecommerce
-  // and /services/website-ecommerce/
-  // work correctly.
+  // Remove trailing slash
+  // Example:
+  // /blog/       → /blog
+  // /blog/test/  → /blog/test
   const path =
     window.location.pathname.replace(/\/+$/, "") || "/";
 
@@ -84,13 +86,28 @@ function App() {
   }
 
   // =========================
-  // BLOG
+  // BLOG LISTING PAGE
   // =========================
   else if (
     path === "/blog" ||
     path === "/blogs"
   ) {
     Page = Blogpage;
+  }
+
+  // =========================
+  // BLOG DETAIL PAGE
+  // =========================
+  // Example:
+  // /blog/international-seller-account-setup
+  // /blog/website-dropshipping
+  // /blog/dropshipping-business-in-india
+  //
+  // IMPORTANT:
+  // This must come AFTER /blog
+  // =========================
+  else if (path.startsWith("/blog/")) {
+    Page = Blogdetails;
   }
 
   // =========================
@@ -125,4 +142,3 @@ function App() {
 }
 
 export default App;
-

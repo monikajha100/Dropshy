@@ -1,0 +1,1587 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ============================================================
+   ROOT
+============================================================ */
+
+.dss-page {
+  --blue: #11a7e6;
+  --blue-dark: #078bc5;
+
+  --navy: #101820;
+  --text: #18232d;
+  --muted: #687783;
+
+  --white: #ffffff;
+  --bg: #f1f1f1;
+  --border: #dedede;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: "Inter", sans-serif;
+
+  overflow-x: hidden;
+}
+
+.dss-page *,
+.dss-page *::before,
+.dss-page *::after {
+  box-sizing: border-box;
+}
+
+.dss-page a {
+  font-family: inherit;
+}
+
+
+/* ============================================================
+   WRAPPER
+============================================================ */
+
+.dss-wrap {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   ARTICLE SECTION
+============================================================ */
+
+.dss-article-section {
+  width: 100%;
+
+  padding: 30px 0 80px;
+
+  background: #f1f1f1;
+}
+
+
+/* ============================================================
+   BREADCRUMB
+============================================================ */
+
+.dss-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 18px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #858f96;
+}
+
+.dss-breadcrumb a {
+  color: var(--blue-dark);
+
+  text-decoration: none;
+}
+
+.dss-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   ARTICLE LAYOUT
+============================================================ */
+
+.dss-article-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    360px;
+
+  gap: 30px;
+
+  align-items: start;
+}
+
+
+/* ============================================================
+   MAIN ARTICLE
+   NO WHITE BOX
+============================================================ */
+
+.dss-main-article {
+  min-width: 0;
+
+  background: transparent;
+
+  border: none;
+}
+
+
+/* ============================================================
+   BANNER
+============================================================ */
+
+.dss-main-banner {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  border: none;
+}
+
+.dss-main-banner img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: 560px;
+
+  object-fit: cover;
+
+  border-radius: 0;
+
+  transition: transform 0.5s ease;
+}
+
+.dss-main-banner:hover img {
+  transform: scale(1.012);
+}
+
+
+/* ============================================================
+   BLOG BODY
+   SAME BACKGROUND AS PAGE
+============================================================ */
+
+.dss-blog-body {
+  padding: 32px 0 55px;
+
+  background: transparent;
+
+  border: none;
+}
+
+
+/* ============================================================
+   CATEGORY
+============================================================ */
+
+.dss-article-category {
+  display: inline-block;
+
+  margin-bottom: 11px;
+
+  color: #ff4747;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   ARTICLE TITLE
+   SIMPLE + SMALL
+============================================================ */
+
+.dss-article-title {
+  margin: 0;
+
+  max-width: 850px;
+
+  color: #121c25;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: clamp(25px, 3vw, 36px);
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* ============================================================
+   META
+============================================================ */
+
+.dss-blog-meta {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 16px;
+
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid #dcdcdc;
+
+  color: #8b959b;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   CONTENT
+============================================================ */
+
+.dss-content-block {
+  padding-top: 28px;
+}
+
+.dss-content-block p {
+  margin: 0 0 20px;
+
+  color: #18232d;
+
+  font-size: 15px;
+
+  line-height: 1.85;
+
+  font-weight: 400;
+}
+
+
+/* ============================================================
+   CONTENT HEADINGS
+============================================================ */
+
+.dss-content-block h2 {
+  margin: 36px 0 16px;
+
+  color: #111a22;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: clamp(21px, 2.2vw, 27px);
+
+  line-height: 1.35;
+
+  font-weight: 700;
+
+  letter-spacing: -0.015em;
+}
+
+.dss-content-block h2:first-child {
+  margin-top: 0;
+}
+
+
+/* ============================================================
+   MARKETPLACE LIST
+============================================================ */
+
+.dss-marketplace-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 11px 14px;
+
+  margin: 24px 0 5px;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.dss-marketplace-list li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 50px;
+
+  padding: 10px 14px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  border: 1px solid #dedede;
+
+  color: #26333d;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dss-marketplace-list li:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(17, 167, 230, 0.45);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dss-check {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 0 0 23px;
+
+  width: 23px;
+  height: 23px;
+
+  border-radius: 50%;
+
+  background: rgba(17, 167, 230, 0.1);
+
+  color: var(--blue-dark);
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   INLINE CTA
+============================================================ */
+
+.dss-inline-cta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin: 42px 0;
+
+  padding: 23px 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(241, 251, 255, 0.8),
+      rgba(255, 255, 255, 0.55)
+    );
+
+  border: 1px solid #d8e8ed;
+
+  border-left: 4px solid var(--blue);
+}
+
+.dss-inline-cta div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.dss-inline-cta strong {
+  color: #111d26;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+.dss-inline-cta span {
+  color: #70808b;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.dss-inline-cta a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  padding: 11px 18px;
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  border-radius: 4px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.dss-inline-cta a:hover {
+  background: var(--blue-dark);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   SERVICES
+============================================================ */
+
+.dss-service-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin-top: 22px;
+}
+
+.dss-service-item {
+  display: flex;
+
+  gap: 14px;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  border: 1px solid #dedede;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dss-service-item:hover {
+  transform: translateY(-3px);
+
+  border-color: #cfe8f2;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.dss-service-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 0 0 43px;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 5px;
+
+  background: #edf9fd;
+
+  color: var(--blue-dark);
+}
+
+.dss-service-item h3 {
+  margin: 0 0 6px;
+
+  color: #111b24;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+
+  font-weight: 600;
+}
+
+.dss-service-item p {
+  margin: 0;
+
+  color: #6b7982;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   SIDEBAR
+============================================================ */
+
+.dss-sidebar {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+  position: sticky;
+
+  top: 25px;
+}
+
+
+/* ============================================================
+   SIDEBAR BOX
+   NO WHITE CARD
+============================================================ */
+
+.dss-sidebar-box {
+  padding: 25px 0;
+
+  background: transparent;
+
+  border: none;
+}
+
+.dss-sidebar-box:first-child {
+  padding-top: 0;
+}
+
+.dss-sidebar-box h3 {
+  margin: 0 0 13px;
+
+  color: #41494e;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+.dss-search {
+  display: flex;
+
+  width: 100%;
+}
+
+.dss-search input {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 44px;
+
+  padding: 0 13px;
+
+  border: 1px solid #d5dadd;
+
+  border-right: 0;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #303a41;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13px;
+}
+
+.dss-search input::placeholder {
+  color: #9aa5ad;
+}
+
+.dss-search input:focus {
+  border-color: var(--blue);
+}
+
+.dss-search button {
+  height: 44px;
+
+  padding: 0 17px;
+
+  border: 0;
+
+  background: #ff4d50;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+
+  transition: background 0.25s ease;
+}
+
+.dss-search button:hover {
+  background: #e83e41;
+}
+
+
+/* ============================================================
+   SIDEBAR HEADING
+============================================================ */
+
+.dss-sidebar-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 20px;
+}
+
+.dss-sidebar-heading span {
+  width: 3px;
+
+  height: 20px;
+
+  background: #ff4548;
+}
+
+.dss-sidebar-heading h3 {
+  margin: 0;
+
+  color: #3d464c;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   RELATED POSTS
+============================================================ */
+
+.dss-related-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.dss-related-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #dddddd;
+
+  background: transparent;
+
+  text-decoration: none;
+
+  transition: transform 0.25s ease;
+}
+
+.dss-related-item:last-child {
+  padding-bottom: 0;
+
+  border-bottom: 0;
+}
+
+.dss-related-item:hover {
+  transform: translateX(3px);
+}
+
+.dss-related-item img {
+  flex: 0 0 88px;
+
+  width: 88px;
+
+  height: 64px;
+
+  object-fit: cover;
+
+  border-radius: 3px;
+}
+
+.dss-related-item div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.dss-related-item strong {
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  color: #27323a;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+  transition: color 0.25s ease;
+}
+
+.dss-related-item span {
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  color: #89949b;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+}
+
+.dss-related-item:hover strong {
+  color: var(--blue-dark);
+}
+
+
+/* ============================================================
+   SIDE CTA
+   THIS ONE REMAINS DARK
+============================================================ */
+
+.dss-side-cta {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #07151f,
+      #0b354a
+    );
+
+  color: #ffffff;
+
+  text-align: center;
+
+  border-radius: 2px;
+}
+
+.dss-side-cta::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -80px;
+  top: -80px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(17, 167, 230, 0.2);
+}
+
+.dss-side-cta-icon {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 15px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: #ffffff;
+}
+
+.dss-side-cta h3 {
+  position: relative;
+
+  margin: 0 0 9px;
+
+  color: #ffffff;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 18px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+.dss-side-cta p {
+  position: relative;
+
+  margin: 0 0 20px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.dss-side-cta a {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 11px 18px;
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dss-side-cta a:hover {
+  background: var(--blue-dark);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   FAQ
+============================================================ */
+
+.dss-faq {
+  padding: 75px 0 90px;
+
+  background: #f1f1f1;
+}
+
+.dss-faq-heading {
+  max-width: 700px;
+
+  margin: 0 auto 38px;
+
+  text-align: center;
+}
+
+.dss-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+
+  color: var(--blue-dark);
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.dss-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+}
+
+
+/* ============================================================
+   FAQ HEADING
+============================================================ */
+
+.dss-h2 {
+  margin: 0;
+
+  color: #111c24;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: clamp(26px, 3vw, 34px);
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+.dss-p {
+  margin: 14px auto 0;
+
+  color: #71808a;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.dss-faq-grid {
+  width: min(100%, 1000px);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.dss-faq-item {
+  align-self: start;
+
+  overflow: hidden;
+
+  border: 1px solid #dcdfe1;
+
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.dss-faq-summary {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 17px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #17232c;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+.dss-faq-plus {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 0 0 28px;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  background: #edf8fc;
+
+  color: var(--blue-dark);
+
+  font-size: 20px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.dss-faq-plus--open {
+  transform: rotate(45deg);
+
+  background: var(--blue);
+
+  color: #ffffff;
+}
+
+.dss-faq-answer {
+  margin: 0;
+
+  padding: 0 18px 18px;
+
+  color: #6d7b84;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   BOTTOM CTA
+============================================================ */
+
+.dss-cta {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 80px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #06131d,
+      #082b3d
+    );
+
+  text-align: center;
+}
+
+.dss-cta::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  right: -220px;
+  top: -250px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(17, 167, 230, 0.18);
+
+  filter: blur(10px);
+}
+
+.dss-cta-label {
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: #53c8ef;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* ============================================================
+   CTA HEADING
+============================================================ */
+
+.dss-h2--white {
+  position: relative;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: clamp(26px, 3vw, 36px);
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+.dss-cta-sub {
+  position: relative;
+
+  max-width: 720px;
+
+  margin: 14px auto 26px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+.dss-btn-primary {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 46px;
+
+  padding: 0 21px;
+
+  border-radius: 5px;
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 30px rgba(17, 167, 230, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.dss-btn-primary:hover {
+  transform: translateY(-3px);
+
+  background: var(--blue-dark);
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 1000px) {
+
+  .dss-wrap {
+    width: min(100% - 36px, 900px);
+  }
+
+  .dss-article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dss-sidebar {
+    position: static;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+  }
+
+  .dss-side-cta {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+  .dss-wrap {
+    width: calc(100% - 24px);
+  }
+
+  .dss-article-section {
+    padding: 18px 0 55px;
+  }
+
+  .dss-breadcrumb {
+    gap: 6px;
+
+    font-size: 11px;
+
+    margin-bottom: 13px;
+  }
+
+  .dss-main-article {
+    background: transparent;
+
+    border: none;
+  }
+
+  .dss-main-banner {
+    background: transparent;
+  }
+
+  .dss-main-banner img {
+    max-height: 330px;
+
+    border-radius: 3px;
+  }
+
+  .dss-blog-body {
+    padding: 27px 3px 40px;
+
+    background: transparent;
+  }
+
+  .dss-article-category {
+    font-size: 10px;
+
+    margin-bottom: 9px;
+  }
+
+  /* BLOG TITLE */
+
+  .dss-article-title {
+    font-size: 25px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    letter-spacing: -0.015em;
+  }
+
+  .dss-blog-meta {
+    margin-top: 14px;
+
+    padding-bottom: 16px;
+
+    font-size: 10px;
+  }
+
+  .dss-content-block {
+    padding-top: 25px;
+  }
+
+  .dss-content-block p {
+    font-size: 14px;
+
+    line-height: 1.8;
+  }
+
+  /* CONTENT H2 */
+
+  .dss-content-block h2 {
+    margin-top: 30px;
+
+    margin-bottom: 14px;
+
+    font-size: 21px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+  }
+
+  /* MARKETPLACE */
+
+  .dss-marketplace-list {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .dss-marketplace-list li {
+    min-height: 48px;
+
+    padding: 9px 12px;
+
+    font-size: 13px;
+  }
+
+  /* SERVICES */
+
+  .dss-service-list {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .dss-service-item {
+    padding: 17px;
+  }
+
+  /* INLINE CTA */
+
+  .dss-inline-cta {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin: 32px 0;
+
+    padding: 20px;
+  }
+
+  .dss-inline-cta a {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  /* SIDEBAR */
+
+  .dss-sidebar {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .dss-sidebar-box {
+    padding: 20px 0;
+  }
+
+  .dss-sidebar-box:first-child {
+    padding-top: 0;
+  }
+
+  /* FAQ */
+
+  .dss-faq {
+    padding: 60px 0 70px;
+  }
+
+  .dss-faq-heading {
+    margin-bottom: 30px;
+  }
+
+  .dss-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dss-h2 {
+    font-size: 26px;
+
+    line-height: 1.3;
+  }
+
+  .dss-faq-summary {
+    font-size: 12px;
+
+    padding: 16px;
+  }
+
+  .dss-faq-answer {
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+  /* CTA */
+
+  .dss-cta {
+    padding: 65px 0;
+  }
+
+  .dss-h2--white {
+    font-size: 27px;
+
+    line-height: 1.3;
+  }
+
+  .dss-cta-sub {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* ============================================================
+   VERY SMALL
+============================================================ */
+
+@media (max-width: 400px) {
+
+  .dss-wrap {
+    width: calc(100% - 20px);
+  }
+
+  .dss-article-title {
+    font-size: 23px;
+
+    line-height: 1.28;
+  }
+
+  .dss-content-block p {
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+  .dss-content-block h2 {
+    font-size: 20px;
+
+    line-height: 1.35;
+  }
+
+  .dss-h2 {
+    font-size: 24px;
+  }
+
+  .dss-h2--white {
+    font-size: 25px;
+  }
+
+  .dss-inline-cta {
+    padding: 18px;
+  }
+
+  .dss-service-item {
+    padding: 16px;
+  }
+
+  .dss-side-cta {
+    padding: 25px 20px;
+  }
+
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+
+.dss-page button:focus-visible,
+.dss-page a:focus-visible,
+.dss-page input:focus-visible {
+  outline: 2px solid var(--blue);
+
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dss-page *,
+  .dss-page *::before,
+  .dss-page *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+  }
+
+}
