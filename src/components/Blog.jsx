@@ -1,9 +1,11 @@
 import React from "react";
 import "./Blog.css";
 
-import blog1 from "../assets/images/blog1.webp";
-import blog2 from "../assets/images/blog2.webp";
-import blog3 from "../assets/images/blog3.webp";
+
+import blog1 from "../assets/images/BANNER 1 BLOGS.png";
+import blog2 from "../assets/images/banner 2 blogs.png";
+import blog3 from "../assets/images/BANNER 3 BLOGS.png";
+
 
 import author from "../assets/images/auther.png";
 
