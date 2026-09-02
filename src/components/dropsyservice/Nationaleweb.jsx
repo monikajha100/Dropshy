@@ -48,7 +48,7 @@ import {
   TrendingUp,
   PenSquare,
 } from "lucide-react";
-import Globalecommer from "./Globalecommer";
+import WEB from "./WEB";
 /* ---------------------------------------------------------
    IMAGES — replace these with your own product photos
 --------------------------------------------------------- */
@@ -831,7 +831,7 @@ const NationalEcommerceweb = () => {
 
       {/* ===================== PRICING ===================== */}
     
-<Globalecommer/>
+<WEB/>
       {/* ===================== FAQ ===================== */}
       <section className="dsy-section dsy-faq-section">
         <div className="dsy-wrap">

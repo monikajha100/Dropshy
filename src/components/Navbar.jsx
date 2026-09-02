@@ -88,10 +88,10 @@ const NAV_LINKS = [
     ],
   },
 
-  {
-    label: "Review",
-    href: "/review",
-  },
+{
+  label: "Review",
+  href: "/review",
+},
 
   {
     label: "Contact Us",

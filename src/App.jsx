@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Review from "./pages/Review";
 import Dropsyservice from "./pages/Dropsyservice";
 import Blogpage from "./pages/Blogpage";
 
@@ -83,6 +84,13 @@ function App() {
     path === "/services/nationaleweb"
   ) {
     Page = Nationaleweb;
+  }
+
+  // =========================
+  // REVIEW
+  // =========================
+  else if (path === "/review") {
+    Page = Review;
   }
 
   // =========================
