@@ -30,7 +30,7 @@ export const CONTENTS = [
   {
     id: 1,
 
-    slug: "international-seller-account-setup",
+  
 
     image: banner1,
 

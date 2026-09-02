@@ -294,9 +294,7 @@ export default function Blogs() {
 
               <div className="dss-blog-heading">
 
-                <span className="dss-blog-eyebrow">
-                  DROPSHY BLOG
-                </span>
+                
 
                 <h1>
                   Latest E-Commerce
@@ -390,45 +388,7 @@ export default function Blogs() {
                   SEARCH
               ================================================= */}
 
-              <div className="dss-sidebar-box dss-search-box">
-
-                <h3>
-                  Search
-                </h3>
-
-                <form
-                  className="dss-search-form"
-                  onSubmit={(e) =>
-                    e.preventDefault()
-                  }
-                >
-
-                  <div className="dss-search-input-wrap">
-
-                    <Search size={17} />
-
-                    <input
-                      type="text"
-                      placeholder="Search Topic"
-                      value={search}
-                      onChange={(e) =>
-                        setSearch(
-                          e.target.value
-                        )
-                      }
-                    />
-
-                  </div>
-
-                  <button
-                    type="submit"
-                  >
-                    SEARCH
-                  </button>
-
-                </form>
-
-              </div>
+              
 
               {/* =================================================
                   PROMO

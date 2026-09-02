@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
+
 /* ============================================================
    ROOT
 ============================================================ */
@@ -44,7 +45,8 @@
 
 .dss-wrap {
   width: min(1240px, calc(100% - 48px));
-  margin: 0 auto;
+
+  margin: 30px auto 0;
 }
 
 
@@ -68,7 +70,9 @@
 .dss-breadcrumb {
   display: flex;
   align-items: center;
+
   gap: 9px;
+  margin-top: 100px;
 
   margin-bottom: 18px;
 
@@ -108,7 +112,6 @@
 
 /* ============================================================
    MAIN ARTICLE
-   NO WHITE BOX
 ============================================================ */
 
 .dss-main-article {
@@ -156,7 +159,6 @@
 
 /* ============================================================
    BLOG BODY
-   SAME BACKGROUND AS PAGE
 ============================================================ */
 
 .dss-blog-body {
@@ -169,13 +171,18 @@
 
 
 /* ============================================================
-   CATEGORY
+   SELECTOR TITLE
+   THIS IS:
+   "International Seller Account Setup"
+   
+   TOP SPACING = 70PX
 ============================================================ */
 
 .dss-article-category {
   display: inline-block;
 
-  margin-bottom: 11px;
+  
+  margin-bottom: 15px;
 
   color: #ff4747;
 
@@ -195,7 +202,6 @@
 
 /* ============================================================
    ARTICLE TITLE
-   SIMPLE + SMALL
 ============================================================ */
 
 .dss-article-title {
@@ -571,7 +577,6 @@
 
 /* ============================================================
    SIDEBAR BOX
-   NO WHITE CARD
 ============================================================ */
 
 .dss-sidebar-box {
@@ -812,7 +817,6 @@
 
 /* ============================================================
    SIDE CTA
-   THIS ONE REMAINS DARK
 ============================================================ */
 
 .dss-side-cta {
@@ -1265,6 +1269,8 @@
 
   .dss-wrap {
     width: min(100% - 36px, 900px);
+
+    margin: 25px auto 0;
   }
 
   .dss-article-layout {
@@ -1297,6 +1303,8 @@
 
   .dss-wrap {
     width: calc(100% - 24px);
+
+    margin: 20px auto 0;
   }
 
   .dss-article-section {
@@ -1333,15 +1341,36 @@
     background: transparent;
   }
 
+
+  /* ==========================================================
+     SELECTOR TITLE
+     MOBILE TOP GAP = 50PX
+  ========================================================== */
+
   .dss-article-category {
+    display: inline-block;
+
+    margin-top: 50px !important;
+
+    margin-bottom: 12px;
+
+    color: #ff4747;
+
     font-size: 10px;
 
-    margin-bottom: 9px;
+    line-height: 1.4;
+
+    font-weight: 700;
   }
 
-  /* BLOG TITLE */
+
+  /* ==========================================================
+     BLOG TITLE
+  ========================================================== */
 
   .dss-article-title {
+    margin: 0;
+
     font-size: 25px;
 
     line-height: 1.25;
@@ -1369,7 +1398,10 @@
     line-height: 1.8;
   }
 
-  /* CONTENT H2 */
+
+  /* ==========================================================
+     CONTENT H2
+  ========================================================== */
 
   .dss-content-block h2 {
     margin-top: 30px;
@@ -1383,7 +1415,10 @@
     font-weight: 700;
   }
 
-  /* MARKETPLACE */
+
+  /* ==========================================================
+     MARKETPLACE
+  ========================================================== */
 
   .dss-marketplace-list {
     grid-template-columns: 1fr;
@@ -1399,7 +1434,10 @@
     font-size: 13px;
   }
 
-  /* SERVICES */
+
+  /* ==========================================================
+     SERVICES
+  ========================================================== */
 
   .dss-service-list {
     grid-template-columns: 1fr;
@@ -1411,7 +1449,10 @@
     padding: 17px;
   }
 
-  /* INLINE CTA */
+
+  /* ==========================================================
+     INLINE CTA
+  ========================================================== */
 
   .dss-inline-cta {
     flex-direction: column;
@@ -1431,7 +1472,10 @@
     justify-content: center;
   }
 
-  /* SIDEBAR */
+
+  /* ==========================================================
+     SIDEBAR
+  ========================================================== */
 
   .dss-sidebar {
     display: flex;
@@ -1449,7 +1493,10 @@
     padding-top: 0;
   }
 
-  /* FAQ */
+
+  /* ==========================================================
+     FAQ
+  ========================================================== */
 
   .dss-faq {
     padding: 60px 0 70px;
@@ -1481,7 +1528,10 @@
     line-height: 1.7;
   }
 
-  /* CTA */
+
+  /* ==========================================================
+     CTA
+  ========================================================== */
 
   .dss-cta {
     padding: 65px 0;
@@ -1503,16 +1553,40 @@
 
 
 /* ============================================================
-   VERY SMALL
+   VERY SMALL MOBILE
 ============================================================ */
 
 @media (max-width: 400px) {
 
   .dss-wrap {
     width: calc(100% - 20px);
+
+    margin: 18px auto 0;
   }
 
+
+  /* ==========================================================
+     SELECTOR TITLE
+  ========================================================== */
+
+  .dss-article-category {
+    margin-top: 45px !important;
+
+    margin-bottom: 10px;
+
+    font-size: 9.5px;
+
+    line-height: 1.4;
+  }
+
+
+  /* ==========================================================
+     TITLE
+  ========================================================== */
+
   .dss-article-title {
+    margin: 0;
+
     font-size: 23px;
 
     line-height: 1.28;

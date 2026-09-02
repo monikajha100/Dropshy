@@ -1,45 +1,44 @@
 import React from "react";
 import "./Blog.css";
 
-
 import blog1 from "../assets/images/BANNER 1 BLOGS.png";
 import blog2 from "../assets/images/banner 2 blogs.png";
 import blog3 from "../assets/images/BANNER 3 BLOGS.png";
-
 
 import author from "../assets/images/auther.png";
 
 const blogs = [
   {
     image: blog1,
-    category: "Business",
+    category: "International E-Commerce",
     readTime: "6 min read",
-    title: "How to Apply for a Business Loan as a Startup in India? (2026)",
-    author: "Sahil Bajaj",
-    role: "Senior Specialist @ Shiprocket",
-    date: "August 4, 2026",
+    title:
+      "International Seller Account Setup Etsy, eBay, Amazon.com & Walmart",
+    author: "Dropshy Team",
+    role: "E-Commerce Specialist @ Dropshy",
+    date: "September 1, 2026",
   },
 
   {
     image: blog2,
-    category: "eCommerce Packaging",
+    category: "Website Dropshipping",
     readTime: "9 min read",
     title:
-      "Best Label Printers 2026: Top 10 Picks for Small Businesses, Shipping & Home Use",
-    author: "Sahil Bajaj",
-    role: "Senior Specialist @ Shiprocket",
-    date: "July 31, 2026",
+      "Start Your Website Dropshipping Business with Dropshy",
+    author: "Dropshy Team",
+    role: "E-Commerce Specialist @ Dropshy",
+    date: "September 1, 2026",
   },
 
   {
     image: blog3,
-    category: "eCommerce",
+    category: "Dropshipping",
     readTime: "7 min read",
     title:
-      "Business Diversification: Types, Benefits and Examples",
-    author: "Sahil Bajaj",
-    role: "Senior Specialist @ Shiprocket",
-    date: "July 30, 2026",
+      "Start Your Dropshipping Business in India with Zero Inventory",
+    author: "Dropshy Team",
+    role: "E-Commerce Specialist @ Dropshy",
+    date: "September 1, 2026",
   },
 ];
 

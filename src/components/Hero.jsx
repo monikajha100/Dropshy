@@ -8,7 +8,7 @@ import banner3 from "../assets/images/banner-3.webp";
 const SLIDES = [
   {
     eyebrow: "AWB-000-ZERO-INV",
-    title: "Launch Your Online Business\nwith Zero Investment",
+    title: "Launch Your\n Online Business\nwith Zero Investment",
     subtitle:
       "Partner with Dropshy. We handle products, inventory, packing and shipping while you focus on selling and earning profits.",
     image: banner1,

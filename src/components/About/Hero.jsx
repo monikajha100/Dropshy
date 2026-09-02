@@ -5,92 +5,93 @@ import banner1 from "../../assets/images/about1.jpg";
 import banner2 from "../../assets/images/about2.jpg";
 import banner3 from "../../assets/images/about3.jpg";
 
-const ABOUT_SLIDES = [
+const SLIDES = [
   {
-    eyebrow: "ABOUT DROPSHY",
-    title: "Building E-Commerce\nWithout Investment",
+    eyebrow: "Ecommerce shipping OS",
+    title: "Ship smarter,\nGrow faster with Dropsy",
     subtitle:
-      "DROPSHY is an e-commerce solutions provider that assists upcoming entrepreneurs in establishing and scaling up their online businesses without having to worry about inventory, logistics, and warehouse-related issues.",
+      "Bring every parcel, return, and customer update into one premium operations hub.",
     image: banner1,
   },
   {
-    eyebrow: "OUR VISION",
-    title: "Bina Investment\nApna Business",
+    eyebrow: "Modern commerce stack",
+    title: "Powerful tools for\nmodern eCommerce",
     subtitle:
-      "Our vision is to make e-commerce available, practical, and scalable for all kinds of sellers.",
+      "Unify your orders, inventory, and customer experience from one elegant dashboard.",
     image: banner2,
   },
   {
-    eyebrow: "WHAT WE OFFER",
-    title: "Grow Your Business\nWith DROPSHY",
+    eyebrow: "One place to lead",
+    title: "Manage your business\nfrom one place",
     subtitle:
-      "DROPSHY provides opportunities to discover national and international marketplaces, sell through different portals, and develop your own online brand image.",
+      "Track performance, automate communications, and make shipping decisions with confidence.",
     image: banner3,
   },
 ];
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSlide(
-        (prev) => (prev + 1) % ABOUT_SLIDES.length
-      );
-    }, 7000);
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 5000);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(timer);
   }, []);
 
-  const currentSlide = ABOUT_SLIDES[activeSlide];
-
   const nextSlide = () => {
-    setActiveSlide(
-      (prev) => (prev + 1) % ABOUT_SLIDES.length
-    );
+    setActiveSlide((prev) => (prev + 1) % SLIDES.length);
   };
 
   const prevSlide = () => {
     setActiveSlide(
-      (prev) =>
-        (prev - 1 + ABOUT_SLIDES.length) %
-        ABOUT_SLIDES.length
+      (prev) => (prev - 1 + SLIDES.length) % SLIDES.length
     );
   };
 
+  const goToSlide = (index) => {
+    setActiveSlide(index);
+  };
+
+  const currentSlide = SLIDES[activeSlide];
+
+  useEffect(() => {
+    setImageLoaded(false);
+
+    const img = new Image();
+
+    img.src = currentSlide.image;
+
+    img.onload = () => {
+      setImageLoaded(true);
+    };
+
+    img.onerror = () => {
+      setImageLoaded(true);
+    };
+  }, [currentSlide.image]);
+
   return (
     <section className="hero" id="hero">
-
-      {/* AMBIENT BACKGROUND */}
+      {/* BACKGROUND */}
       <div className="hero__bg" aria-hidden="true">
-        <span className="hero__blob hero__blob--sky" />
-        <span className="hero__blob hero__blob--yellow" />
-
-        <svg
-          className="hero__route"
-          viewBox="0 0 1400 700"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <path
-            className="hero__route-path"
-            d="M-50,560 C 250,460 380,620 620,520 S 980,300 1120,360 S 1350,180 1480,120"
-          />
-        </svg>
-
-        <span className="hero__route-dot">📦</span>
+        <div className="hero__blob hero__blob--sky" />
+        <div className="hero__blob hero__blob--yellow" />
       </div>
 
       <div className="hero__inner container">
 
-        {/* LEFT CONTENT */}
+        {/* =====================================================
+            LEFT CONTENT
+        ===================================================== */}
+
         <div
           className="hero__left hero__slide"
           key={`left-${activeSlide}`}
         >
-
           <p className="hero__eyebrow">
-            <span className="hero__eyebrow-dot" />
             {currentSlide.eyebrow}
           </p>
 
@@ -106,24 +107,15 @@ const Hero = () => {
           </h1>
 
           <p className="hero__sub">
-            {currentSlide.subtitle.split("\n").map((line, index) => (
-              <span
-                key={index}
-                className="hero__sub-line"
-              >
-                {line}
-              </span>
-            ))}
+            {currentSlide.subtitle}
           </p>
 
-          {/* BUTTONS */}
           <div className="hero__ctas">
-
             <a
               href="/get-started"
               className="hero__cta-primary"
             >
-              Sign up for Free
+              Get Started Free
 
               <svg
                 width="16"
@@ -146,12 +138,14 @@ const Hero = () => {
               href="/solutions"
               className="hero__cta-secondary"
             >
-              Our Services
+              Explore Solutions
             </a>
-
           </div>
 
-          {/* SLIDER CONTROLS */}
+          {/* =================================================
+              CONTROLS
+          ================================================= */}
+
           <div className="hero__controls">
 
             <button
@@ -164,8 +158,7 @@ const Hero = () => {
             </button>
 
             <div className="hero__indicators">
-
-              {ABOUT_SLIDES.map((slide, index) => (
+              {SLIDES.map((slide, index) => (
                 <button
                   key={slide.eyebrow}
                   type="button"
@@ -174,11 +167,15 @@ const Hero = () => {
                       ? "hero__indicator--active"
                       : ""
                   }`}
-                  onClick={() => setActiveSlide(index)}
+                  onClick={() => goToSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
+                  aria-current={
+                    index === activeSlide
+                      ? "true"
+                      : undefined
+                  }
                 />
               ))}
-
             </div>
 
             <button
@@ -193,34 +190,40 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE — IMAGE */}
-        <div
-          className="hero__right hero__slide--right"
-          key={`right-${activeSlide}`}
-        >
+        {/* =====================================================
+            RIGHT IMAGE
+        ===================================================== */}
+
+        <div className="hero__right hero__slide hero__slide--right">
+
           <div className="hero__photo-frame">
 
-            <span className="hero__photo-ring" />
-
-            <img
-              src={currentSlide.image}
-              alt="Dropshy About Us"
-              className="hero__photo"
+            <div
+              className="hero__photo-ring"
+              aria-hidden="true"
             />
 
-            <span className="hero__badge hero__badge--top">
-              <strong>₹0</strong> Investment
-            </span>
+           <img
+  src={currentSlide.image}
+  alt={currentSlide.title.replace(/\n/g, " ")}
+  className="hero__photo"
+/>
 
-            <span className="hero__badge hero__badge--bottom">
-              🌍 135+ Countries
-            </span>
+            <div className="hero__badge hero__badge--top">
+              <strong>
+                {String(activeSlide + 1).padStart(2, "0")}
+              </strong>
+              <span>/ 03</span>
+            </div>
+
+            <div className="hero__badge hero__badge--bottom">
+              Dropsy
+            </div>
 
           </div>
         </div>
 
       </div>
-
     </section>
   );
 };
