@@ -1,0 +1,257 @@
+:root{
+  --purple-1:#7b3fe4;
+  --purple-2:#a855f7;
+  --ink:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --bg:#ffffff;
+  --star-off:#d1d5db;
+  --star-on:#f5a623;
+  --danger:#e11d48;
+}
+
+.review-wrapper *{
+  box-sizing:border-box;
+}
+
+.review-wrapper{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  padding:40px;
+}
+
+/* Trigger button */
+.write-review-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(90deg,var(--purple-1),var(--purple-2));
+  color:#fff;
+  border:none;
+  padding:14px 30px;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(123,63,228,0.28);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.write-review-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(123,63,228,0.35);
+}
+
+/* Overlay + Modal */
+.review-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(17,24,39,0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
+}
+
+.review-modal{
+  background:var(--bg);
+  width:100%;
+  max-width:420px;
+  border-radius:16px;
+  padding:28px 26px 24px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
+  max-height:90vh;
+  overflow-y:auto;
+  animation:review-pop .18s ease-out;
+}
+
+@keyframes review-pop{
+  from{opacity:0; transform:scale(.96) translateY(6px);}
+  to{opacity:1; transform:scale(1) translateY(0);}
+}
+
+.review-modal h2{
+  margin:0 0 20px;
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.review-close-btn{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .15s ease;
+}
+.review-close-btn:hover{
+  background:#f3f4f6;
+}
+
+/* Fields */
+.review-field{
+  margin-bottom:16px;
+}
+
+.review-field label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+
+.review-field label .req{
+  color:var(--danger);
+}
+
+.review-field input,
+.review-field textarea{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:14px;
+  color:var(--ink);
+  background:#fff;
+  font-family:inherit;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+
+.review-field input::placeholder,
+.review-field textarea::placeholder{
+  color:#9ca3af;
+}
+
+.review-field input:focus,
+.review-field textarea:focus{
+  outline:none;
+  border-color:var(--purple-1);
+  box-shadow:0 0 0 3px rgba(123,63,228,0.12);
+}
+
+.review-field textarea{
+  resize:vertical;
+  min-height:88px;
+}
+
+.review-field.error input,
+.review-field.error textarea{
+  border-color:var(--danger);
+}
+
+.review-error-msg{
+  display:none;
+  color:var(--danger);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.review-field.error .review-error-msg{
+  display:block;
+}
+
+/* Star rating */
+.review-stars{
+  display:flex;
+  gap:6px;
+  font-size:26px;
+  line-height:1;
+}
+
+.review-stars span{
+  cursor:pointer;
+  color:var(--star-off);
+  transition:color .1s ease, transform .1s ease;
+  user-select:none;
+}
+
+.review-stars span:hover{
+  transform:scale(1.08);
+}
+
+.review-stars span.filled{
+  color:var(--star-on);
+}
+
+.review-required-note{
+  font-size:12px;
+  color:var(--muted);
+  margin:2px 0 18px;
+}
+
+.review-submit-btn{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--purple-1),var(--purple-2));
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:opacity .15s ease, transform .1s ease;
+}
+
+.review-submit-btn:hover{
+  opacity:.92;
+}
+
+.review-submit-btn:active{
+  transform:scale(.99);
+}
+
+/* Success state */
+.review-success{
+  text-align:center;
+  padding:20px 4px 4px;
+}
+
+.review-success .tick{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#ecfdf5;
+  color:#059669;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 14px;
+}
+
+.review-success h3{
+  margin:0 0 6px;
+  font-size:17px;
+  color:var(--ink);
+}
+
+.review-success p{
+  margin:0 0 20px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.review-success button{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:9px 18px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  cursor:pointer;
+}

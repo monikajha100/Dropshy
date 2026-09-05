@@ -435,7 +435,12 @@ const NationalEcommerceweb = () => {
 
       {/* ===================== HOW IT WORKS ===================== */}
       {/* ===================== HOW IT WORKS ===================== */}
-<section className="dsy-section dsy-process-section" id="how-it-works">
+      
+<section
+  className="dsy-section dsy-register-section"
+  id="register"
+  style={{ paddingTop: "30px" }}
+>
 
   <div className="dsy-process-bg-circle dsy-process-circle-one"></div>
   <div className="dsy-process-bg-circle dsy-process-circle-two"></div>
@@ -615,7 +620,11 @@ const NationalEcommerceweb = () => {
 </section>
       {/* ===================== BENEFITS ===================== */}
       {/* ===================== WHY DROPSHY / BENEFITS ===================== */}
-<section className="dsy-section dsy-benefits-section" id="benefits">
+<section
+  className="dsy-section dsy-register-section"
+  id="register"
+  style={{ paddingTop: "30px" }}
+>
   <div className="dsy-wrap">
 
     <div className="dsy-benefits-heading dsy-reveal">
@@ -690,7 +699,11 @@ const NationalEcommerceweb = () => {
   </div>
 </section>
       {/* ===================== REGISTRATION / JOURNEY ===================== */}
-      <section className="dsy-section dsy-register-section" id="register">
+      <section
+  className="dsy-section dsy-register-section"
+  id="register"
+  style={{ paddingTop: "30px" }}
+>
         <div className="dsy-wrap">
 
           <div className="dsy-sec-head dsy-reveal">
@@ -817,11 +830,9 @@ const NationalEcommerceweb = () => {
 
               <div className="dsy-journey-actions">
                 <a className="dsy-btn-primary" href="#pricing">
-                  Start Your Store <span>→</span>
+                  Enrol Now  <span>→</span>
                 </a>
-                <a className="dsy-btn-ghost" href="#faq">
-                  Learn More
-                </a>
+                
               </div>
 
             </div>

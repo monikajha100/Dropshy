@@ -43,7 +43,7 @@ const plans = [
 
     priceLines: [
       "₹7,999",
-      "₹9,438 - per year",
+      "₹9,438 - per platform",
     ],
 
     features: [
@@ -73,7 +73,7 @@ const plans = [
 
     priceLines: [
       "₹9,438 x 5 platform",
-      "₹47,160 /-",
+      "₹47,160 /-per platform",
     ],
 
     features: [
@@ -103,7 +103,7 @@ const plans = [
 
     priceLines: [
       "₹47,160 + ₹49,999",
-      "₹97,190 /-",
+      "₹97,190 /-per platform",
     ],
 
     features: [
@@ -586,20 +586,18 @@ export default function GlobalEcommerce() {
             {/* Register Button */}
 
             <a
-              href="/register"
-              className="gec-register-btn"
-              aria-label={`Register for ${plan.name} plan`}
-            >
+  href="https://wa.me/918873768436"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="gec-register-btn"
+  aria-label={`Register for ${plan.name} plan`}
+>
+  <span>Enroll Now</span>
 
-              <span>
-                Register Now
-              </span>
-
-              <span className="gec-register-arrow">
-                →
-              </span>
-
-            </a>
+  <span className="gec-register-arrow">
+    →
+  </span>
+</a>
 
           </div>
 
@@ -741,37 +739,7 @@ export default function GlobalEcommerce() {
           TRUST ROW
       =================================================== */}
 
-      <div
-        ref={trustRef}
-        className={`gec-trust-row ${
-          trustVisible
-            ? "gec-visible"
-            : ""
-        }`}
-      >
-
-        {trustBadges.map(
-          (badge) => (
-
-            <div
-              className="gec-trust-item"
-              key={badge.label}
-            >
-
-              <div className="gec-trust-icon">
-                {badge.icon}
-              </div>
-
-              <span>
-                {badge.label}
-              </span>
-
-            </div>
-
-          )
-        )}
-
-      </div>
+      
 
     </section>
   );

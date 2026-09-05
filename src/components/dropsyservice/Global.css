@@ -749,14 +749,11 @@
 ============================================================ */
 
 .gec-name {
-  font-size: 20px;
-
-  font-weight: 600;
-
+  font-size: 30px;
+  font-weight: 900;
   margin: 0 0 4px;
+  transition: transform 0.35s ease;
 
-  transition:
-    transform 0.35s ease;
 }
 
 .gec-card:hover .gec-name {

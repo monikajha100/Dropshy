@@ -1,0 +1,958 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap");
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+.dropshy-login-page,
+.dropshy-login-page * {
+  box-sizing: border-box;
+}
+
+.dropshy-login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #ffffff;
+
+  font-family: "Inter", sans-serif;
+
+  color: #1d3442;
+
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   LEFT
+============================================================ */
+
+.dropshy-login-left {
+  position: relative;
+
+  width: 55%;
+
+  min-height: 100vh;
+
+  background: #dff2f7;
+
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   LOGO
+============================================================ */
+
+.dropshy-login-logo {
+  position: absolute;
+
+  top: 24px;
+  left: 25px;
+
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.dropshy-logo-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: #0b83a7;
+
+  color: #ffffff;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.dropshy-logo-name {
+  color: #344b55;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  letter-spacing: -1.1px;
+}
+
+
+/* ============================================================
+   IMAGE SLIDER
+============================================================ */
+
+.dropshy-login-slider {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 80px;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* image holder */
+
+.dropshy-login-images {
+  position: relative;
+
+  width: 92%;
+  height: 90%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* images */
+
+.dropshy-login-slide {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  transform:
+    translate(-42%, -50%)
+    translateX(70px)
+    scale(.96);
+
+  transition:
+    opacity .6s ease,
+    transform .7s cubic-bezier(.22,.61,.36,1);
+
+  pointer-events: none;
+}
+
+.dropshy-login-slide.active {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(0)
+    scale(1);
+
+  z-index: 2;
+}
+
+
+/* ============================================================
+   DOTS
+============================================================ */
+
+.dropshy-slider-dots {
+  position: absolute;
+
+  bottom: 13px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  z-index: 10;
+}
+
+.dropshy-slider-dots button {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #9fb8c0;
+
+  cursor: pointer;
+
+  transition:
+    width .25s ease,
+    background .25s ease;
+}
+
+.dropshy-slider-dots button.active {
+  width: 9px;
+  height: 9px;
+
+  background: #0788d8;
+}
+
+
+/* ============================================================
+   RIGHT
+============================================================ */
+
+.dropshy-login-right {
+  position: relative;
+
+  width: 45%;
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px 60px;
+
+  overflow-y: auto;
+}
+
+
+/* ============================================================
+   TOP TRACK ORDER
+============================================================ */
+
+.top-track-order {
+  position: absolute;
+
+  top: 13px;
+  right: 14px;
+
+  height: 35px;
+
+  padding: 0 17px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #0c86a8;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.top-track-order:hover {
+  background: #087594;
+
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FORM CONTAINER
+============================================================ */
+
+.dropshy-login-form-container {
+  width: 100%;
+
+  max-width: 485px;
+
+  margin-top: 2px;
+}
+
+
+/* ============================================================
+   HEADING
+============================================================ */
+
+.dropshy-login-heading {
+  margin-bottom: 28px;
+}
+
+.dropshy-login-heading h1 {
+  margin: 0 0 8px;
+
+  color: #142f40;
+
+  font-family: "Sora", sans-serif;
+
+  font-size: 21px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -.5px;
+}
+
+.dropshy-login-heading p {
+  margin: 0;
+
+  color: #263d4c;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.dropshy-login-heading p button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #087fe3;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.dropshy-login-heading p button:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.dropshy-login-form {
+  width: 100%;
+}
+
+
+/* ============================================================
+   FIELD
+============================================================ */
+
+.dropshy-field {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.dropshy-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #1d3442;
+
+  font-size: 12px;
+
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   INPUT
+============================================================ */
+
+.dropshy-input-box {
+  position: relative;
+
+  width: 100%;
+
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #d6dfe4;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.dropshy-input-box:focus-within {
+  border-color: #9ec8d5;
+
+  box-shadow:
+    0 0 0 3px rgba(10, 134, 168, .06);
+}
+
+
+/* ============================================================
+   INPUT ICON
+============================================================ */
+
+.dropshy-input-icon {
+  width: 45px;
+  height: 100%;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #edf2f5;
+
+  color: #74818a;
+}
+
+.dropshy-input-box input {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 13px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #233d4c;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 12px;
+}
+
+.dropshy-input-box input::placeholder {
+  color: #7f8d96;
+}
+
+
+/* ============================================================
+   PASSWORD
+============================================================ */
+
+.password-input-box {
+  padding-right: 49px;
+}
+
+
+/* eye */
+
+.password-eye {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 49px;
+  height: 100%;
+
+  border: none;
+
+  border-left: 1px solid #dce4e8;
+
+  background: #edf2f5;
+
+  color: #697780;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: background .2s ease;
+}
+
+.password-eye:hover {
+  background: #e4ecef;
+}
+
+
+/* ============================================================
+   OPTIONS
+============================================================ */
+
+.dropshy-login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 1px;
+  margin-bottom: 23px;
+}
+
+
+/* remember */
+
+.dropshy-remember {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #253d4b;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.dropshy-remember input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.dropshy-checkmark {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c9d8de;
+
+  background: #ffffff;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: .2s ease;
+}
+
+.dropshy-remember input:checked + .dropshy-checkmark {
+  background: #0788a9;
+
+  border-color: #0788a9;
+}
+
+
+/* forgot */
+
+.dropshy-forgot {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #087ea9;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.dropshy-forgot:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   LOGIN BUTTON
+============================================================ */
+
+.dropshy-login-button {
+  width: 100%;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #0d87a8;
+
+  color: #ffffff;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.dropshy-login-button:hover {
+  background: #087897;
+
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   GOOGLE
+============================================================ */
+
+.dropshy-google-button {
+  width: 100%;
+
+  height: 46px;
+
+  margin-top: 17px;
+
+  border: 1px solid #d6dfe4;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  color: #1d3442;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.dropshy-google-button:hover {
+  background: #fafcfd;
+
+  border-color: #c5d4da;
+}
+
+
+/* Google G */
+
+.google-g {
+  position: relative;
+
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  background: conic-gradient(
+    from -45deg,
+    #4285f4 0deg 90deg,
+    #34a853 90deg 180deg,
+    #fbbc05 180deg 270deg,
+    #ea4335 270deg 360deg
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ============================================================
+   CREATE ACCOUNT
+============================================================ */
+
+.dropshy-create-account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  color: #263d4b;
+
+  font-size: 11px;
+}
+
+.dropshy-create-account a {
+  color: #087eac;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.dropshy-create-account a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   BOTTOM TRACK ORDER
+============================================================ */
+
+.dropshy-bottom-track {
+  width: 100%;
+
+  height: 40px;
+
+  margin-top: 21px;
+
+  border: 1px solid #7fc4dd;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #087fa5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.dropshy-bottom-track:hover {
+  background: #f5fbfd;
+
+  border-color: #4ba8c7;
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+.dropshy-login-footer {
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  margin-top: 17px;
+}
+
+.dropshy-login-footer a {
+  color: #253b47;
+
+  font-size: 10px;
+
+  text-decoration: underline;
+
+  white-space: nowrap;
+}
+
+.dropshy-login-footer a:hover {
+  color: #087fa8;
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 1100px) {
+
+  .dropshy-login-left {
+    width: 52%;
+  }
+
+  .dropshy-login-right {
+    width: 48%;
+
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .dropshy-login-images {
+    width: 100%;
+  }
+
+  .dropshy-login-footer {
+    gap: 10px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 768px) {
+
+  .dropshy-login-page {
+    display: block;
+
+    min-height: 100vh;
+
+    overflow: visible;
+  }
+
+
+  /* LEFT */
+
+  .dropshy-login-left {
+    width: 100%;
+
+    height: 330px;
+
+    min-height: 330px;
+  }
+
+
+  .dropshy-login-logo {
+    top: 18px;
+    left: 18px;
+  }
+
+  .dropshy-logo-name {
+    font-size: 22px;
+  }
+
+
+  .dropshy-login-slider {
+    top: 55px;
+  }
+
+  .dropshy-login-images {
+    width: 95%;
+    height: 90%;
+  }
+
+
+  /* RIGHT */
+
+  .dropshy-login-right {
+    width: 100%;
+
+    min-height: auto;
+
+    padding:
+      40px 20px 35px;
+
+    display: block;
+  }
+
+
+  .top-track-order {
+    top: 12px;
+    right: 14px;
+  }
+
+
+  .dropshy-login-form-container {
+    max-width: 520px;
+
+    margin: 20px auto 0;
+  }
+
+
+  .dropshy-login-heading h1 {
+    font-size: 20px;
+  }
+
+
+  .dropshy-login-footer {
+    flex-wrap: wrap;
+
+    gap: 9px 15px;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 420px) {
+
+  .dropshy-login-left {
+    height: 290px;
+
+    min-height: 290px;
+  }
+
+  .dropshy-login-right {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dropshy-login-heading {
+    margin-bottom: 24px;
+  }
+
+  .dropshy-login-heading h1 {
+    font-size: 19px;
+  }
+
+  .dropshy-login-options {
+    margin-bottom: 20px;
+  }
+}

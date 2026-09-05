@@ -1,4 +1,3 @@
-
 /* ================================================================
    DROPSHY NAVBAR
    CLEAN DROPDOWN DESIGN
@@ -55,17 +54,94 @@
 
   border-radius: 22px;
 
-  background: rgba(255, 255, 255, 0.96);
+  /* ============================================================
+     SCROLL COLOR EFFECT
+     Dropshy brand: Blue + Orange glass (light, not plain white)
+     ============================================================ */
+  background:
+    linear-gradient(
+      120deg,
+      rgba(224, 242, 254, 0.95),
+      rgba(255, 243, 224, 0.93)
+    );
 
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(17, 167, 230, 0.22);
 
   box-shadow:
-    0 12px 35px rgba(15, 23, 42, 0.10);
+    0 12px 35px rgba(17, 167, 230, 0.18),
+    0 5px 18px rgba(245, 154, 27, 0.12),
+    0 0 0 1px rgba(17, 167, 230, 0.06);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 
   overflow: visible;
+}
+
+/* Animated brand-color line appears only after scrolling */
+.dropsy-navbar-scrolled::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 9%;
+  right: 9%;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #11A7E6 25%,
+    #F59A1B 50%,
+    #11A7E6 75%,
+    transparent 100%
+  );
+
+  border-radius: 999px;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  animation: dropsyScrollGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes dropsyScrollGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scaleX(0.88);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Slight brand tint on navbar links after scroll */
+.dropsy-navbar-scrolled .dropsy-nav-link {
+  color: #173B4A;
+}
+
+.dropsy-navbar-scrolled .dropsy-arrow {
+  color: #4F7180;
+}
+
+.dropsy-navbar-scrolled .dropsy-login {
+  color: #173B4A;
+}
+
+.dropsy-navbar-scrolled .dropsy-nav-link:hover,
+.dropsy-navbar-scrolled .dropsy-nav-link:focus-visible {
+  color: #11A7E6;
+  background: rgba(17, 167, 230, 0.08);
+}
+
+.dropsy-navbar-scrolled .dropsy-arrow:hover,
+.dropsy-navbar-scrolled .dropsy-arrow-open {
+  color: #11A7E6;
 }
 
 
@@ -927,10 +1003,26 @@
   .dropsy-navbar-scrolled {
 
     background:
-      rgba(255, 255, 255, 0.96);
+      linear-gradient(
+        120deg,
+        rgba(224, 242, 254, 0.96),
+        rgba(255, 243, 224, 0.94)
+      );
+
+    border:
+      1px solid rgba(17, 167, 230, 0.20);
 
     box-shadow:
-      0 10px 30px rgba(15, 23, 42, 0.10);
+      0 10px 30px rgba(17, 167, 230, 0.16),
+      0 4px 16px rgba(245, 154, 27, 0.10);
+
+    backdrop-filter:
+      blur(18px)
+      saturate(160%);
+
+    -webkit-backdrop-filter:
+      blur(18px)
+      saturate(160%);
 
   }
 
@@ -1136,4 +1228,3 @@
 
   outline-offset: 2px;
 }
-

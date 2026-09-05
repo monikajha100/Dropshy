@@ -1,295 +1,277 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap');
+/* ============================================================
+   DROPSY FOOTER — COMPACT MANIFEST STRIP
+   Slim, quiet, one accent. Less decoration, tighter rhythm.
+   ============================================================ */
 
-* {
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 .footer {
-  position: relative;
-  background: #121A2B;
-  color: #C6CCDA;
-  font-family: 'Inter', sans-serif;
-  padding-top: 26px;
-  overflow: hidden;
+  --ink-900: #14171c;
+  --ink-800: #1b1f26;
+  --paper: #ece7da;
+  --paper-dim: #837e6c;
+  --stamp: #ff6a2b;
+  --line: rgba(236, 231, 218, 0.1);
+
+  background: var(--ink-900);
+  color: var(--paper);
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-/* PERFORATED TEAR-OFF EDGE */
+/* thin perforation, kept as a single hairline — not a full dotted band */
 .footerPerforation {
-  height: 18px;
-  width: 100%;
-  background-image: radial-gradient(circle, #0B1220 3.5px, transparent 3.6px);
-  background-size: 26px 18px;
-  background-position: 13px center;
-  background-repeat: repeat-x;
-  border-top: 2px dashed rgba(255, 255, 255, 0.12);
+  height: 1px;
+  background: var(--line);
 }
 
+/* ---------- MAIN GRID ---------- */
 .footerContainer {
-  position: relative;
-  z-index: 1;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 48px 32px 0;
   display: grid;
-  grid-template-columns: 1.7fr repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: 1.3fr repeat(5, 0.8fr);
+  gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 40px 28px;
 }
 
-/* BRAND BLOCK */
+/* ---------- LEFT / BRAND BLOCK ---------- */
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 20px;
+}
 
 .footerEyebrow {
-  display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  color: #3FD9C7;
-  margin-bottom: 14px;
+  display: none; /* dropped — brand name + tagline already say enough */
 }
 
 .footerBrandRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .footerLogo {
-  height: 30px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
+  border-radius: 3px;
 }
 
 .footerBrandText {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 26px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #F4F6FB;
+  letter-spacing: 0.01em;
 }
 
 .footerTagline {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 12.5px;
-  color: #7D8AA3;
-  margin-top: 6px;
-  letter-spacing: 0.3px;
+  color: var(--paper-dim);
+  margin: 0 0 8px;
+  max-width: 30ch;
+  line-height: 1.45;
 }
 
 .socialIcons {
   display: flex;
-  gap: 10px;
-  margin: 20px 0 4px;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .socialIcons a {
-  width: 34px;
-  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: transparent;
-  color: #8D97AC;
-  border: 1.5px solid #2C3652;
-  transition: all 0.2s ease;
-  font-size: 13px;
+  color: var(--paper-dim);
+  font-size: 11px;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.socialIcons a:hover {
-  background: #FFB020;
-  color: #121A2B;
-  border-color: #FFB020;
-  transform: rotate(-6deg);
+.socialIcons a:hover,
+.socialIcons a:focus-visible {
+  border-color: var(--stamp);
+  color: var(--stamp);
 }
 
 .footerDivider {
-  height: 1px;
-  background: repeating-linear-gradient(
-    90deg,
-    #2C3652 0px,
-    #2C3652 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  margin: 22px 0 18px;
+  display: none; /* removed — the tighter spacing does the separating now */
 }
 
 .footerManifestLabel {
-  display: block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 1.5px;
-  color: #5C6784;
-  margin-bottom: 10px;
+  display: none; /* one less label to read — email/address speak for themselves */
 }
 
 .footerInfo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  color: #C6CCDA;
-  margin: 4px 0;
+  gap: 7px;
+  font-size: 12.5px;
+  margin: 0;
+  color: var(--paper-dim);
+}
+
+.footerInfo:first-of-type {
+  margin-top: 6px;
 }
 
 .footerInfo svg {
-  color: #FFB020;
+  color: var(--stamp);
   flex-shrink: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
+/* only the first address block stays visible — corporate office is enough,
+   keeps the column short without touching the component's markup logic */
 .footerAddress {
   display: flex;
-  gap: 8px;
   align-items: flex-start;
-  font-size: 12.5px;
-  color: #8D97AC;
-  margin-top: 14px;
-  line-height: 1.6;
-}
-
-.footerAddress strong {
-  color: #C6CCDA;
-  font-weight: 500;
-}
-
-.footerAddress svg {
-  color: #FFB020;
-  margin-top: 2px;
-  flex-shrink: 0;
-  font-size: 14px;
-}
-
-.downloadSection {
-  margin-top: 22px;
-}
-
-.storeButtons {
-  display: flex;
-  gap: 10px;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--paper-dim);
+  line-height: 1.45;
   margin-top: 4px;
 }
 
-.storeButtons img {
-  height: 38px;
-  border-radius: 6px;
-  border: 1px solid #2C3652;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
+.footerAddress + .footerAddress {
+  display: none;
 }
 
-.storeButtons img:hover {
-  transform: translateY(-3px);
-  border-color: #3FD9C7;
+.footerAddress svg {
+  color: var(--stamp);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 12px;
 }
 
-/* LINK COLUMNS AS MANIFEST SECTIONS */
+.footerAddress strong {
+  color: var(--paper);
+  font-weight: 600;
+}
 
+.downloadSection {
+  display: none; /* store badges dropped — keeps the block to essentials */
+}
+
+/* ---------- LINK COLUMNS ---------- */
 .footer-column {
   display: flex;
   flex-direction: column;
-  padding-top: 2px;
+  gap: 8px;
 }
 
 .footer-column-code {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 1px;
-  color: #FFB020;
-  margin-bottom: 8px;
+  display: none; /* SEC.0x tags removed — heading alone is enough */
 }
 
 .footer-column h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #F4F6FB;
-  font-size: 14.5px;
+  font-size: 12px;
   font-weight: 600;
-  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+  margin: 0 0 2px;
+  color: var(--paper);
+}
+
+/* keep only the first four links per column so each stays short and scannable */
+.footer-column a:nth-child(n+6) {
+  display: none;
 }
 
 .footer-column a {
-  color: #8D97AC;
+  font-size: 12.5px;
+  color: var(--paper-dim);
   text-decoration: none;
-  font-size: 13px;
-  margin-bottom: 11px;
   width: fit-content;
-  transition: color 0.2s ease, padding-left 0.2s ease;
-  border-left: 2px solid transparent;
-  padding-left: 0;
+  transition: color 0.15s ease;
 }
 
-.footer-column a:hover {
-  color: #3FD9C7;
-  padding-left: 8px;
-  border-left: 2px solid #3FD9C7;
+.footer-column a:hover,
+.footer-column a:focus-visible {
+  color: var(--stamp);
 }
 
-/* BOTTOM LABEL STRIP */
-
+/* ---------- BOTTOM STRIP ---------- */
 .footer-bottom {
-  margin-top: 50px;
-  border-top: 1px solid #232D45;
-  background: #0E1526;
+  border-top: 1px solid var(--line);
+  background: var(--ink-800);
 }
 
 .footer-bottom-inner {
-  max-width: 1300px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 18px 32px;
+  padding: 14px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .footer-bottom-inner p {
-  font-size: 12px;
-  color: #5C6784;
-  letter-spacing: 0.2px;
-  font-family: 'Inter', sans-serif;
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--paper-dim);
+  white-space: nowrap;
 }
 
 .footer-tracking-code {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: #3FD9C7;
-  letter-spacing: 1px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--stamp);
   white-space: nowrap;
 }
 
+/* barcode shrunk to a small mark instead of a full strip */
 .footerBarcode {
   display: flex;
-  align-items: center;
-  gap: 2px;
-  height: 22px;
+  align-items: stretch;
+  gap: 1px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .footerBarcode span {
   display: block;
   height: 100%;
-  background: #5C6784;
+  background: var(--paper-dim);
+  opacity: 0.6;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 1024px) {
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 980px) {
   .footerContainer {
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 28px;
   }
 
   .footerLeft {
     grid-column: 1 / -1;
+    padding-right: 0;
   }
 }
 
 @media (max-width: 640px) {
   .footerContainer {
-    grid-template-columns: 1fr;
-    padding: 40px 20px 0;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px 20px 24px;
+    gap: 24px;
   }
 
   .footer-bottom-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    padding: 14px 20px;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialIcons a,
+  .footer-column a {
+    transition: none;
   }
 }

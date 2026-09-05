@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Blog.css";
 
 import blog1 from "../assets/images/BANNER 1 BLOGS.png";
@@ -17,6 +18,7 @@ const blogs = [
     author: "Dropshy Team",
     role: "E-Commerce Specialist @ Dropshy",
     date: "September 1, 2026",
+    slug: "international-seller-account-setup",
   },
 
   {
@@ -28,6 +30,7 @@ const blogs = [
     author: "Dropshy Team",
     role: "E-Commerce Specialist @ Dropshy",
     date: "September 1, 2026",
+    slug: "website-dropshipping-business",
   },
 
   {
@@ -39,13 +42,13 @@ const blogs = [
     author: "Dropshy Team",
     role: "E-Commerce Specialist @ Dropshy",
     date: "September 1, 2026",
+    slug: "dropshipping-business-india",
   },
 ];
 
 export default function Blogs() {
   return (
     <section className="blogsSection">
-
       <div className="blogsContainer">
 
         <h2 className="blogsHeading">
@@ -55,18 +58,20 @@ export default function Blogs() {
         <div className="blogsGrid">
 
           {blogs.map((blog, index) => (
+            <div
+              className="blogCard"
+              key={index}
+            >
 
-            <div className="blogCard" key={index}>
-
+              {/* BLOG IMAGE */}
               <div className="blogImage">
-
                 <img
                   src={blog.image}
                   alt={blog.title}
                 />
-
               </div>
 
+              {/* BLOG CONTENT */}
               <div className="blogBody">
 
                 <div className="blogTop">
@@ -85,28 +90,30 @@ export default function Blogs() {
                   {blog.title}
                 </h3>
 
-                <button className="readBtn">
+                {/* BLOG DETAIL LINK */}
+                <Link
+                  to={`/blog/${blog.slug}`}
+                  className="readBtn"
+                >
                   Explore Article →
-                </button>
+                </Link>
 
               </div>
 
+              {/* BLOG FOOTER */}
               <div className="blogFooter">
 
                 <div className="authorBox">
 
                   <img
                     src={author}
-                    alt=""
+                    alt="Dropshy Team"
                     className="authorImg"
                   />
 
                   <div>
-
                     <h4>{blog.author}</h4>
-
                     <p>{blog.role}</p>
-
                   </div>
 
                 </div>
@@ -118,13 +125,11 @@ export default function Blogs() {
               </div>
 
             </div>
-
           ))}
 
         </div>
 
       </div>
-
     </section>
   );
 }

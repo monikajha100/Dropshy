@@ -88,10 +88,10 @@ const NAV_LINKS = [
     ],
   },
 
-{
-  label: "Review",
-  href: "/review",
-},
+// {
+//   label: "Review",
+//   href: "/review",
+// },
 
   {
     label: "Contact Us",
@@ -523,20 +523,20 @@ function Navbar() {
 
           <div className="dropsy-mobile-actions">
 
-            <a
-              href="/login"
-              onClick={closeMenus}
-            >
-              Log In
-            </a>
+          <a
+  href="/login"
+  onClick={closeMenus}
+>
+  Log In
+</a>
 
-            <a
-              href="/get-started"
-              className="dropsy-cta"
-              onClick={closeMenus}
-            >
-              Get Started
-            </a>
+<a
+  href="/get-started"
+  className="dropsy-cta"
+  onClick={closeMenus}
+>
+  Get Started
+</a>
 
           </div>
 
@@ -593,13 +593,21 @@ function Navbar() {
 
           border-radius: 24px;
 
-          background: rgba(255, 255, 255, 0.94);
+          background:
+            linear-gradient(
+              120deg,
+              rgba(224, 242, 254, 0.95),
+              rgba(255, 243, 224, 0.93)
+            );
+
+          border: 1px solid rgba(17, 167, 230, 0.20);
 
           box-shadow:
-            0 10px 35px rgba(15, 23, 42, 0.10);
+            0 12px 35px rgba(17, 167, 230, 0.16),
+            0 5px 18px rgba(245, 154, 27, 0.10);
 
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(18px) saturate(160%);
+          -webkit-backdrop-filter: blur(18px) saturate(160%);
         }
 
         /* ===================================================
@@ -1127,14 +1135,23 @@ function Navbar() {
           .dropsy-navbar-scrolled {
 
             background:
-              rgba(255, 255, 255, 0.96);
+              linear-gradient(
+                120deg,
+                rgba(224, 242, 254, 0.96),
+                rgba(255, 243, 224, 0.94)
+              );
+
+            border:
+              1px solid rgba(17, 167, 230, 0.18);
 
             box-shadow:
               0 10px 28px
-              rgba(15, 23, 42, 0.10);
+              rgba(17, 167, 230, 0.15),
+              0 4px 16px
+              rgba(245, 154, 27, 0.09);
 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
           }
 
           .dropsy-navbar-inner {
@@ -1380,19 +1397,26 @@ function Navbar() {
             border-radius: 19px;
 
             background:
-              rgba(255, 255, 255, 0.92);
+              linear-gradient(
+                120deg,
+                rgba(224, 242, 254, 0.94),
+                rgba(255, 243, 224, 0.92)
+              );
+
+            border:
+              1px solid rgba(17, 167, 230, 0.18);
 
             box-shadow:
               0 8px 25px
-              rgba(15, 23, 42, 0.10);
+              rgba(17, 167, 230, 0.14);
 
             backdrop-filter:
               blur(18px)
-              saturate(140%);
+              saturate(150%);
 
             -webkit-backdrop-filter:
               blur(18px)
-              saturate(140%);
+              saturate(150%);
           }
 
           .dropsy-navbar-inner {

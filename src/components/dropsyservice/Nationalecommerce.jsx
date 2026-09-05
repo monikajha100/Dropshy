@@ -4,8 +4,15 @@ import "./Nationalecommerce.css";
 import amazonLogo from "../../assets/images/amazon.webp";
 import flipkartLogo from "../../assets/images/flipcarts.jpg";
 import meeshoLogo from "../../assets/images/meesho.jpg";
-import myntraLogo from "../../assets/images/ebay.jpg";
-
+import myntraLogo from "../../assets/images/myntra.png";
+import {
+  Warehouse,
+  PackageSearch,
+  Store,
+  MapPin,
+  Truck,
+  Users,
+} from "lucide-react";
 // Seller registration image
 import registrationImage from "../../assets/images/seller-registration.png";
 
@@ -104,39 +111,40 @@ const timeline = [
    WHY DROPSHY
 ========================================================= */
 
+
+
 const whyItems = [
   {
-    icon: "✓",
+    icon: <Warehouse />,
     title: "No warehouse needed",
     text: "Skip the cost and hassle of holding your own inventory.",
   },
   {
-    icon: "✓",
+    icon: <PackageSearch />,
     title: "Broad product selection",
     text: "Access a wide range of products without buying in bulk.",
   },
   {
-    icon: "✓",
+    icon: <Store />,
     title: "Multiple marketplaces",
     text: "Sell through Amazon, Flipkart, Meesho and Myntra from one setup.",
   },
   {
-    icon: "✓",
+    icon: <MapPin />,
     title: "Pan-India reach",
     text: "Reach customers across the country, subject to delivery availability.",
   },
   {
-    icon: "✓",
+    icon: <Truck />,
     title: "Simplified fulfillment",
     text: "Order packing and dispatch is handled through the fulfillment process.",
   },
   {
-    icon: "✓",
+    icon: <Users />,
     title: "For new and experienced sellers",
     text: "Whether you're starting out or scaling up, the model adapts to you.",
   },
 ];
-
 /* =========================================================
    PRICING PLATFORMS
 ========================================================= */
@@ -699,7 +707,7 @@ const NationalEcommerce = () => {
         </div>
 
       </section>
-<Nationalp />
+      <Nationalp />
 
       {/* ===================================================
           SELLER REGISTRATION PROCESS
@@ -747,9 +755,8 @@ const NationalEcommerce = () => {
                 <div
                   className="national-tl-track-fill"
                   style={{
-                    height: `${
-                      (activeStep / timeline.length) * 100
-                    }%`,
+                    height: `${(activeStep / timeline.length) * 100
+                      }%`,
                   }}
                 />
 
@@ -763,11 +770,10 @@ const NationalEcommerce = () => {
                 return (
 
                   <div
-                    className={`national-tl-item ${
-                      activeStep >= step
+                    className={`national-tl-item ${activeStep >= step
                         ? "national-step-active"
                         : ""
-                    }`}
+                      }`}
                     data-step={step}
                     key={item.number}
                   >
@@ -820,6 +826,7 @@ const NationalEcommerce = () => {
 
                       )}
 
+
                     </div>
 
                   </div>
@@ -827,6 +834,7 @@ const NationalEcommerce = () => {
                 );
 
               })}
+
 
             </div>
 
@@ -914,7 +922,7 @@ const NationalEcommerce = () => {
           PRICING PACKAGES
       =================================================== */}
 
-      
+
 
 
       {/* ===================================================
@@ -961,11 +969,10 @@ const NationalEcommerce = () => {
                   return (
 
                     <div
-                      className={`national-faq-item ${
-                        isOpen
+                      className={`national-faq-item ${isOpen
                           ? "national-faq-open"
                           : ""
-                      }`}
+                        }`}
                       key={question}
                     >
 
@@ -1037,11 +1044,10 @@ const NationalEcommerce = () => {
                   return (
 
                     <div
-                      className={`national-faq-item ${
-                        isOpen
+                      className={`national-faq-item ${isOpen
                           ? "national-faq-open"
                           : ""
-                      }`}
+                        }`}
                       key={question}
                     >
 
@@ -1108,26 +1114,7 @@ const NationalEcommerce = () => {
           FOOTER
       =================================================== */}
 
-      <footer className="national-footer">
-
-        <div className="national-wrap national-foot-row">
-
-          <div className="national-foot-logo">
-            DROPSHY
-          </div>
-
-          <p className="national-foot-note">
-            National dropshipping is subject to each
-            marketplace's eligibility, category and
-            delivery policies. Results depend on product
-            costs, fees, competition and other business
-            factors — dropshipping reduces certain
-            inventory risks but is not risk-free.
-          </p>
-
-        </div>
-
-      </footer>
+     
 
     </div>
   );

@@ -85,7 +85,7 @@ const marketplaces = [
   {
     code: "AMZ · B2B",
     title: "Amazon B2B",
-    image: flipcard,
+    image: amazon,
     text: "Explore business-to-business selling opportunities and connect with professional buyers worldwide.",
   },
 ];
@@ -763,6 +763,7 @@ const InternationalEcommerce = () => {
                   </div>
 
                 </div>
+                
 
               </div>
 
@@ -837,172 +838,181 @@ const InternationalEcommerce = () => {
           FAQ
       =================================================== */}
 
-      <section className="international-section-pad international-faq-section">
+     <section className="international-section-pad international-faq-section">
 
-        <div className="international-wrap">
+  <div className="international-wrap">
 
-          <div className="international-sec-head international-reveal">
+    <div className="international-sec-head international-reveal">
 
-            <span className="international-sec-eyebrow">
-              Before you register
-            </span>
+      <span className="international-sec-eyebrow">
+        Before you register
+      </span>
 
-            <h2 className="international-sec-title">
-              Frequently asked questions
-            </h2>
+      <h2 className="international-sec-title">
+        Frequently asked questions
+      </h2>
 
-          </div>
+    </div>
 
-          <div className="international-faq-list international-reveal">
 
-            {faqs.map(
-              ([question, answer], index) => {
+    {/* ================= FAQ 2 COLUMN ================= */}
 
-                const isOpen =
-                  openFaq === index;
+    <div className="international-faq-columns international-reveal">
 
-                return (
+      {/* LEFT — 5 FAQ */}
+      <div className="international-faq-list">
 
-                  <div
-                    className={`international-faq-item ${
+        {faqs.slice(0, 5).map(
+          ([question, answer], index) => {
+
+            const isOpen = openFaq === index;
+
+            return (
+              <div
+                className={`international-faq-item ${
+                  isOpen
+                    ? "international-faq-open"
+                    : ""
+                }`}
+                key={question}
+              >
+
+                <button
+                  className="international-faq-question"
+                  onClick={() =>
+                    setOpenFaq(
+                      isOpen ? null : index
+                    )
+                  }
+                  type="button"
+                >
+
+                  <span>
+
+                    <span className="international-faq-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    {question}
+
+                  </span>
+
+                  <span className="international-faq-plus"></span>
+
+                </button>
+
+
+                <div
+                  className="international-faq-answer"
+                  style={{
+                    maxHeight: isOpen
+                      ? "350px"
+                      : "0px",
+                  }}
+                >
+
+                  <p>
+                    {answer}
+                  </p>
+
+                </div>
+
+              </div>
+            );
+
+          }
+        )}
+
+      </div>
+
+
+      {/* RIGHT — NEXT 5 FAQ */}
+      <div className="international-faq-list">
+
+        {faqs.slice(5, 10).map(
+          ([question, answer], index) => {
+
+            const actualIndex = index + 5;
+
+            const isOpen =
+              openFaq === actualIndex;
+
+            return (
+              <div
+                className={`international-faq-item ${
+                  isOpen
+                    ? "international-faq-open"
+                    : ""
+                }`}
+                key={question}
+              >
+
+                <button
+                  className="international-faq-question"
+                  onClick={() =>
+                    setOpenFaq(
                       isOpen
-                        ? "international-faq-open"
-                        : ""
-                    }`}
-                    key={question}
-                  >
+                        ? null
+                        : actualIndex
+                    )
+                  }
+                  type="button"
+                >
 
-                    <button
-                      className="international-faq-question"
-                      onClick={() =>
-                        setOpenFaq(
-                          isOpen
-                            ? null
-                            : index
-                        )
-                      }
-                      type="button"
-                    >
+                  <span>
 
-                      <span>
+                    <span className="international-faq-index">
+                      {String(actualIndex + 1).padStart(2, "0")}
+                    </span>
 
-                        <span className="international-faq-index">
-                          {String(
-                            index + 1
-                          ).padStart(2, "0")}
-                        </span>
+                    {question}
 
-                        {question}
+                  </span>
 
-                      </span>
+                  <span className="international-faq-plus"></span>
 
-                      <span className="international-faq-plus"></span>
+                </button>
 
-                    </button>
 
-                    <div
-                      className="international-faq-answer"
-                      style={{
-                        maxHeight: isOpen
-                          ? "350px"
-                          : "0px",
-                      }}
-                    >
+                <div
+                  className="international-faq-answer"
+                  style={{
+                    maxHeight: isOpen
+                      ? "350px"
+                      : "0px",
+                  }}
+                >
 
-                      <p>
-                        {answer}
-                      </p>
+                  <p>
+                    {answer}
+                  </p>
 
-                    </div>
+                </div>
 
-                  </div>
+              </div>
+            );
 
-                );
+          }
+        )}
 
-              }
-            )}
+      </div>
 
-          </div>
+    </div>
 
-        </div>
+  </div>
 
-      </section>
-
+</section>
       {/* ===================================================
           CTA
       =================================================== */}
 
-      <section className="international-section-pad">
-
-        <div className="international-wrap">
-
-          <div className="international-cta-band international-reveal">
-
-            <div className="international-cta-inner">
-
-              <div>
-
-                <span className="international-cta-label">
-                  READY TO GO GLOBAL?
-                </span>
-
-                <h2>
-                  Take your e-commerce business
-                  <br />
-                  beyond India.
-                </h2>
-
-                <p className="international-cta-sub">
-                  Register today and explore
-                  international dropshipping
-                  opportunities with Dropshy.
-                </p>
-
-              </div>
-
-              <a
-                className="international-call-btn"
-                href="tel:+918873768436"
-              >
-
-                <span className="international-ring"></span>
-
-                +91 88737 68436
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+      
 
       {/* ===================================================
           FOOTER
       =================================================== */}
 
-      <footer className="international-footer">
-
-        <div className="international-wrap international-foot-row">
-
-          <div className="international-foot-logo">
-            DROPSHY
-          </div>
-
-          <p className="international-foot-note">
-            International dropshipping is subject to each
-            marketplace's eligibility, category, payment,
-            tax, product and delivery policies. Results
-            depend on product costs, fees, competition and
-            other business factors.
-          </p>
-
-        </div>
-
-      </footer>
-
+     
     </div>
   );
 };

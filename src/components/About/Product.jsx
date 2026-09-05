@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import sellerBanner from "../../assets/images/SELLOR.png";
 /* Simple illustration icons for the process section */
 const IconSketch = () => (
   <svg width="34" height="34" viewBox="0 0 48 48" fill="none">
@@ -1062,6 +1062,54 @@ const TOKENS = `
       transition: none !important;
     }
   }
+    /* =========================================================
+   SELLER BANNER
+========================================================= */
+
+.seller-banner {
+  width: 100%;
+  margin-top: 70px;
+  overflow: hidden;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.seller-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1000px) {
+  .seller-banner {
+    margin-top: 55px;
+    border-radius: 20px;
+  }
+
+  .seller-banner img {
+    border-radius: 20px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
+  .seller-banner {
+    margin-top: 45px;
+    border-radius: 16px;
+  }
+
+  .seller-banner img {
+    width: 100%;
+    border-radius: 16px;
+  }
+}
 `;
 
 export default function HorizontalTimeline() {
@@ -1295,9 +1343,18 @@ export default function HorizontalTimeline() {
 
         {/* CTA */}
        
+{/* CTA */}
 
-      </div>
+<div className="seller-banner">
+  <img
+    src={sellerBanner}
+    alt="Start your e-commerce business with Dropshy"
+  />
+</div>
 
-    </section>
+</div>
+
+</section>
+      
   );
 }
