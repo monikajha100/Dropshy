@@ -102,7 +102,7 @@ const Contact = () => {
             <div className="contact-info-list">
 
               <a
-                href="mailto:hello@dropsy.com"
+                href="mailto:info@dropshy.in"
                 className="contact-info-card"
               >
                 <div className="contact-icon">
@@ -111,14 +111,14 @@ const Contact = () => {
 
                 <div>
                   <small>Email us</small>
-                  <strong>hello@dropsy.com</strong>
+                  <strong>info@dropshy.in</strong>
                 </div>
 
                 <ArrowUpRight className="info-arrow" size={20} />
               </a>
 
               <a
-                href="tel:+919876543210"
+                href="tel:+918873768436"
                 className="contact-info-card"
               >
                 <div className="contact-icon">
@@ -127,7 +127,7 @@ const Contact = () => {
 
                 <div>
                   <small>Call us</small>
-                  <strong>+91 98765 43210</strong>
+                  <strong>+91-8873768436</strong>
                 </div>
 
                 <ArrowUpRight className="info-arrow" size={20} />
@@ -230,7 +230,7 @@ const Contact = () => {
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 88737 68436"
                       value={formData.phone}
                       onChange={handleChange}
                     />

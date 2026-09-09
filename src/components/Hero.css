@@ -1946,24 +1946,72 @@ img {
 
 
 /* =========================================================
-   FINAL MOBILE OVERFLOW PROTECTION
+   MOBILE SCROLL-REVEAL FIX
+   Common scroll animation libraries / custom scroll-reveal
+   JS (AOS, WOW.js, ScrollReveal, custom IntersectionObserver
+   classes like .reveal, .fade-in, .animate-on-scroll, data-aos)
+   set opacity:0 / transform until a "visible/in-view" class is
+   added on scroll. On some mobile devices/browsers that class
+   never gets added (viewport calc issues, passive listeners,
+   reduced layout thrash, etc.) so the element (often an image)
+   stays invisible forever.
+
+   Fix: on mobile, force every such element to its final,
+   visible state immediately — don't rely on the scroll trigger
+   at all. Safe to keep even if you later fix the JS trigger,
+   since this only applies at <=768px.
    ========================================================= */
 
 @media (max-width: 768px) {
 
-  * {
-    max-width: 100%;
+  /* Generic scroll-reveal / animate-on-scroll patterns */
+  [data-aos],
+  [data-scroll],
+  .reveal,
+  .fade-in,
+  .fade-up,
+  .fade-in-up,
+  .animate-on-scroll,
+  .scroll-reveal,
+  .wow,
+  .aos-init,
+  .aos-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+    animation: none !important;
   }
 
-  .hero *,
-  section * {
-    min-width: 0;
-  }
-
+  /* Any image/picture anywhere, regardless of parent animation state */
   img,
-  svg,
-  video,
-  iframe {
-    max-width: 100%;
+  picture,
+  picture img,
+  figure img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* In case a lazy-load/observer library toggles a "loaded" class,
+     make sure the "not yet loaded" state never hides things */
+  img:not(.loaded),
+  img[loading="lazy"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Sections/containers that scroll-reveal libraries often target
+     directly (not just the image inside them) */
+  section,
+  section > div,
+  section [class*="reveal"],
+  section [class*="animate"],
+  section [class*="fade"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
   }
 }

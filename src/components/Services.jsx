@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import "./Services.css";
 import domesticImg from "../assets/images/domestic.png";
-import fulfillmentImg from "../assets/images/fullfiment.webp";
-import internationalImg from "../assets/images/fastrr.webp";
-import warehousingImg from "../assets/images/quick.webp";
+import fulfillmentImg from "../assets/images/fullfillment.png";
+import internationalImg from "../assets/images/fastrr.png";
+import warehousingImg from "../assets/images/quick.png";
+import order from "../assets/images/order.png";
+import selloraccount from "../assets/images/selloraccount.png";
+
 
 const services = [
   {
@@ -39,14 +42,14 @@ const services = [
     title: "Order Fulfillment & Shipping",
     description:
       "From product picking and professional packaging to dispatch, tracking and doorstep delivery, our logistics team manages complete order fulfillment across India and international markets.",
-    image: domesticImg,
+    image: order,
   },
   {
     code: "DS-06",
     title: "Seller Account Setup & Business Training",
     description:
       "Get complete support with seller account creation, product listing, pricing strategy, marketplace onboarding, digital marketing guidance and dedicated business training to help you scale faster.",
-    image: internationalImg,
+    image: selloraccount,
   },
 ];
 

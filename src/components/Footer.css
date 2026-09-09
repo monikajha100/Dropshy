@@ -1,277 +1,327 @@
-/* ============================================================
-   DROPSY FOOTER — COMPACT MANIFEST STRIP
-   Slim, quiet, one accent. Less decoration, tighter rhythm.
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* ==========================================================================
+   Dropsy Footer
+   Palette:
+     --ink      #0B2A3D  footer background — rich navy, derived from brand blue
+     --panel    #0F3654  slightly lifted panel (brand column, bottom bar)
+     --blue     #11A7E6  headings accent, links, icon fills
+     --orange   #F59A1B  single confident accent — CTA card, tracking code
+     --paper    #F4F8FA  primary text on dark
+     --muted    #8FADBC  secondary text on dark
+     --line     rgba(244,248,250,0.12)  hairline dividers on dark
+   ========================================================================== */
 
 .footer {
-  --ink-900: #14171c;
-  --ink-800: #1b1f26;
-  --paper: #ece7da;
-  --paper-dim: #837e6c;
-  --stamp: #ff6a2b;
-  --line: rgba(236, 231, 218, 0.1);
+  --ink: #0B2A3D;
+  --panel: #0F3654;
+  --blue: #11A7E6;
+  --orange: #F59A1B;
+  --paper: #F4F8FA;
+  --muted: #8FADBC;
+  --line: rgba(244, 248, 250, 0.12);
 
-  background: var(--ink-900);
+  background: var(--ink);
   color: var(--paper);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* thin perforation, kept as a single hairline — not a full dotted band */
 .footerPerforation {
-  height: 1px;
-  background: var(--line);
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
 }
 
-/* ---------- MAIN GRID ---------- */
+/* ---------------------------------------------------------------------- */
+/* Main grid                                                                */
+/* ---------------------------------------------------------------------- */
+
 .footerContainer {
   display: grid;
-  grid-template-columns: 1.3fr repeat(5, 0.8fr);
-  gap: 28px;
-  max-width: 1280px;
+  grid-template-columns: minmax(260px, 1.2fr) repeat(5, 1fr);
+  gap: 24px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 40px 40px 28px;
+  padding: 44px 40px 32px;
 }
 
-/* ---------- LEFT / BRAND BLOCK ---------- */
+/* ---------------------------------------------------------------------- */
+/* Left brand block                                                         */
+/* ---------------------------------------------------------------------- */
+
 .footerLeft {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-right: 20px;
+  gap: 12px;
+  padding-right: 28px;
+  border-right: 1px solid var(--line);
 }
 
 .footerEyebrow {
-  display: none; /* dropped — brand name + tagline already say enough */
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue);
 }
 
 .footerBrandRow {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  margin-top: 2px;
 }
 
 .footerLogo {
-  width: 22px;
-  height: 22px;
+  height: 30px;
+  width: 30px;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 8px;
+  background: var(--paper);
+  padding: 4px;
 }
 
 .footerBrandText {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--paper);
 }
 
 .footerTagline {
-  font-size: 12.5px;
-  color: var(--paper-dim);
-  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
   max-width: 30ch;
-  line-height: 1.45;
+  margin: 0;
 }
 
 .socialIcons {
   display: flex;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .socialIcons a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--line);
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  color: var(--paper-dim);
-  font-size: 11px;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  background: var(--panel);
+  color: var(--paper);
+  font-size: 13.5px;
+  transition: background-color 0.18s ease, transform 0.18s ease, color 0.18s ease;
 }
 
 .socialIcons a:hover,
 .socialIcons a:focus-visible {
-  border-color: var(--stamp);
-  color: var(--stamp);
+  background: var(--blue);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.socialIcons a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
 }
 
 .footerDivider {
-  display: none; /* removed — the tighter spacing does the separating now */
+  height: 1px;
+  background: var(--line);
+  margin: 6px 0 2px;
 }
 
 .footerManifestLabel {
-  display: none; /* one less label to read — email/address speak for themselves */
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue);
 }
 
 .footerInfo {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 12.5px;
+  gap: 9px;
+  font-size: 14.5px;
+  color: var(--paper);
   margin: 0;
-  color: var(--paper-dim);
-}
-
-.footerInfo:first-of-type {
-  margin-top: 6px;
 }
 
 .footerInfo svg {
-  color: var(--stamp);
+  color: var(--orange);
   flex-shrink: 0;
-  font-size: 12px;
 }
 
-/* only the first address block stays visible — corporate office is enough,
-   keeps the column short without touching the component's markup logic */
 .footerAddress {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  font-size: 12px;
-  color: var(--paper-dim);
-  line-height: 1.45;
-  margin-top: 4px;
-}
-
-.footerAddress + .footerAddress {
-  display: none;
+  gap: 9px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: 6px;
 }
 
 .footerAddress svg {
-  color: var(--stamp);
-  flex-shrink: 0;
+  color: var(--orange);
   margin-top: 2px;
-  font-size: 12px;
+  flex-shrink: 0;
 }
 
 .footerAddress strong {
   color: var(--paper);
   font-weight: 600;
+  font-size: 13px;
 }
 
-.downloadSection {
-  display: none; /* store badges dropped — keeps the block to essentials */
-}
+/* ---------------------------------------------------------------------- */
+/* Link columns                                                            */
+/* ---------------------------------------------------------------------- */
 
-/* ---------- LINK COLUMNS ---------- */
 .footer-column {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer-column-code {
-  display: none; /* SEC.0x tags removed — heading alone is enough */
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--orange);
 }
 
 .footer-column h3 {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--paper);
-}
-
-/* keep only the first four links per column so each stays short and scannable */
-.footer-column a:nth-child(n+6) {
-  display: none;
+  margin: 0 0 2px;
 }
 
 .footer-column a {
-  font-size: 12.5px;
-  color: var(--paper-dim);
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
   width: fit-content;
-  transition: color 0.15s ease;
+  font-size: 13.5px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-column a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--blue);
+  transition: width 0.2s ease;
 }
 
 .footer-column a:hover,
 .footer-column a:focus-visible {
-  color: var(--stamp);
+  color: var(--paper);
 }
 
-/* ---------- BOTTOM STRIP ---------- */
+.footer-column a:hover::after,
+.footer-column a:focus-visible::after {
+  width: 100%;
+}
+
+.footer-column a:focus-visible {
+  outline: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Bottom bar                                                               */
+/* ---------------------------------------------------------------------- */
+
 .footer-bottom {
+  background: var(--panel);
   border-top: 1px solid var(--line);
-  background: var(--ink-800);
 }
 
 .footer-bottom-inner {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 14px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-inner p {
   margin: 0;
-  font-size: 11.5px;
-  color: var(--paper-dim);
-  white-space: nowrap;
+  font-size: 12.5px;
+  color: var(--muted);
+  order: 2;
 }
 
 .footer-tracking-code {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--stamp);
-  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+  order: 3;
 }
 
-/* barcode shrunk to a small mark instead of a full strip */
 .footerBarcode {
   display: flex;
-  align-items: stretch;
-  gap: 1px;
-  height: 14px;
-  flex-shrink: 0;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+  opacity: 0.85;
+  order: 1;
 }
 
 .footerBarcode span {
-  display: block;
+  display: inline-block;
   height: 100%;
-  background: var(--paper-dim);
-  opacity: 0.6;
+  background: var(--muted);
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 980px) {
+/* ---------------------------------------------------------------------- */
+/* Responsive                                                               */
+/* ---------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
   .footerContainer {
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 28px;
   }
-
   .footerLeft {
     grid-column: 1 / -1;
+    border-right: none;
     padding-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+    margin-bottom: 8px;
   }
 }
 
 @media (max-width: 640px) {
   .footerContainer {
     grid-template-columns: repeat(2, 1fr);
-    padding: 32px 20px 24px;
-    gap: 24px;
+    padding: 48px 20px 36px;
+    gap: 28px;
   }
-
   .footer-bottom-inner {
     flex-direction: column;
     align-items: flex-start;
-    padding: 14px 20px;
-    gap: 10px;
+    padding: 18px 20px;
+  }
+  .footer-bottom-inner p {
+    order: 3;
+  }
+  .footer-tracking-code {
+    order: 2;
+  }
+  .footerBarcode {
+    order: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .socialIcons a,
-  .footer-column a {
-    transition: none;
+  .footer * {
+    transition: none !important;
   }
 }

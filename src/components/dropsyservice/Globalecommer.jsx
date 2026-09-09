@@ -73,7 +73,7 @@ const plans = [
 
     priceLines: [
       "₹9,438 x 5 platform",
-      "₹47,160 /-per platform",
+      "₹47,160 /-",
     ],
 
     features: [
@@ -103,7 +103,7 @@ const plans = [
 
     priceLines: [
       "₹47,160 + ₹49,999",
-      "₹97,190 /-per platform",
+      "₹97,190 /-",
     ],
 
     features: [

@@ -783,20 +783,14 @@
    PRICE 
 ============================================================ */ 
  
-.gec-price { 
-  display: flex; 
- 
-  align-items: baseline; 
- 
-  gap: 8px; 
- 
-  margin-bottom: 22px; 
- 
-  padding-bottom: 22px; 
- 
-  border-bottom: 
-    1px solid var(--border-subtle); 
-} 
+.gec-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border-subtle);
+}
  
 .gec-price span { 
   font-size: 12px; 

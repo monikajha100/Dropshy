@@ -1,13 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Web.css";
+import "./Global.css";
 
 import {
+  Globe,
+  ShoppingCart,
+  TrendingUp,
   CheckCircle2,
   Rocket,
-  Gem,
   Crown,
-  Globe,
+  Shield,
+  Award,
+  Users,
+  Sparkles,
 } from "lucide-react";
+
+/* ===================================================
+   DATA
+=================================================== */
+
+const platforms = [
+  "Flipkart",
+  "Amazon.in",
+  "Meesho",
+  "Myntra",
+];
 
 /* ===================================================
    PLANS
@@ -15,13 +31,16 @@ import {
 
 const plans = [
   {
-    tier: "basic",
+    tier: "starter",
     name: "BASIC",
-    subtitle: "Perfect for New Entrepreneurs",
-    price: "₹5,900 per platform" ,
-   
 
-    icon: <Rocket size={28} />,
+    subtitle:
+      "Flipkart, Amazon.in, Meesho & Myntra",
+
+    priceLines: [
+      "₹5,900",
+      "₹5,000 + 18% GST = ₹5,900/- Per Platform",
+    ],
 
     features: [
       "Domain & Hosting/Server - 1 Year",
@@ -40,19 +59,24 @@ const plans = [
       "Admin or Order Panel Training",
     ],
 
-    bottomText: "Perfect for New Entrepreneurs",
+    note: "Perfect for New Entrepreneurs",
+
+    icon: <Rocket size={22} />,
 
     featured: false,
   },
 
   {
-    tier: "advance",
+    tier: "growth",
     name: "ADVANCE",
-    subtitle: "Ideal for Growing Businesses",
-    price: "₹11,800 per platform" ,
-    
 
-    icon: <Gem size={29} />,
+    subtitle:
+      "Flipkart, Amazon.in, Meesho & Myntra",
+
+    priceLines: [
+      "₹11,800",
+      "₹10,000 + 18% GST = ₹11,800/-",
+    ],
 
     features: [
       "Domain & Hosting/Server - 1 Year",
@@ -72,19 +96,24 @@ const plans = [
       "Admin, Order or Shipping Panel Training",
     ],
 
-    bottomText: "Ideal for Growing Businesses",
+    note: "Ideal for Growing Businesses",
+
+    icon: <TrendingUp size={22} />,
 
     featured: true,
   },
 
   {
-    tier: "royal",
+    tier: "pro",
     name: "ROYAL",
-    subtitle: "Best for Scaling Your Business",
-    price: "₹23,600 per platform" ,
-    
 
-    icon: <Crown size={29} />,
+    subtitle:
+      "Flipkart, Amazon.in, Meesho and Myntra",
+
+    priceLines: [
+      "₹23,600",
+      "₹20,000 + 18% GST = ₹23,600/-",
+    ],
 
     features: [
       "Domain & Hosting/Server - 1 Year",
@@ -106,15 +135,82 @@ const plans = [
       "Order Management Training",
     ],
 
-    bottomText: "Best for Scaling Your Business",
+    note: "Best for Scaling Your Business",
+
+    icon: <Crown size={22} />,
 
     featured: false,
   },
 ];
 
+/* ===================================================
+   GROWTH DATA
+=================================================== */
+
+const growthStats = [
+  {
+    tier: "ADVANCE",
+
+    totalPlatforms: 4,
+
+    growthScore: 75,
+
+    lines: [
+      "(Flipkart, Amazon.in, Meesho and Myntra)",
+      "20 order Months",
+      "20 × 700 = ₹14,000/-",
+      "₹14,000 x 12 Months = ₹1,68,000 year",
+    ],
+
+    earning: "₹1-2 lakh",
+  },
+
+  {
+    tier: "ROYAL",
+
+    totalPlatforms: 4,
+
+    growthScore: 95,
+
+    lines: [
+      "(Flipkart, Amazon.in, Meesho and Myntra)",
+      "30 order Months",
+      "30 × 700 = ₹21,000/-",
+      "₹21,000 x 12 Months = ₹2,52,000 year",
+    ],
+
+    earning: "₹2-3 lakh",
+  },
+];
 
 /* ===================================================
-   SMALL REVEAL HOOK
+   TRUST BADGES
+=================================================== */
+
+const trustBadges = [
+  {
+    icon: <Shield size={20} />,
+    label: "Secure payments",
+  },
+
+  {
+    icon: <Globe size={20} />,
+    label: "190+ countries",
+  },
+
+  {
+    icon: <Award size={20} />,
+    label: "ISO certified",
+  },
+
+  {
+    icon: <Users size={20} />,
+    label: "10,000+ sellers",
+  },
+];
+
+/* ===================================================
+   SMALL REVEAL-ON-SCROLL HOOK
 =================================================== */
 
 function useReveal() {
@@ -126,26 +222,76 @@ function useReveal() {
 
     if (!node) return;
 
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect();
+          obs.disconnect();
         }
       },
       {
-        threshold: 0.12,
+        threshold: 0.15,
       }
     );
 
-    observer.observe(node);
+    obs.observe(node);
 
-    return () => observer.disconnect();
+    return () => obs.disconnect();
   }, []);
 
   return [ref, visible];
 }
 
+/* ===================================================
+   COUNT UP
+=================================================== */
+
+function CountUp({
+  target,
+  duration = 1400,
+  visible,
+  suffix = "",
+}) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!visible) return;
+
+    let start = null;
+    let raf;
+
+    const step = (ts) => {
+      if (start === null) start = ts;
+
+      const progress = Math.min(
+        (ts - start) / duration,
+        1
+      );
+
+      const eased =
+        1 - Math.pow(1 - progress, 3);
+
+      setValue(
+        Math.round(eased * target)
+      );
+
+      if (progress < 1) {
+        raf = requestAnimationFrame(step);
+      }
+    };
+
+    raf = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(raf);
+  }, [visible, target, duration]);
+
+  return (
+    <>
+      {value}
+      {suffix}
+    </>
+  );
+}
 
 /* ===================================================
    MAIN COMPONENT
@@ -153,12 +299,14 @@ function useReveal() {
 
 export default function GlobalEcommerce() {
   const [gridRef, gridVisible] = useReveal();
+  const [growthRef, growthVisible] = useReveal();
+  const [trustRef, trustVisible] = useReveal();
 
   return (
     <section className="gec-page">
 
       {/* ===================================================
-          BACKGROUND ROUTES
+          AMBIENT BACKGROUND
       =================================================== */}
 
       <svg
@@ -166,6 +314,7 @@ export default function GlobalEcommerce() {
         viewBox="0 0 1200 1600"
         preserveAspectRatio="none"
       >
+
         <path
           className="gec-route-line"
           d="M60,120 Q300,40 520,180 T980,140"
@@ -337,17 +486,19 @@ export default function GlobalEcommerce() {
           cy="1500"
           r="4"
         />
+
       </svg>
 
-
       {/* ===================================================
-          PRICING CARDS
+          PLAN CARDS
       =================================================== */}
 
       <div
         ref={gridRef}
         className={`gec-grid ${
-          gridVisible ? "gec-visible" : ""
+          gridVisible
+            ? "gec-visible"
+            : ""
         }`}
       >
 
@@ -355,61 +506,68 @@ export default function GlobalEcommerce() {
 
           <div
             className={`gec-card gec-${plan.tier} ${
-              plan.featured ? "gec-featured" : ""
+              plan.featured
+                ? "gec-featured"
+                : ""
             }`}
             key={plan.tier}
           >
 
-            {/* ==========================================
-                TOP ICON
-            ========================================== */}
+            {/* Featured Badge */}
+
+            {plan.featured && (
+              <span className="gec-featured-tag">
+
+                <Sparkles size={12} />
+
+                Most popular
+
+              </span>
+            )}
+
+            {/* Icon */}
 
             <div className="gec-badge">
               {plan.icon}
             </div>
 
-
-            {/* ==========================================
-                PLAN NAME
-            ========================================== */}
+            {/* Name */}
 
             <h3 className="gec-name">
               {plan.name}
             </h3>
 
+            {/* Subtitle */}
 
-            {/* ==========================================
-                PRICE
-            ========================================== */}
+            <p className="gec-subtitle">
+              {plan.subtitle}
+            </p>
+
+            {/* Price + GST */}
 
             <div className="gec-price">
 
               <strong>
-                {plan.price}
+                {plan.priceLines[0]}
               </strong>
 
+              <span>
+                {plan.priceLines[1]}
+              </span>
+
             </div>
 
-
-            {/* GST */}
-            <div className="gec-gst">
-              {plan.gst}
-            </div>
-
-
-            {/* ==========================================
-                FEATURES
-            ========================================== */}
+            {/* Features */}
 
             <ul className="gec-features">
 
               {plan.features.map(
-                (feature, index) => (
+                (feature) => (
 
-                  <li key={index}>
+                  <li key={feature}>
 
                     <CheckCircle2
-                      size={15}
+                      size={16}
                       className="gec-check"
                     />
 
@@ -424,34 +582,20 @@ export default function GlobalEcommerce() {
 
             </ul>
 
-
-            {/* ==========================================
-                BOTTOM LABEL
-            ========================================== */}
+            {/* Note */}
 
             <div className="gec-note">
-
-              <CheckCircle2
-                size={17}
-              />
-
-              <span>
-                {plan.bottomText}
-              </span>
-
+              {plan.note}
             </div>
 
-
-            {/* ==========================================
-                ENROLL BUTTON
-            ========================================== */}
+            {/* Register Now Button */}
 
             <a
               href="https://wa.me/918873768436"
               target="_blank"
               rel="noopener noreferrer"
               className="gec-register-btn"
-              aria-label={`Enroll for ${plan.name} plan`}
+              aria-label={`Register for ${plan.name} plan`}
             >
 
               <span>
@@ -470,12 +614,161 @@ export default function GlobalEcommerce() {
 
       </div>
 
-
       {/* ===================================================
-          SIMPLE GLOBAL SECTION
+          GROWTH PANEL
       =================================================== */}
 
-     
+      <div
+        ref={growthRef}
+        className={`gec-growth-panel ${
+          growthVisible
+            ? "gec-visible"
+            : ""
+        }`}
+      >
+
+        {growthStats.map(
+          (stat, index) => (
+
+            <React.Fragment
+              key={stat.tier}
+            >
+
+              <div className="gec-growth-card">
+
+                <div className="gec-growth-head">
+
+                  <span>
+                    {stat.tier}
+                  </span>
+
+                  <strong>
+
+                    <CountUp
+                      target={
+                        stat.totalPlatforms
+                      }
+                      visible={
+                        growthVisible
+                      }
+                    />
+
+                    {" "}
+                    platforms
+
+                  </strong>
+
+                </div>
+
+                <div className="gec-growth-bar-track">
+
+                  <div
+                    className="gec-growth-bar-fill"
+                    style={{
+                      width:
+                        growthVisible
+                          ? `${stat.growthScore}%`
+                          : "0%",
+                    }}
+                  />
+
+                </div>
+
+                <ul className="gec-growth-lines">
+
+                  {stat.lines.map(
+                    (
+                      line,
+                      lineIndex
+                    ) => (
+
+                      <li
+                        key={lineIndex}
+                      >
+
+                        <span className="gec-growth-arrow">
+                          ›
+                        </span>
+
+                        {line}
+
+                      </li>
+
+                    )
+                  )}
+
+                </ul>
+
+                <div className="gec-growth-earning">
+
+                  Earning up to{" "}
+
+                  <strong>
+                    {stat.earning}
+                  </strong>
+
+                  {" "}
+                  / year
+
+                </div>
+
+              </div>
+
+              {index === 0 && (
+
+                <div className="gec-growth-center">
+
+                  <Globe
+                    className="gec-growth-globe"
+                    size={28}
+                  />
+
+                </div>
+
+              )}
+
+            </React.Fragment>
+
+          )
+        )}
+
+      </div>
+
+      {/* ===================================================
+          TRUST ROW
+      =================================================== */}
+
+      <div
+        ref={trustRef}
+        className={`gec-trust-row ${
+          trustVisible
+            ? "gec-visible"
+            : ""
+        }`}
+      >
+
+        {trustBadges.map(
+          (badge) => (
+
+            <div
+              className="gec-trust-item"
+              key={badge.label}
+            >
+
+              <span className="gec-trust-icon">
+                {badge.icon}
+              </span>
+
+              <span>
+                {badge.label}
+              </span>
+
+            </div>
+
+          )
+        )}
+
+      </div>
 
     </section>
   );
