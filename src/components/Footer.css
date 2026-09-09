@@ -325,3 +325,19 @@
     transition: none !important;
   }
 }
+/* ================================
+   FOOTER LOGO
+================================ */
+
+.footerBrandRow {
+  display: flex;
+  align-items: center;
+  margin: 18px 0 10px;
+}
+
+.footerLogo {
+  width: 150px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}

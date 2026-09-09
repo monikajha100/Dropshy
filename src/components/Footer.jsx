@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./Footer.css";
 
@@ -16,14 +17,13 @@ import {
   MdPhone,
 } from "react-icons/md";
 
-
 const linkSections = [
   {
     code: "SEC.01",
     title: "Products",
     links: [
-      "Dropsy Shipping",
-      "Dropsy Cargo",
+      "Dropshy Shipping",
+      "Dropshy Cargo",
       "Fulfillment",
       "Capital",
       "Packaging",
@@ -79,10 +79,8 @@ const linkSections = [
   },
 ];
 
-
 // Simple generative-looking barcode strip
 const BarcodeStrip = () => {
-
   const widths = [
     2, 1, 3, 1, 1, 2, 4,
     1, 2, 1, 3, 2, 1, 1,
@@ -95,7 +93,6 @@ const BarcodeStrip = () => {
       className="footerBarcode"
       aria-hidden="true"
     >
-
       {widths.map((w, i) => (
         <span
           key={i}
@@ -104,16 +101,12 @@ const BarcodeStrip = () => {
           }}
         ></span>
       ))}
-
     </div>
   );
 };
 
-
 const Footer = () => {
-
   return (
-
     <footer className="footer">
 
       {/* =========================================
@@ -128,13 +121,11 @@ const Footer = () => {
 
       <div className="footerContainer">
 
-
         {/* =========================================
             LEFT / BRAND MANIFEST BLOCK
         ========================================== */}
 
         <div className="footerLeft">
-
 
           {/* Eyebrow */}
 
@@ -149,7 +140,7 @@ const Footer = () => {
 
             <img
               src="/logo.png"
-              alt="Dropsy"
+              alt="Dropshy"
               className="footerLogo"
 
               onError={(e) => {
@@ -158,7 +149,7 @@ const Footer = () => {
             />
 
             <span className="footerBrandText">
-              DROPSY
+              DROPSHY
             </span>
 
           </div>
@@ -275,7 +266,7 @@ const Footer = () => {
 
               <br />
 
-              Delhi (Registered) · 
+              Delhi (Registered) ·
 
             </span>
 
@@ -317,6 +308,7 @@ const Footer = () => {
 
             ))}
 
+
           </div>
 
         ))}
@@ -342,7 +334,7 @@ const Footer = () => {
           {/* Copyright */}
 
           <p>
-            © 2026 Dropsy Technologies Pvt. Ltd.
+            © 2026 Dropshy Technologies Pvt. Ltd.
             — All Rights Reserved.
           </p>
 
@@ -360,9 +352,8 @@ const Footer = () => {
 
 
     </footer>
-
   );
 };
 
-
 export default Footer;
+
