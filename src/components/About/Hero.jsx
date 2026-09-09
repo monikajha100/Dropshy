@@ -8,7 +8,7 @@ import banner3 from "../../assets/images/about3.jpg";
 const SLIDES = [
   {
     eyebrow: "Ecommerce shipping OS",
-    title: "Ship smarter,\nGrow faster with Dropsy",
+    title: "Ship smarter,\nGrow faster with Dropshy",
     subtitle:
       "Bring every parcel, return, and customer update into one premium operations hub.",
     image: banner1,
@@ -217,7 +217,7 @@ const Hero = () => {
             </div>
 
             <div className="hero__badge hero__badge--bottom">
-              Dropsy
+              Dropshy
             </div>
 
           </div>
