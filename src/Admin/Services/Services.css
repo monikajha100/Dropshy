@@ -1,0 +1,582 @@
+/* ================================
+   BANNER MANAGEMENT
+================================ */
+
+.banner-management {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.banner-page-header {
+  width: 100%;
+  min-height: 170px;
+  padding: 30px 35px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf8ff 0%,
+      #ffffff 50%,
+      #fff4e4 100%
+    );
+
+  border: 1px solid #e6edf2;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.banner-header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-small-title {
+  width: fit-content;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  background: #ffffff;
+
+  color: #11a7e6;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.banner-page-header h1 {
+  margin: 12px 0 7px;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  color: #222b33;
+}
+
+.banner-page-header p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #7b858e;
+}
+
+.banner-header-icon {
+  width: 78px;
+  height: 78px;
+
+  margin-right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  font-size: 34px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ================================
+   MAIN CARD
+================================ */
+
+.banner-main-card {
+  width: 100%;
+
+  margin-top: 24px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  border: 1px solid #edf0f3;
+
+  box-shadow:
+    0 8px 30px rgba(20, 30, 40, 0.05);
+}
+
+
+/* ================================
+   CARD TITLE
+================================ */
+
+.banner-card-title {
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #edf0f3;
+}
+
+.banner-card-title h2 {
+  margin: 0;
+
+  font-size: 20px;
+
+  color: #252d35;
+}
+
+.banner-card-title p {
+  margin: 6px 0 0;
+
+  font-size: 13px;
+
+  color: #89929b;
+}
+
+
+/* ================================
+   PAGE DROPDOWN
+================================ */
+
+.banner-select-box {
+  width: 600px;
+  max-width: 100%;
+
+  margin-top: 25px;
+}
+
+.banner-select-box label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #343c44;
+}
+
+.banner-select-box select {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 15px;
+
+  border: 1px solid #dce3e8;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #fafcfd;
+
+  color: #333;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.banner-select-box select:hover {
+  border-color: #11a7e6;
+}
+
+.banner-select-box select:focus {
+  border-color: #11a7e6;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(17, 167, 230, 0.09);
+}
+
+
+/* ================================
+   SELECTED PAGE
+================================ */
+
+.selected-banner-section {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #edf0f3;
+}
+
+.selected-page-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.selected-page-heading h3 {
+  margin: 0;
+
+  font-size: 18px;
+
+  color: #252d35;
+}
+
+.selected-page-heading p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+
+  color: #89929b;
+}
+
+.selected-page-heading span {
+  padding: 7px 13px;
+
+  border-radius: 30px;
+
+  background: #eefaff;
+
+  color: #11a7e6;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* ================================
+   BANNER GRID
+================================ */
+
+.banner-upload-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 20px;
+}
+
+.banner-upload-grid.three-banners {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* ================================
+   UPLOAD CARD
+================================ */
+
+.banner-upload-card {
+  min-width: 0;
+
+  padding: 14px;
+
+  background: #fbfcfd;
+
+  border: 1px solid #e3e9ed;
+
+  border-radius: 14px;
+
+  transition: 0.25s;
+}
+
+.banner-upload-card:hover {
+  border-color: #c9e8f5;
+
+  box-shadow:
+    0 8px 22px rgba(17, 167, 230, 0.06);
+}
+
+.banner-card-number {
+  margin-bottom: 10px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #414a53;
+}
+
+
+/* ================================
+   UPLOAD AREA
+================================ */
+
+.banner-upload-area {
+  width: 100%;
+  min-height: 175px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 2px dashed #cbdde6;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.banner-upload-area:hover {
+  border-color: #11a7e6;
+
+  background: #f5fcff;
+}
+
+.upload-icon {
+  width: 45px;
+  height: 45px;
+
+  margin-bottom: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf8ff;
+
+  color: #11a7e6;
+
+  font-size: 28px;
+
+  font-weight: 600;
+}
+
+.banner-upload-area h4 {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #3b444c;
+}
+
+.banner-upload-area p {
+  margin: 6px 0;
+
+  font-size: 12px;
+
+  color: #89929b;
+}
+
+.banner-upload-area small {
+  font-size: 10px;
+
+  color: #11a7e6;
+
+  font-weight: 600;
+}
+
+
+/* ================================
+   IMAGE PREVIEW
+================================ */
+
+.banner-image-preview {
+  position: relative;
+
+  width: 100%;
+  height: 175px;
+
+  overflow: hidden;
+
+  border-radius: 11px;
+
+  background: #edf1f3;
+}
+
+.banner-image-preview img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* ================================
+   IMAGE BUTTONS
+================================ */
+
+.image-buttons {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.72)
+    );
+}
+
+.change-image-btn,
+.remove-image-btn {
+  padding: 7px 13px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.change-image-btn {
+  background: #ffffff;
+
+  color: #11a7e6;
+}
+
+.remove-image-btn {
+  background: #ffffff;
+
+  color: #e04f4f;
+}
+
+
+/* ================================
+   SAVE
+================================ */
+
+.banner-save-area {
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  border-top: 1px solid #edf0f3;
+}
+
+.save-banners-btn {
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #11a7e6;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 18px rgba(17, 167, 230, 0.20);
+
+  transition: 0.25s;
+}
+
+.save-banners-btn:hover {
+  background: #0c91ca;
+
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1050px) {
+
+  .banner-upload-grid.three-banners {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+  .banner-page-header {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+  .banner-page-header h1 {
+    font-size: 24px;
+  }
+
+  .banner-header-icon {
+    display: none;
+  }
+
+  .banner-main-card {
+    padding: 20px;
+  }
+
+  .selected-page-heading {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .banner-save-area {
+    justify-content: stretch;
+  }
+
+  .save-banners-btn {
+    width: 100%;
+  }
+
+}

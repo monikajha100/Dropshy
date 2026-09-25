@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import "./Login.css";
 
@@ -12,6 +13,12 @@ const Login = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+
+  // LOGIN STATES
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   /* ==========================================
      AUTO IMAGE SLIDER
@@ -29,10 +36,81 @@ const Login = () => {
   /* ==========================================
      LOGIN
   ========================================== */
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log("Login submitted");
+    setError("");
+
+    // Basic validation
+    if (!email.trim()) {
+      setError("Please enter your email.");
+      return;
+    }
+
+    if (!password) {
+      setError("Please enter your password.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email.trim(),
+            password: password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      console.log("LOGIN API RESPONSE:", data);
+
+      if (!response.ok || !data.status) {
+        setError(data.message || "Invalid email or password.");
+        return;
+      }
+
+      // ==========================================
+      // SAVE LOGIN TOKEN
+      // ==========================================
+      if (rememberMe) {
+        localStorage.setItem("dropshy_token", data.token);
+        localStorage.setItem(
+          "dropshy_user",
+          JSON.stringify(data.user)
+        );
+      } else {
+        sessionStorage.setItem("dropshy_token", data.token);
+        sessionStorage.setItem(
+          "dropshy_user",
+          JSON.stringify(data.user)
+        );
+      }
+
+      // ==========================================
+      // LOGIN SUCCESS
+      // ==========================================
+      console.log("LOGIN SUCCESS:", data.user);
+
+      // Dashboard par redirect
+      window.location.href = "/dashboard";
+    } catch (error) {
+      console.error("LOGIN ERROR:", error);
+
+      setError(
+        "Unable to connect to server. Please make sure Dropshy backend is running."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,7 +132,6 @@ const Login = () => {
           </div>
         </div>
 
-
         {/* IMAGE SLIDER */}
         <div className="dropshy-login-slider">
 
@@ -72,7 +149,6 @@ const Login = () => {
             ))}
 
           </div>
-
 
           {/* DOTS */}
           <div className="dropshy-slider-dots">
@@ -120,6 +196,7 @@ const Login = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
+
             <path
               d="M11 14L16 9"
               stroke="currentColor"
@@ -143,7 +220,7 @@ const Login = () => {
             </h1>
 
             <p>
-              OR Simply want to track your order?{" "}
+              OR Simply want to track your order{" "}
               <button
                 type="button"
                 onClick={() => {
@@ -162,6 +239,24 @@ const Login = () => {
             className="dropshy-login-form"
             onSubmit={handleLogin}
           >
+
+            {/* ERROR MESSAGE */}
+            {error && (
+              <div
+                style={{
+                  color: "#d32f2f",
+                  background: "#fff1f1",
+                  border: "1px solid #ffcaca",
+                  padding: "10px 12px",
+                  borderRadius: "8px",
+                  marginBottom: "15px",
+                  fontSize: "14px",
+                }}
+              >
+                {error}
+              </div>
+            )}
+
 
             {/* EMAIL */}
             <div className="dropshy-field">
@@ -203,6 +298,11 @@ const Login = () => {
                   type="text"
                   placeholder="Enter your email or phone"
                   autoComplete="username"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setError("");
+                  }}
                   required
                 />
 
@@ -261,6 +361,11 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError("");
+                  }}
                   required
                 />
 
@@ -385,8 +490,9 @@ const Login = () => {
             <button
               type="submit"
               className="dropshy-login-button"
+              disabled={loading}
             >
-              Log In
+              {loading ? "Logging in..." : "Log In"}
             </button>
 
 

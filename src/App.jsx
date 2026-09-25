@@ -1,66 +1,189 @@
+
 import React from "react";
 import "./App.css";
 
-import Registration from "./components/dropsyservice/Registration";
+// =========================================================
+// USER LOGIN
+// =========================================================
 import Login from "./components/Login";
 
+// =========================================================
+// USER REGISTRATION
+// =========================================================
+
+import CreateAccount from "./components/Createaccount";
+import SellerRegistration from "./components/SellerRagistration";
+import SellorLogin from "./components/Sellorlogin";
+// =========================================================
+// WEBSITE LAYOUT
+// =========================================================
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// =========================================================
+// MAIN PAGES
+// =========================================================
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Review from "./pages/Review";
 import Dropsyservice from "./pages/Dropsyservice";
 import Blogpage from "./pages/Blogpage";
-
-// Blog Detail Page
 import Blogdetails from "./components/Blog/Blogdetails";
 
-// Website E-Commerce
-import Nationaleweb from "./components/dropsyservice/Nationaleweb";
+// =========================================================
+// ADMIN
+// =========================================================
+import LoginAdmin from "./Admin/Loginadmin/Loginadmin";
+import AdminDashboard from "./Admin/Admindashboard/Admindashboard";
+import AdminServices from "./Admin/Services/Services";
+import AllBanners from "./Admin/Services/Allbanner";
+import DisplayallBlog from "./Admin/Blog/DisplayallBlog";
+import BlogForm from "./Admin/Blog/BlogForm";
 
-// E-Commerce Pages
+// =========================================================
+// E-COMMERCE PAGES
+// =========================================================
+import Nationaleweb from "./components/dropsyservice/Nationaleweb";
 import Nationalecommerce from "./components/dropsyservice/Nationalecommerce";
 import Internationalecommerce from "./components/dropsyservice/Internationalecommerce";
 
-// Contact Us
+// =========================================================
+// CONTACT
+// =========================================================
 import Contactus from "./components/Contactus/Contactus";
 
 
 function App() {
 
-  // Remove trailing slash
-  // Example:
-  // /blog/       → /blog
-  // /blog/test/  → /blog/test
-
+  // =========================================================
+  // CURRENT PATH
+  // =========================================================
   const path =
     window.location.pathname.replace(/\/+$/, "") || "/";
 
 
   // =========================================================
-  // LOGIN PAGE
+  // ADMIN LOGIN CHECK
   // =========================================================
-  // Login page ko completely separate rakha hai
-  // taki Navbar + Footer login page par na aaye.
-  // =========================================================
+  const isAdminLoggedIn = () => {
+    const token = localStorage.getItem("ADMIN_TOKEN");
 
+    return !!token;
+  };
+
+
+  // =========================================================
+  // ADMIN LOGIN
+  // =========================================================
+  if (path === "/adminlogin") {
+    return <LoginAdmin />;
+  }
+
+
+  // =========================================================
+  // ADMIN DASHBOARD - PROTECTED
+  // =========================================================
+  if (path === "/admindashboard") {
+
+    if (!isAdminLoggedIn()) {
+      window.location.href = "/adminlogin";
+      return null;
+    }
+
+    return <AdminDashboard />;
+  }
+
+
+  // =========================================================
+  // ADMIN SERVICES - PROTECTED
+  // =========================================================
+  if (path === "/admin/services") {
+
+    if (!isAdminLoggedIn()) {
+      window.location.href = "/adminlogin";
+      return null;
+    }
+
+    return <AdminServices />;
+  }
+
+
+  // =========================================================
+  // ADMIN BANNERS - PROTECTED
+  // =========================================================
+  if (path === "/admin/Allbanner") {
+
+    if (!isAdminLoggedIn()) {
+      window.location.href = "/adminlogin";
+      return null;
+    }
+
+    return <AllBanners />;
+  }
+
+
+  // =========================================================
+  // ADMIN ALL BLOGS - PROTECTED
+  // =========================================================
+  if (path === "/admin/DisplayAllBlog") {
+
+    if (!isAdminLoggedIn()) {
+      window.location.href = "/adminlogin";
+      return null;
+    }
+
+    return <DisplayallBlog />;
+  }
+
+
+  // =========================================================
+  // ADMIN BLOG FORM - PROTECTED
+  // =========================================================
+  if (path === "/admin/blog-form") {
+
+    if (!isAdminLoggedIn()) {
+      window.location.href = "/adminlogin";
+      return null;
+    }
+
+    return <BlogForm />;
+  }
+
+
+  // =========================================================
+  // USER LOGIN
+  // =========================================================
   if (path === "/login") {
     return <Login />;
   }
 
 
   // =========================================================
+  // USER REGISTRATION
+  // =========================================================
+  if (
+    path === "/register" ||
+    path === "/get-started"
+  ) {
+    return <CreateAccount />;
+  }
+
+if (path === "/seller-registration") {
+  return <SellerRegistration />;
+}
+
+if (path === "/seller-login") {
+  return <SellorLogin />;
+}
+  // =========================================================
   // PAGE VARIABLE
   // =========================================================
-
   let Page;
 
 
   // =========================================================
   // HOME
   // =========================================================
-
   if (path === "/") {
     Page = Home;
   }
@@ -69,7 +192,6 @@ function App() {
   // =========================================================
   // ABOUT
   // =========================================================
-
   else if (path === "/about") {
     Page = About;
   }
@@ -78,7 +200,6 @@ function App() {
   // =========================================================
   // SERVICES
   // =========================================================
-
   else if (
     path === "/service" ||
     path === "/services"
@@ -90,7 +211,6 @@ function App() {
   // =========================================================
   // NATIONAL E-COMMERCE
   // =========================================================
-
   else if (
     path === "/services/national-ecommerce"
   ) {
@@ -101,7 +221,6 @@ function App() {
   // =========================================================
   // INTERNATIONAL E-COMMERCE
   // =========================================================
-
   else if (
     path === "/services/international-ecommerce"
   ) {
@@ -112,7 +231,6 @@ function App() {
   // =========================================================
   // WEBSITE E-COMMERCE
   // =========================================================
-
   else if (
     path === "/services/website-ecommerce" ||
     path === "/services/Nationaleweb" ||
@@ -125,7 +243,6 @@ function App() {
   // =========================================================
   // REVIEW
   // =========================================================
-
   else if (path === "/review") {
     Page = Review;
   }
@@ -134,7 +251,6 @@ function App() {
   // =========================================================
   // BLOG LISTING
   // =========================================================
-
   else if (
     path === "/blog" ||
     path === "/blogs"
@@ -146,7 +262,6 @@ function App() {
   // =========================================================
   // BLOG DETAIL
   // =========================================================
-
   else if (path.startsWith("/blog/")) {
     Page = Blogdetails;
   }
@@ -155,7 +270,6 @@ function App() {
   // =========================================================
   // CONTACT US
   // =========================================================
-
   else if (
     path === "/contactus" ||
     path === "/contact" ||
@@ -166,21 +280,8 @@ function App() {
 
 
   // =========================================================
-  // GET STARTED / REGISTER
-  // =========================================================
-
-  else if (
-    path === "/get-started" ||
-    path === "/register"
-  ) {
-    Page = Registration;
-  }
-
-
-  // =========================================================
   // DEFAULT
   // =========================================================
-
   else {
     Page = Home;
   }
@@ -189,7 +290,6 @@ function App() {
   // =========================================================
   // NORMAL WEBSITE LAYOUT
   // =========================================================
-
   return (
     <>
       <Navbar />

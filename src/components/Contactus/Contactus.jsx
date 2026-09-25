@@ -68,7 +68,7 @@ const Contact = () => {
 
           <p>
             Have a question, need help with your store, or want to explore
-            Dropsy services? Our team is here to help you move forward.
+            Dropshy services? Our team is here to help you move forward.
           </p>
 
         </div>
@@ -315,7 +315,7 @@ const Contact = () => {
 
           <p>
             Join thousands of sellers building and growing their online
-            businesses with Dropsy.
+            businesses with Dropshy.
           </p>
 
           <button
