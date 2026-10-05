@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./Footer.css";
 
@@ -19,67 +18,80 @@ import {
 
 const linkSections = [
   {
-    code: "SEC.01",
-    title: "Products",
+    code: "SEC.04",
+    title: "Company",
     links: [
-      "Dropshy Shipping",
-      "Dropshy Cargo",
-      "Fulfillment",
-      "Capital",
-      "Packaging",
-    ],
-  },
-
-  {
-    code: "SEC.02",
-    title: "Features",
-    links: [
-      "Order Management",
-      "Inventory",
-      "Tracking",
-      "Returns",
-      "Analytics",
+      "About Us",
+      "Contact Us",
+      "Blog",
+      "Testimonial",
     ],
   },
 
   {
     code: "SEC.03",
-    title: "Integrations",
+    title: "Services",
     links: [
-      "Shopify",
-      "WooCommerce",
-      "Amazon",
-      "Flipkart",
-      "Custom API",
+      "National",
+      "International",
+      "Website",
     ],
   },
 
   {
-    code: "SEC.04",
-    title: "Company",
+    code: "SEC.02",
+    title: "Account",
     links: [
-      "About Us",
-      "Careers",
-      "Contact Us",
-      "Blog",
-      "Partner Program",
+      "Registration Now",
+      "Create an Account",
     ],
   },
 
   {
     code: "SEC.05",
-    title: "Resources",
+    title: "Policy",
     links: [
-      "Help Center",
-      "API Documentation",
-      "Shipping Guide",
-      "Pricing",
-      "FAQs",
+      "Term and Conditions",
+      "Refund & Return Policy",
+      "Shipping Policy",
+      "Tracking Policy",
+      "Privacy Policy",
     ],
   },
 ];
 
-// Simple generative-looking barcode strip
+
+// =========================================================
+// ALL FOOTER LINKS
+// =========================================================
+
+const footerLinks = {
+  // Company
+  "About Us": "/about",
+  "Contact Us": "/contact-us",
+  "Blog": "/blog",
+  "Testimonial": "/review",
+
+  // Services
+  "National": "/services/national-ecommerce",
+  "International": "/services/international-ecommerce",
+  "Website": "/services/website-ecommerce",
+
+  // Account
+ "Registration Now": "/seller-registration",
+  "Create an Account": "/get-started",
+  // Policy
+  "Term and Conditions": "/term-condition",
+  "Refund & Return Policy": "/refund-return",
+  "Shipping Policy": "/shipping-policy",
+  "Tracking Policy": "/tracking",
+  "Privacy Policy": "/privacy-policy",
+};
+
+// =========================================================
+// BARCODE
+// =========================================================
+
 const BarcodeStrip = () => {
   const widths = [
     2, 1, 3, 1, 1, 2, 4,
@@ -105,13 +117,14 @@ const BarcodeStrip = () => {
   );
 };
 
+
+// =========================================================
+// FOOTER
+// =========================================================
+
 const Footer = () => {
   return (
     <footer className="footer">
-
-      {/* =========================================
-          PERFORATED TEAR EDGE
-      ========================================== */}
 
       <div
         className="footerPerforation"
@@ -121,20 +134,14 @@ const Footer = () => {
 
       <div className="footerContainer">
 
-        {/* =========================================
-            LEFT / BRAND MANIFEST BLOCK
-        ========================================== */}
+        {/* LEFT / BRAND */}
 
         <div className="footerLeft">
-
-          {/* Eyebrow */}
 
           <span className="footerEyebrow">
             GLOBAL LOGISTICS NETWORK
           </span>
 
-
-          {/* Brand */}
 
           <div className="footerBrandRow">
 
@@ -155,72 +162,47 @@ const Footer = () => {
           </div>
 
 
-          {/* Tagline */}
-
           <p className="footerTagline">
             Ship smarter. Sell everywhere.
           </p>
 
 
-          {/* =========================================
-              SOCIAL ICONS
-          ========================================== */}
+          {/* SOCIAL */}
 
           <div className="socialIcons">
 
-            <a
-              href="#"
-              aria-label="Facebook"
-            >
+            <a href="#" aria-label="Facebook">
               <FaFacebookF />
             </a>
 
-            <a
-              href="#"
-              aria-label="X"
-            >
+            <a href="#" aria-label="X">
               <FaXTwitter />
             </a>
 
-            <a
-              href="#"
-              aria-label="Instagram"
-            >
+            <a href="#" aria-label="Instagram">
               <FaInstagram />
             </a>
 
-            <a
-              href="#"
-              aria-label="YouTube"
-            >
+            <a href="#" aria-label="YouTube">
               <FaYoutube />
             </a>
 
-            <a
-              href="#"
-              aria-label="LinkedIn"
-            >
+            <a href="#" aria-label="LinkedIn">
               <FaLinkedinIn />
             </a>
 
           </div>
 
 
-          {/* Divider */}
-
           <div className="footerDivider"></div>
 
 
-          {/* =========================================
-              CONTACT INFORMATION
-          ========================================== */}
+          {/* CONTACT */}
 
           <span className="footerManifestLabel">
             REACH US AT
           </span>
 
-
-          {/* Email */}
 
           <p className="footerInfo">
 
@@ -236,8 +218,6 @@ const Footer = () => {
           </p>
 
 
-          {/* Phone */}
-
           <p className="footerInfo">
 
             <MdPhone />
@@ -251,8 +231,6 @@ const Footer = () => {
 
           </p>
 
-
-          {/* Address */}
 
           <div className="footerAddress">
 
@@ -276,9 +254,7 @@ const Footer = () => {
         </div>
 
 
-        {/* =========================================
-            LINK SECTIONS
-        ========================================== */}
+        {/* FOOTER LINK SECTIONS */}
 
         {linkSections.map((section) => (
 
@@ -300,14 +276,13 @@ const Footer = () => {
             {section.links.map((link) => (
 
               <a
-                href="#"
+                href={footerLinks[link]}
                 key={link}
               >
                 {link}
               </a>
 
             ))}
-
 
           </div>
 
@@ -317,34 +292,22 @@ const Footer = () => {
       </div>
 
 
-      {/* =========================================
-          BOTTOM - LABEL FOOTER
-      ========================================== */}
+      {/* BOTTOM */}
 
       <div className="footer-bottom">
 
         <div className="footer-bottom-inner">
 
-
-          {/* Barcode */}
-
           <BarcodeStrip />
-
-
-          {/* Copyright */}
 
           <p>
             © 2026 Dropshy Technologies Pvt. Ltd.
             — All Rights Reserved.
           </p>
 
-
-          {/* Tracking Code */}
-
           <span className="footer-tracking-code">
             DSH-GLOBAL-FTR
           </span>
-
 
         </div>
 
@@ -356,4 +319,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

@@ -30,6 +30,7 @@ import Whydropshyslider from '../components/Whydropshyslider';
 import AISolutionsSection from '../components/AISolutionsSection';
 import Dropsyoperation from '../components/Dropsyoperation';
 //import Dropshy0perations from '../components/Dropsyoperation';
+import Reelsection from '../components/Reelsection';
                                    
 const Home = () => {
   return (
@@ -46,7 +47,7 @@ const Home = () => {
         <LiveDemo/>
         
        
-        
+        <Reelsection/>
         
         {/* <HowItWorks /> */}
          {/* <AISolutionsSection />

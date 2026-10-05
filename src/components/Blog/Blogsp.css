@@ -27,7 +27,9 @@
 
   font-family: "Inter", sans-serif;
 
-  overflow-x: hidden;
+  /* FIX: "hidden" breaks position: sticky. "clip" hides overflow
+     without creating a scroll container. */
+  overflow-x: clip;
 }
 
 
@@ -82,19 +84,14 @@
 
 .dss-blog-layout {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    365px;
-
+  grid-template-columns: minmax(0, 1fr) 365px;
   gap: 40px;
-
   align-items: start;
 }
 
 
 /* ============================================================
-   MAIN CONTENT
+   MAIN CONTENT (LEFT - SCROLLS)
 ============================================================ */
 
 .dss-blog-main {
@@ -108,41 +105,29 @@
 
 .dss-blog-heading {
   padding: 0 0 32px;
-  margin-top:50px
+  margin-top: 50px;
 }
 
 .dss-blog-eyebrow {
   display: inline-flex;
   align-items: center;
-
   margin-bottom: 13px;
-
   color: var(--red);
-
   font-family: "Sora", sans-serif;
-
   font-size: 11px;
   font-weight: 800;
-
   letter-spacing: 0.14em;
   line-height: 1;
-
   text-transform: uppercase;
 }
 
 .dss-blog-heading h1 {
   margin: 0;
-
   color: #17212b;
-
   font-family: "Sora", sans-serif;
-
   font-size: clamp(34px, 4vw, 50px);
-
   line-height: 1.12;
-
   font-weight: 800;
-
   letter-spacing: -0.045em;
 }
 
@@ -152,13 +137,9 @@
 
 .dss-blog-heading p {
   max-width: 690px;
-
   margin: 17px 0 0;
-
   color: #71808c;
-
   font-size: 15px;
-
   line-height: 1.75;
 }
 
@@ -170,23 +151,14 @@
 .dss-blog-toolbar {
   display: flex;
   align-items: center;
-
   min-height: 40px;
-
   margin-bottom: 20px;
-
   padding-bottom: 12px;
-
   border-bottom: 1px solid #dedede;
-
   color: #71808c;
-
   font-family: "Sora", sans-serif;
-
   font-size: 12px;
-
   font-weight: 700;
-
   letter-spacing: 0.04em;
 }
 
@@ -197,11 +169,8 @@
 
 .dss-blog-list {
   display: flex;
-
   flex-direction: column;
-
   gap: 24px;
-
   width: 100%;
 }
 
@@ -212,27 +181,15 @@
 
 .blog-card {
   position: relative;
-
   display: grid;
-
-  grid-template-columns:
-    minmax(280px, 42%)
-    minmax(0, 1fr);
-
+  grid-template-columns: minmax(280px, 42%) minmax(0, 1fr);
   width: 100%;
-
   min-height: 300px;
-
   padding: 22px;
-
   background: #ffffff;
-
   border: 1px solid #e4e4e4;
-
   cursor: pointer;
-
   overflow: hidden;
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -241,11 +198,8 @@
 
 .blog-card:hover {
   transform: translateY(-5px);
-
   border-color: rgba(17, 167, 230, 0.25);
-
-  box-shadow:
-    0 18px 45px rgba(20, 35, 45, 0.09);
+  box-shadow: 0 18px 45px rgba(20, 35, 45, 0.09);
 }
 
 
@@ -255,47 +209,28 @@
 
 .blog-card-image {
   position: relative;
-
   width: 100%;
-
   height: 100%;
-
   min-height: 255px;
-
   overflow: hidden;
-
   background: #edf5f8;
 }
 
 .blog-card-image::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 60%,
-      rgba(0, 0, 0, 0.08)
-    );
-
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.08));
   pointer-events: none;
 }
 
 .blog-card-image img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   min-height: 255px;
-
   object-fit: cover;
-
-  transition:
-    transform 0.55s ease;
+  transition: transform 0.55s ease;
 }
 
 .blog-card:hover .blog-card-image img {
@@ -309,11 +244,8 @@
 
 .blog-card-content {
   min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
   padding: 7px 12px 5px 32px;
 }
 
@@ -324,53 +256,33 @@
 
 .blog-card-top {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   gap: 12px;
-
   margin-bottom: 15px;
 }
 
 .blog-card-category {
   display: inline-flex;
-
   align-items: center;
-
   max-width: 65%;
-
   color: var(--red);
-
   font-family: "Sora", sans-serif;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 0.08em;
-
   line-height: 1.4;
-
   text-transform: uppercase;
 }
 
 .blog-card-date {
   display: inline-flex;
-
   align-items: center;
-
   gap: 5px;
-
   flex-shrink: 0;
-
   color: #9aa5ad;
-
   font-size: 10px;
-
   font-weight: 600;
-
   white-space: nowrap;
 }
 
@@ -385,21 +297,13 @@
 
 .blog-card-content h2 {
   margin: 0;
-
   color: #17212b;
-
   font-family: "Sora", sans-serif;
-
   font-size: clamp(21px, 2vw, 28px);
-
   line-height: 1.35;
-
   font-weight: 700;
-
   letter-spacing: -0.025em;
-
-  transition:
-    color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .blog-card:hover .blog-card-content h2 {
@@ -413,19 +317,12 @@
 
 .blog-card-content p {
   display: -webkit-box;
-
   -webkit-box-orient: vertical;
-
   -webkit-line-clamp: 4;
-
   overflow: hidden;
-
   margin: 17px 0 0;
-
   color: #687783;
-
   font-size: 14px;
-
   line-height: 1.75;
 }
 
@@ -436,32 +333,19 @@
 
 .blog-read-more {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 8px;
-
   width: fit-content;
-
   margin-top: auto;
   padding: 19px 0 0;
-
   border: 0;
-
   background: transparent;
-
   color: var(--blue-dark);
-
   font-family: "Sora", sans-serif;
-
   font-size: 12px;
-
   font-weight: 700;
-
   cursor: pointer;
-
   transition:
     gap 0.25s ease,
     color 0.25s ease;
@@ -469,13 +353,11 @@
 
 .blog-read-more:hover {
   gap: 12px;
-
   color: var(--red);
 }
 
 .blog-read-more svg {
-  transition:
-    transform 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .blog-read-more:hover svg {
@@ -484,21 +366,32 @@
 
 
 /* ============================================================
-   SIDEBAR
+   SIDEBAR (RIGHT - FROZEN / STICKY)
+   top + max-height are linked:
+   max-height = 100vh - top - 20px
+   If you have a fixed navbar, set top = navbar height + 20px
 ============================================================ */
 
 .dss-blog-sidebar {
   position: sticky;
-
-  top: 25px;
+  top: 90px;
 
   display: flex;
-
   flex-direction: column;
-
   gap: 22px;
 
   min-width: 0;
+  height: fit-content;
+  align-self: start; /* required for sticky inside grid */
+
+  /* if sidebar is taller than the screen, keep it reachable */
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.dss-blog-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -508,11 +401,8 @@
 
 .dss-sidebar-box {
   width: 100%;
-
   padding: 30px;
-
   background: #ffffff;
-
   border: 1px solid #e5e5e5;
 }
 
@@ -523,13 +413,9 @@
 
 .dss-search-box h3 {
   margin: 0 0 13px;
-
   color: #40484e;
-
   font-family: "Sora", sans-serif;
-
   font-size: 15px;
-
   font-weight: 700;
 }
 
@@ -540,49 +426,32 @@
 
 .dss-search-form {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    105px;
-
+  grid-template-columns: minmax(0, 1fr) 105px;
   width: 100%;
 }
 
 .dss-search-input-wrap {
   position: relative;
-
   display: flex;
-
   align-items: center;
 }
 
 .dss-search-input-wrap svg {
   position: absolute;
-
   left: 13px;
-
   color: #9ca7ae;
-
   pointer-events: none;
 }
 
 .dss-search-form input {
   width: 100%;
-
   height: 46px;
-
   padding: 0 12px 0 39px;
-
   border: 1px solid #dddddd;
-
   outline: none;
-
   background: #ffffff;
-
   color: #28343d;
-
   font-size: 13px;
-
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease;
@@ -594,30 +463,19 @@
 
 .dss-search-form input:focus {
   border-color: rgba(17, 167, 230, 0.55);
-
-  box-shadow:
-    0 0 0 3px rgba(17, 167, 230, 0.08);
+  box-shadow: 0 0 0 3px rgba(17, 167, 230, 0.08);
 }
 
 .dss-search-form button {
   height: 46px;
-
   border: 0;
-
   background: var(--red);
-
   color: #ffffff;
-
   cursor: pointer;
-
   font-family: "Sora", sans-serif;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 0.06em;
-
   transition:
     background 0.25s ease,
     transform 0.25s ease;
@@ -634,145 +492,87 @@
 
 .dss-promo-card {
   position: relative;
-
   min-height: 350px;
-
   padding: 40px 30px;
-  margin-top:30px;
+  margin-top: 30px;
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(255, 255, 255, 0.85),
-      transparent 29%
-    ),
-    linear-gradient(
-      145deg,
-      #fff5d8,
-      #f8da82
-    );
-
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.85), transparent 29%),
+    linear-gradient(145deg, #fff5d8, #f8da82);
   border: 1px solid #efd18a;
-
   text-align: center;
-
-  box-shadow:
-    0 15px 35px rgba(128, 93, 23, 0.07);
+  box-shadow: 0 15px 35px rgba(128, 93, 23, 0.07);
 }
 
 .dss-promo-glow {
   position: absolute;
-
   width: 190px;
   height: 190px;
-
   right: -95px;
   top: -95px;
-
   border-radius: 50%;
-
-  background:
-    rgba(255, 255, 255, 0.45);
-
+  background: rgba(255, 255, 255, 0.45);
   filter: blur(5px);
 }
 
 .dss-promo-small {
   position: relative;
-
   display: inline-block;
-
   color: #986714;
-
   font-family: "Sora", sans-serif;
- 
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 0.09em;
 }
 
 .dss-promo-card h3 {
   position: relative;
-
   margin: 15px 0 6px;
-
   color: #2b2416;
-
   font-family: "Sora", sans-serif;
-
   font-size: 25px;
-
   line-height: 1.25;
-
   font-weight: 800;
 }
 
 .dss-promo-price {
   position: relative;
-
   color: #e8750b;
-
   font-family: "Sora", sans-serif;
-
   font-size: 58px;
-
   line-height: 1;
-
   font-weight: 800;
 }
 
 .dss-promo-price span {
   font-size: 27px;
-
   vertical-align: top;
 }
 
 .dss-promo-card p {
   position: relative;
-
   max-width: 255px;
-
   margin: 14px auto 23px;
-
   color: #695735;
-
   font-size: 13px;
-
   line-height: 1.65;
 }
 
 .dss-promo-btn {
   position: relative;
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 8px;
-
   min-height: 44px;
-
   padding: 0 19px;
-
   border-radius: 6px;
-
   background: #17212b;
-
   color: #ffffff;
-
   text-decoration: none;
-
   font-family: "Sora", sans-serif;
-
   font-size: 12px;
-
   font-weight: 700;
-
   transition:
     transform 0.25s ease,
     background 0.25s ease;
@@ -780,7 +580,6 @@
 
 .dss-promo-btn:hover {
   transform: translateY(-2px);
-
   background: var(--blue-dark);
 }
 
@@ -795,67 +594,43 @@
 
 .dss-recent-heading {
   display: flex;
-
   align-items: center;
-
   gap: 13px;
-
   margin-bottom: 19px;
 }
 
 .dss-recent-heading span {
   width: 3px;
-
   height: 22px;
-
   flex-shrink: 0;
-
   background: var(--red);
-
   border-radius: 5px;
 }
 
 .dss-recent-heading h3 {
   margin: 0;
-
   color: #414950;
-
   font-family: "Sora", sans-serif;
-
   font-size: 18px;
-
   font-weight: 600;
 }
 
 .dss-recent-list {
   display: flex;
-
   flex-direction: column;
-
   gap: 10px;
 }
 
 .dss-recent-item {
   display: grid;
-
-  grid-template-columns:
-    84px
-    minmax(0, 1fr);
-
+  grid-template-columns: 84px minmax(0, 1fr);
   gap: 13px;
-
   width: 100%;
-
   padding: 8px;
-
   border: 0;
-
   background: transparent;
-
   text-align: left;
-
   cursor: pointer;
-
   transition:
     background 0.25s ease,
     transform 0.25s ease;
@@ -863,31 +638,22 @@
 
 .dss-recent-item:hover {
   background: #f6fafc;
-
   transform: translateX(3px);
 }
 
 .dss-recent-image {
   width: 84px;
-
   height: 64px;
-
   overflow: hidden;
-
   background: #edf5f8;
 }
 
 .dss-recent-item img {
   display: block;
-
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
-  transition:
-    transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .dss-recent-item:hover img {
@@ -900,37 +666,23 @@
 
 .dss-recent-item strong {
   display: -webkit-box;
-
   -webkit-box-orient: vertical;
-
   -webkit-line-clamp: 2;
-
   overflow: hidden;
-
   color: #27333c;
-
   font-family: "Sora", sans-serif;
-
   font-size: 11px;
-
   line-height: 1.45;
-
   font-weight: 700;
 }
 
 .dss-recent-item small {
   display: flex;
-
   align-items: center;
-
   gap: 5px;
-
   margin-top: 7px;
-
   color: #9aa4ab;
-
   font-size: 9px;
-
   font-weight: 600;
 }
 
@@ -941,75 +693,49 @@
 
 .dss-no-results {
   width: 100%;
-
   padding: 75px 30px;
-
   background: #ffffff;
-
   border: 1px solid #e5e5e5;
-
   text-align: center;
 }
 
 .dss-no-results-icon {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   width: 60px;
   height: 60px;
-
   margin-bottom: 5px;
-
   border-radius: 50%;
-
   background: rgba(17, 167, 230, 0.08);
-
   color: var(--blue);
 }
 
 .dss-no-results h3 {
   margin: 12px 0 7px;
-
   color: var(--navy);
-
   font-family: "Sora", sans-serif;
-
   font-size: 20px;
 }
 
 .dss-no-results p {
   margin: 0;
-
   color: var(--muted);
-
   font-size: 14px;
 }
 
 .dss-no-results button {
   margin-top: 20px;
-
   min-height: 42px;
-
   padding: 0 18px;
-
   border: 0;
-
   border-radius: 6px;
-
   background: var(--blue);
-
   color: #ffffff;
-
   cursor: pointer;
-
   font-family: "Sora", sans-serif;
-
   font-size: 11px;
-
   font-weight: 700;
-
   transition:
     background 0.25s ease,
     transform 0.25s ease;
@@ -1017,7 +743,6 @@
 
 .dss-no-results button:hover {
   background: var(--blue-dark);
-
   transform: translateY(-2px);
 }
 
@@ -1028,124 +753,72 @@
 
 .dss-blog-cta {
   position: relative;
-
   isolation: isolate;
-
   width: 100%;
-
   overflow: hidden;
-
   padding: 90px 0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #07131e,
-      #082b3e
-    );
-
+  background: linear-gradient(135deg, #07131e, #082b3e);
   text-align: center;
 }
 
 .dss-cta-glow {
   position: absolute;
-
   width: 550px;
   height: 550px;
-
   right: -210px;
   top: -290px;
-
   border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(17, 167, 230, 0.28),
-      transparent 68%
-    );
-
+  background: radial-gradient(circle, rgba(17, 167, 230, 0.28), transparent 68%);
   z-index: -1;
 }
 
 .dss-blog-cta .dss-wrap {
   position: relative;
-
   z-index: 2;
 }
 
 .dss-blog-cta .dss-cta-label {
   display: inline-block;
-
   color: var(--blue-light);
-
   font-family: "Sora", sans-serif;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 0.16em;
 }
 
 .dss-blog-cta h2 {
   margin: 13px 0 16px;
-
   color: #ffffff;
-
   font-family: "Sora", sans-serif;
-
   font-size: clamp(32px, 4vw, 47px);
-
   line-height: 1.18;
-
   font-weight: 800;
-
   letter-spacing: -0.035em;
 }
 
 .dss-blog-cta p {
   max-width: 650px;
-
   margin: 0 auto 29px;
-
   color: rgba(255, 255, 255, 0.68);
-
   font-size: 15px;
-
   line-height: 1.7;
 }
 
 .dss-cta-button {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 9px;
-
   min-height: 50px;
-
   padding: 0 23px;
-
   border-radius: 8px;
-
   background: var(--blue);
-
   color: #ffffff;
-
   text-decoration: none;
-
   font-family: "Sora", sans-serif;
-
   font-size: 13px;
-
   font-weight: 700;
-
-  box-shadow:
-    0 12px 30px rgba(17, 167, 230, 0.25);
-
+  box-shadow: 0 12px 30px rgba(17, 167, 230, 0.25);
   transition:
     transform 0.25s ease,
     background 0.25s ease;
@@ -1153,7 +826,6 @@
 
 .dss-cta-button:hover {
   transform: translateY(-3px);
-
   background: var(--blue-dark);
 }
 
@@ -1164,15 +836,10 @@
 
 .dss-footer {
   width: 100%;
-
   padding: 23px 20px;
-
   background: #051019;
-
   color: rgba(255, 255, 255, 0.55);
-
   text-align: center;
-
   font-size: 11px;
 }
 
@@ -1182,20 +849,13 @@
 ============================================================ */
 
 @media (max-width: 1100px) {
-
   .dss-blog-layout {
-    grid-template-columns:
-      minmax(0, 1fr)
-      310px;
-
+    grid-template-columns: minmax(0, 1fr) 310px;
     gap: 25px;
   }
 
   .blog-card {
-    grid-template-columns:
-      40%
-      minmax(0, 1fr);
-
+    grid-template-columns: 40% minmax(0, 1fr);
     padding: 18px;
   }
 
@@ -1215,35 +875,30 @@
   .dss-sidebar-box {
     padding: 24px;
   }
-
 }
 
 
 /* ============================================================
    TABLET / SMALL LAPTOP
+   Sidebar is NOT frozen here - it stacks below the posts
 ============================================================ */
 
 @media (max-width: 900px) {
-
   .dss-wrap {
     width: min(100% - 34px, 760px);
   }
 
   .dss-blog-layout {
     grid-template-columns: 1fr;
-
     gap: 35px;
   }
 
   .dss-blog-sidebar {
     position: static;
-
+    max-height: none;
+    overflow: visible;
     display: grid;
-
-    grid-template-columns:
-      1fr
-      1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 18px;
   }
 
@@ -1255,7 +910,6 @@
   .dss-promo-card {
     height: 100%;
   }
-
 }
 
 
@@ -1264,7 +918,6 @@
 ============================================================ */
 
 @media (max-width: 650px) {
-
   .dss-wrap {
     width: min(100% - 24px, 560px);
   }
@@ -1275,7 +928,7 @@
 
   .dss-blog-heading {
     padding-bottom: 24px;
-    margin-top:30px
+    margin-top: 30px;
   }
 
   .dss-blog-heading h1 {
@@ -1284,7 +937,6 @@
 
   .dss-blog-heading p {
     font-size: 14px;
-
     line-height: 1.7;
   }
 
@@ -1296,34 +948,25 @@
     gap: 18px;
   }
 
-
   /* BLOG CARD */
 
   .blog-card {
     display: block;
-
     padding: 14px;
   }
 
   .blog-card-image {
     width: 100%;
-
     height: auto;
-
     min-height: 0;
-
     aspect-ratio: 16 / 9;
   }
 
   .blog-card-image img {
     width: 100%;
-
     height: 100%;
-
     min-height: 0;
-
     aspect-ratio: auto;
-
     object-fit: cover;
   }
 
@@ -1333,13 +976,11 @@
 
   .blog-card-top {
     align-items: flex-start;
-
     margin-bottom: 12px;
   }
 
   .blog-card-category {
     font-size: 9px;
-
     max-width: 60%;
   }
 
@@ -1349,30 +990,24 @@
 
   .blog-card-content h2 {
     font-size: 20px;
-
     line-height: 1.4;
   }
 
   .blog-card-content p {
     font-size: 13px;
-
     -webkit-line-clamp: 4;
   }
 
   .blog-read-more {
     margin-top: 18px;
-
     padding-top: 15px;
   }
-
 
   /* SIDEBAR */
 
   .dss-blog-sidebar {
     display: flex;
-
     flex-direction: column;
-
     gap: 15px;
   }
 
@@ -1380,21 +1015,16 @@
     padding: 21px;
   }
 
-
   /* SEARCH */
 
   .dss-search-form {
-    grid-template-columns:
-      minmax(0, 1fr)
-      95px;
+    grid-template-columns: minmax(0, 1fr) 95px;
   }
-
 
   /* PROMO */
 
   .dss-promo-card {
     min-height: 310px;
-
     padding: 31px 20px;
   }
 
@@ -1406,7 +1036,6 @@
     font-size: 49px;
   }
 
-
   /* RECENT */
 
   .dss-recent-box {
@@ -1414,17 +1043,13 @@
   }
 
   .dss-recent-item {
-    grid-template-columns:
-      75px
-      minmax(0, 1fr);
+    grid-template-columns: 75px minmax(0, 1fr);
   }
 
   .dss-recent-image {
     width: 75px;
-
     height: 60px;
   }
-
 
   /* CTA */
 
@@ -1439,7 +1064,6 @@
   .dss-blog-cta p {
     font-size: 14px;
   }
-
 }
 
 
@@ -1448,14 +1072,13 @@
 ============================================================ */
 
 @media (max-width: 400px) {
-
   .dss-wrap {
     width: calc(100% - 20px);
   }
 
   .dss-blog-heading h1 {
     font-size: 27px;
-    margin-top:30px
+    margin-top: 30px;
   }
 
   .dss-blog-heading p {
@@ -1468,7 +1091,6 @@
 
   .blog-card-top {
     flex-direction: column;
-
     gap: 7px;
   }
 
@@ -1491,7 +1113,6 @@
   .dss-blog-cta h2 {
     font-size: 27px;
   }
-
 }
 
 
@@ -1503,7 +1124,6 @@
 .dss-page a:focus-visible,
 .dss-page article:focus-visible {
   outline: 3px solid rgba(17, 167, 230, 0.35);
-
   outline-offset: 3px;
 }
 
@@ -1513,363 +1133,16 @@
 ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-
   .dss-page *,
   .dss-page *::before,
   .dss-page *::after {
     animation-duration: 0.01ms !important;
-
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
-
     scroll-behavior: auto !important;
   }
-
 }
 
-
-/* ============================================================
-   FINAL RESPONSIVE SYSTEM
-   Works across desktop, laptop, tablet, mobile and very small
-   screens without changing the existing visual design.
-============================================================ */
-
-/* ---------- LARGE DESKTOP ---------- */
-@media (min-width: 1441px) {
-  .dss-wrap {
-    width: min(1400px, calc(100% - 80px));
-  }
-
-  .dss-blog-layout {
-    grid-template-columns: minmax(0, 1fr) 380px;
-    gap: 48px;
-  }
-
-  .blog-card {
-    grid-template-columns: minmax(360px, 42%) minmax(0, 1fr);
-    min-height: 320px;
-  }
-
-  .blog-card-image,
-  .blog-card-image img {
-    min-height: 275px;
-  }
-
-  .blog-card-content {
-    padding-left: 36px;
-  }
-}
-
-/* ---------- STANDARD LAPTOP ---------- */
-@media (min-width: 1201px) and (max-width: 1440px) {
-  .dss-wrap {
-    width: min(1320px, calc(100% - 56px));
-  }
-
-  .dss-blog-layout {
-    grid-template-columns: minmax(0, 1fr) 350px;
-    gap: 34px;
-  }
-
-  .blog-card {
-    grid-template-columns: minmax(300px, 42%) minmax(0, 1fr);
-  }
-}
-
-/* ---------- LAPTOP / SMALL DESKTOP ---------- */
-@media (min-width: 901px) and (max-width: 1200px) {
-  .dss-wrap {
-    width: calc(100% - 44px);
-  }
-
-  .dss-blog-section {
-    padding-top: 45px;
-    padding-bottom: 75px;
-  }
-
-  .dss-blog-heading {
-    margin-top: 30px;
-  }
-
-  .dss-blog-layout {
-    grid-template-columns: minmax(0, 1fr) 300px;
-    gap: 25px;
-  }
-
-  .blog-card {
-    grid-template-columns: minmax(250px, 40%) minmax(0, 1fr);
-    padding: 16px;
-    min-height: 285px;
-  }
-
-  .blog-card-image,
-  .blog-card-image img {
-    min-height: 235px;
-  }
-
-  .blog-card-content {
-    padding: 5px 8px 4px 22px;
-  }
-
-  .blog-card-content h2 {
-    font-size: clamp(19px, 2.1vw, 23px);
-  }
-
-  .blog-card-content p {
-    font-size: 13px;
-    line-height: 1.65;
-  }
-
-  .dss-sidebar-box {
-    padding: 22px;
-  }
-
-  .dss-search-form {
-    grid-template-columns: minmax(0, 1fr) 90px;
-  }
-
-  .dss-promo-card {
-    min-height: 330px;
-    padding: 34px 22px;
-  }
-
-  .dss-promo-price {
-    font-size: 52px;
-  }
-
-  .dss-recent-box {
-    padding: 22px;
-  }
-
-  .dss-recent-item {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 10px;
-  }
-
-  .dss-recent-image {
-    width: 72px;
-    height: 58px;
-  }
-}
-
-/* ---------- TABLET LANDSCAPE ---------- */
-@media (min-width: 651px) and (max-width: 900px) {
-  .dss-wrap {
-    width: calc(100% - 36px);
-    max-width: 820px;
-  }
-
-  .dss-blog-section {
-    padding: 42px 0 70px;
-  }
-
-  .dss-blog-heading {
-    margin-top: 35px;
-    padding-bottom: 26px;
-  }
-
-  .dss-blog-heading h1 {
-    margin-top:30px;
-    font-size: clamp(32px, 5vw, 44px);
-  }
-
-  .dss-blog-heading p {
-    max-width: 100%;
-    margin-top:30px;
-    font-size: 14px;
-  }
-
-  .dss-blog-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .blog-card {
-    grid-template-columns: minmax(250px, 42%) minmax(0, 1fr);
-    min-height: 280px;
-    padding: 17px;
-  }
-
-  .blog-card-image,
-  .blog-card-image img {
-    min-height: 245px;
-  }
-
-  .blog-card-content {
-    padding: 6px 7px 4px 22px;
-  }
-
-  .blog-card-content h2 {
-    font-size: 21px;
-    line-height: 1.3;
-  }
-
-  .blog-card-content p {
-    font-size: 13px;
-    line-height: 1.65;
-    -webkit-line-clamp: 4;
-  }
-
-  .dss-blog-sidebar {
-    position: static;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 18px;
-  }
-
-  .dss-search-box,
-  .dss-recent-box {
-    height: fit-content;
-  }
-
-  .dss-promo-card {
-    grid-column: 1 / -1;
-    min-height: 300px;
-    margin-top: 0;
-  }
-
-  .dss-blog-cta {
-    padding: 70px 0;
-  }
-
-  .dss-blog-cta h2 {
-    font-size: clamp(30px, 5vw, 40px);
-  }
-}
-
-/* ---------- TABLET PORTRAIT / LARGE PHONE ---------- */
-@media (min-width: 481px) and (max-width: 650px) {
-  .dss-wrap {
-    width: calc(100% - 28px);
-    max-width: 620px;
-  }
-
-  .dss-blog-section {
-    padding: 35px 0 60px;
-  }
-
-  .dss-blog-heading {
-    margin-top: 10px;
-    padding-bottom: 22px;
-  }
-
-  .dss-blog-heading h1 {
-    font-size: clamp(29px, 7vw, 36px);
-  }
-
-  .dss-blog-heading p {
-    font-size: 13.5px;
-    line-height: 1.7;
-  }
-
-  .dss-blog-toolbar {
-    font-size: 11px;
-  }
-
-  .blog-card {
-    display: block;
-    padding: 13px;
-    min-height: 0;
-  }
-
-  .blog-card-image {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-  }
-
-  .blog-card-image img {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    aspect-ratio: auto;
-    object-fit: cover;
-  }
-
-  .blog-card-content {
-    padding: 19px 3px 3px;
-  }
-
-  .blog-card-top {
-    gap: 10px;
-    margin-bottom: 11px;
-  }
-
-  .blog-card-category {
-    font-size: 9px;
-  }
-
-  .blog-card-date {
-    font-size: 9px;
-  }
-
-  .blog-card-content h2 {
-    font-size: 20px;
-    line-height: 1.35;
-  }
-
-  .blog-card-content p {
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .blog-read-more {
-    margin-top: 16px;
-    padding-top: 13px;
-  }
-
-  .dss-blog-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .dss-sidebar-box {
-    padding: 20px;
-  }
-
-  .dss-promo-card {
-    margin-top: 0;
-    min-height: 295px;
-    padding: 30px 20px;
-  }
-
-  .dss-promo-price {
-    font-size: 48px;
-  }
-
-  .dss-recent-box {
-    padding: 20px;
-  }
-
-  .dss-recent-item {
-    grid-template-columns: 74px minmax(0, 1fr);
-  }
-
-  .dss-recent-image {
-    width: 74px;
-    height: 58px;
-  }
-
-  .dss-blog-cta {
-    padding: 60px 0;
-  }
-
-  .dss-blog-cta h2 {
-    font-size: clamp(28px, 7vw, 34px);
-  }
-
-  .dss-blog-cta p {
-    font-size: 13.5px;
-  }
-
-  .dss-cta-button {
-    min-height: 48px;
-    padding: 0 20px;
-  }
-}
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 480px) {
@@ -1895,12 +1168,11 @@
   .dss-blog-heading h1 {
     font-size: clamp(27px, 8vw, 32px);
     line-height: 1.15;
-    margin-top:30px;
+    margin-top: 30px;
     letter-spacing: -0.04em;
   }
 
   .dss-blog-heading p {
-    margin-top:30px;
     margin-top: 13px;
     font-size: 13px;
     line-height: 1.7;
@@ -1979,6 +1251,8 @@
 
   .dss-blog-sidebar {
     position: static;
+    max-height: none;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 13px;
@@ -2150,12 +1424,12 @@
 
   .dss-blog-heading h1 {
     font-size: 25px;
-    margin-top:50px;
+    margin-top: 50px;
   }
 
   .dss-blog-heading p {
     font-size: 12px;
-    margin-top:30px;
+    margin-top: 30px;
   }
 
   .blog-card {
@@ -2299,12 +1573,12 @@
   }
 
   .dss-blog-heading h1 {
-    margin-top:30px;
+    margin-top: 30px;
     font-size: 28px;
   }
 
   .dss-blog-heading p {
-  margin-top:30px;
+    margin-top: 30px;
     font-size: 12px;
   }
 

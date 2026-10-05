@@ -33,12 +33,7 @@ const NAV_LINKS = [
 
   {
     label: "Products",
-    items: [
-      {
-        label: "Home Decor & Handicrafts",
-        href: "/products/home-decor",
-      },
-    ],
+    
   },
 
   {
@@ -288,7 +283,7 @@ function Navbar() {
               className="dropsy-cta"
               onClick={closeMenus}
             >
-              Get Started
+              8873768436
             </a>
 
           </div>

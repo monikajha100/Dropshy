@@ -3,6 +3,17 @@ import React from "react";
 import "./App.css";
 
 // =========================================================
+// POLICY PAGES
+// =========================================================
+import TermCondition from "./components/policy/Term&condition";
+import Privacypolicy from "./components/policy/privacypolicy";
+import RefundReturn from "./components/policy/Refundpolicy";
+import ShippingPolicy from "./components/policy/Shippingpolicy";
+import Track from "./components/policy/TrackOrder";
+
+
+
+// =========================================================
 // USER LOGIN
 // =========================================================
 import Login from "./components/Login";
@@ -10,10 +21,10 @@ import Login from "./components/Login";
 // =========================================================
 // USER REGISTRATION
 // =========================================================
-
 import CreateAccount from "./components/Createaccount";
 import SellerRegistration from "./components/SellerRagistration";
 import SellorLogin from "./components/Sellorlogin";
+
 // =========================================================
 // WEBSITE LAYOUT
 // =========================================================
@@ -168,13 +179,48 @@ function App() {
     return <CreateAccount />;
   }
 
-if (path === "/seller-registration") {
-  return <SellerRegistration />;
-}
 
-if (path === "/seller-login") {
-  return <SellorLogin />;
-}
+  // =========================================================
+  // SELLER REGISTRATION
+  // =========================================================
+  if (path === "/seller-registration") {
+    return <SellerRegistration />;
+  }
+
+
+  // =========================================================
+  // SELLER LOGIN
+  // =========================================================
+  if (path === "/seller-login") {
+    return <SellorLogin />;
+  }
+
+
+  // =========================================================
+  // POLICY PAGES
+  // =========================================================
+
+  if (path === "/term-condition") {
+    return <TermCondition />;
+  }
+
+  if (path === "/privacy-policy") {
+    return <Privacypolicy />;
+  }
+
+  if (path === "/refund-return") {
+    return <RefundReturn />;
+  }
+
+  if (path === "/shipping-policy") {
+    return <Shippingpolicy />;
+  }
+
+  if (path === "/tracking") {
+    return <TrackOrder />;
+  }
+
+
   // =========================================================
   // PAGE VARIABLE
   // =========================================================
@@ -305,3 +351,4 @@ if (path === "/seller-login") {
 
 
 export default App;
+

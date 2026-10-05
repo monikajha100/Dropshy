@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Blogdetails.css";
 
 import {
@@ -30,7 +30,7 @@ export const CONTENTS = [
   {
     id: 1,
 
-  
+    slug: "international-seller-account-setup",
 
     image: banner1,
 
@@ -394,7 +394,7 @@ export const CONTENTS = [
   {
     id: 3,
 
-    slug: "dropshipping-business-india",
+    slug: "dropshipping-business-in-india",
 
     image: banner3,
 
@@ -633,6 +633,58 @@ export default function Blogdetails() {
 
   const [openFaq, setOpenFaq] = useState(0);
 
+  const sidebarRef = useRef(null);
+
+  /* ==========================================================
+     STICKY FIX
+     position: sticky stops working when any parent (body,
+     #root, layout wrapper, App.css etc.) has overflow
+     hidden/auto/scroll but is NOT the element that actually
+     scrolls. This finds such parents and switches them to
+     overflow: clip / visible (same look, but sticky works).
+     Everything is restored when the page unmounts.
+  ========================================================== */
+
+  useEffect(() => {
+    const sidebar = sidebarRef.current;
+    if (!sidebar) return undefined;
+
+    const changed = [];
+
+    let node = sidebar.parentElement;
+
+    while (node && node !== document.documentElement) {
+      const cs = window.getComputedStyle(node);
+
+      const blocksSticky = /(hidden|auto|scroll|overlay)/.test(
+        `${cs.overflowX} ${cs.overflowY}`
+      );
+
+      // only touch parents that are NOT really scrolling
+      const isRealScroller = node.scrollHeight > node.clientHeight + 1;
+
+      if (blocksSticky && !isRealScroller) {
+        changed.push({
+          node,
+          x: node.style.overflowX,
+          y: node.style.overflowY,
+        });
+
+        node.style.overflowX = "clip";
+        node.style.overflowY = "visible";
+      }
+
+      node = node.parentElement;
+    }
+
+    return () => {
+      changed.forEach(({ node: el, x, y }) => {
+        el.style.overflowX = x;
+        el.style.overflowY = y;
+      });
+    };
+  }, []);
+
   /* ==========================================================
      URL / SEO
   ========================================================== */
@@ -727,7 +779,7 @@ export default function Blogdetails() {
           <div className="dss-article-layout">
 
             {/* =================================================
-                MAIN ARTICLE
+                MAIN ARTICLE (LEFT - SCROLLS)
             ================================================= */}
 
             <main className="dss-main-article">
@@ -924,10 +976,10 @@ export default function Blogdetails() {
             </main>
 
             {/* =================================================
-                SIDEBAR
+                SIDEBAR (RIGHT - FROZEN)
             ================================================= */}
 
-            <aside className="dss-sidebar">
+            <aside className="dss-sidebar" ref={sidebarRef}>
 
               {/* SEARCH */}
 
